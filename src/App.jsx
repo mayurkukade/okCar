@@ -1,9 +1,11 @@
-import React from 'react'
+import DealersModel from "./components/Dealers/DealersModel"
+
+
 
 const App = () => {
   return (
     <>
-     <h1>hello</h1> 
+     <DealersModel/>
     </>
   )
 }
