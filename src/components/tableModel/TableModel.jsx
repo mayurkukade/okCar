@@ -79,9 +79,9 @@ const TableModel = ({
   return (
    
         <>
-          <TableContainer>
+          <TableContainer >
            
-            <Table {...getTableProps()}>
+            <Table {...getTableProps()} >
               <Thead bgColor={"#95B6D8"} padding="20px 0px">
                 {headerGroups.map((headerGroup, i) => (
                   <Tr key={i} {...headerGroup.getHeaderGroupProps()}>

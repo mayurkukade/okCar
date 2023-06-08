@@ -37,13 +37,15 @@ console.log(Dealers)
   );
 
   return (
-    <>
+  
+     
       <TableModel
         data={data}
         columns={columns}
       
       />
-    </>
+     
+    
   );
 };
 

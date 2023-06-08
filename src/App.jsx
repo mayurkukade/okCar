@@ -1,11 +1,11 @@
-import DealersModel from "./components/Dealers/DealersModel"
+import AdminRequest from "./components/AdminRequest/AdminRequest"
 
 
 
 const App = () => {
   return (
     <>
-     <DealersModel/>
+     <AdminRequest/>
     </>
   )
 }
