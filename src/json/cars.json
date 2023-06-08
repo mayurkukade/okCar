@@ -1,0 +1,44 @@
+{
+    "cars":[
+       {
+        "customerName":"xyz",
+        "Make/Model":"Toyota/Fortuner",
+        "Year":"2019",
+        "Dealer":"xyz",
+        "Amount":"3,00,000",
+        "Status":"Offered",
+        "ValueOffered":"2,70,000",
+        "Accept/Rejected":"✅/❌"
+       } ,
+       {
+        "customerName":"xyz",
+        "Make/Model":"Toyota/Fortuner",
+        "Year":"2019",
+        "Dealer":"xyz",
+        "Amount":"3,00,000",
+        "Status":"Offered",
+        "ValueOffered":"2,70,000",
+        "Accept/Rejected":"✅/❌"
+       } ,
+       {
+        "customerName":"xyz",
+        "Make/Model":"Toyota/Fortuner",
+        "Year":"2019",
+        "Dealer":"xyz",
+        "Amount":"3,00,000",
+        "Status":"Offered",
+        "ValueOffered":"2,70,000",
+        "Accept/Rejected":"✅/❌"
+       } ,
+       {
+        "customerName":"xyz",
+        "Make/Model":"Toyota/Fortuner",
+        "Year":"2019",
+        "Dealer":"xyz",
+        "Amount":"3,00,000",
+        "Status":"Offered",
+        "ValueOffered":"2,70,000",
+        "Accept/Rejected":"✅/❌"
+       } 
+    ]
+}
