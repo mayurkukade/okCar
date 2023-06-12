@@ -46,7 +46,7 @@ console.log(Dealers)
       />
      
     
-  );
+  );  
 };
 
 export default DealersModel;

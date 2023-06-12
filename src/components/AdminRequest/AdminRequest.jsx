@@ -1,5 +1,5 @@
 import React from "react";
-import { cars } from "../../json/cars.json";
+import { buyers } from "../../json/buyers.json";
 import TableModel from "../tableModel/TableModel";
 import { Button } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
@@ -18,7 +18,7 @@ import "./adminrequest.css";
 
 const AdminRequest = () => {
   const { onClose } = useDisclosure();
-  const data = React.useMemo(() => cars, []);
+  const data = React.useMemo(() => buyers, []);
   const columns = React.useMemo(
     () => [
       {
