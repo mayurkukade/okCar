@@ -1,11 +1,11 @@
-import AdminRequest from "./components/AdminRequest/AdminRequest"
+import AdminRequest from './components/AdminRequest/AdminRequest'
 
 
 
 const App = () => {
   return (
     <>
-     <AdminRequest/>
+    <AdminRequest />
     </>
   )
 }
