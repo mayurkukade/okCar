@@ -1,19 +1,17 @@
 import {
   Heading,
-  Avatar,
   Box,
   Center,
-  Image,
-  Flex,
   Text,
   Stack,
   Button,
   useColorModeValue,
 } from "@chakra-ui/react";
 import "./tableCard.css";
-export default function TableCard(props) {
+
+export default function TableCard() {
   return (
-    <div className="cardContainer">
+    <Box className="cardContainer">
       <Center py={6}>
         <Box
           // maxW={"350px"}
@@ -63,6 +61,6 @@ export default function TableCard(props) {
           </Box>
         </Box>
       </Center>
-    </div>
+    </Box>
   );
 }
