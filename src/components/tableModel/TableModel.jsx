@@ -30,9 +30,9 @@ import {
   Text,
   Input,
   HStack,
+  SimpleGrid,
 } from "@chakra-ui/react";
 
-import "./table.css";
 import {
   AiOutlineSortAscending,
   AiOutlineSortDescending,
@@ -42,6 +42,7 @@ import {
   MdOutlineKeyboardArrowRight,
 } from "react-icons/Md";
 import { BiFirstPage, BiLastPage } from "react-icons/bi";
+import TableCard from "../TableCard/TableCard";
 const TableModel = ({ data: v, columns }) => {
   const data = React.useMemo(() => v, [v]);
 
@@ -199,41 +200,21 @@ const TableModel = ({ data: v, columns }) => {
           </Box>
         </TableContainer>
       </div>
-      <div className="cardContainer">
-        <Card>
-          <CardHeader>
-            <Heading size="md">Client Report</Heading>
-          </CardHeader>
-
-          <CardBody>
-            <Stack divider={<StackDivider />} spacing="4">
-              <Box>
-                <Heading size="xs" textTransform="uppercase">
-                  Summary
-                </Heading>
-                <Text pt="2" fontSize="sm">
-                  View a summary of all your clients over the last month.
-                </Text>
-              </Box>
-              <Box>
-                <Heading size="xs" textTransform="uppercase">
-                  Overview
-                </Heading>
-                <Text pt="2" fontSize="sm">
-                  Check out the overview of your clients.
-                </Text>
-              </Box>
-              <Box>
-                <Heading size="xs" textTransform="uppercase">
-                  Analysis
-                </Heading>
-                <Text pt="2" fontSize="sm">
-                  See a detailed analysis of all your business clients.
-                </Text>
-              </Box>
-            </Stack>
-          </CardBody>
-        </Card>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "40px",
+          padding: "40px",
+        }}
+      >
+        <TableCard />
+        <TableCard />
+        <TableCard />
+        <TableCard />
+        <TableCard />
+        <TableCard />
       </div>
     </>
   );
