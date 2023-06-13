@@ -20,7 +20,7 @@ const TableCard = ({
     >
       <SimpleGrid
         spacing={4}
-        templateColumns="repeat(auto-fill, minmax(350px, 0.2fr))"
+        templateColumns="repeat(auto-fill, minmax(320px, 0.4fr))"
       >
         <Card padding="20px">
           <CardHeader>Details</CardHeader>
