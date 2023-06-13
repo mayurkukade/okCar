@@ -13,13 +13,65 @@ import {
   InputGroup,
   InputRightElement,
   Link as ChakraLink,
+  useToast,
+  
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
+import { useLoginMutation } from "../../api/usersApiSlice";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "../../api/authSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function SimpleCard() {
   const [showPassword, setShowPassword] = useState(false);
+  const [signInValue, setsignInValue] = useState({
+    email: "",
+    password: "",
+  });
+  const [login,{useLoading}] = useLoginMutation();
+  const toast = useToast()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const onCHangeHandler = (e) => {
+    const {name,value} = e.target
+    setsignInValue((preVal)=>{
+      return{
+        ...preVal, 
+        [name] : value
+      }
+    })
+  };
+
+
+ 
+
+  const SubmitHandler = async(e)=>{
+    e.preventDefault()
+    const {email,password} = signInValue
+
+    try {
+      const res = await login({email,password}).unwrap()
+      dispatch(setCredentials({...res}))
+      toast({
+        status: "success",
+        position: "top",
+        description: "Successful",
+      });
+      navigate('/adminbuyers')
+    } catch (err) {
+      console.log(err.data.error.message);
+      toast({
+        status: "error",
+        position: "top",
+        description: err.data.error.message,
+      });
+    }
+  }
+
+
+
   return (
     <Flex
       minH={"100vh"}
@@ -41,14 +93,26 @@ export default function SimpleCard() {
           p={8}
         >
           <Stack spacing={4}>
-            <FormControl id="email">
-              <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+            <FormControl >
+              <FormLabel htmlFor="email">Email address</FormLabel>
+              <Input
+                type="email"
+                onChange={onCHangeHandler}
+                value={signInValue.email}
+                name="email"
+                required='true'
+              />
+       
             </FormControl>
             <FormControl id="password" isRequired>
               <FormLabel>Password</FormLabel>
               <InputGroup>
-                <Input type={showPassword ? "text" : "password"} />
+                <Input
+                  type={showPassword ? "text" : "password"}
+                  onChange={onCHangeHandler}
+                  name="password"
+                  value={signInValue.password}
+                />
                 <InputRightElement h={"full"}>
                   <Button
                     variant={"ghost"}
@@ -78,6 +142,7 @@ export default function SimpleCard() {
                 _hover={{
                   bg: "blue.500",
                 }}
+                onClick={SubmitHandler}
               >
                 Sign in
               </Button>
