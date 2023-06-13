@@ -209,16 +209,7 @@ const TableModel = ({ data: v, columns }) => {
           padding: "40px",
         }}
       >
-        <TableCard
-          customername={"akshay"}
-          model={"Swift"}
-          year={2018}
-          dealer={"sapcc505"}
-          amount={500000}
-          status={"Process"}
-          offered={550000}
-          acceptreject={"Reject"}
-        />
+        <TableCard />
         <TableCard />
         <TableCard />
         <TableCard />
