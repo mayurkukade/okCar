@@ -206,7 +206,7 @@ const TableModel = ({ data: v, columns }) => {
           flexWrap: "wrap",
           justifyContent: "center",
           gap: "40px",
-          marginTop: "30px",
+          padding: "40px",
         }}
       >
         <TableCard
@@ -219,6 +219,7 @@ const TableModel = ({ data: v, columns }) => {
           offered={550000}
           acceptreject={"Reject"}
         />
+        <TableCard />
         <TableCard />
         <TableCard />
         <TableCard />
