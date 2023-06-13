@@ -12,6 +12,7 @@ import {
   Heading,
   Text,
   useColorModeValue,
+  Link as ChakraLink,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -92,8 +93,8 @@ export default function SignupCard() {
             <Stack pt={6}>
               <Text align={"center"}>
                 Already a user?{" "}
-                <Link to="/" style={{ color: "blue.400" }}>
-                  Sign In
+                <Link to="/">
+                  <ChakraLink color="blue.400">Sign In</ChakraLink>
                 </Link>
               </Text>
             </Stack>
