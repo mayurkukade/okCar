@@ -6,16 +6,17 @@ import {
   Input,
   Checkbox,
   Stack,
-  Link,
   Button,
   Heading,
   Text,
   useColorModeValue,
   InputGroup,
-  InputRightElement,  
+  InputRightElement,
+  Link as ChakraLink,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
 
 export default function SimpleCard() {
   const [showPassword, setShowPassword] = useState(false);
@@ -67,7 +68,9 @@ export default function SimpleCard() {
                 justify={"space-between"}
               >
                 <Checkbox>Remember me</Checkbox>
-                <Link color={"blue.400"}>Forgot password?</Link>
+                <Link to="/forgotpassword ">
+                  <ChakraLink color="blue.400">Forgot password?</ChakraLink>
+                </Link>
               </Stack>
               <Button
                 bg={"blue.400"}
