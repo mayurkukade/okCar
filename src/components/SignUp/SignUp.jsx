@@ -86,13 +86,13 @@ export default function SignupCard() {
                 _hover={{
                   bg: "blue.500",
                 }}
-              >
-                Sign up
+              ><span>   Sign up</span>
+             
               </Button>
             </Stack>
             <Stack pt={6}>
               <Text align={"center"}>
-                Already a user?{" "}
+              <span>Already a user?</span> 
                 <Link to="/">
                   <ChakraLink color="blue.400">Sign In</ChakraLink>
                 </Link>

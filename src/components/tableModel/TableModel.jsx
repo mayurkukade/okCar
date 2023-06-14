@@ -91,7 +91,7 @@ const TableModel = ({ data: v, columns }) => {
                       key={i}
                       {...column.getHeaderProps(column.getSortByToggleProps)}
                     >
-                      {column.render("Header")}
+                     <span>{column.render("Header")}</span> 
                       <Text>
                         <HStack>
                           <Flex>
@@ -115,7 +115,7 @@ const TableModel = ({ data: v, columns }) => {
                   <Tr key={i} {...row.getRowProps()} _hover={{ bg: "#EDF2F7" }}>
                     {row.cells.map((cell) => (
                       <Td key={i} {...cell.getCellProps()}>
-                        {cell.render("Cell")}
+                      <span>{cell.render("Cell")}</span>  
                       </Td>
                     ))}
                   </Tr>
@@ -133,8 +133,8 @@ const TableModel = ({ data: v, columns }) => {
                 disabled={!canPreviousPage}
               >
                 <BiFirstPage fontSize={"20px"} />
-                {/* First Page */}
-              </Button>{" "}
+                
+              </Button>
               <Button
                 h={"35px"}
                 _hover={{ bg: "#95B6D8" }}
@@ -142,13 +142,13 @@ const TableModel = ({ data: v, columns }) => {
                 disabled={!canPreviousPage}
               >
                 <MdOutlineKeyboardArrowLeft fontSize={"22px"} />
-                {/* Previous Page */}
-              </Button>{" "}
+                
+              </Button>
               <Text alignItems="center" fontSize="18px" pt={"2px"}>
-                Page{" "}
+                Page
                 <strong>
                   {pageIndex + 1} of {pageOptions.length}
-                </strong>{" "}
+                </strong>
               </Text>
               <Button
                 h={"35px"}
@@ -159,7 +159,7 @@ const TableModel = ({ data: v, columns }) => {
                 {" "}
                 {/* Next Page */}
                 <MdOutlineKeyboardArrowRight fontSize={"22px"} />
-              </Button>{" "}
+              </Button>
               <Button
                 h={"35px"}
                 _hover={{ bg: "#95B6D8" }}
@@ -171,7 +171,7 @@ const TableModel = ({ data: v, columns }) => {
               </Button>{" "}
               <Text fontSize="18px" pt={"2px"}>
                 | Go to page :
-              </Text>{" "}
+              </Text>
               <Input
                 border={"1px solid black"}
                 h={"35px"}

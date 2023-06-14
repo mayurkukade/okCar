@@ -36,13 +36,15 @@ const DealersModel = () => {
   );
 
   return (
-  
-     
-      <TableModel
+  <>
+    <TableModel
         data={data}
         columns={columns}
       
       />
+  </>
+     
+    
      
     
   );  

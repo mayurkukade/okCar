@@ -78,7 +78,7 @@ console.log(cardConditionalRender)
   }else if (cardConditionalRender === 'DealerID'){
     return(
       <>
-      <p>Dealer</p>
+      <span>Dealer</span>
       </>
     )
   }
