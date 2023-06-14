@@ -1,0 +1,6 @@
+.Navbar {
+  @media screen and (max-width: 1000px) {
+    position: sticky;
+    top: 0;
+  }
+}
