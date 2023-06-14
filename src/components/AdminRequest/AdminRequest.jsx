@@ -27,7 +27,7 @@ const AdminRequest = () => {
       },
       {
         Header: "Make/Model",
-        accessor: "Make/Model",
+        accessor: "MakeModel",
       },
       {
         Header: "Year",
@@ -51,7 +51,7 @@ const AdminRequest = () => {
       },
       {
         Header: "Accept/Rejected",
-        accessor: "Accept/Rejected",
+        accessor: "AcceptRejected",
       },
     ],
     []

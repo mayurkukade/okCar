@@ -43,6 +43,10 @@ import {
 } from "react-icons/Md";
 import { BiFirstPage, BiLastPage } from "react-icons/bi";
 import TableCard from "../TableCard/TableCard";
+import BuyerCard from "../Card/BuyerCard.jsx";
+import data from "../../json/buyers.json";
+import { buyers } from "../../json/buyers.json";
+
 const TableModel = ({ data: v, columns }) => {
 
   const data = React.useMemo(() => v, [v]);
@@ -72,6 +76,7 @@ const TableModel = ({ data: v, columns }) => {
     useSortBy,
     usePagination
   );
+  console.log(buyers);
 
 
 
@@ -209,10 +214,11 @@ const TableModel = ({ data: v, columns }) => {
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
-          gap: "40px",
           padding: "40px",
         }}
       >
+        {/* Buyers card rendering */}
+
         <TableCard
         CardDatas = {v}
         />

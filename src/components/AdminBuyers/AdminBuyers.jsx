@@ -12,7 +12,7 @@ const AdminBuyers = () => {
       },
       {
         Header: "Make/Model",
-        accessor: "Make/Model",
+        accessor: "MakeModel",
       },
       {
         Header: "Year",
@@ -36,7 +36,7 @@ const AdminBuyers = () => {
       },
       {
         Header: "Accept/Rejected",
-        accessor: "Accept/Rejected",
+        accessor: "AcceptRejected",
       },
     ],
     []
