@@ -1,40 +1,40 @@
 {
     "Dealers":[
         {
-            "Dealer ID":"13",
-            "Dealer's Name":"xyz",
+            "DealerID":"13",
+            "Dealer Name":"xyz",
             "Location":"Kharadi",
             "Phone No":"1234567890",
             "Total Cars":"12",
             "Total Deals":"7"
         },
         {
-            "Dealer ID":"16",
-            "Dealer's Name":"xyz",
+            "DealerID":"16",
+            "Dealer Name":"xyz",
             "Location":"Kharadi",
             "Phone No":"1234567890",
             "Total Cars":"12",
             "Total Deals":"7"
         },
         {
-            "Dealer ID":"17",
-            "Dealer's Name":"xyz",
+            "DealerID":"17",
+            "Dealer Name":"xyz",
             "Location":"Kharadi",
             "Phone No":"1234567890",
             "Total Cars":"12",
             "Total Deals":"7"
         },
         {
-            "Dealer ID":"18",
-            "Dealer's Name":"xyz",
+            "DealerID":"18",
+            "Dealer Name":"xyz",
             "Location":"Kharadi",
             "Phone No":"1234567890",
             "Total Cars":"12",
             "Total Deals":"7"
         },
         {
-            "Dealer ID":"19",
-            "Dealer's Name":"xyz",
+            "DealerID":"19",
+            "Dealer Name":"xyz",
             "Location":"Kharadi",
             "Phone No":"1234567890",
             "Total Cars":"12",

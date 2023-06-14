@@ -44,6 +44,7 @@ import {
 import { BiFirstPage, BiLastPage } from "react-icons/bi";
 import TableCard from "../TableCard/TableCard";
 const TableModel = ({ data: v, columns }) => {
+
   const data = React.useMemo(() => v, [v]);
 
   const {
@@ -71,6 +72,9 @@ const TableModel = ({ data: v, columns }) => {
     useSortBy,
     usePagination
   );
+
+
+
 
   return (
     <>
@@ -209,12 +213,10 @@ const TableModel = ({ data: v, columns }) => {
           padding: "40px",
         }}
       >
-        <TableCard />
-        <TableCard />
-        <TableCard />
-        <TableCard />
-        <TableCard />
-        <TableCard />
+        <TableCard
+        CardDatas = {v}
+        />
+       
       </div>
     </>
   );

@@ -3,18 +3,17 @@ import TableModel from "../tableModel/TableModel";
 import {Dealers} from '../../json/driver.json'
 const DealersModel = () => {
   
-console.log(Dealers)
-  // console.log(v)
+
   const data = React.useMemo(() =>Dealers , []);
   const columns = React.useMemo(
     () => [
       {
         Header: "Dealer ID",
-        accessor: "Dealer ID",
+        accessor: "DealerID",
       },
       {
         Header: "Dealer's Name",
-        accessor: "Dealer's Name",
+        accessor: "Dealer Name",
       },
       {
         Header: "Location",
