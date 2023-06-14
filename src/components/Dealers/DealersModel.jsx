@@ -13,7 +13,7 @@ const DealersModel = () => {
       },
       {
         Header: "Dealer's Name",
-        accessor: "Dealer Name",
+        accessor: "DealerName",
       },
       {
         Header: "Location",
@@ -21,15 +21,15 @@ const DealersModel = () => {
       },
       {
         Header: "Phone No.",
-        accessor: "Phone No",
+        accessor: "PhoneNo",
       },
       {
         Header: "Total Cars",
-        accessor: "Total Cars",
+        accessor: "TotalCars",
       },
       {
         Header: "Total Deals",
-        accessor: "Total Deals",
+        accessor: "TotalDeals",
       }
     ],
     []

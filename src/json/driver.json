@@ -2,43 +2,43 @@
     "Dealers":[
         {
             "DealerID":"13",
-            "Dealer Name":"xyz",
+            "DealerName":"xyz",
             "Location":"Kharadi",
-            "Phone No":"1234567890",
-            "Total Cars":"12",
-            "Total Deals":"7"
+            "PhoneNo":"1234567890",
+            "TotalCars":"12",
+            "TotalDeals":"7"
         },
         {
             "DealerID":"16",
-            "Dealer Name":"xyz",
+            "DealerName":"xyz",
             "Location":"Kharadi",
-            "Phone No":"1234567890",
-            "Total Cars":"12",
-            "Total Deals":"7"
+            "PhoneNo":"1234567890",
+            "TotalCars":"12",
+            "TotalDeals":"7"
         },
         {
             "DealerID":"17",
-            "Dealer Name":"xyz",
+            "DealerName":"xyz",
             "Location":"Kharadi",
-            "Phone No":"1234567890",
-            "Total Cars":"12",
-            "Total Deals":"7"
+            "PhoneNo":"1234567890",
+            "TotalCars":"12",
+            "TotalDeals":"7"
         },
         {
             "DealerID":"18",
-            "Dealer Name":"xyz",
+            "DealerName":"xyz",
             "Location":"Kharadi",
-            "Phone No":"1234567890",
-            "Total Cars":"12",
-            "Total Deals":"7"
+            "PhoneNo":"1234567890",
+            "TotalCars":"12",
+            "TotalDeals":"7"
         },
         {
             "DealerID":"19",
-            "Dealer Name":"xyz",
+            "DealerName":"xyz",
             "Location":"Kharadi",
-            "Phone No":"1234567890",
-            "Total Cars":"12",
-            "Total Deals":"7"
+            "PhoneNo":"1234567890",
+            "TotalCars":"12",
+            "TotalDeals":"7"
         }
     ]
 }
