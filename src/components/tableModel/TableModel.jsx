@@ -44,7 +44,7 @@ import {
 import { BiFirstPage, BiLastPage } from "react-icons/bi";
 import TableCard from "../TableCard/TableCard";
 import BuyerCard from "../Card/BuyerCard.jsx";
-import data from "../../json/buyers.json";
+import DriverCard from "../Card/DealerCard";
 import { buyers } from "../../json/buyers.json";
 
 const TableModel = ({ data: v, columns }) => {
@@ -228,6 +228,10 @@ const TableModel = ({ data: v, columns }) => {
             Dealer={i.Dealer}
           />
         ))}
+
+        {/* Dealers Card Rendering */}
+
+        <DriverCard/>
       </div>
     </>
   );
