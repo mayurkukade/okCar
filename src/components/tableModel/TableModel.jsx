@@ -213,13 +213,6 @@ const TableModel = ({ data: v, columns }) => {
           padding: "40px",
         }}
       >
-        <TableCard />
-        <TableCard />
-        <TableCard />
-        <TableCard />
-        <TableCard />
-        <TableCard />
-
         {/* Buyers card rendering */}
 
         {buyers.map((i) => (
