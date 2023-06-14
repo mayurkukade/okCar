@@ -43,6 +43,10 @@ import {
 } from "react-icons/Md";
 import { BiFirstPage, BiLastPage } from "react-icons/bi";
 import TableCard from "../TableCard/TableCard";
+import BuyerCard from "../Card/BuyerCard.jsx";
+import data from "../../json/buyers.json";
+import { buyers } from "../../json/buyers.json";
+
 const TableModel = ({ data: v, columns }) => {
   const data = React.useMemo(() => v, [v]);
 
@@ -71,6 +75,7 @@ const TableModel = ({ data: v, columns }) => {
     useSortBy,
     usePagination
   );
+  console.log(buyers);
 
   return (
     <>
@@ -205,7 +210,6 @@ const TableModel = ({ data: v, columns }) => {
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
-          gap: "40px",
           padding: "40px",
         }}
       >
@@ -215,6 +219,22 @@ const TableModel = ({ data: v, columns }) => {
         <TableCard />
         <TableCard />
         <TableCard />
+
+        {/* Buyers card rendering */}
+
+        {buyers.map((i) => (
+          <BuyerCard
+            key={i.index}
+            customerName={i.customerName}
+            MakeModel={i.MakeModel}
+            Status={i.Status}
+            ValueOffered={i.ValueOffered}
+            Year={i.Year}
+            Amount={i.Amount}
+            AcceptRejected={i.AcceptRejected}
+            Dealer={i.Dealer}
+          />
+        ))}
       </div>
     </>
   );
