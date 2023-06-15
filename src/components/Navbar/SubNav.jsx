@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const SubNav = ({ componentsName }) => {
   return (
     <div className="pageTitle" style={{ backgroundColor: "black" }}>
@@ -8,7 +10,9 @@ const SubNav = ({ componentsName }) => {
           </div>
           <div className="col-md-6 col-sm-6">
             <div className="breadCrumb">
-              <a href="#.">Home</a> / <span>{componentsName}</span>
+              <Link to="/">
+                <a>Home</a> / <span>{componentsName}</span>
+              </Link>
             </div>
           </div>
         </div>
