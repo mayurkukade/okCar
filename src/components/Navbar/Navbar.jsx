@@ -186,7 +186,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-
+      {/* 
       <div
         className="searchwrap"
         style={{ border: "2px solid black", backgroundColor: "black" }}
@@ -233,8 +233,9 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
+      {/* <div className="section">
       {/* <div className="section">
         <div className="container">
           <div className="titleTop">
@@ -491,11 +492,9 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-      </div> */}
+      </div>
 
-      <HomeCarousel/>
-
-      <div className="about-wrap">
+      {/* <div className="about-wrap">
         <div className="col-md-6">
           <div className="about-image"></div>
         </div>
@@ -529,9 +528,9 @@ const Navbar = () => {
           </div>
         </div>
         <div className="clearfix"></div>
-      </div>
+      </div> */}
 
-      <div className="section whitebg">
+      {/* <div className="section whitebg">
         <div className="container">
           <div className="titleTop">
             <h3>
@@ -656,9 +655,9 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="section">
+      {/* <div className="section">
         <div className="container">
           <div className="titleTop">
             <h3>
@@ -882,9 +881,9 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-      </div>
+      </div> */}
 
-      <div className="section whitebg">
+      {/* <div className="section whitebg">
         <div className="container">
           <div className="titleTop">
             <h3>
@@ -1522,9 +1521,9 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-      </div>
+      </div> */}
 
-      <div className="subscribe">
+      {/* <div className="subscribe">
         <div className="container">
           <h6>Submit Newsletters</h6>
           <p>
@@ -1730,7 +1729,7 @@ const Navbar = () => {
             sollicitudin porttitor, tortor augue dictum purus.
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
