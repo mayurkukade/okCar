@@ -18,9 +18,10 @@ const App = () => {
         <Route path="/dealer" element={<DealersModel />} />
         <Route path="/adminrequest" element={<AdminRequest />} />
         <Route path="*" element={<NotFound />} />
+        
       </Routes>
     </>
   );
 };
-
+ 
 export default App;
