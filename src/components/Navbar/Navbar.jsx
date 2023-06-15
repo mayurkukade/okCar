@@ -497,11 +497,10 @@ const Navbar = () => {
           </ul>
         </div>
       </div> */}
-<<<<<<<<< Temporary merge branch 1
-=========
 
-      <HomeCarousel/>
->>>>>>>>> Temporary merge branch 2
+
+     
+
 
       {/* <div className="about-wrap">
         <div className="col-md-6">
@@ -1739,6 +1738,7 @@ const Navbar = () => {
           </div>
         </div>
       </div> */}
+      
     </>
   );
 };
