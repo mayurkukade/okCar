@@ -27,11 +27,10 @@ const App = () => {
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route path="/cardetails" element={<CarCard />} />
         <Route path="*" element={<NotFound />} />
-        
       </Routes>
       <Footer />
     </>
   );
 };
- 
+
 export default App;

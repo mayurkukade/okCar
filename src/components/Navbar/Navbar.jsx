@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 
 import { Link } from "react-router-dom";
+import "./avtar.css";
 const Navbar = () => {
   return (
     <>
@@ -27,7 +27,6 @@ const Navbar = () => {
                 <Link to="/signin">
                   <a>Sign In</a>
                 </Link>
-                {/* <a href="#">Connect with Facebook</a> */}
               </div>
             </div>
           </div>
@@ -38,11 +37,10 @@ const Navbar = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-2 col-sm-3 col-xs-12">
-             <Link to='/'>
-              <a  className="logo">
-                
-                <img src="images/logo.png" alt="" />
-              </a>
+              <Link to="/">
+                <a className="logo">
+                  <img src="images/logo.png" alt="" />
+                </a>
               </Link>
               <div className="navbar-header">
                 <button
@@ -65,15 +63,6 @@ const Navbar = () => {
                   <ul className="nav navbar-nav">
                     <li className="dropdown active">
                       <a href="index.html">Home</a>
-                      {/* <span className="caret"></span>  */}
-                      {/* <ul className="dropdown-menu">
-                          <li className="active">
-                            <a href="index.html">Home Static Image</a>
-                          </li>
-                          <li>
-                            <a href="index2.html">Home With Slider</a>
-                          </li>
-                        </ul> */}
                     </li>
                     <li>
                       <Link to="/Cardetails">
@@ -83,82 +72,7 @@ const Navbar = () => {
                     <li>
                       <a href="listing.html">New Cars</a>
                     </li>
-                    {/* <li className="dropdown">
-                        <a href="#.">
-                          Pages <span className="caret"></span>
-                        </a>
-                        <ul className="dropdown-menu">
-                          <li>
-                            <a href="about-us.html">About Us</a>
-                          </li>
-                          <li>
-                            <a href="listing.html">Ad Listing</a>
-                          </li>
-                          <li>
-                            <a href="detail.html">Ad Detail</a>
-                          </li>
-                          <li>
-                            <a href="login.html">Login</a>
-                          </li>
-                          <li>
-                            <a href="register.html">Register</a>
-                          </li>
-                          <li>
-                            <a href="forgot-password.html">Forgot Password</a>
-                          </li>
-                          <li>
-                            <a href="change-password.html">Change Password</a>
-                          </li>
-                          <li>
-                            <a href="dashboard.html">Dashboard</a>
-                          </li>
-                          <li>
-                            <a href="active-ads.html">Active Ads</a>
-                          </li>
-                          <li>
-                            <a href="pending-ads.html">Pending Ads</a>
-                          </li>
-                          <li>
-                            <a href="edit-profile.html">Edit Profile</a>
-                          </li>
-                          <li>
-                            <a href="ad-post.html">Ad Post</a>
-                          </li>
-                          <li>
-                            <a href="packages.html">Packages</a>
-                          </li>
-                          <li>
-                            <a href="faqs.html">FAQs</a>
-                          </li>
-                          <li>
-                            <a href="404.html">404 Page</a>
-                          </li>
-                          <li>
-                            <a href="typography.html">Typography</a>
-                          </li>
-                        </ul>
-                      </li> */}
-                    {/* <li className="dropdown">
-                        <a href="blog.html">
-                          Blog <span className="caret"></span>
-                        </a>
-                        <ul className="dropdown-menu">
-                          <li>
-                            <a href="blog.html">Blog List</a>
-                          </li>
-                          <li>
-                            <a href="blog-detail.html">Blog Detail</a>
-                          </li>
-                          <li>
-                            <a href="blog-grid.html">Blog Grid</a>
-                          </li>
-                          <li>
-                            <a href="blog-full-width.html">
-                              Blog Grid Full Width
-                            </a>
-                          </li>
-                        </ul>
-                      </li> */}
+
                     <li>
                       <a href="contact-us.html">Contact</a>
                     </li>
@@ -173,7 +87,8 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-     </>
-  )}
+    </>
+  );
+};
 
-  export default Navbar
+export default Navbar;
