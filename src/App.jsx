@@ -9,6 +9,9 @@ import Navbar from "./components/Navbar/Navbar.jsx";
 import NotFound from "./components/NotFound/NotFound.jsx";
 import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
+import AddCar from "./components/AddCar/AddCar";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
+import CarCard from "./components/CarDetailsCard/CarCard";
 const App = () => {
   return (
     <>
@@ -20,6 +23,9 @@ const App = () => {
         <Route path="/adminbuyers" element={<AdminBuyers />} />
         <Route path="/dealer" element={<DealersModel />} />
         <Route path="/adminrequest" element={<AdminRequest />} />
+        <Route path="/addcar" element={<AddCar />} />
+        <Route path="/ForgotPassword" element={<ForgotPassword />} />
+        <Route path="/cardetails" element={<CarCard />} />
         <Route path="*" element={<NotFound />} />
         
       </Routes>

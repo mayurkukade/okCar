@@ -303,7 +303,7 @@ const Home = () => {
                 </a>
               </li>
               <li className="col-md-3 col-sm-6 col-xs-6">
-                <a href="#">
+                <a href="#">  
                   East Khadki <span>(96)</span>
                 </a>
               </li>
