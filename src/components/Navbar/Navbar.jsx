@@ -72,7 +72,9 @@ const Navbar = () => {
                         </ul> */}
                     </li>
                     <li>
-                      <a href="listing.html">Used Cars</a>
+                      <Link to="/Cardetails">
+                        <a>Used Cars</a>
+                      </Link>
                     </li>
                     <li>
                       <a href="listing.html">New Cars</a>
