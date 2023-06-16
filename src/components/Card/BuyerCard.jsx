@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   Heading,
   Box,
@@ -6,18 +7,19 @@ import {
   Stack,
   useColorModeValue,
 } from "@chakra-ui/react";
-import "./Card.css";
+
 
 const TableCard = ({
-  MakeModel,
   customerName,
+  MakeModel,
+  Year,
+  Dealer,
+  Amount,
   Status,
   ValueOffered,
-  Year,
-  Amount,
-  AcceptRejected,
-  Dealer,
+  AcceptRejected
 }) => {
+  console.log(customerName)
   return (
     <Box className="cardContainer">
       <Center py={6}>
@@ -38,14 +40,14 @@ const TableCard = ({
             </Stack>
 
             <Box direction={"row"} justify={"center"} spacing={6}>
-              <Text color={"gray.500"}>Customer Name : {customerName}</Text>
-              <Text color={"gray.500"}>Make/Model : {MakeModel}</Text>
-              <Text color={"gray.500"}>Year : {Year}</Text>
-              <Text color={"gray.500"}>Dealer : {Dealer}</Text>
+              <Text color={"gray.500"}>Customer Name :{customerName}</Text>
+              <Text color={"gray.500"}>Make/Model :{MakeModel} </Text>
+              <Text color={"gray.500"}>Year : {Year} </Text>
+              <Text color={"gray.500"}>Dealer :{Dealer} </Text>
               <Text color={"gray.500"}>Amount : {Amount}</Text>
-              <Text color={"gray.500"}>Status : {Status}</Text>
-              <Text color={"gray.500"}>Value-Offered : {ValueOffered}</Text>
-              <Text color={"gray.500"}>Accept/Reject : {AcceptRejected}</Text>
+              <Text color={"gray.500"}>Status :{Status} </Text>
+              <Text color={"gray.500"}>Value-Offered :{ValueOffered} </Text>
+              <Text color={"gray.500"}>Accept/Reject :{AcceptRejected} </Text>
             </Box>
           </Box>
         </Box>

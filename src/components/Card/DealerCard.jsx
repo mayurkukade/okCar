@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   Heading,
   Box,
@@ -8,7 +9,14 @@ import {
 } from "@chakra-ui/react";
 import "./Card.css";
 
-const DriverCard = () => {
+const DriverCard = ({
+  DealerID,
+  DealerName,
+  Location,
+  PhoneNo,
+  TotalCars,
+  TotalDeals
+}) => {
   return (
     <Box className="cardContainer">
       <Center py={6}>
@@ -29,12 +37,12 @@ const DriverCard = () => {
             </Stack>
 
             <Box direction={"row"} justify={"center"} spacing={6}>
-              <Text color={"gray.500"}>Dealer ID : </Text>
-              <Text color={"gray.500"}>Dealer&apos;s Name : </Text>
-              <Text color={"gray.500"}>Location : </Text>
-              <Text color={"gray.500"}>Phone No :</Text>
-              <Text color={"gray.500"}>Total Cars : </Text>
-              <Text color={"gray.500"}>Total Deals : </Text>
+              <Text color={"gray.500"}>Dealer ID : {DealerID}</Text>
+              <Text color={"gray.500"}>Dealer&apos;s Name :{DealerName} </Text>
+              <Text color={"gray.500"}>Location : {Location}</Text>
+              <Text color={"gray.500"}>Phone No :{PhoneNo}</Text>
+              <Text color={"gray.500"}>Total Cars :{TotalCars} </Text>
+              <Text color={"gray.500"}>Total Deals :{TotalDeals} </Text>
             </Box>
           </Box>
         </Box>
