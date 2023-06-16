@@ -1,24 +1,3 @@
-import {
-  Flex,
-  Box,
-  FormControl,
-  FormLabel,
-  Input,
-  InputGroup,
-  HStack,
-  InputRightElement,
-  Stack,
-  Button,
-  Heading,
-  Text,
-  useColorModeValue,
-  Link as ChakraLink,
-} from "@chakra-ui/react";
-// import { useState } from "react";
-// import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-// import { Link } from "react-router-dom";
-// export default function   SignupCard() {
-//   const [showPassword, setShowPassword] = useState(false);
 
 import { Link } from "react-router-dom";
 import SubNav from "../Navbar/SubNav";
@@ -258,18 +237,7 @@ const SignUp = () => {
                     <a>Login Here</a>
                   </Link>
                 </div>
-                {/* <div className="socialLogin">
-                  <h5>Login Or Register with Social</h5>
-                  <a href="#." className="fb">
-                    <i className="fa fa-facebook" aria-hidden="true"></i>
-                  </a>{" "}
-                  <a href="#." className="gp">
-                    <i className="fa fa-google-plus" aria-hidden="true"></i>
-                  </a>{" "}
-                  <a href="#." className="tw">
-                    <i className="fa fa-twitter" aria-hidden="true"></i>
-                  </a>{" "}
-                </div> */}
+              
               </div>
             </div>
           </div>
