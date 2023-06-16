@@ -37,8 +37,10 @@ const Navbar = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-2 col-sm-3 col-xs-12">
-              <a href="index.html" className="logo">
-                <img src="images/logo.png" alt="" />
+              <a className="logo">
+                <Link to="/">
+                  <img src="images/logo.png" alt="" />
+                </Link>
               </a>
               <div className="navbar-header">
                 <button
@@ -60,11 +62,11 @@ const Navbar = () => {
                 <div className="navbar-collapse collapse" id="nav-main">
                   <ul className="nav navbar-nav">
                     <li className="dropdown active">
-                      <a href="index.html">Home</a>
+                      <a>Home</a>
                       {/* <span className="caret"></span>  */}
                       {/* <ul className="dropdown-menu">
                           <li className="active">
-                            <a href="index.html">Home Static Image</a>
+                            <a >Home Static Image</a>
                           </li>
                           <li>
                             <a href="index2.html">Home With Slider</a>
