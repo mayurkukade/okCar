@@ -64,7 +64,10 @@ const CarDetails = () => {
                       </li> */}
                         <li>
                           {" "}
-                          <img src="images/cars/06.jpg" alt="" />{" "}
+                          <img
+                            src="../../asset/images/cars/06.jpg"
+                            alt=""
+                          />{" "}
                         </li>
                       </ul>
                     </div>
