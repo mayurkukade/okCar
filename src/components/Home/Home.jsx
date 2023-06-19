@@ -356,110 +356,38 @@ const Home = () => {
             <ul className="row makelist">
               <li className="col-md-2 col-sm-3 col-xs-6">
                 <a href="listing.html">
-                  <img src="images/make/01.jpg" alt="" />
-                  <strong>Car Brand</strong>
+                  <img src="../../../images/logo/tata.png" alt="" />
+                  <strong>Tata Motors</strong>
                 </a>
               </li>
               <li className="col-md-2 col-sm-3 col-xs-6">
                 <a href="listing.html">
-                  <img src="images/make/02.jpg" alt="" />
-                  <strong>Car Brand</strong>
+                  <img src="../../../images/logo/suzuki.png" alt="" />
+                  <strong>Maruti Suzuki</strong>
                 </a>
               </li>
               <li className="col-md-2 col-sm-3 col-xs-6">
                 <a href="listing.html">
-                  <img src="images/make/03.jpg" alt="" />
-                  <strong>Car Brand</strong>
+                  <img src="../../../images/logo/hyundai.png" alt="" />
+                  <strong>Hyundai</strong>
                 </a>
               </li>
               <li className="col-md-2 col-sm-3 col-xs-6">
                 <a href="listing.html">
-                  <img src="images/make/04.jpg" alt="" />
-                  <strong>Car Brand</strong>
+                  <img src="../../../images/logo/Mahindra.png" alt="" />
+                  <strong>Mahindra</strong>
                 </a>
               </li>
               <li className="col-md-2 col-sm-3 col-xs-6">
                 <a href="listing.html">
-                  <img src="images/make/05.jpg" alt="" />
-                  <strong>Car Brand</strong>
+                  <img src="../../../images/logo/honda.png" alt="" />
+                  <strong>Honda</strong>
                 </a>
               </li>
               <li className="col-md-2 col-sm-3 col-xs-6">
                 <a href="listing.html">
-                  <img src="images/make/06.jpg" alt="" />
-                  <strong>Car Brand</strong>
-                </a>
-              </li>
-              <li className="col-md-2 col-sm-3 col-xs-6">
-                <a href="listing.html">
-                  <img src="images/make/07.jpg" alt="" />
-                  <strong>Car Brand</strong>
-                </a>
-              </li>
-              <li className="col-md-2 col-sm-3 col-xs-6">
-                <a href="listing.html">
-                  <img src="images/make/08.jpg" alt="" />
-                  <strong>Car Brand</strong>
-                </a>
-              </li>
-              <li className="col-md-2 col-sm-3 col-xs-6">
-                <a href="listing.html">
-                  <img src="images/make/09.jpg" alt="" />
-                  <strong>Car Brand</strong>
-                </a>
-              </li>
-              <li className="col-md-2 col-sm-3 col-xs-6">
-                <a href="listing.html">
-                  <img src="images/make/10.jpg" alt="" />
-                  <strong>Car Brand</strong>
-                </a>
-              </li>
-              <li className="col-md-2 col-sm-3 col-xs-6">
-                <a href="listing.html">
-                  <img src="images/make/11.jpg" alt="" />
-                  <strong>Car Brand</strong>
-                </a>
-              </li>
-              <li className="col-md-2 col-sm-3 col-xs-6">
-                <a href="listing.html">
-                  <img src="images/make/12.jpg" alt="" />
-                  <strong>Car Brand</strong>
-                </a>
-              </li>
-              <li className="col-md-2 col-sm-3 col-xs-6">
-                <a href="listing.html">
-                  <img src="images/make/13.jpg" alt="" />
-                  <strong>Car Brand</strong>
-                </a>
-              </li>
-              <li className="col-md-2 col-sm-3 col-xs-6">
-                <a href="listing.html">
-                  <img src="images/make/14.jpg" alt="" />
-                  <strong>Car Brand</strong>
-                </a>
-              </li>
-              <li className="col-md-2 col-sm-3 col-xs-6">
-                <a href="listing.html">
-                  <img src="images/make/15.jpg" alt="" />
-                  <strong>Car Brand</strong>
-                </a>
-              </li>
-              <li className="col-md-2 col-sm-3 col-xs-6">
-                <a href="listing.html">
-                  <img src="images/make/16.jpg" alt="" />
-                  <strong>Car Brand</strong>
-                </a>
-              </li>
-              <li className="col-md-2 col-sm-3 col-xs-6">
-                <a href="listing.html">
-                  <img src="images/make/17.jpg" alt="" />
-                  <strong>Car Brand</strong>
-                </a>
-              </li>
-              <li className="col-md-2 col-sm-3 col-xs-6">
-                <a href="listing.html">
-                  <img src="images/make/18.jpg" alt="" />
-                  <strong>Car Brand</strong>
+                  <img src="../../../images/logo/toyota.png" alt="" />
+                  <strong>Toyota</strong>
                 </a>
               </li>
             </ul>
@@ -781,7 +709,7 @@ const Home = () => {
                 </a>
               </li>
               <li className="col-md-3 col-sm-6 col-xs-6">
-                <a href="#">  
+                <a href="#">
                   East Khadki <span>(96)</span>
                 </a>
               </li>
