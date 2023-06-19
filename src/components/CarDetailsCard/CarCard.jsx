@@ -269,7 +269,7 @@ const CarCard = () => {
                     <li>
                       <input type="checkbox" name="checkname" id="Diesel" />
                       <label htmlFor="Diesel"></label>
-                      Electric <span>33</span>{" "}
+                      Electric<span>33</span>{" "}
                     </li>
                   </ul>
                 </div>
