@@ -70,7 +70,7 @@ const Navbar = () => {
                       <a href="listing.html">New Cars</a>
                     </li>
                     <li>
-                      <a href="contact-us.html">Contact</a>
+                      <Link to="/Contact">Contact</Link>
                     </li>
                     <li className="postad">
                       <AvtarModal />
