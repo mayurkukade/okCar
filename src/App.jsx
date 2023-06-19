@@ -29,21 +29,21 @@ const App = () => {
           <Route
             element={
               <RequireAuth allowedRoles={[...Object.values(OnlyAdmin)]} />
-            }
-          >
-            <Route path="/adminbuyers" element={<AdminBuyers />} />
+            }>
+            <Route path="/adminrequest" element={<AdminRequest />} />
           </Route>
-        </Route>
+       
 
         <Route path="/" element={<Home />} />
-
+        <Route path="/adminbuyers" element={<AdminBuyers />} />
         <Route path="/dealer" element={<DealersModel />} />
-        <Route path="/adminrequest" element={<AdminRequest />} />
+       
         <Route path="/addcar" element={<AddCar />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route path="/cardetails" element={<CarCard />} />
         <Route path="/access" element={<CantAccess />} />
         <Route path="*" element={<NotFound />} />
+        </Route>
       </Routes>
       <Footer />
     </>

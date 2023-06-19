@@ -20,7 +20,7 @@ const Navbar = () => {
                 </a>
               </div>
             </div>
-            <div className="col-md-6 col-sm-6">
+            {/* <div className="col-md-6 col-sm-6">
               <div className="toplinks">
                 <Link to="/signup">
                   <a>Sign Up</a>
@@ -29,7 +29,7 @@ const Navbar = () => {
                   <a>Sign In</a>
                 </Link>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

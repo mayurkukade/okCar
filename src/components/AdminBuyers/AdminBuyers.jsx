@@ -9,17 +9,6 @@ const AdminBuyers = () => {
 console.log(toggle)
   
 
-  const AcceptButton = (
-    <Button colorScheme="transparent" color="blue" onClick={()=>setToggle(!toggle)}>
-      Accept
-    </Button>
-  );
-
-  const RejectButton = (
-    <Button colorScheme="transparent" color="red">
-      Reject
-    </Button>
-  );
 
   
   const data = React.useMemo(() => buyers, []);
