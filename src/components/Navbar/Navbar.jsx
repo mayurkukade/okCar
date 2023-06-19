@@ -37,11 +37,11 @@ const Navbar = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-2 col-sm-3 col-xs-12">
-              <Link to="/">
-                <a className="logo">
+              <a className="logo">
+                <Link to="/">
                   <img src="images/logo.png" alt="" />
-                </a>
-              </Link>
+                </Link>
+              </a>
               <div className="navbar-header">
                 <button
                   type="button"

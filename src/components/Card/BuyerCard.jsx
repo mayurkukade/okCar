@@ -19,7 +19,7 @@ const TableCard = ({
   ValueOffered,
   AcceptRejected
 }) => {
-  console.log(customerName)
+ 
   return (
     <Box className="cardContainer">
       <Center py={6}>
