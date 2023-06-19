@@ -11,7 +11,7 @@ import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
 import AddCar from "./components/AddCar/AddCar";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
-import CarCard from "./components/CarDetailsCard/CarCard";
+import CarCard from "./components/CarDetailsCard/CarDetails";
 
 import RequireAuth from "./features/RequireAuth";
 import AppLayout from "./components/appLayout/AppLayout";
