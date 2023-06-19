@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-  import AvtarModal from "./AvtarModal";
+import AvtarModal from "./AvtarModal";
 const Navbar = () => {
   return (
     <>
@@ -26,7 +26,6 @@ const Navbar = () => {
                 <Link to="/signin">
                   <a>Sign In</a>
                 </Link>
-                {/* <a href="#">Connect with Facebook</a> */}
               </div>
             </div>
           </div>
@@ -63,106 +62,16 @@ const Navbar = () => {
                   <ul className="nav navbar-nav">
                     <li className="dropdown active">
                       <a>Home</a>
-                      {/* <span className="caret"></span>  */}
-                      {/* <ul className="dropdown-menu">
-                          <li className="active">
-                            <a >Home Static Image</a>
-                          </li>
-                          <li>
-                            <a href="index2.html">Home With Slider</a>
-                          </li>
-                        </ul> */}
                     </li>
                     <li>
-                      <Link to="/Cardetails">
-                        <a>Used Cars</a>
-                      </Link>
+                      <Link to="/Carlist">Used Cars</Link>
                     </li>
                     <li>
                       <a href="listing.html">New Cars</a>
                     </li>
-                    {/* <li className="dropdown">
-                        <a href="#.">
-                          Pages <span className="caret"></span>
-                        </a>
-                        <ul className="dropdown-menu">
-                          <li>
-                            <a href="about-us.html">About Us</a>
-                          </li>
-                          <li>
-                            <a href="listing.html">Ad Listing</a>
-                          </li>
-                          <li>
-                            <a href="detail.html">Ad Detail</a>
-                          </li>
-                          <li>
-                            <a href="login.html">Login</a>
-                          </li>
-                          <li>
-                            <a href="register.html">Register</a>
-                          </li>
-                          <li>
-                            <a href="forgot-password.html">Forgot Password</a>
-                          </li>
-                          <li>
-                            <a href="change-password.html">Change Password</a>
-                          </li>
-                          <li>
-                            <a href="dashboard.html">Dashboard</a>
-                          </li>
-                          <li>
-                            <a href="active-ads.html">Active Ads</a>
-                          </li>
-                          <li>
-                            <a href="pending-ads.html">Pending Ads</a>
-                          </li>
-                          <li>
-                            <a href="edit-profile.html">Edit Profile</a>
-                          </li>
-                          <li>
-                            <a href="ad-post.html">Ad Post</a>
-                          </li>
-                          <li>
-                            <a href="packages.html">Packages</a>
-                          </li>
-                          <li>
-                            <a href="faqs.html">FAQs</a>
-                          </li>
-                          <li>
-                            <a href="404.html">404 Page</a>
-                          </li>
-                          <li>
-                            <a href="typography.html">Typography</a>
-                          </li>
-                        </ul>
-                      </li> */}
-                    {/* <li className="dropdown">
-                        <a href="blog.html">
-                          Blog <span className="caret"></span>
-                        </a>
-                        <ul className="dropdown-menu">
-                          <li>
-                            <a href="blog.html">Blog List</a>
-                          </li>
-                          <li>
-                            <a href="blog-detail.html">Blog Detail</a>
-                          </li>
-                          <li>
-                            <a href="blog-grid.html">Blog Grid</a>
-                          </li>
-                          <li>
-                            <a href="blog-full-width.html">
-                              Blog Grid Full Width
-                            </a>
-                          </li>
-                        </ul>
-                      </li> */}
                     <li>
                       <a href="contact-us.html">Contact</a>
                     </li>
-                    {/* <li className="postad">
-                      <a href="ad-post.html">Post an Ad</a>
-                    </li> */}
                     <li className="postad">
                       <AvtarModal />
                     </li>
