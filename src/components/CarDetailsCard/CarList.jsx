@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import SubNav from "../Navbar/SubNav.jsx";
 
-const CarCard = () => {
+const CarList = () => {
   return (
     <>
       <SubNav componentsName={"Add Car"} />
@@ -269,7 +270,7 @@ const CarCard = () => {
                     <li>
                       <input type="checkbox" name="checkname" id="Diesel" />
                       <label htmlFor="Diesel"></label>
-                      Electric <span>33</span>{" "}
+                      Electric<span>33</span>{" "}
                     </li>
                   </ul>
                 </div>
@@ -287,9 +288,9 @@ const CarCard = () => {
                 <li>
                   <div className="row">
                     <div className="col-md-3 col-sm-4">
-                      <div className="ribbon_3 popular">
+                      {/* <div className="ribbon_3 popular">
                         <span>Featured</span>
-                      </div>
+                      </div> */}
                       <div className="adimg">
                         <img src="images/cars/01.jpg" alt="Ad Name" />
                       </div>
@@ -338,13 +339,13 @@ const CarCard = () => {
                           <div className="col-md-4 col-sm-5 text-right">
                             <div className="adprice">$456.00</div>
                             <div className="listbtn">
-                              <a href="detail.html">
+                              <Link to="/cardetails">
                                 View Details{" "}
                                 <i
                                   className="fa fa-arrow-circle-right"
                                   aria-hidden="true"
                                 ></i>
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -356,9 +357,9 @@ const CarCard = () => {
                 <li>
                   <div className="row">
                     <div className="col-md-3 col-sm-4">
-                      <div className="ribbon_3 popular">
+                      {/* <div className="ribbon_3 popular">
                         <span>Featured</span>
-                      </div>
+                      </div> */}
                       <div className="adimg">
                         <img src="images/cars/02.jpg" alt="Ad Name" />
                       </div>
@@ -407,13 +408,13 @@ const CarCard = () => {
                           <div className="col-md-4 col-sm-5 text-right">
                             <div className="adprice">$456.00</div>
                             <div className="listbtn">
-                              <a href="detail.html">
+                              <Link to="/cardetails">
                                 View Details{" "}
                                 <i
                                   className="fa fa-arrow-circle-right"
                                   aria-hidden="true"
                                 ></i>
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -425,9 +426,9 @@ const CarCard = () => {
                 <li>
                   <div className="row">
                     <div className="col-md-3 col-sm-4">
-                      <div className="ribbon_3 popular">
+                      {/* <div className="ribbon_3 popular">
                         <span>Featured</span>
-                      </div>
+                      </div> */}
                       <div className="adimg">
                         <img src="images/cars/03.jpg" alt="Ad Name" />
                       </div>
@@ -476,13 +477,13 @@ const CarCard = () => {
                           <div className="col-md-4 col-sm-5 text-right">
                             <div className="adprice">$456.00</div>
                             <div className="listbtn">
-                              <a href="detail.html">
+                              <Link to="/cardetails">
                                 View Details{" "}
                                 <i
                                   className="fa fa-arrow-circle-right"
                                   aria-hidden="true"
                                 ></i>
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -542,13 +543,13 @@ const CarCard = () => {
                           <div className="col-md-4 col-sm-5 text-right">
                             <div className="adprice">$456.00</div>
                             <div className="listbtn">
-                              <a href="detail.html">
+                              <Link to="/cardetails">
                                 View Details{" "}
                                 <i
                                   className="fa fa-arrow-circle-right"
                                   aria-hidden="true"
                                 ></i>
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -608,13 +609,13 @@ const CarCard = () => {
                           <div className="col-md-4 col-sm-5 text-right">
                             <div className="adprice">$456.00</div>
                             <div className="listbtn">
-                              <a href="detail.html">
+                              <Link to="/cardetails">
                                 View Details{" "}
                                 <i
                                   className="fa fa-arrow-circle-right"
                                   aria-hidden="true"
                                 ></i>
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -674,13 +675,13 @@ const CarCard = () => {
                           <div className="col-md-4 col-sm-5 text-right">
                             <div className="adprice">$456.00</div>
                             <div className="listbtn">
-                              <a href="detail.html">
+                              <Link to="/cardetails">
                                 View Details{" "}
                                 <i
                                   className="fa fa-arrow-circle-right"
                                   aria-hidden="true"
                                 ></i>
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -740,13 +741,13 @@ const CarCard = () => {
                           <div className="col-md-4 col-sm-5 text-right">
                             <div className="adprice">$456.00</div>
                             <div className="listbtn">
-                              <a href="detail.html">
+                              <Link to="/cardetails">
                                 View Details{" "}
                                 <i
                                   className="fa fa-arrow-circle-right"
                                   aria-hidden="true"
                                 ></i>
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -806,13 +807,13 @@ const CarCard = () => {
                           <div className="col-md-4 col-sm-5 text-right">
                             <div className="adprice">$456.00</div>
                             <div className="listbtn">
-                              <a href="detail.html">
+                              <Link to="/cardetails">
                                 View Details{" "}
                                 <i
                                   className="fa fa-arrow-circle-right"
                                   aria-hidden="true"
                                 ></i>
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -872,13 +873,13 @@ const CarCard = () => {
                           <div className="col-md-4 col-sm-5 text-right">
                             <div className="adprice">$456.00</div>
                             <div className="listbtn">
-                              <a href="detail.html">
+                              <Link to="/cardetails">
                                 View Details{" "}
                                 <i
                                   className="fa fa-arrow-circle-right"
                                   aria-hidden="true"
                                 ></i>
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -938,13 +939,13 @@ const CarCard = () => {
                           <div className="col-md-4 col-sm-5 text-right">
                             <div className="adprice">$456.00</div>
                             <div className="listbtn">
-                              <a href="detail.html">
-                                View Details{" "}
-                                <i
-                                  className="fa fa-arrow-circle-right"
-                                  aria-hidden="true"
-                                ></i>
-                              </a>
+                                <Link to="/cardetails">
+                                  View Details{" "}
+                                  <i
+                                    className="fa fa-arrow-circle-right"
+                                    aria-hidden="true"
+                                  ></i>
+                                  </Link>
                             </div>
                           </div>
                         </div>
@@ -997,4 +998,4 @@ const CarCard = () => {
   );
 };
 
-export default CarCard;
+export default CarList;

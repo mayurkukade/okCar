@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 
 import { Link } from "react-router-dom";
 import "./avtar.css";
+=======
+import { Link } from "react-router-dom";
+import AvtarModal from "./AvtarModal";
+>>>>>>> 6bd8efe050e84bdaf8c219a41b31bea7cf597c91
 const Navbar = () => {
   return (
     <>
@@ -62,22 +67,27 @@ const Navbar = () => {
                 <div className="navbar-collapse collapse" id="nav-main">
                   <ul className="nav navbar-nav">
                     <li className="dropdown active">
+<<<<<<< HEAD
                       <a href="index.html">Home</a>
+=======
+                      <a>Home</a>
+>>>>>>> 6bd8efe050e84bdaf8c219a41b31bea7cf597c91
                     </li>
                     <li>
-                      <Link to="/Cardetails">
-                        <a>Used Cars</a>
-                      </Link>
+                      <Link to="/Carlist">Used Cars</Link>
                     </li>
                     <li>
                       <a href="listing.html">New Cars</a>
                     </li>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6bd8efe050e84bdaf8c219a41b31bea7cf597c91
                     <li>
                       <a href="contact-us.html">Contact</a>
                     </li>
                     <li className="postad">
-                      <a href="ad-post.html">Post an Ad</a>
+                      <AvtarModal />
                     </li>
                   </ul>
                 </div>
