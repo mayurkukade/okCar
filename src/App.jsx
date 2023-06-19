@@ -11,7 +11,8 @@ import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
 import AddCar from "./components/AddCar/AddCar";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
-import CarCard from "./components/CarDetailsCard/CarCard";
+import CarList from "./components/CarDetailsCard/CarList";
+import CarDetails from "./components/CarDetailsCard/CarDetails";
 const App = () => {
   return (
     <>
@@ -25,7 +26,8 @@ const App = () => {
         <Route path="/adminrequest" element={<AdminRequest />} />
         <Route path="/addcar" element={<AddCar />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
-        <Route path="/cardetails" element={<CarCard />} />
+        <Route path="/carlist" element={<CarList />} />
+        <Route path="/cardetails" element={<CarDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
