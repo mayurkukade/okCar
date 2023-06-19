@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+  import AvtarModal from "./AvtarModal";
 const Navbar = () => {
   return (
     <>
@@ -160,8 +160,11 @@ const Navbar = () => {
                     <li>
                       <a href="contact-us.html">Contact</a>
                     </li>
-                    <li className="postad">
+                    {/* <li className="postad">
                       <a href="ad-post.html">Post an Ad</a>
+                    </li> */}
+                    <li className="postad">
+                      <AvtarModal />
                     </li>
                   </ul>
                 </div>
