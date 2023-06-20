@@ -68,6 +68,7 @@ const DealersModel = () => {
               Edit
             </Button>
 
+
             {/* Modal */}
             <Modal isOpen={isModalOpen} onClose={handleModalClose}>
               <ModalOverlay />
