@@ -172,6 +172,7 @@ const Footer = () => {
               <div className="clear"></div>
             </div>
           </div>
+
           {/* <div className="social">
             <a href="#." target="_blank">
               <i className="fa fa-facebook-square" aria-hidden="true"></i>
