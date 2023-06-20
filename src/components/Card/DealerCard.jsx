@@ -32,7 +32,7 @@ const DriverCard = ({
           <Box p={6}>
             <Stack spacing={0} align={"center"} mb={5}>
               <Heading fontSize={"2xl"} fontWeight={500} fontFamily={"body"}>
-                Dealers Details
+                {DealerName}
               </Heading>
             </Stack>
 

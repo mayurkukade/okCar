@@ -1,37 +1,10 @@
 import { Link } from "react-router-dom";
+import "./avtar.css";
 import AvtarModal from "./AvtarModal";
 const Navbar = () => {
   return (
     <>
-      <div className="topbar-wrap">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 col-sm-6">
-              <div className="tpinfo">
-                <a>
-                  <i className="fa fa-phone" aria-hidden="true"></i>
-                  1-800-123-4567
-                </a>
-                <a>
-                  <i className="fa fa-map-marker" aria-hidden="true"></i> 123 X
-                  4TH Street, San Jose, CA 123456
-                </a>
-              </div>
-            </div>
-            <div className="col-md-6 col-sm-6">
-              <div className="toplinks">
-                <Link to="signup">
-                  <a>Sign Up</a>
-                </Link>
-                <Link to="/signin">
-                  <a>Sign In</a>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      
       <div className="header">
         <div className="container">
           <div className="row">

@@ -10,12 +10,14 @@ import {
 } from "@chakra-ui/react";
 
 const AvtarModal = () => {
+  const username = localStorage.getItem("userInfo");
+   console.log(JSON.parse(username).results)
   return (
     <Box className="card">
       <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
       <Menu bg="white">
         <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-          {/* {JSON.parse(username).results.user[0].username} */}
+          {JSON.parse(username).results.user[0].username}
         </MenuButton>
         <MenuList>
           <MenuItem>History</MenuItem>

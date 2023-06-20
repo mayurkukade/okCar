@@ -4,13 +4,14 @@ import { Box } from "@chakra-ui/react";
 import "./tableCard.css";
 import BuyerCard from "../Card/BuyerCard";
 import DealerCard from "../Card/DealerCard";
+import UserRequestCard from "../Card/UserRequestCard";
 export default function TableCard({ CardDatas }) {
   let cardConditionalRender = Object.keys(CardDatas[0])[0];
-  console.log(cardConditionalRender);
+  console.log(cardConditionalRender)
   let cardDetails;
   if (cardConditionalRender === "customerName") {
     cardDetails = CardDatas.map((cardData, index) => {
-      console.log(cardData);
+    
       return (
         <div key={index}>
           <BuyerCard
@@ -28,16 +29,32 @@ export default function TableCard({ CardDatas }) {
     });
   } else if (cardConditionalRender === "DealerID") {
     cardDetails = CardDatas.map((cardData, index) => {
-      console.log(cardData);
+      
       return (
         <div key={index}>
           <DealerCard
             DealerID={cardData.DealerID}
             DealerName={cardData.DealerName}
             Location={cardData.Location}
-            PhoneNo={cardData.PhoneNo}
+            PhoneNo={cardData.ContactNo}
             TotalCars={cardData.TotalCars}
-            TotalDeals={cardData.TotalDeals}
+            TotalDeals={cardData.Edit}
+          />
+        </div>
+      );
+    });
+  }else if(cardConditionalRender === 'userName'){
+    cardDetails = CardDatas.map((cardData, index) => {
+      
+      return (
+        <div key={index}>
+          <UserRequestCard
+            userName={cardData.userName}
+            requestID={cardData.requestID}
+            DealerID={cardData.DealerID}
+            Location={cardData.Location}
+            CarID={cardData.CarID}
+            DealStatus={cardData.DealStatus}
           />
         </div>
       );

@@ -76,7 +76,7 @@ const TableModel = ({ data: v, columns }) => {
     useSortBy,
     usePagination
   );
-  console.log(buyers);
+  
 
 
 
@@ -121,9 +121,13 @@ const TableModel = ({ data: v, columns }) => {
                     {row.cells.map((cell) => (
                       <Td key={i} {...cell.getCellProps()}>
                       <span>{cell.render("Cell")}</span>  
+                      {
+                        console.log(cell.render("Cell").props.allColumns[7])
+                      }
                       </Td>
                     ))}
                   </Tr>
+                 
                 );
               })}
             </Tbody>

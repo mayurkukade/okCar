@@ -8,7 +8,6 @@
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
-  
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.19",
@@ -26,8 +25,11 @@
     "react-icons": "^4.9.0",
     "react-redux": "^8.1.0",
     "react-router-dom": "^6.11.2",
+    "react-slick": "^0.29.0",
     "react-table": "^7.8.0",
-    "sass": "^1.63.3"
+    "sass": "^1.63.3",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^9.4.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
