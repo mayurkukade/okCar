@@ -31,17 +31,14 @@ const FormAddDriver = ({ firstFieldRef, onCancel }) => {
     try {
       console.log(dealer, licenseUpload);
 
-      onCancel();
-      window.location.reload();
+      
     } catch (error) {
       console.log(error);
     }
   };
   return (
     <>
-      <Stack spacing={4} >
-        <Flex>
-
+      <Stack spacing={2} >
        
         <FormLabel>First Name</FormLabel>
         <Input
@@ -63,7 +60,7 @@ const FormAddDriver = ({ firstFieldRef, onCancel }) => {
           placeholder="please fill dealer name"
           value={dealer.lastname}
         />
-         </Flex>
+        <Flex >
         <FormLabel>Address</FormLabel>
         <Input
           label="address"
@@ -82,6 +79,7 @@ const FormAddDriver = ({ firstFieldRef, onCancel }) => {
           value={dealer.city}
           onChange={onChangeHandler}
         />
+        </Flex>
         <FormLabel>Area</FormLabel>
         <Input
           label="area"

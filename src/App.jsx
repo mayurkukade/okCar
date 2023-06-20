@@ -31,29 +31,28 @@ const App = () => {
       <Routes>
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<Register />} />
-     
-          <Route
-            element={
-              <RequireAuth allowedRoles={[...Object.values(OnlyAdmin)]} />
-            }>
-              <Route  element={<AdminPage/>} >
-                <Route path="/dealersmanegment" element={<DealerManegment/>} />
-                <Route path="/userrequest" element={<UserRequest/>} />
-                <Route path="/notification" element={<Notification/>} />
-              </Route>
+
+        <Route
+          element={<RequireAuth allowedRoles={[...Object.values(OnlyAdmin)]} />}
+        >
+          <Route element={<AdminPage />}>
+            <Route path="/dealersmanegment" element={<DealerManegment />} />
+            <Route path="/userrequest" element={<UserRequest />} />
+            <Route path="/notification" element={<Notification />} />
           </Route>
-          <Route element={<AppLayout />}>
+        </Route>
+        <Route element={<AppLayout />}>
           <Route path="/adminrequest" element={<AdminRequest />} />
 
-        <Route path="/" element={<Home />} />
-        <Route path="/adminbuyers" element={<AdminBuyers />} />
-        <Route path="/dealer" element={<DealersModel />} />
-       
-        <Route path="/addcar" element={<AddCar />} />
-        <Route path="/ForgotPassword" element={<ForgotPassword />} />
-        <Route path="/cardetails" element={<CarCard />} />
-        <Route path="/access" element={<CantAccess />} />
-        <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/adminbuyers" element={<AdminBuyers />} />
+          <Route path="/dealer" element={<DealersModel />} />
+
+          <Route path="/addcar" element={<AddCar />} />
+          <Route path="/ForgotPassword" element={<ForgotPassword />} />
+          <Route path="/cardetails" element={<CarCard />} />
+          <Route path="/access" element={<CantAccess />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
       <Footer />
