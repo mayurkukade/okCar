@@ -279,8 +279,9 @@ const Home = () => {
           </div>
           {/* <div className="wideBanner margintop40">
             <img src="images/google-ad-wide.jpg" alt="" />
-          </div> */}
+          </div> 
         </div>
+
       </div>
       <div className="taglinewrap">
         <div className="container">
