@@ -1,39 +1,29 @@
-// import React from "react";
-// import TableModel from "../tableModel/TableModel";
-// import {Dealers} from '../../json/driver.json'
-// const DealersModel = () => {
-  
+import { useState } from "react";
+import React from "react";
+import TableModel from "../tableModel/TableModel";
+import { Dealers } from "../../json/driver.json";
+import { EditIcon } from "@chakra-ui/icons";
+import {
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalCloseButton,
+  FormLabel,
+  Select,
+  Input,
+  FormControl,
+  Textarea,
+} from "@chakra-ui/react";
+const DealersModel = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-//   const data = React.useMemo(() =>Dealers , []);
-//   const columns = React.useMemo(
-//     () => [
-//       {
-//         Header: "Dealer ID",
-//         accessor: "DealerID",
-//       },
-//       {
-//         Header: "Dealer's Name",
-//         accessor: "DealerName",
-//       },
-//       {
-//         Header: "Location",
-//         accessor: "Location",
-//       },
-//       {
-//         Header: "Phone No.",
-//         accessor: "PhoneNo",
-//       },
-//       {
-//         Header: "Total Cars",
-//         accessor: "TotalCars",
-//       },
-//       {
-//         Header: "Total Deals",
-//         accessor: "TotalDeals",
-//       }
-//     ],
-//     []
-//   );
+  const handleEditClick = () => {
+    setIsModalOpen(true);
+  };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
@@ -121,10 +111,9 @@
 
   return (
     <>
-    <h3>Dealer</h3>
-      
+      <TableModel data={data} columns={columns} />
     </>
-  )
-}
+  );
+};
 
-export default DealersModel
+export default DealersModel;
