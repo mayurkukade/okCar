@@ -38,7 +38,7 @@ const Navbar = () => {
             <div className="col-md-2 col-sm-3 col-xs-12">
               <a className="logo">
                 <Link to="/">
-                  <img src="images/logo.png" alt="" />
+                  <img src="../../../images/logo.png" alt="logo" />
                 </Link>
               </a>
               <div className="navbar-header">
