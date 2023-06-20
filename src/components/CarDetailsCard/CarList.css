@@ -1,0 +1,37 @@
+.optionlist {
+  list-style: none;
+}
+.optionlist li {
+  margin-bottom: 10px;
+  padding: 5px 0;
+  position: relative;
+  padding-left: 30px;
+  color: #fff;
+}
+.optionlist li span {
+  position: absolute;
+  right: 0;
+  top: 6px;
+}
+.optionlist li input[type="checkbox"] {
+  display: none;
+}
+.optionlist li input[type="checkbox"] + label {
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: #5e6a6d;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 2px;
+}
+.optionlist li input[type="checkbox"]:checked + label:before {
+  content: "f00c";
+  font-family: "FontAwesome";
+  color: #fff;
+  padding-left: 2px;
+  position: relative;
+  top: 2px;
+}
