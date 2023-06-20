@@ -54,10 +54,10 @@ const DealersModel = () => {
             {/* Edit Button */}
             <Button
               variant="outline"
-              colorScheme="black"
+              colorScheme="teal"
               onClick={handleEditClick}
               leftIcon={<EditIcon />}
-              style={{ backgroundColor: "#5DC302" }}
+              // style={{ backgroundColor: "#5DC302" }}
             >
               Edit
             </Button>
