@@ -53,8 +53,8 @@ const DealersModel = () => {
       },
       {
         Header: "Edit",
-        accessor: "AcceptRejected",
-        Cell: ({ value }) => (
+        accessor: "Edit",
+        Cell: () => (
           <>
             {/* Edit Button */}
             <Button
@@ -62,6 +62,7 @@ const DealersModel = () => {
               colorScheme="teal"
               onClick={handleEditClick}
               leftIcon={<EditIcon />}
+              _hover={{ bg: "#5DC302" }}
               // style={{ backgroundColor: "#5DC302" }}
             >
               Edit

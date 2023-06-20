@@ -22,7 +22,7 @@ const AddCar = () => {
                         />
                       </div>
                     </div>
-                    <div className="col-md-6">
+                    {/* <div className="col-md-6">
                       <div className="formrow">
                         <select className="form-control" name="indus">
                           <option>Type</option>
@@ -30,8 +30,8 @@ const AddCar = () => {
                           <option>I want to Buy</option>
                         </select>
                       </div>
-                    </div>
-                    <div className="col-md-6">
+                    </div> */}
+                    {/* <div className="col-md-6">
                       <div className="formrow">
                         <select className="form-control" name="indus">
                           <option>Car type</option>
@@ -39,9 +39,9 @@ const AddCar = () => {
                           <option>Used</option>
                         </select>
                       </div>
-                    </div>
+                    </div> */}
 
-                    <div className="col-md-6">
+                    {/* <div className="col-md-6">
                       <div className="formrow">
                         <select className="form-control" name="msalary">
                           <option>Select Main Catgory</option>
@@ -50,7 +50,8 @@ const AddCar = () => {
                           <option>Truck</option>
                         </select>
                       </div>
-                    </div>
+                    </div> */}
+
                     <div className="col-md-6">
                       <div className="formrow">
                         <select className="form-control" name="msalary">
@@ -59,7 +60,7 @@ const AddCar = () => {
                           <option>Toyota</option>
                           <option>BMW</option>
                           <option>Suzuki</option>
-                          <option>Audi</option>
+                          <option>Tata</option>
                         </select>
                       </div>
                     </div>
@@ -67,6 +68,12 @@ const AddCar = () => {
                       <div className="formrow">
                         <select className="form-control" name="msalary">
                           <option>Select Model</option>
+                          <option>2023</option>
+                          <option>2022</option>
+                          <option>2021</option>
+                          <option>2020</option>
+                          <option>2019</option>
+                          <option>2018</option>
                           <option>2017</option>
                           <option>2016</option>
                           <option>2015</option>
@@ -89,13 +96,18 @@ const AddCar = () => {
                       <div className="formrow">
                         <select className="form-control" name="msalary">
                           <option>Body Type</option>
-                          <option>Mini Van</option>
+                          <option>Sedan</option>
                           <option>Hatchback</option>
+                          <option>SUV</option>
+                          <option>MUV</option>
+                          <option>Coupe</option>
+                          <option>Convertibles</option>
+                          <option>Pickup Trucks</option>
                         </select>
                       </div>
                     </div>
 
-                    <div className="col-md-4">
+                    {/* <div className="col-md-4">
                       <div className="formrow">
                         <select className="form-control" name="msalary">
                           <option>Registered City</option>
@@ -103,7 +115,7 @@ const AddCar = () => {
                           <option>Atlanta</option>
                         </select>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="col-md-4">
                       <div className="formrow">
                         <select className="form-control" name="msalary">
@@ -154,7 +166,7 @@ const AddCar = () => {
                       </div>
                     </div>
 
-                    <div className="col-md-12">
+                    {/* <div className="col-md-12">
                       <div className="formrow">
                         <ul className="row featchoose">
                           <li className="col-md-4">
@@ -204,7 +216,7 @@ const AddCar = () => {
                           </li>
                         </ul>
                       </div>
-                    </div>
+                    </div> */}
 
                     <div className="col-md-12">
                       <div className="formrow">

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SubNav from "../Navbar/SubNav.jsx";
+import "./CarList.css";
 
 const CarList = () => {
   return (
@@ -7,7 +8,7 @@ const CarList = () => {
       <SubNav componentsName={"Add Car"} />
       <div className="listpgWraper">
         <div className="container">
-          <div className="sortbybar">
+          {/* <div className="sortbybar">
             <div className="row">
               <div className="col-sm-4">
                 {" "}
@@ -53,7 +54,7 @@ const CarList = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="row">
             <div className="col-md-3 col-sm-5">
               <div className="sidebar">
@@ -121,49 +122,49 @@ const CarList = () => {
                 </div>
 
                 <div className="widget">
-                  <h4 className="widget-title">City</h4>
+                  <h4 className="widget-title">Area</h4>
                   <ul className="optionlist">
                     <li>
                       <input type="checkbox" name="checkname" id="newyork" />
                       <label htmlFor="newyork"></label>
-                      New York <span>12</span>{" "}
+                      Kharadi <span>12</span>{" "}
                     </li>
                     <li>
                       <input type="checkbox" name="checkname" id="losangles" />
                       <label htmlFor="losangles"></label>
-                      Los Angeles <span>33</span>{" "}
+                      Hadapsar<span>33</span>{" "}
                     </li>
                     <li>
                       <input type="checkbox" name="checkname" id="chicago" />
                       <label htmlFor="chicago"></label>
-                      Chicago <span>33</span>{" "}
+                      Koregaon Park <span>33</span>{" "}
                     </li>
                     <li>
                       <input type="checkbox" name="checkname" id="houston" />
                       <label htmlFor="houston"></label>
-                      Houston <span>12</span>{" "}
+                      Magarpatta City <span>12</span>{" "}
                     </li>
                     <li>
                       <input type="checkbox" name="checkname" id="sandiego" />
                       <label htmlFor="sandiego"></label>
-                      San Diego <span>555</span>{" "}
+                      Hinjawadi <span>555</span>{" "}
                     </li>
                     <li>
                       <input type="checkbox" name="checkname" id="sanjose" />
                       <label htmlFor="sanjose"></label>
-                      San Jose <span>44</span>{" "}
+                      Wadgaon Sheri <span>44</span>{" "}
                     </li>
                   </ul>
                   <a href="#.">More Cities</a>{" "}
                 </div>
 
-                <div className="widget">
+                {/* <div className="widget">
                   <h4 className="widget-title">Register City</h4>
                   <ul className="optionlist">
                     <li>
                       <input type="checkbox" name="checkname" id="newyork" />
                       <label htmlFor="newyork"></label>
-                      New York <span>12</span>{" "}
+                      Kharadi <span>12</span>{" "}
                     </li>
                     <li>
                       <input type="checkbox" name="checkname" id="losangles" />
@@ -192,7 +193,7 @@ const CarList = () => {
                     </li>
                   </ul>
                   <a href="#.">More Cities</a>{" "}
-                </div>
+                </div> */}
 
                 <div className="widget">
                   <h4 className="widget-title">Year Range</h4>
@@ -221,7 +222,8 @@ const CarList = () => {
                 <div className="widget">
                   <h4 className="widget-title">Make</h4>
                   <select className="htmlForm-control">
-                    <option>BMW</option>
+                    <option>Tata</option>
+                    <option>Mahindra</option>
                     <option>Honda</option>
                     <option>Toyota</option>
                     <option>Suzuki</option>
@@ -268,8 +270,8 @@ const CarList = () => {
                       Diesel <span>33</span>{" "}
                     </li>
                     <li>
-                      <input type="checkbox" name="checkname" id="Diesel" />
-                      <label htmlFor="Diesel"></label>
+                      <input type="checkbox" name="checkname" id="Electric" />
+                      <label htmlFor="Electric"></label>
                       Electric<span>33</span>{" "}
                     </li>
                   </ul>
@@ -300,7 +302,7 @@ const CarList = () => {
                         <div className="row">
                           <div className="col-md-8 col-sm-7">
                             <h3>
-                              <a href="#.">Sue gate F 1.0 htmlFor Sale</a>
+                              <a href="#."> Maruti Swift Dzire </a>
                             </h3>
                             <div className="location">
                               <i
@@ -321,7 +323,7 @@ const CarList = () => {
                                 className="fa fa-map-marker"
                                 aria-hidden="true"
                               ></i>{" "}
-                              <span>New York</span>
+                              <span>Kharadi</span>
                             </div>
                             <div className="clearfix"></div>
                             <div className="vinfo">
@@ -337,7 +339,7 @@ const CarList = () => {
                             <div className="date">Last Updated: 1 day ago</div>
                           </div>
                           <div className="col-md-4 col-sm-5 text-right">
-                            <div className="adprice">$456.00</div>
+                            <div className="adprice"> ₹5,00,000</div>
                             <div className="listbtn">
                               <Link to="/cardetails">
                                 View Details{" "}
@@ -369,7 +371,7 @@ const CarList = () => {
                         <div className="row">
                           <div className="col-md-8 col-sm-7">
                             <h3>
-                              <a href="#.">Sue gate F 1.0 htmlFor Sale</a>
+                              <a href="#."> Tata harrier </a>
                             </h3>
                             <div className="location">
                               <i
@@ -390,7 +392,7 @@ const CarList = () => {
                                 className="fa fa-map-marker"
                                 aria-hidden="true"
                               ></i>{" "}
-                              <span>New York</span>
+                              <span>Kharadi</span>
                             </div>
                             <div className="clearfix"></div>
                             <div className="vinfo">
@@ -406,7 +408,7 @@ const CarList = () => {
                             <div className="date">Last Updated: 1 day ago</div>
                           </div>
                           <div className="col-md-4 col-sm-5 text-right">
-                            <div className="adprice">$456.00</div>
+                            <div className="adprice"> ₹5,00,000</div>
                             <div className="listbtn">
                               <Link to="/cardetails">
                                 View Details{" "}
@@ -438,7 +440,7 @@ const CarList = () => {
                         <div className="row">
                           <div className="col-md-8 col-sm-7">
                             <h3>
-                              <a href="#.">Sue gate F 1.0 htmlFor Sale</a>
+                              <a href="#."> Maruti Swift Dzire </a>
                             </h3>
                             <div className="location">
                               <i
@@ -459,7 +461,7 @@ const CarList = () => {
                                 className="fa fa-map-marker"
                                 aria-hidden="true"
                               ></i>{" "}
-                              <span>New York</span>
+                              <span>Kharadi</span>
                             </div>
                             <div className="clearfix"></div>
                             <div className="vinfo">
@@ -475,7 +477,7 @@ const CarList = () => {
                             <div className="date">Last Updated: 1 day ago</div>
                           </div>
                           <div className="col-md-4 col-sm-5 text-right">
-                            <div className="adprice">$456.00</div>
+                            <div className="adprice"> ₹5,00,000</div>
                             <div className="listbtn">
                               <Link to="/cardetails">
                                 View Details{" "}
@@ -504,7 +506,7 @@ const CarList = () => {
                         <div className="row">
                           <div className="col-md-8 col-sm-7">
                             <h3>
-                              <a href="#.">Sue gate F 1.0 htmlFor Sale</a>
+                              <a href="#."> Maruti Swift Dzire </a>
                             </h3>
                             <div className="location">
                               <i
@@ -525,7 +527,7 @@ const CarList = () => {
                                 className="fa fa-map-marker"
                                 aria-hidden="true"
                               ></i>{" "}
-                              <span>New York</span>
+                              <span>Kharadi</span>
                             </div>
                             <div className="clearfix"></div>
                             <div className="vinfo">
@@ -541,7 +543,7 @@ const CarList = () => {
                             <div className="date">Last Updated: 1 day ago</div>
                           </div>
                           <div className="col-md-4 col-sm-5 text-right">
-                            <div className="adprice">$456.00</div>
+                            <div className="adprice"> ₹5,00,000</div>
                             <div className="listbtn">
                               <Link to="/cardetails">
                                 View Details{" "}
@@ -570,7 +572,7 @@ const CarList = () => {
                         <div className="row">
                           <div className="col-md-8 col-sm-7">
                             <h3>
-                              <a href="#.">Sue gate F 1.0 htmlFor Sale</a>
+                              <a href="#."> Maruti Swift Dzire </a>
                             </h3>
                             <div className="location">
                               <i
@@ -591,7 +593,7 @@ const CarList = () => {
                                 className="fa fa-map-marker"
                                 aria-hidden="true"
                               ></i>{" "}
-                              <span>New York</span>
+                              <span>Kharadi</span>
                             </div>
                             <div className="clearfix"></div>
                             <div className="vinfo">
@@ -607,7 +609,7 @@ const CarList = () => {
                             <div className="date">Last Updated: 1 day ago</div>
                           </div>
                           <div className="col-md-4 col-sm-5 text-right">
-                            <div className="adprice">$456.00</div>
+                            <div className="adprice"> ₹5,00,000</div>
                             <div className="listbtn">
                               <Link to="/cardetails">
                                 View Details{" "}
@@ -636,7 +638,7 @@ const CarList = () => {
                         <div className="row">
                           <div className="col-md-8 col-sm-7">
                             <h3>
-                              <a href="#.">Sue gate F 1.0 htmlFor Sale</a>
+                              <a href="#."> Maruti Swift Dzire </a>
                             </h3>
                             <div className="location">
                               <i
@@ -657,7 +659,7 @@ const CarList = () => {
                                 className="fa fa-map-marker"
                                 aria-hidden="true"
                               ></i>{" "}
-                              <span>New York</span>
+                              <span>Kharadi</span>
                             </div>
                             <div className="clearfix"></div>
                             <div className="vinfo">
@@ -673,7 +675,7 @@ const CarList = () => {
                             <div className="date">Last Updated: 1 day ago</div>
                           </div>
                           <div className="col-md-4 col-sm-5 text-right">
-                            <div className="adprice">$456.00</div>
+                            <div className="adprice"> ₹5,00,000</div>
                             <div className="listbtn">
                               <Link to="/cardetails">
                                 View Details{" "}
@@ -702,7 +704,7 @@ const CarList = () => {
                         <div className="row">
                           <div className="col-md-8 col-sm-7">
                             <h3>
-                              <a href="#.">Sue gate F 1.0 htmlFor Sale</a>
+                              <a href="#."> Maruti Swift Dzire </a>
                             </h3>
                             <div className="location">
                               <i
@@ -723,7 +725,7 @@ const CarList = () => {
                                 className="fa fa-map-marker"
                                 aria-hidden="true"
                               ></i>{" "}
-                              <span>New York</span>
+                              <span>Kharadi</span>
                             </div>
                             <div className="clearfix"></div>
                             <div className="vinfo">
@@ -739,7 +741,7 @@ const CarList = () => {
                             <div className="date">Last Updated: 1 day ago</div>
                           </div>
                           <div className="col-md-4 col-sm-5 text-right">
-                            <div className="adprice">$456.00</div>
+                            <div className="adprice"> ₹5,00,000</div>
                             <div className="listbtn">
                               <Link to="/cardetails">
                                 View Details{" "}
@@ -768,7 +770,7 @@ const CarList = () => {
                         <div className="row">
                           <div className="col-md-8 col-sm-7">
                             <h3>
-                              <a href="#.">Sue gate F 1.0 htmlFor Sale</a>
+                              <a href="#."> Maruti Swift Dzire </a>
                             </h3>
                             <div className="location">
                               <i
@@ -789,7 +791,7 @@ const CarList = () => {
                                 className="fa fa-map-marker"
                                 aria-hidden="true"
                               ></i>{" "}
-                              <span>New York</span>
+                              <span>Kharadi</span>
                             </div>
                             <div className="clearfix"></div>
                             <div className="vinfo">
@@ -805,7 +807,7 @@ const CarList = () => {
                             <div className="date">Last Updated: 1 day ago</div>
                           </div>
                           <div className="col-md-4 col-sm-5 text-right">
-                            <div className="adprice">$456.00</div>
+                            <div className="adprice"> ₹5,00,000</div>
                             <div className="listbtn">
                               <Link to="/cardetails">
                                 View Details{" "}
@@ -834,7 +836,7 @@ const CarList = () => {
                         <div className="row">
                           <div className="col-md-8 col-sm-7">
                             <h3>
-                              <a href="#.">Sue gate F 1.0 htmlFor Sale</a>
+                              <a href="#."> Toyota Innova </a>
                             </h3>
                             <div className="location">
                               <i
@@ -855,7 +857,7 @@ const CarList = () => {
                                 className="fa fa-map-marker"
                                 aria-hidden="true"
                               ></i>{" "}
-                              <span>New York</span>
+                              <span>Kharadi</span>
                             </div>
                             <div className="clearfix"></div>
                             <div className="vinfo">
@@ -871,7 +873,7 @@ const CarList = () => {
                             <div className="date">Last Updated: 1 day ago</div>
                           </div>
                           <div className="col-md-4 col-sm-5 text-right">
-                            <div className="adprice">$456.00</div>
+                            <div className="adprice"> ₹5,00,000</div>
                             <div className="listbtn">
                               <Link to="/cardetails">
                                 View Details{" "}
@@ -900,7 +902,7 @@ const CarList = () => {
                         <div className="row">
                           <div className="col-md-8 col-sm-7">
                             <h3>
-                              <a href="#.">Sue gate F 1.0 htmlFor Sale</a>
+                              <a href="#."> Hyundai i10 </a>
                             </h3>
                             <div className="location">
                               <i
@@ -921,7 +923,7 @@ const CarList = () => {
                                 className="fa fa-map-marker"
                                 aria-hidden="true"
                               ></i>{" "}
-                              <span>New York</span>
+                              <span>Kharadi</span>
                             </div>
                             <div className="clearfix"></div>
                             <div className="vinfo">
@@ -937,15 +939,15 @@ const CarList = () => {
                             <div className="date">Last Updated: 1 day ago</div>
                           </div>
                           <div className="col-md-4 col-sm-5 text-right">
-                            <div className="adprice">$456.00</div>
+                            <div className="adprice"> ₹5,00,000</div>
                             <div className="listbtn">
-                                <Link to="/cardetails">
-                                  View Details{" "}
-                                  <i
-                                    className="fa fa-arrow-circle-right"
-                                    aria-hidden="true"
-                                  ></i>
-                                  </Link>
+                              <Link to="/cardetails">
+                                View Details{" "}
+                                <i
+                                  className="fa fa-arrow-circle-right"
+                                  aria-hidden="true"
+                                ></i>
+                              </Link>
                             </div>
                           </div>
                         </div>
