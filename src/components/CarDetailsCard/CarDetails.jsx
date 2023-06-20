@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import SubNav from "../Navbar/SubNav";
 
 const CarDetails = () => {
@@ -201,7 +201,7 @@ const CarDetails = () => {
                   </div>
                 </div>
               </div>
-
+              {/* 
               <div className="relatedJobs">
                 <h3>Related Ads</h3>
                 <ul className="searchList">
@@ -409,21 +409,21 @@ const CarDetails = () => {
                     </div>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
 
             <div className="col-md-4">
               <div className="jbside">
                 <div className="adsalary">
-                  Price <strong>$9000.00</strong>
+                  Price <strong>₹ 5,00,000</strong>
                 </div>
                 <div className="ptext">
                   <i className="fa fa-clock-o" aria-hidden="true"></i> 7 Jan, 16
                   10:10 pm
                 </div>
                 <div className="ptext">
-                  <i className="fa fa-map-marker" aria-hidden="true"></i> New
-                  York, USA
+                  <i className="fa fa-map-marker" aria-hidden="true"></i>
+                  Kharadi, Pune
                 </div>
                 <div className="clearfix"></div>
                 <div className="adButtons">
@@ -432,15 +432,15 @@ const CarDetails = () => {
                     <i className="fa fa-phone" aria-hidden="true"></i> 555 456
                     46679
                   </a>{" "}
-                  <a href="#." className="btn">
+                  {/* <a href="#." className="btn">
                     <i className="fa fa-envelope" aria-hidden="true"></i> Send A
                     Message
-                  </a>{" "}
-                  <a href="#." className="btn">
+                  </a>{" "} */}
+                  {/* <a href="#." className="btn">
                     <i className="fa fa-print" aria-hidden="true"></i> Print
                     this Ad
-                  </a>{" "}
-                  <a href="#." className="btn">
+                  </a>{" "} */}
+                  {/* <a href="#." className="btn">
                     <i className="fa fa-floppy-o" aria-hidden="true"></i> Save
                     This Ad
                   </a>{" "}
@@ -450,7 +450,7 @@ const CarDetails = () => {
                       aria-hidden="true"
                     ></i>{" "}
                     Report Abuse
-                  </a>{" "}
+                  </a>{" "} */}
                 </div>
               </div>
 
@@ -460,7 +460,7 @@ const CarDetails = () => {
                   <li className="row">
                     <div className="col-md-6 col-xs-6">Registered City</div>
                     <div className="col-md-6 col-xs-6">
-                      <span>New York</span>
+                      <span>Pune</span>
                     </div>
                   </li>
                   <li className="row">
@@ -526,7 +526,7 @@ const CarDetails = () => {
                 </ul>
               </div>
 
-              <div className="jbside">
+              {/* <div className="jbside">
                 <h3>Contact This Seller</h3>
                 <div className="formpanel">
                   <div className="formrow">
@@ -565,7 +565,7 @@ const CarDetails = () => {
                   </div>
                   <input type="submit" className="btn" value="Submit" />
                 </div>
-              </div>
+              </div> */}
 
               <div className="jbside">
                 <h3>Stay Safe</h3>
