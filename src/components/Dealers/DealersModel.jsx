@@ -12,6 +12,11 @@ import {
   ModalBody,
   ModalFooter,
   ModalCloseButton,
+  FormLabel,
+  Select,
+  Input,
+  FormControl,
+  Textarea,
 } from "@chakra-ui/react";
 const DealersModel = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -66,10 +71,25 @@ const DealersModel = () => {
             <Modal isOpen={isModalOpen} onClose={handleModalClose}>
               <ModalOverlay />
               <ModalContent>
-                <ModalHeader>Edit</ModalHeader>
+                <ModalHeader>Edit Details</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
-                  {/* Add your form or edit content here */}
+                  <FormControl>
+                    <FormLabel>Price</FormLabel>
+                    <Input type="text" placeholder="Enter price" />
+
+                    <FormLabel>Location</FormLabel>
+                    <Input type="text" placeholder="Enter location" />
+
+                    <FormLabel>Status</FormLabel>
+                    <Select placeholder="Select status">
+                      <option value="open">Open</option>
+                      <option value="close">Close</option>
+                    </Select>
+
+                    <FormLabel>Car Details</FormLabel>
+                    <Textarea placeholder="Enter car details" />
+                  </FormControl>
                 </ModalBody>
                 <ModalFooter>
                   <Button colorScheme="teal" mr={3} onClick={handleModalClose}>
