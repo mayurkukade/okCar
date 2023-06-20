@@ -619,9 +619,9 @@ const Home = () => {
           </ul>
         </div>
       </div> */}
-      <div className="section whitebg">
-        <div className="container">
-          <div className="titleTop">
+      {/* <div className="section whitebg">
+        <div className="container"> */}
+          {/* <div className="titleTop">
             <h3>
               Used Cars By <span>Area</span>
             </h3>
@@ -630,8 +630,8 @@ const Home = () => {
               varius, orci id facilisis egestas, neque purus sagittis arcu, nec
               maximus quam odio nec elit Pellentesque eget ipsum mattis
             </p>
-          </div>
-          <div className="topsearchwrap">
+          </div> */}
+          {/* <div className="topsearchwrap">
             <ul className="row catelist">
               <li className="col-md-3 col-sm-6 col-xs-6">
                 <a href="#">
@@ -754,12 +754,14 @@ const Home = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
           {/* <div className="wideBanner margintop40">
             <img src="images/google-ad-wide.jpg" alt="" />
           </div> */}
-        </div>
-      </div>
+        {/* </div>
+      </div> */}
+
+      
       <div className="taglinewrap">
         <div className="container">
           <h2>Get Started Today</h2>

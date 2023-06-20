@@ -66,7 +66,7 @@ const AddCar = () => {
                     <div className="col-md-4">
                       <div className="formrow">
                         <select className="form-control" name="msalary">
-                          <option>Select Mdel</option>
+                          <option>Select Model</option>
                           <option>2017</option>
                           <option>2016</option>
                           <option>2015</option>
