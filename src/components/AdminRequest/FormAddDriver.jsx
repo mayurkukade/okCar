@@ -1,12 +1,19 @@
-import { Stack, Input, ButtonGroup, Button, FormLabel } from "@chakra-ui/react";
+/* eslint-disable react/prop-types */
+import { Stack, Input, ButtonGroup, Button, FormLabel, Flex } from "@chakra-ui/react";
 import { useState } from "react";
 
-const FormAdddealer = ({ firstFieldRef, onCancel }) => {
+const FormAddDriver = ({ firstFieldRef, onCancel }) => {
   const [licenseUpload, setLicenseUpload] = useState("");
 
   const [dealer, setdealer] = useState({
-    dealerName: "",
-    dealerAddress: "",
+    firstName: "",
+    lastname:"",
+    address: "",
+    city:"",
+    area:"",
+    whatsAppNumber:"",
+    alternateNumber:"",
+    email:""
   });
 
   const onChangeHandler = (e) => {
@@ -32,24 +39,83 @@ const FormAdddealer = ({ firstFieldRef, onCancel }) => {
   };
   return (
     <>
-      <Stack spacing={4}>
-        <FormLabel>Fill In Required Details</FormLabel>
+      <Stack spacing={4} >
+        <Flex>
+
+       
+        <FormLabel>First Name</FormLabel>
         <Input
           label="Dealer's Full Name"
-          id="dealerName"
-          name="dealerName"
+          id="firstName"
+          name="firstName"
           ref={firstFieldRef}
           onChange={onChangeHandler}
           placeholder="please fill dealer name"
-          value={dealer.dealerName}
+          value={dealer.firstName}
         />
+        <FormLabel>Last Name</FormLabel>
+        <Input
+          label="Dealer's Full Name"
+          id="lastName"
+          name="lasttName"
+          ref={firstFieldRef}
+          onChange={onChangeHandler}
+          placeholder="please fill dealer name"
+          value={dealer.lastname}
+        />
+         </Flex>
         <FormLabel>Address</FormLabel>
         <Input
           label="address"
           id="address"
           name="address"
           placeholder="please fill address"
-          value={dealer.dealerAddress}
+          value={dealer.address}
+          onChange={onChangeHandler}
+        />
+        <FormLabel>City</FormLabel>
+        <Input
+          label="city"
+          id="city"
+          name="city"
+          placeholder="please fill address"
+          value={dealer.city}
+          onChange={onChangeHandler}
+        />
+        <FormLabel>Area</FormLabel>
+        <Input
+          label="area"
+          id="area"
+          name="area"
+          placeholder="please fill address"
+          value={dealer.area}
+          onChange={onChangeHandler}
+        />
+        <FormLabel>WhatsApp Number</FormLabel>
+        <Input
+          label="area"
+          id="area"
+          name="area"
+          placeholder="please fill address"
+          value={dealer.whatsAppNumber}
+          onChange={onChangeHandler}
+        />
+        <FormLabel>Alternate Number</FormLabel>
+        <Input
+          label="area"
+          id="area"
+          name="area"
+          placeholder="please fill address"
+          value={dealer.alternateNumber}
+          onChange={onChangeHandler}
+        />
+        <FormLabel>Email</FormLabel>
+        <Input
+          label="email"
+          id="email"
+          name="email"
+          placeholder="please fill address"
+          value={dealer.email}
           onChange={onChangeHandler}
         />
 
@@ -74,4 +140,4 @@ const FormAdddealer = ({ firstFieldRef, onCancel }) => {
   );
 };
 
-export default FormAdddealer;
+export default FormAddDriver;

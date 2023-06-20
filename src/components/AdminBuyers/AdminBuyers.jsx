@@ -1,12 +1,9 @@
 import { buyers } from "../../json/buyers.json";
-import React, { useState } from "react";
+import React from "react";
 import TableModel from "../tableModel/TableModel";
-import { Button } from "@chakra-ui/react";
 
 const AdminBuyers = () => {
-  const [toggle, setToggle] = useState(true)
-
-console.log(toggle)
+  
   
 
 

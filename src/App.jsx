@@ -3,6 +3,12 @@ import AdminRequest from "./components/AdminRequest/AdminRequest";
 import { Routes, Route } from "react-router-dom";
 import DealersModel from "./components/Dealers/DealersModel";
 
+//Admin🤴
+import AdminPage from "./components/Admin/AdminPage";
+import DealerManegment from "./components/Admin/DealerManegment";
+import Notification from "./components/Admin/Notification";
+import UserRequest from "./components/Admin/UserRequest";
+
 import SignIn from "./components/SignIn/SignIn.jsx";
 import Register from "./components/SignUp/SignUp.jsx";
 
@@ -25,14 +31,19 @@ const App = () => {
       <Routes>
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<Register />} />
-        <Route element={<AppLayout />}>
+     
           <Route
             element={
               <RequireAuth allowedRoles={[...Object.values(OnlyAdmin)]} />
             }>
-            <Route path="/adminrequest" element={<AdminRequest />} />
+              <Route  element={<AdminPage/>} >
+                <Route path="/dealersmanegment" element={<DealerManegment/>} />
+                <Route path="/userrequest" element={<UserRequest/>} />
+                <Route path="/notification" element={<Notification/>} />
+              </Route>
           </Route>
-       
+          <Route element={<AppLayout />}>
+          <Route path="/adminrequest" element={<AdminRequest />} />
 
         <Route path="/" element={<Home />} />
         <Route path="/adminbuyers" element={<AdminBuyers />} />
