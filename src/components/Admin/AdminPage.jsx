@@ -10,6 +10,7 @@ import {
   PopoverContent,
   PopoverArrow,
   PopoverCloseButton,
+  Box,
 } from "@chakra-ui/react";
 import { FocusLock } from "@chakra-ui/react";
 import "./adminpage.css";
@@ -27,27 +28,31 @@ const AdminPage = () => {
   return (
     <>
       <div className="Container">
-        <div className="tableContainer">
+        <div className="tableContainer" style={{ border: "2px solid black" }}>
           <Tabs isFitted>
             <TabList>
-              <Link to={"/dealersmanegment"} spacing={4}>
+              <Link
+                to={"/dealersmanegment"}
+                spacing={8}
+                style={{ width: "550px" }}
+              >
                 <Tab fontSize={"20px"}>
                   <span>Dealer Management</span>{" "}
                 </Tab>
               </Link>
-              <Link to={"/userrequest"}>
+              <Link to={"/userrequest"} style={{ width: "550px" }}>
                 <Tab fontSize={"20px"}>
                   {" "}
                   <span>User Request</span>{" "}
                 </Tab>
               </Link>
 
-              <Tab fontSize={"20px"}>
+              <Box fontSize={"20px"} style={{ width: "550px" }}>
                 <Popover placement="bottom">
                   <PopoverTrigger>
                     <Button colorScheme="messenger">Add Dealer</Button>
                   </PopoverTrigger>
-                  <PopoverContent p={3} w={'100'}>
+                  <PopoverContent p={3} w={"100"}>
                     <FocusLock returnFocus persistentFocus={false}>
                       <PopoverArrow />
                       <PopoverCloseButton />
@@ -58,11 +63,11 @@ const AdminPage = () => {
                     </FocusLock>
                   </PopoverContent>
                 </Popover>
-              </Tab>
+              </Box>
 
-              <Tab>
+              <Box>
                 <AvtarModal />
-              </Tab>
+              </Box>
             </TabList>
 
             <TabPanels>

@@ -3,13 +3,11 @@
 const Footer = () => {
   return (
     <div>
-      <div className="footerWrap">
+      {/* <div className="footerWrap">
         <div className="container">
           <div className="row">
-            {/* <!--About Us--> */}
             <div className="col-md-3 col-sm-4">
               <h5>Cars By Make</h5>
-              {/* <!--Quick Links menu Start--> */}
               <ul className="quicklinks">
                 <li>
                   <a href="#.">Daihatsu Cars for Sale</a>
@@ -40,12 +38,9 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            {/* <!--About us End--> */}
-
-            {/* <!--About Us--> */}
+          
             <div className="col-md-3 col-sm-4">
               <h5>Cars By City</h5>
-              {/* <!--Quick Links menu Start--> */}
               <ul className="quicklinks">
                 <li>
                   <a href="#.">Cars in New York</a>
@@ -76,12 +71,10 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            {/* <!--About us End--> */}
 
-            {/* <!--Quick Links--> */}
+           
             <div className="col-md-2 col-sm-4">
               <h5>Explore Us</h5>
-              {/* <!--Quick Links menu Start--> */}
               <ul className="quicklinks">
                 <li>
                   <a href="#.">Used Cars</a>
@@ -109,12 +102,10 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            {/* <!--Quick Links menu end--> */}
 
-            {/* <!--Quick Links--> */}
+           
             <div className="col-md-2 col-sm-4">
               <h5>Quick Links</h5>
-              {/* <!--Quick Links menu Start--> */}
               <ul className="quicklinks">
                 <li>
                   <a href="#.">About Us </a>
@@ -139,12 +130,9 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            {/* <!--Quick Links menu end--> */}
 
-            {/* <!--Jobs By Industry--> */}
             <div className="col-md-2 col-sm-4">
               <h5>Help Center</h5>
-              {/* <!--Industry menu Start--> */}
               <ul className="quicklinks">
                 <li>
                   <a href="#.">Help &amp; Support</a>
@@ -168,7 +156,6 @@ const Footer = () => {
                   <a href="#.">History</a>
                 </li>
               </ul>
-              {/* <!--Industry menu End--> */}
               <div className="clear"></div>
             </div>
           </div>
@@ -190,7 +177,7 @@ const Footer = () => {
               <i className="fa fa-youtube-square" aria-hidden="true"></i>
             </a>
           </div> */}
-          {/* <div className="note">
+      {/* <div className="note">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
             suscipit, ante in bibendum placerat, tortor magna varius ex, vel
             efficitur leo massa eleifend enim. Morbi fermentum neque eget lacus
@@ -198,11 +185,9 @@ const Footer = () => {
             hendrerit vitae, pharetra nec libero. Mauris sagittis, justo ut
             sollicitudin porttitor, tortor augue dictum purus.
           </div> */}
-        </div>
-      </div>
-      {/* <!--Footer end--> */}
+      {/* </div>
+      </div>  */}
 
-      {/* <!--Copyright--> */}
       <div className="copyright">
         <div className="container">
           <div className="bttxt">

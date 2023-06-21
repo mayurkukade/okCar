@@ -63,7 +63,6 @@ const DealersModel = () => {
               onClick={handleEditClick}
               leftIcon={<EditIcon />}
               _hover={{ bg: "#5DC302" }}
-              // style={{ backgroundColor: "#5DC302" }}
             >
               Edit
             </Button>
@@ -78,16 +77,13 @@ const DealersModel = () => {
                   <FormControl>
                     <FormLabel>Price</FormLabel>
                     <Input type="text" placeholder="Enter price" />
-
                     <FormLabel>Location</FormLabel>
                     <Input type="text" placeholder="Enter location" />
-
                     <FormLabel>Status</FormLabel>
                     <Select placeholder="Select status">
                       <option value="open">Open</option>
                       <option value="close">Close</option>
                     </Select>
-
                     <FormLabel>Car Details</FormLabel>
                     <Textarea placeholder="Enter car details" />
                   </FormControl>
