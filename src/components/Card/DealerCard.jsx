@@ -22,7 +22,7 @@ import {
   FormControl,
   Textarea,
 } from "@chakra-ui/react";
-import "./Card.css";
+
 
 const DriverCard = ({
   DealerID,
@@ -54,7 +54,9 @@ const DriverCard = ({
     setIsDeleteModalOpen(false);
   };
   return (
-    <Box className="cardContainer">
+    <>
+
+    <Box>
       <Center py={6}>
         <Box
           // maxW={"350px"}
@@ -170,6 +172,7 @@ const DriverCard = ({
         </Box>
       </Center>
     </Box>
+    </>
   );
 };
 

@@ -4,7 +4,10 @@ import { Box } from "@chakra-ui/react";
 import "./tableCard.css";
 import BuyerCard from "../Card/BuyerCard";
 import DealerCard from "../Card/DealerCard";
+import DealerManegmentCard from "../Card/DealerManegmentCard";
 import UserRequestCard from "../Card/UserRequestCard";
+
+
 export default function TableCard({ CardDatas }) {
   let cardConditionalRender = Object.keys(CardDatas[0])[0];
   console.log(cardConditionalRender)
@@ -36,30 +39,47 @@ export default function TableCard({ CardDatas }) {
             DealerID={cardData.DealerID}
             DealerName={cardData.DealerName}
             Location={cardData.Location}
-            PhoneNo={cardData.ContactNo}
+            PhoneNo={cardData.PhoneNo}
             TotalCars={cardData.TotalCars}
-            TotalDeals={cardData.Edit}
+            TotalDeals={cardData.TotalDeals}
           />
+        </div>
+      );
+    });
+  }else if(cardConditionalRender === 'dealersManegment'){
+    cardDetails = CardDatas.map((cardData, index) => {
+      console.log(cardData)
+      return (
+        <div key={index}>
+        <DealerManegmentCard
+        DealerID={cardData.DealerID}
+        DealerName={cardData.DealerName}
+        Location={cardData.Location}
+        ContactNo={cardData.TotalCars}
+        TotalCars={cardData.TotalCars}
+        />
         </div>
       );
     });
   }else if(cardConditionalRender === 'userName'){
     cardDetails = CardDatas.map((cardData, index) => {
-      
+      console.log(cardData)
       return (
         <div key={index}>
-          <UserRequestCard
-            userName={cardData.userName}
-            requestID={cardData.requestID}
-            DealerID={cardData.DealerID}
-            Location={cardData.Location}
-            CarID={cardData.CarID}
-            DealStatus={cardData.DealStatus}
-          />
+        <UserRequestCard
+        CarID={cardData.CarID}
+        DealStatus={cardData.DealStatus}
+        DealerID={cardData.DealerID}
+        Location={cardData.Location}
+        RequestID={cardData.requestID}
+        Username={cardData.userName}
+
+        />
         </div>
+       
       );
     });
   }
 
-  return <Box className="cardContainer">{cardDetails}</Box>;
+  return <Box>{cardDetails}</Box>;
 }

@@ -1,20 +1,19 @@
 /* eslint-disable react/prop-types */
 
 import {
-  Heading,
-  Box,
-  Center,
-  Text,
-  Stack,
-  useColorModeValue,
-} from "@chakra-ui/react";
-const UserRequestCard = ({
-  CarID,
-  DealStatus,
-  DealerID,
-  Location,
-  RequestID,
-  Username
+    Heading,
+    Box,
+    Center,
+    Text,
+    Stack,
+    useColorModeValue,
+  } from "@chakra-ui/react";
+const DealerManegmentCard = ({
+    DealerID,
+    DealerName,
+    Location,
+    ContactNo,
+    TotalCars
 }) => {
   return (
     <>
@@ -32,27 +31,26 @@ const UserRequestCard = ({
           <Box p={6}>
             <Stack spacing={0} align={"center"} mb={5}>
               <Heading fontSize={"2xl"} fontWeight={500} fontFamily={"body"}>
-               User
+               Dealer Manegment
               </Heading>
             </Stack>
 
             <Box direction={"row"} justify={"center"} spacing={6}>
-              <Text color={"gray.500"}>Username Name :{Username}</Text>
-              <Text color={"gray.500"}>RequestID :{RequestID} </Text>
-              <Text color={"gray.500"}>DealerID : {DealerID} </Text>
-              <Text color={"gray.500"}>Location :{Location} </Text>
-              <Text color={"gray.500"}>CardID : {CarID}</Text>
-              <Text color={"gray.500"}>Status :{DealStatus} </Text>
-              
+              <Text color={"gray.500"}>Dealer Name :{DealerName}</Text>
+              <Text color={"gray.500"}>DealerID :{DealerID} </Text>
+              <Text color={"gray.500"}>Location : {Location} </Text>
+              <Text color={"gray.500"}>Contact No :{ContactNo} </Text>
+              <Text color={"gray.500"}>Total Cars : {TotalCars}</Text>
+              <Text color={"gray.500"}>Edit :Edit </Text>
+             
             </Box>
           </Box>
         </Box>
       </Center>
     </Box>
-      
     </>
   )
 }
 
-export default UserRequestCard
+export default DealerManegmentCard
 
