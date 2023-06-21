@@ -10,17 +10,17 @@ const SignUp = () => {
           <div className="row">
             <div className="col-md-6 col-md-offset-3">
               <div className="userccount">
-                <div className="alert alert-success" role="alert">
+                {/* <div className="alert alert-success" role="alert">
                   <strong>Well done!</strong> Your account successfully created.
-                </div>
-                <div className="alert alert-warning" role="alert">
+                </div> */}
+                {/* <div className="alert alert-warning" role="alert">
                   <strong>Warning!</strong> Better check yourself, you&apos;re
                   not looking too good.
-                </div>
-                <div className="alert alert-danger" role="alert">
+                </div> */}
+                {/* <div className="alert alert-danger" role="alert">
                   <strong>Oh snap!</strong> Change a few things up and try
                   submitting again.
-                </div>
+                </div> */}
                 <div className="userbtns">
                   <ul className="nav nav-tabs">
                     <li className="active">

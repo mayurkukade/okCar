@@ -25,6 +25,7 @@ import { OnlyAdmin } from "./config/role";
 
 import CantAccess from "./components/cantAccess/CantAccess";
 import Contact from "./components/Contact/Contact";
+import ResetPassword from "./components/ResetPassword/ResetPassword";
 
 const App = () => {
   return (
@@ -59,6 +60,7 @@ const App = () => {
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/carDetails" element={<CarCard />} />
           <Route path="/access" element={<CantAccess />} />
+          <Route path="/resetpassword" element={<ResetPassword />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
