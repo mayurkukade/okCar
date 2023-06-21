@@ -96,10 +96,13 @@ const SignIn = () => {
                 <div className="newuser">
                   <i className="fa fa-user" aria-hidden="true"></i> New User?{" "}
                   <Link to="/signup">
-                    <a href="#.">Register Here</a>
+                    <a>Register Here</a>
+                  </Link>{" "}
+                  |
+                  <Link to="/resetpassword">
+                    <a> Forgot Password</a>
                   </Link>
                 </div>
-              
               </div>
             </div>
           </div>
