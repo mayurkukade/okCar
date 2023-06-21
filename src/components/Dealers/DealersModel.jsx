@@ -2,7 +2,7 @@ import { useState } from "react";
 import React from "react";
 import TableModel from "../tableModel/TableModel";
 import { Dealers } from "../../json/driver.json";
-import { EditIcon } from "@chakra-ui/icons";
+import { EditIcon, DeleteIcon } from "@chakra-ui/icons";
 import {
   Button,
   Modal,
@@ -17,16 +17,29 @@ import {
   Input,
   FormControl,
   Textarea,
+  Text,
 } from "@chakra-ui/react";
 const DealersModel = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const handleEditClick = () => {
-    setIsModalOpen(true);
+    setIsEditModalOpen(true);
+  };
+
+  const handleDeleteClick = () => {
+    setIsDeleteModalOpen(true);
   };
 
   const handleModalClose = () => {
-    setIsModalOpen(false);
+    setIsEditModalOpen(false);
+    setIsDeleteModalOpen(false);
+  };
+
+  // delete item
+  const handleDeleteItem = () => {
+    console.log("Delete");
+    setIsDeleteModalOpen(false);
   };
   const data = React.useMemo(() => Dealers, []);
   const columns = React.useMemo(
@@ -52,7 +65,7 @@ const DealersModel = () => {
         accessor: "TotalCars",
       },
       {
-        Header: "Edit",
+        Header: "Action",
         accessor: "Edit",
         Cell: () => (
           <>
@@ -63,12 +76,22 @@ const DealersModel = () => {
               onClick={handleEditClick}
               leftIcon={<EditIcon />}
               _hover={{ bg: "#5DC302" }}
+              mr={2}
             >
               Edit
             </Button>
-
-            {/* Modal */}
-            <Modal isOpen={isModalOpen} onClose={handleModalClose}>
+            {/* Delete */}
+            <Button
+              variant="outline"
+              colorScheme="teal"
+              onClick={handleDeleteClick}
+              leftIcon={<DeleteIcon />}
+              _hover={{ bg: "#5DC302" }}
+            >
+              Delete
+            </Button>
+            {/* Edit Modal */}
+            <Modal isOpen={isEditModalOpen} onClose={handleModalClose}>
               <ModalOverlay />
               <ModalContent>
                 <ModalHeader>Edit Details</ModalHeader>
@@ -98,11 +121,30 @@ const DealersModel = () => {
                 </ModalFooter>
               </ModalContent>
             </Modal>
+            {/* Delete Modal */}
+            <Modal isOpen={isDeleteModalOpen} onClose={handleModalClose}>
+              <ModalOverlay />
+              <ModalContent>
+                <ModalHeader>Delete Item</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>
+                  <Text>Are you sure you want to delete this item?</Text>
+                </ModalBody>
+                <ModalFooter>
+                  <Button colorScheme="red" mr={3} onClick={handleDeleteItem}>
+                    Delete
+                  </Button>
+                  <Button variant="ghost" onClick={handleModalClose}>
+                    Cancel
+                  </Button>
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
           </>
         ),
       },
     ],
-    [isModalOpen]
+    [isEditModalOpen, isDeleteModalOpen]
   );
 
   return (
