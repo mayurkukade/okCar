@@ -1,6 +1,31 @@
-// import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ChangePasswordPage = () => {
+  const navigate = useNavigate();
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleNewPasswordChange = (e) => {
+    setNewPassword(e.target.value);
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (newPassword === confirmPassword) {
+      console.log("Password updated successfully");
+      navigate("/");
+    } else {
+      setError("Passwords do not match");
+    }
+  };
+
   return (
     <div
       className="listpgWraper"
@@ -17,21 +42,30 @@ const ChangePasswordPage = () => {
             <div className="userccount">
               <h5>Reset Password</h5>
               <div className="formpanel">
-                <div className="formrow">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="New Password"
-                  />
-                </div>
-                <div className="formrow">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Confirm Password"
-                  />
-                </div>
-                <input type="submit" className="btn" value="Update" />
+                <form onSubmit={handleSubmit}>
+                  <div className="formrow">
+                    <input
+                      type="password"
+                      className="form-control"
+                      placeholder="New Password"
+                      value={newPassword}
+                      onChange={handleNewPasswordChange}
+                      required
+                    />
+                  </div>
+                  <div className="formrow">
+                    <input
+                      type="password"
+                      className="form-control"
+                      placeholder="Confirm Password"
+                      value={confirmPassword}
+                      onChange={handleConfirmPasswordChange}
+                      required
+                    />
+                  </div>
+                  {error && <p>{error}</p>}
+                  <input type="submit" className="btn" value="Update" />
+                </form>
               </div>
             </div>
           </div>
