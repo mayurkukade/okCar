@@ -6,7 +6,7 @@ import DealersModel from "./components/Dealers/DealersModel";
 //Admin🤴
 import AdminPage from "./components/Admin/AdminPage";
 import DealerManegment from "./components/Admin/DealerManegment";
-import Notification from "./components/Admin/Notification";
+
 import UserRequest from "./components/Admin/UserRequest";
 
 import SignIn from "./components/SignIn/SignIn.jsx";
@@ -31,17 +31,18 @@ const App = () => {
       <Routes>
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<Register />} />
-
-        <Route
-          element={<RequireAuth allowedRoles={[...Object.values(OnlyAdmin)]} />}
-        >
-          <Route element={<AdminPage />}>
-            <Route path="/dealersmanegment" element={<DealerManegment />} />
-            <Route path="/userrequest" element={<UserRequest />} />
-            <Route path="/notification" element={<Notification />} />
-          </Route>
-        </Route>
         <Route element={<AppLayout />}>
+          <Route
+            element={
+              <RequireAuth allowedRoles={[...Object.values(OnlyAdmin)]} />
+            }
+          >
+            <Route element={<AdminPage/>} >
+            <Route path="/dealersManegment" element={<DealerManegment />} />
+            <Route path="/userrequest" element={<UserRequest />} />
+            </Route>
+          </Route>
+
           <Route path="/adminrequest" element={<AdminRequest />} />
 
           <Route path="/" element={<Home />} />

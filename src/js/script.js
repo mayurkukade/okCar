@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-mixed-spaces-and-tabs */
 "use strict";
 
 /* ==== Jquery Functions ==== */

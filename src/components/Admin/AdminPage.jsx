@@ -13,9 +13,10 @@ import {
 } from "@chakra-ui/react";
 import { FocusLock } from "@chakra-ui/react";
 import "./adminpage.css";
-import AvtarModal from "../Navbar/AvtarModal";
+
 import { Button } from "@chakra-ui/react";
 import FormAddDriver from "../AdminRequest/FormAddDriver";
+
 const AdminPage = () => {
   const navigate = useNavigate();
   const { onClose } = useDisclosure();
@@ -27,7 +28,7 @@ const AdminPage = () => {
   return (
     <>
       <div className="Container">
-        <div className="tableContainer">
+       
           <Tabs isFitted>
             <TabList>
               <Link to={"/dealersmanegment"} spacing={4}>
@@ -47,7 +48,7 @@ const AdminPage = () => {
                   <PopoverTrigger>
                     <Button colorScheme="messenger">Add Dealer</Button>
                   </PopoverTrigger>
-                  <PopoverContent p={3} w={'100'}>
+                  <PopoverContent p={3} w={"100"}>
                     <FocusLock returnFocus persistentFocus={false}>
                       <PopoverArrow />
                       <PopoverCloseButton />
@@ -59,10 +60,6 @@ const AdminPage = () => {
                   </PopoverContent>
                 </Popover>
               </Tab>
-
-              <Tab>
-                <AvtarModal />
-              </Tab>
             </TabList>
 
             <TabPanels>
@@ -70,7 +67,7 @@ const AdminPage = () => {
             </TabPanels>
           </Tabs>
         </div>
-      </div>
+ 
     </>
   );
 };
