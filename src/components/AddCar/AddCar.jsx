@@ -2,14 +2,6 @@ import { useState } from "react";
 import SubNav from "../Navbar/SubNav";
 
 const AddCar = () => {
-  // Method for Image upload
-  // const [image, setImage] = useState("");
-  // function handleImage(event) {
-  //   console.log(event.target.files);
-  //   console.log(image);
-  //   setImage(event.target.files[0]);
-  // }
-
   const [images, setImages] = useState([]);
   function handleImage(event) {
     const fileList = event.target.files;
@@ -17,12 +9,6 @@ const AddCar = () => {
     setImages(imageArray);
     console.log(imageArray);
   }
-
-  // const handleUpload = () => {
-  //   const formData = new FormData();
-  //   images.forEach((image, index) => {
-  //     formData.append(`image_${index}`, image);
-  //   });
 
   return (
     <>
@@ -33,19 +19,8 @@ const AddCar = () => {
             <div className="col-md-12">
               <div className="userccount">
                 <div className="formpanel">
-                  {/* <h5>Car Information</h5> */}
                   <h5>Add Details Page</h5>
                   <div className="row">
-                    {/* <div className="col-md-12">
-                      <div className="formrow">
-                        <input
-                          type="text"
-                          name="jobtitle"
-                          className="form-control"
-                          placeholder="Car Name"
-                        />
-                      </div>
-                    </div> */}
                     <div className="col-md-6">
                       <div className="formrow">
                         <input
@@ -66,35 +41,6 @@ const AddCar = () => {
                         />
                       </div>
                     </div>
-                    {/* <div className="col-md-6">
-                      <div className="formrow">
-                        <select className="form-control" name="indus">
-                          <option>Type</option>
-                          <option>I want to Sell</option>
-                          <option>I want to Buy</option>
-                        </select>
-                      </div>
-                    </div> */}
-                    {/* <div className="col-md-6">
-                      <div className="formrow">
-                        <select className="form-control" name="indus">
-                          <option>Car type</option>
-                          <option>New</option>
-                          <option>Used</option>
-                        </select>
-                      </div>
-                    </div> */}
-
-                    {/* <div className="col-md-6">
-                      <div className="formrow">
-                        <select className="form-control" name="msalary">
-                          <option>Select Main Catgory</option>
-                          <option>Cars</option>
-                          <option>Motocycle</option>
-                          <option>Truck</option>
-                        </select>
-                      </div>
-                    </div> */}
 
                     <div className="col-md-6">
                       <div className="formrow">
@@ -127,15 +73,6 @@ const AddCar = () => {
                       </div>
                     </div>
 
-                    {/* <div className="col-md-4">
-                      <div className="formrow">
-                        <select className="form-control" name="msalary">
-                          <option>Assembly</option>
-                          <option>Local</option>
-                          <option>Imported</option>
-                        </select>
-                      </div>
-                    </div> */}
                     <div className="col-md-6">
                       <div className="formrow">
                         <select className="form-control" name="msalary">
@@ -150,16 +87,6 @@ const AddCar = () => {
                         </select>
                       </div>
                     </div>
-
-                    {/* <div className="col-md-4">
-                      <div className="formrow">
-                        <select className="form-control" name="msalary">
-                          <option>Registered City</option>
-                          <option>New York</option>
-                          <option>Atlanta</option>
-                        </select>
-                      </div>
-                    </div> */}
 
                     <div className="col-md-4">
                       <div className="formrow">
@@ -235,8 +162,6 @@ const AddCar = () => {
                       </div>
                     </div>
 
-                    {/* End */}
-
                     <div className="col-md-4">
                       <div className="formrow">
                         <select className="form-control" name="msalary">
@@ -268,8 +193,6 @@ const AddCar = () => {
                         />
                       </div>
                     </div>
-
-                    {/* Features */}
 
                     <div className="col-md-12">
                       <h5>Features</h5>
@@ -357,60 +280,8 @@ const AddCar = () => {
                               <div className="clearfix"></div>
                             </div>
                           ))}
-
-                        {/* <div className="fileattached">
-                          {" "}
-                          <img src="images/ads/02.jpg" alt="" />{" "}
-                          <span>file-name-here.jpg</span>{" "}
-                          <i
-                            className="fa fa-check-circle"
-                            aria-hidden="true"
-                          ></i>
-                          <div className="clearfix"></div>
-                        </div> */}
                       </div>
                     </div>
-                    {/* <div className="col-md-6">
-                      <div className="formrow">
-                        <input
-                          type="text"
-                          name="jobtitle"
-                          className="form-control"
-                          placeholder="Ad Price"
-                        />
-                      </div>
-                    </div> */}
-                    {/* <div className="col-md-6">
-                      <div className="formrow">
-                        <input
-                          type="text"
-                          name="jobtitle"
-                          className="form-control"
-                          placeholder="Ad Location"
-                        />
-                      </div>
-                    </div> */}
-                    {/* <div className="col-md-4">
-                      <div className="formrow">
-                        <select className="form-control" name="emptype">
-                          <option>Select State</option>
-                        </select>
-                      </div>
-                    </div> */}
-                    {/* <div className="col-md-4">
-                      <div className="formrow">
-                        <select className="form-control" name="emptype">
-                          <option>Select City</option>
-                        </select>
-                      </div>
-                    </div> */}
-                    {/* <div className="col-md-4">
-                      <div className="formrow">
-                        <select className="form-control" name="experience">
-                          <option>Country</option>
-                        </select>
-                      </div>
-                    </div> */}
 
                     <div className="col-md-6">
                       <h4>Vehicle Description</h4>
