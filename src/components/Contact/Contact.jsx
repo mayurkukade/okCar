@@ -1,6 +1,9 @@
 const Contact = () => {
   return (
-    <div className="inner-page">
+    <div
+      className="inner-page"
+      style={{ backgroundColor: "aqua", height: "85vh" }}
+    >
       <div className="container">
         <div className="contact-wrap">
           <div className="row">
@@ -97,7 +100,10 @@ const Contact = () => {
                     </div>
                     <div
                       className="col-md-12"
-                      style={{ display: "flex", justifyContent: "center" }}
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                      }}
                     >
                       <button
                         title=""

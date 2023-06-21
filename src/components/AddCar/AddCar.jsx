@@ -1,6 +1,15 @@
+import { useState } from "react";
 import SubNav from "../Navbar/SubNav";
 
 const AddCar = () => {
+  // Method for Image upload
+  const [image, setImage] = useState("");
+  function handleImage(event) {
+    console.log(event.target.files);
+    console.log(image);
+    setImage(event.target.files[0]);
+  }
+
   return (
     <>
       <SubNav componentsName={"AddCar"} />
@@ -83,7 +92,7 @@ const AddCar = () => {
                       </div>
                     </div>
 
-                    <div className="col-md-4">
+                    {/* <div className="col-md-4">
                       <div className="formrow">
                         <select className="form-control" name="msalary">
                           <option>Assembly</option>
@@ -91,8 +100,8 @@ const AddCar = () => {
                           <option>Imported</option>
                         </select>
                       </div>
-                    </div>
-                    <div className="col-md-4">
+                    </div> */}
+                    <div className="col-md-6">
                       <div className="formrow">
                         <select className="form-control" name="msalary">
                           <option>Body Type</option>
@@ -221,23 +230,30 @@ const AddCar = () => {
                           {" "}
                           <i className="fa fa-upload" aria-hidden="true"></i>
                           <h4>Upload your photo</h4>
-                          <p>It must be a head-shot photo</p>
+                          {/* <p>It must be a head-shot photo</p> */}
                           <label className="uploadBox">
                             Click here to Upload
-                            <input type="file" name="upload" />
+                            <input
+                              type="file"
+                              name="upload"
+                              onChange={handleImage}
+                            />
                           </label>
                         </div>
-                        <div className="fileattached">
-                          {" "}
-                          <img src="images/ads/01.jpg" alt="" />{" "}
-                          <span>file-name-here.jpg</span>{" "}
-                          <i
-                            className="fa fa-check-circle"
-                            aria-hidden="true"
-                          ></i>
-                          <div className="clearfix"></div>
-                        </div>
-                        <div className="fileattached">
+                        {image && (
+                          <div className="fileattached">
+                            {" "}
+                            <img src="images/ads/01.jpg" alt="" />{" "}
+                            <span>{image.name}</span>{" "}
+                            <i
+                              className="fa fa-check-circle"
+                              aria-hidden="true"
+                            ></i>
+                            <div className="clearfix"></div>
+                          </div>
+                        )}
+
+                        {/* <div className="fileattached">
                           {" "}
                           <img src="images/ads/02.jpg" alt="" />{" "}
                           <span>file-name-here.jpg</span>{" "}
@@ -246,7 +262,7 @@ const AddCar = () => {
                             aria-hidden="true"
                           ></i>
                           <div className="clearfix"></div>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                     {/* <div className="col-md-6">
