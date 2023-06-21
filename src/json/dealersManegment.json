@@ -7,7 +7,7 @@
       "Location": "Kharadi",
       "ContactNo": "1234567890",
       "TotalCars": "20",
-      "Edit": "📝"
+      "Edit": "1"
     },
     {
       "DealerID": "18",
@@ -15,7 +15,7 @@
       "Location": "Kharadi",
       "ContactNo": "1234567890",
       "TotalCars": "12",
-      "Edit": "📝"
+      "Edit": "2"
     },
     {
       "DealerID": "10",
@@ -23,7 +23,7 @@
       "Location": "Kharadi",
       "ContactNo": "1234567890",
       "TotalCars": "12",
-      "Edit": "📝"
+      "Edit": "3"
     },
     {
       "DealerID": "15",
@@ -31,7 +31,7 @@
       "Location": "Kharadi",
       "ContactNo": "1234567890",
       "TotalCars": "12",
-      "Edit": "📝"
+      "Edit": "4"
     },
     {
       "DealerID": "20",
@@ -39,7 +39,7 @@
       "Location": "Kharadi",
       "ContactNo": "1234567890",
       "TotalCars": "12",
-      "Edit": "📝"
+      "Edit": "5"
     }
   
   ]
