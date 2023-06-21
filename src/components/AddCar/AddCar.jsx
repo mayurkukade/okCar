@@ -3,12 +3,26 @@ import SubNav from "../Navbar/SubNav";
 
 const AddCar = () => {
   // Method for Image upload
-  const [image, setImage] = useState("");
+  // const [image, setImage] = useState("");
+  // function handleImage(event) {
+  //   console.log(event.target.files);
+  //   console.log(image);
+  //   setImage(event.target.files[0]);
+  // }
+
+  const [images, setImages] = useState([]);
   function handleImage(event) {
-    console.log(event.target.files);
-    console.log(image);
-    setImage(event.target.files[0]);
+    const fileList = event.target.files;
+    const imageArray = Array.from(fileList);
+    setImages(imageArray);
+    console.log(imageArray);
   }
+
+  // const handleUpload = () => {
+  //   const formData = new FormData();
+  //   images.forEach((image, index) => {
+  //     formData.append(`image_${index}`, image);
+  //   });
 
   return (
     <>
@@ -230,28 +244,29 @@ const AddCar = () => {
                           {" "}
                           <i className="fa fa-upload" aria-hidden="true"></i>
                           <h4>Upload your photo</h4>
-                          {/* <p>It must be a head-shot photo</p> */}
+                          <p>Select multiple photo at a time using ctr button</p>
                           <label className="uploadBox">
                             Click here to Upload
                             <input
                               type="file"
                               name="upload"
                               onChange={handleImage}
+                              multiple
                             />
                           </label>
                         </div>
-                        {image && (
-                          <div className="fileattached">
-                            {" "}
-                            <img src="images/ads/01.jpg" alt="" />{" "}
-                            <span>{image.name}</span>{" "}
-                            <i
-                              className="fa fa-check-circle"
-                              aria-hidden="true"
-                            ></i>
-                            <div className="clearfix"></div>
-                          </div>
-                        )}
+                        {images &&
+                          images.map((image, index) => (
+                            <div className="fileattached" key={index}>
+                              <img src={URL.createObjectURL(image)} alt="" />
+                              <span>{image.name}</span>
+                              <i
+                                className="fa fa-check-circle"
+                                aria-hidden="true"
+                              ></i>
+                              <div className="clearfix"></div>
+                            </div>
+                          ))}
 
                         {/* <div className="fileattached">
                           {" "}
