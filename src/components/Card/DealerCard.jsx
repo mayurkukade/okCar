@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { EditIcon, DeleteIcon } from "@chakra-ui/icons";
+import { EditIcon, DeleteIcon, ExternalLinkIcon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
 import {
   Heading,
   Box,
@@ -79,6 +80,21 @@ const DriverCard = ({
               <Text color={"gray.500"}>Phone No :{PhoneNo}</Text>
               <Text color={"gray.500"}>Total Cars :{TotalCars} </Text>
               <Text color={"gray.500"}>Total Deals :{TotalDeals} </Text>
+              <Text color={"gray.500"}>
+                Car Details :
+                <Link to={`carDetails/${DealerID}`}>
+                  <Button
+                    variant="outline"
+                    colorScheme="teal"
+                    leftIcon={<ExternalLinkIcon />}
+                    _hover={{ bg: "#5DC302" }}
+                    mb={2}
+                    size={"sm"}
+                  >
+                    Details
+                  </Button>
+                </Link>
+              </Text>
               <Text color={"gray.500"}>
                 Action :{" "}
                 <>
