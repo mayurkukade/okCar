@@ -8,12 +8,8 @@ import {
   useSortBy,
   useGlobalFilter,
 } from "react-table";
-// import { useVendorDetailsQuery } from "../../api/vendorSlice";
-// import React, { useEffect, useState } from "react";
-import { Heading, Stack } from "@chakra-ui/react";
-import { StackDivider } from "@chakra-ui/react";
-import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
-import React, { useState } from "react";
+
+
 import {
   Table,
   Thead,
@@ -43,9 +39,7 @@ import {
 } from "react-icons/Md";
 import { BiFirstPage, BiLastPage } from "react-icons/bi";
 import TableCard from "../TableCard/TableCard";
-import BuyerCard from "../Card/BuyerCard.jsx";
-import DriverCard from "../Card/DealerCard";
-import { buyers } from "../../json/buyers.json";
+import React from "react";
 
 const TableModel = ({ data: v, columns }) => {
 
@@ -66,9 +60,7 @@ const TableModel = ({ data: v, columns }) => {
     nextPage,
     previousPage,
     setPageSize,
-    preGlobalFilteredRows,
-    setGlobalFilter,
-    state,
+   
     state: { pageIndex, pageSize },
   } = useTable(
     { columns, data, initialState: { pageIndex: 0, pageSize: 5 } },

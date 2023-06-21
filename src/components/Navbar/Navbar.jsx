@@ -33,7 +33,7 @@ const Navbar = () => {
               <div className="navbar navbar-default" role="navigation">
                 <div className="navbar-collapse collapse" id="nav-main">
                   <ul className="nav navbar-nav">
-                    <li className="dropdown active">
+                    {/* <li className="dropdown active">
                       <a>Home</a>
                     </li>
                     <li>
@@ -44,7 +44,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <Link to="/Contact">Contact</Link>
-                    </li>
+                    </li> */}
                     <li className="postad">
                       <AvtarModal />
                     </li>
@@ -56,6 +56,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <hr/>
     </>
   );
 };
