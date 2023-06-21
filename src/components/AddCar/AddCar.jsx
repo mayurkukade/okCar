@@ -127,14 +127,11 @@ const AddCar = () => {
                     </div>
                     <div className="col-md-4">
                       <div className="formrow">
-                        <select className="form-control" name="msalary">
-                          <option>Color</option>
-                          <option>White</option>
-                          <option>Black</option>
-                          <option>Red</option>
-                          <option>Blue</option>
-                          <option>Sliver</option>
-                        </select>
+                        <input
+                          type="text"
+                          placeholder="Color"
+                          className="form-control"
+                        />
                       </div>
                     </div>
 
@@ -252,7 +249,7 @@ const AddCar = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="col-md-6">
+                    {/* <div className="col-md-6">
                       <div className="formrow">
                         <input
                           type="text"
@@ -261,8 +258,8 @@ const AddCar = () => {
                           placeholder="Ad Price"
                         />
                       </div>
-                    </div>
-                    <div className="col-md-6">
+                    </div> */}
+                    {/* <div className="col-md-6">
                       <div className="formrow">
                         <input
                           type="text"
@@ -271,28 +268,28 @@ const AddCar = () => {
                           placeholder="Ad Location"
                         />
                       </div>
-                    </div>
-                    <div className="col-md-4">
+                    </div> */}
+                    {/* <div className="col-md-4">
                       <div className="formrow">
                         <select className="form-control" name="emptype">
                           <option>Select State</option>
                         </select>
                       </div>
-                    </div>
-                    <div className="col-md-4">
+                    </div> */}
+                    {/* <div className="col-md-4">
                       <div className="formrow">
                         <select className="form-control" name="emptype">
                           <option>Select City</option>
                         </select>
                       </div>
-                    </div>
-                    <div className="col-md-4">
+                    </div> */}
+                    {/* <div className="col-md-4">
                       <div className="formrow">
                         <select className="form-control" name="experience">
                           <option>Country</option>
                         </select>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="col-md-12">
                       <div className="formrow">
                         <textarea

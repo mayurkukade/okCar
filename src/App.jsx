@@ -41,16 +41,21 @@ const App = () => {
             <Route path="/notification" element={<Notification />} />
           </Route>
         </Route>
+        {/* <Route
+          element={<RequireAuth allowedRoles={[...Object.values(OnlyAdmin)]} />}
+        >
+          <Route element={<AdminPage />}>
+            <Route path="/deal" element={<UserRequest />} />
+          </Route>
+        </Route> */}
         <Route element={<AppLayout />}>
           <Route path="/adminrequest" element={<AdminRequest />} />
-
           <Route path="/" element={<Home />} />
           <Route path="/adminbuyers" element={<AdminBuyers />} />
           <Route path="/dealer" element={<DealersModel />} />
-
           <Route path="/addcar" element={<AddCar />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
-          <Route path="/cardetails" element={<CarCard />} />
+          <Route path="/carDetails" element={<CarCard />} />
           <Route path="/access" element={<CantAccess />} />
           <Route path="*" element={<NotFound />} />
         </Route>
