@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
+import { EditIcon, DeleteIcon } from "@chakra-ui/icons";
 import {
   Heading,
   Box,
@@ -6,6 +8,19 @@ import {
   Text,
   Stack,
   useColorModeValue,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalCloseButton,
+  FormLabel,
+  Select,
+  Input,
+  FormControl,
+  Textarea,
 } from "@chakra-ui/react";
 import "./Card.css";
 
@@ -15,8 +30,29 @@ const DriverCard = ({
   Location,
   PhoneNo,
   TotalCars,
-  TotalDeals
+  TotalDeals,
 }) => {
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+
+  const handleEditClick = () => {
+    setIsEditModalOpen(true);
+  };
+
+  const handleDeleteClick = () => {
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsEditModalOpen(false);
+    setIsDeleteModalOpen(false);
+  };
+
+  // delete item
+  const handleDeleteItem = () => {
+    console.log("Delete");
+    setIsDeleteModalOpen(false);
+  };
   return (
     <Box className="cardContainer">
       <Center py={6}>
@@ -43,6 +79,92 @@ const DriverCard = ({
               <Text color={"gray.500"}>Phone No :{PhoneNo}</Text>
               <Text color={"gray.500"}>Total Cars :{TotalCars} </Text>
               <Text color={"gray.500"}>Total Deals :{TotalDeals} </Text>
+              <Text color={"gray.500"}>
+                Action :{" "}
+                <>
+                  {/* Edit Button */}
+                  <Button
+                    variant="outline"
+                    colorScheme="teal"
+                    onClick={handleEditClick}
+                    leftIcon={<EditIcon />}
+                    _hover={{ bg: "#5DC302" }}
+                    mr={2}
+                    size={"sm"}
+                  >
+                    Edit
+                  </Button>
+                  {/* Delete */}
+                  <Button
+                    variant="outline"
+                    colorScheme="teal"
+                    onClick={handleDeleteClick}
+                    leftIcon={<DeleteIcon />}
+                    _hover={{ bg: "#5DC302" }}
+                    size={"sm"}
+                  >
+                    Delete
+                  </Button>
+                  {/* Edit Modal */}
+                  <Modal isOpen={isEditModalOpen} onClose={handleModalClose}>
+                    <ModalOverlay />
+                    <ModalContent>
+                      <ModalHeader>Edit Details</ModalHeader>
+                      <ModalCloseButton />
+                      <ModalBody>
+                        <FormControl>
+                          <FormLabel>Price</FormLabel>
+                          <Input type="text" placeholder="Enter price" />
+                          <FormLabel>Location</FormLabel>
+                          <Input type="text" placeholder="Enter location" />
+                          <FormLabel>Status</FormLabel>
+                          <Select placeholder="Select status">
+                            <option value="open">Open</option>
+                            <option value="close">Close</option>
+                          </Select>
+                          <FormLabel>Car Details</FormLabel>
+                          <Textarea placeholder="Enter car details" />
+                        </FormControl>
+                      </ModalBody>
+                      <ModalFooter>
+                        <Button
+                          colorScheme="teal"
+                          mr={3}
+                          onClick={handleModalClose}
+                        >
+                          Save
+                        </Button>
+                        <Button variant="ghost" onClick={handleModalClose}>
+                          Cancel
+                        </Button>
+                      </ModalFooter>
+                    </ModalContent>
+                  </Modal>
+                  {/* Delete Modal */}
+                  <Modal isOpen={isDeleteModalOpen} onClose={handleModalClose}>
+                    <ModalOverlay />
+                    <ModalContent>
+                      <ModalHeader>Delete Item</ModalHeader>
+                      <ModalCloseButton />
+                      <ModalBody>
+                        <Text>Are you sure you want to delete this item?</Text>
+                      </ModalBody>
+                      <ModalFooter>
+                        <Button
+                          colorScheme="red"
+                          mr={3}
+                          onClick={handleDeleteItem}
+                        >
+                          Delete
+                        </Button>
+                        <Button variant="ghost" onClick={handleModalClose}>
+                          Cancel
+                        </Button>
+                      </ModalFooter>
+                    </ModalContent>
+                  </Modal>
+                </>{" "}
+              </Text>
             </Box>
           </Box>
         </Box>
