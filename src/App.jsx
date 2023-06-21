@@ -24,6 +24,7 @@ import AppLayout from "./components/appLayout/AppLayout";
 import { OnlyAdmin } from "./config/role";
 
 import CantAccess from "./components/cantAccess/CantAccess";
+import Contact from "./components/Contact/Contact";
 
 const App = () => {
   return (
@@ -51,6 +52,7 @@ const App = () => {
         <Route element={<AppLayout />}>
           <Route path="/adminrequest" element={<AdminRequest />} />
           <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/adminbuyers" element={<AdminBuyers />} />
           <Route path="/dealer" element={<DealersModel />} />
           <Route path="/addcar" element={<AddCar />} />
