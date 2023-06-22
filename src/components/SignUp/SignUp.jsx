@@ -35,7 +35,7 @@ const SignUp = () => {
           <div className="row">
             <div className="col-md-6 col-md-offset-3">
               <div className="userccount">
-                <form>
+                <form onSubmit={onSubmitHandler}>
                   <div className="userbtns">
                     <h1>User Register</h1>
                   </div>
@@ -114,12 +114,7 @@ const SignUp = () => {
                         />
                         Terms and Condition
                       </div>
-                      <button
-                        type="submit"
-                        className="btn"
-                        value="Register"
-                        onClick={onSubmitHandler}
-                      >
+                      <button type="submit" className="btn" value="Register">
                         Register
                       </button>
                     </div>
