@@ -3,9 +3,11 @@ import {configureStore} from '@reduxjs/toolkit'
 import authReducer from '../../api/authSlice'
 import { apiSlice } from '../../api/apiSlice'
 
+import {dealersManegmentApiSlice} from '../../api/dealersManegmentApiSlice'
 export const store = configureStore({
     reducer: {
         [apiSlice.reducerPath]: apiSlice.reducer,
+        [dealersManegmentApiSlice.reducerPath]:dealersManegmentApiSlice.reducer,
      
 
         auth: authReducer,

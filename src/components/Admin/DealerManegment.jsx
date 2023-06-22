@@ -1,4 +1,5 @@
 import React from "react";
+
 import { dealersManegment } from "../../json/dealersManegment.json";
 import TableModel from "../tableModel/TableModel";
 import { Button } from "@chakra-ui/react";
@@ -6,6 +7,7 @@ import { EditIcon,DeleteIcon,InfoIcon } from "@chakra-ui/icons";
 
 import { Link } from "react-router-dom";
 const DealerManegment = () => {
+
   const data = React.useMemo(() => dealersManegment, []);
   const columns = React.useMemo(
     () => [
@@ -34,7 +36,7 @@ const DealerManegment = () => {
         accessor: "Edit",
         Cell: (cell) => (
           
-          <div >
+          <div>
             <Link to={`${cell.value}`}>
             <Button
               variant="outline"
@@ -50,13 +52,15 @@ const DealerManegment = () => {
             <Link to={`${cell.value}`}>
             <Button
               variant="outline"
-              colorScheme="purple"
-              marginRight={'0.2rem'}
+              colorScheme="teal"
+            
               leftIcon={<EditIcon />}
-              _hover={{ bg: "#6B46C1",textColor:"white" }}
+              _hover={{ bg: "#5DC302" }}
+              mr={2}
             >
-              Edit 
+              Edit
             </Button>
+          
             </Link>
 
             <Link to={`${cell.value}`}>
