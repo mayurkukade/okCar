@@ -180,7 +180,7 @@ const CarDetails = () => {
                 </div>
               </div>
 
-              <div className="advert-header">
+              {/* <div className="advert-header">
                 <div className="contentbox">
                   <h3>Car Inspection is Important Before buy a Used Car</h3>
                   <div className="row">
@@ -200,7 +200,7 @@ const CarDetails = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
               {/* 
               <div className="relatedJobs">
                 <h3>Related Ads</h3>
