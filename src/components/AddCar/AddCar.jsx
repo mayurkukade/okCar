@@ -35,6 +35,7 @@ const AddCar = () => {
     powerSteering: "",
     powerWindows: "",
   });
+  const [images, setImages] = useState([]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -71,6 +72,7 @@ const AddCar = () => {
       powerLocks: formData.powerLocks,
       powerSteering: formData.powerSteering,
       powerWindows: formData.powerWindows,
+      images,
     };
 
     // Send the form data to the backend
@@ -83,7 +85,6 @@ const AddCar = () => {
     console.log(data);
   };
 
-  const [images, setImages] = useState([]);
   function handleImage(event) {
     const fileList = event.target.files;
     const imageArray = Array.from(fileList);
