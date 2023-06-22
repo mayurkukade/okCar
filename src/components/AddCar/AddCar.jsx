@@ -1,6 +1,5 @@
 import { useState } from "react";
 import SubNav from "../Navbar/SubNav";
-import { event } from "jquery";
 
 const AddCar = () => {
   const [formData, setFormData] = useState({
