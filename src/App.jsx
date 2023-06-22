@@ -56,6 +56,7 @@ const App = () => {
           <Route path="/addcar" element={<AddCar />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/carDetails" element={<CarCard />} />
+          <Route path="/dealer/carDetails" element={<CarCard />} />
           <Route path="/access" element={<CantAccess />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
           <Route path="/carlist" element={<CarList />} />

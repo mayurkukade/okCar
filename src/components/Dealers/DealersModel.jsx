@@ -85,10 +85,12 @@ const DealersModel = () => {
       {
         Header: "Car Details",
         accessor: "TotalCars",
-        Cell: (cell) => (
+        Cell: () => (
+          // Cell: (cell) => (
           <Flex>
             {/* Edit Button */}
-            <Link to={`carDetails/${cell.value}`}>
+            {/* <Link to={`carDetails/${cell.value}`}> */}
+            <Link to={`carDetails`}>
               <Button
                 variant="outline"
                 colorScheme="teal"
@@ -220,6 +222,13 @@ const DealersModel = () => {
 
   return (
     <>
+      <Flex justifyContent={"flex-end"} padding={"20px"}>
+        <Link to="/addcar">
+          <Button bgColor={"#5DC302"} _on>
+            Add Car
+          </Button>
+        </Link>
+      </Flex>
       <TableModel data={data} columns={columns} />
     </>
   );
