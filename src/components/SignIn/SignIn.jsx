@@ -15,7 +15,10 @@ const SignIn = () => {
   const [login] = useLoginMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  
   const toast = useToast();
+
+
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
     setSignState((preVal) => {
@@ -33,13 +36,20 @@ const SignIn = () => {
       const res = await login({ email, password }).unwrap();
       console.log(res);
       dispatch(setCredentials({ ...res }));
+      const resRole = res.results.user[0].role
 
+      if(resRole === 'vendor'){
+        navigate("/dealer");
+      }else if(resRole === 'admin'){
+        navigate("/dealersManegment")
+      }
+        
       toast({
         status: "success",
         position: "top",
         description: "Successful Login",
       });
-      navigate("/");
+   
     } catch (error) {
       toast({
         status: "error",

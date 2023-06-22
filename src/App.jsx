@@ -27,12 +27,14 @@ import CantAccess from "./components/cantAccess/CantAccess";
 import AddDealer from "./components/Form/AddDealer";
 import Contact from "./components/Contact/Contact";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
+import DealerDetails from "./components/Admin/DealerDetails";
 import CarList from "./components/CarDetailsCard/CarList.jsx";
 
 const App = () => {
   return (
     <>
       <Routes>
+      <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<Register />} />
         <Route element={<AppLayout />}>
@@ -43,13 +45,14 @@ const App = () => {
           >
             <Route element={<AdminPage />}>
               <Route path="/dealersManegment" element={<DealerManegment />} />
+              <Route path="/dealersManegment/1" element={<DealerDetails />} />
               <Route path="/userrequest" element={<UserRequest />} />
               <Route path="/adddealer" element={<AddDealer />} />
             </Route>
           </Route>
 
           <Route path="/adminrequest" element={<AdminRequest />} />
-          <Route path="/" element={<Home />} />
+   
           <Route path="/contact" element={<Contact />} />
           <Route path="/adminbuyers" element={<AdminBuyers />} />
           <Route path="/dealer" element={<DealersModel />} />
@@ -58,10 +61,12 @@ const App = () => {
           <Route path="/carDetails" element={<CarCard />} />
           <Route path="/dealer/carDetails" element={<CarCard />} />
           <Route path="/access" element={<CantAccess />} />
+
           <Route path="/resetpassword" element={<ResetPassword />} />
           <Route path="/carlist" element={<CarList />} />
           <Route path="*" element={<NotFound />} />
         </Route>
+        <Route path="/resetpassword" element={<ResetPassword />} />
       </Routes>
       <Footer />
     </>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import SubNav from "../Navbar/SubNav";
 import { Radio, RadioGroup } from "@chakra-ui/react";
 import { Stack } from "@chakra-ui/react";
+import { useToast } from "@chakra-ui/react";
 const AddDealer = () => {
   const [inputField, setInputField] = useState({
     firstName: "",
@@ -12,10 +13,15 @@ const AddDealer = () => {
     whatsApp: "",
     alternateNumber: "",
     email: "",
+    roles:"DEALER"
+  });
+
+  const [inputRadio, setInputRadio] = useState({
     shopact: "",
     adhar: "",
   });
   const [images, setImages] = useState([]);
+  const toast = useToast();
   function handleImage(event) {
     const fileList = event.target.files;
     const imageArray = Array.from(fileList);
@@ -34,7 +40,21 @@ const AddDealer = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(inputField);
+  
+    try {
+      console.log(inputField, inputRadio, images);
+      toast({
+        status: "success",
+        position: "top",
+        description: "Successful Login",
+      });
+    } catch (error) {
+      toast({
+        status: "warning",
+        position: "top",
+        description: "File not added",
+      });
+    }
   };
   return (
     <>
@@ -42,158 +62,171 @@ const AddDealer = () => {
       <div className="listpgWraper">
         <div className="container">
           <div className="row">
-            <form  >
             <div className="col-md-12">
               <div className="userccount">
                 <div className="formpanel">
                   <h5>Add Dealer Details Page</h5>
                   <div className="row">
-                    <div className="col-md-6">
-                      <div className="formrow">
-                        <input
-                          type="text"
-                          name="firstName"
-                          className="form-control"
-                          placeholder="First Name"
-                          onChange={onChangeFormHandler}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="formrow">
-                        <input
-                          type="text"
-                          name="lastName"
-                          className="form-control"
-                          placeholder="Last Name"
-                          onChange={onChangeFormHandler}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="formrow">
-                        <input
-                          type="text"
-                          name="address"
-                          className="form-control"
-                          placeholder="address details"
-                          onChange={onChangeFormHandler}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="formrow">
-                        <input
-                          type="text"
-                          name="city"
-                          className="form-control"
-                          placeholder="city"
-                          onChange={onChangeFormHandler}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="formrow">
-                        <input
-                          type="text"
-                          name="area"
-                          className="form-control"
-                          placeholder="area"
-                          onChange={onChangeFormHandler}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="formrow">
-                        <input
-                          type="text"
-                          name="whatsApp"
-                          className="form-control"
-                          placeholder="whatsApp"
-                          onChange={onChangeFormHandler}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="formrow">
-                        <input
-                          type="text"
-                          name="alternate"
-                          className="form-control"
-                          placeholder="alternate number"
-                          onChange={onChangeFormHandler}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="formrow">
-                        <input
-                          type="email"
-                          name="email"
-                          className="form-control"
-                          placeholder="Email"
-                          onChange={onChangeFormHandler}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="col-md-12">
-                      <RadioGroup  onChange={setInputField} value={inputField}>
-                        <Stack spacing={5} direction="row">
-                          <Radio
-                            colorScheme="green"
-                            name="shopact"
-                            value="shopact"
-                            color={'black'}
-                          >
-                            Shopact
-                          </Radio>
-                          <Radio color={'black'} colorScheme="green" name="adhar" value="adhar">
-                            Adhar
-                          </Radio>
-                        </Stack>
-                      </RadioGroup>
-                      <h5 style={{marginTop:'1rem'}}>Upload Image</h5>
-                      <div className="formrow">
-                        <div className="uploadphotobx">
-                          {" "}
-                          <i className="fa fa-upload" aria-hidden="true"></i>
-                          <h4>Upload your photo</h4>
-                          <p>
-                            Select multiple photo at a time using ctr button
-                          </p>
-                          <label className="uploadBox">
-                            Click here to Upload
-                            <input
-                              type="file"
-                              name="upload"
-                              onChange={handleImage}
-                              multiple
-                            />
-                          </label>
+                    <form onSubmit={onSubmitHandler}>
+                      <div className="col-md-6">
+                        <div className="formrow">
+                          <input
+                            type="text"
+                            name="firstName"
+                            className="form-control"
+                            placeholder="First Name"
+                            onChange={onChangeFormHandler}
+                            required
+                          />
                         </div>
-                        {images &&
-                          images.map((image, index) => (
-                            <div className="fileattached" key={index}>
-                              <img src={URL.createObjectURL(image)} alt="" />
-                              <span>{image.name}</span>
-                              <i
-                                className="fa fa-check-circle"
-                                aria-hidden="true"
-                              ></i>
-                              <div className="clearfix"></div>
-                            </div>
-                          ))}
                       </div>
-                    </div>
-                  </div>
+                      <div className="col-md-6">
+                        <div className="formrow">
+                          <input
+                            type="text"
+                            name="lastName"
+                            className="form-control"
+                            placeholder="Last Name"
+                            onChange={onChangeFormHandler}
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="formrow">
+                          <input
+                            type="text"
+                            name="address"
+                            className="form-control"
+                            placeholder="address details"
+                            onChange={onChangeFormHandler}
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="formrow">
+                          <input
+                            type="text"
+                            name="city"
+                            className="form-control"
+                            placeholder="city"
+                            onChange={onChangeFormHandler}
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="formrow">
+                          <input
+                            type="text"
+                            name="area"
+                            className="form-control"
+                            placeholder="area"
+                            onChange={onChangeFormHandler}
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="formrow">
+                          <input
+                            type="number"
+                            name="whatsApp"
+                            className="form-control"
+                            placeholder="whatsApp"
+                            onChange={onChangeFormHandler}
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="formrow">
+                          <input
+                            type="number"
+                            name="alternate"
+                            className="form-control"
+                            placeholder="alternate number"
+                            onChange={onChangeFormHandler}
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="formrow">
+                          <input
+                            type="email"
+                            name="email"
+                            className="form-control"
+                            placeholder="Email"
+                            onChange={onChangeFormHandler}
+                            required
+                          />
+                        </div>
+                      </div>
 
-                  <br />
-                  <input type="submit" onClick={onSubmitHandler} className="btn" value="Post An Ad" />
+                      <div className="col-md-12">
+                        <RadioGroup onChange={setInputRadio} value={inputRadio}>
+                          <Stack spacing={5} direction="row">
+                            <Radio
+                              colorScheme="green"
+                              name="shopact"
+                              value="shopact"
+                              color={"black"}
+                            >
+                              Shopact
+                            </Radio>
+                            <Radio
+                              color={"black"}
+                              colorScheme="green"
+                              name="adhar"
+                              value="adhar"
+                            >
+                              Adhar
+                            </Radio>
+                          </Stack>
+                        </RadioGroup>
+                        <h5 style={{ marginTop: "1rem" }}>Upload Image</h5>
+                        <div className="formrow">
+                          <div className="uploadphotobx">
+                            {" "}
+                            <i className="fa fa-upload" aria-hidden="true"></i>
+                            <h4>Upload your photo</h4>
+                            <p>
+                              Select multiple photo at a time using ctr button
+                            </p>
+                            <label className="uploadBox">
+                              Click here to Upload
+                              <input
+                                type="file"
+                                name="upload"
+                                onChange={handleImage}
+                                multiple
+                                required
+                              />
+                            </label>
+                          </div>
+                          {images &&
+                            images.map((image, index) => (
+                              <div className="fileattached" key={index}>
+                                <img src={URL.createObjectURL(image)} alt="" />
+                                <span>{image.name}</span>
+                                <i
+                                  className="fa fa-check-circle"
+                                  aria-hidden="true"
+                                ></i>
+                                <div className="clearfix"></div>
+                              </div>
+                            ))}
+                        </div>
+                      </div>
+                      <br />
+                      <input type="submit" className="btn" value="Post An Ad" />
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
-            </form>
           </div>
         </div>
       </div>
