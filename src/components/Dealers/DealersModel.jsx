@@ -2,7 +2,7 @@ import { useState } from "react";
 import React from "react";
 import TableModel from "../tableModel/TableModel";
 import { Dealers } from "../../json/driver.json";
-import { EditIcon, DeleteIcon } from "@chakra-ui/icons";
+import { EditIcon, DeleteIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import {
   Button,
   Modal,
@@ -18,7 +18,9 @@ import {
   FormControl,
   Textarea,
   Text,
+  Flex,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 const DealersModel = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -63,12 +65,28 @@ const DealersModel = () => {
       {
         Header: "Car Details",
         accessor: "TotalCars",
+        Cell: (cell) => (
+          <Flex>
+            {/* Edit Button */}
+            <Link to={`carDetails/${cell.value}`}>
+              <Button
+                variant="outline"
+                colorScheme="teal"
+                leftIcon={<ExternalLinkIcon />}
+                _hover={{ bg: "#5DC302" }}
+                mr={2}
+              >
+                Details
+              </Button>
+            </Link>
+          </Flex>
+        ),
       },
       {
         Header: "Action",
         accessor: "Edit",
         Cell: () => (
-          <>
+          <Flex>
             {/* Edit Button */}
             <Button
               variant="outline"
@@ -140,7 +158,7 @@ const DealersModel = () => {
                 </ModalFooter>
               </ModalContent>
             </Modal>
-          </>
+          </Flex>
         ),
       },
     ],
