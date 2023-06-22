@@ -4,7 +4,6 @@ import AvtarModal from "./AvtarModal";
 const Navbar = () => {
   return (
     <>
-      
       <div className="header">
         <div className="container">
           <div className="row">
@@ -34,14 +33,14 @@ const Navbar = () => {
                 <div className="navbar-collapse collapse" id="nav-main">
                   <ul className="nav navbar-nav">
                     <li className="dropdown active">
-                      <a>Home</a>
+                      <Link to="/">Home</Link>
                     </li>
                     <li>
-                      <Link to="/Carlist">Used Cars</Link>
+                      <Link to="/carlist">Used Cars</Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <a href="listing.html">New Cars</a>
-                    </li>
+                    </li> */}
                     <li>
                       <Link to="/Contact">Contact</Link>
                     </li>
@@ -56,7 +55,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <hr/>
+      <hr />
     </>
   );
 };

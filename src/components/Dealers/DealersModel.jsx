@@ -24,6 +24,26 @@ import { Link } from "react-router-dom";
 const DealersModel = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    price: "",
+    location: "",
+    status: "",
+    carDetails: "",
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  // const handleFormSubmit = (event) => {
+  //   event.preventDefault();
+  //   console.log("Form data:", formData);
+  //   handleModalClose();
+  // };
 
   const handleEditClick = () => {
     setIsEditModalOpen(true);
@@ -85,7 +105,7 @@ const DealersModel = () => {
       {
         Header: "Action",
         accessor: "Edit",
-        Cell: () => (
+        Cell: (cell) => (
           <Flex>
             {/* Edit Button */}
             <Button
@@ -115,19 +135,43 @@ const DealersModel = () => {
                 <ModalHeader>Edit Details</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
+                  {/* <form onSubmit={handleFormSubmit}> */}
                   <FormControl>
                     <FormLabel>Price</FormLabel>
-                    <Input type="text" placeholder="Enter price" />
+                    <Input
+                      type="text"
+                      placeholder="Enter price"
+                      name="price"
+                      value={formData.price}
+                      onChange={handleInputChange}
+                    />
                     <FormLabel>Location</FormLabel>
-                    <Input type="text" placeholder="Enter location" />
+                    <Input
+                      type="text"
+                      name="location"
+                      placeholder="Enter location"
+                      value={formData.location}
+                      onChange={handleInputChange}
+                    />
                     <FormLabel>Status</FormLabel>
-                    <Select placeholder="Select status">
+                    <Select
+                      placeholder="Select status"
+                      name="status"
+                      value={formData.status}
+                      onChange={handleInputChange}
+                    >
                       <option value="open">Open</option>
                       <option value="close">Close</option>
                     </Select>
                     <FormLabel>Car Details</FormLabel>
-                    <Textarea placeholder="Enter car details" />
+                    <Textarea
+                      placeholder="Enter car details"
+                      name="carDetails"
+                      value={formData.carDetails}
+                      onChange={handleInputChange}
+                    />
                   </FormControl>
+                  {/* </form> */}
                 </ModalBody>
                 <ModalFooter>
                   <Button colorScheme="teal" mr={3} onClick={handleModalClose}>
@@ -149,9 +193,11 @@ const DealersModel = () => {
                   <Text>Are you sure you want to delete this item?</Text>
                 </ModalBody>
                 <ModalFooter>
-                  <Button colorScheme="red" mr={3} onClick={handleDeleteItem}>
-                    Delete
-                  </Button>
+                  <Link to={`carDetails/${cell.value}`}>
+                    <Button colorScheme="red" mr={3} onClick={handleDeleteItem}>
+                      Delete
+                    </Button>
+                  </Link>
                   <Button variant="ghost" onClick={handleModalClose}>
                     Cancel
                   </Button>
@@ -162,7 +208,14 @@ const DealersModel = () => {
         ),
       },
     ],
-    [isEditModalOpen, isDeleteModalOpen]
+    [
+      isEditModalOpen,
+      formData.price,
+      formData.location,
+      formData.status,
+      formData.carDetails,
+      isDeleteModalOpen,
+    ]
   );
 
   return (

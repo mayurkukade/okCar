@@ -18,9 +18,22 @@ const AddCar = () => {
     owner: "",
     insurance: "",
     city: "",
-    features: [],
     description: "",
     safetyDescription: "",
+    abs: "",
+    radio: "",
+    airBags: "",
+    airConditioning: "",
+    alloyRims: "",
+    cdPlayer: "",
+    cassette: "",
+    cruiseControl: "",
+    dvdPlayer: "",
+    keylessEntry: "",
+    powerLocks: "",
+    rearParkingCamera: "",
+    powerSteering: "",
+    powerWindows: "",
   });
 
   const handleSubmit = async (event) => {
@@ -45,6 +58,19 @@ const AddCar = () => {
       features: formData.features,
       description: formData.description,
       safetyDescription: formData.safetyDescription,
+      abs: formData.abs,
+      radio: formData.radio,
+      airBags: formData.airBags,
+      airConditioning: formData.airConditioning,
+      alloyRims: formData.alloyRims,
+      cdPlayer: formData.cdPlayer,
+      cassette: formData.cassette,
+      cruiseControl: formData.cruiseControl,
+      dvdPlayer: formData.dvdPlayer,
+      keylessEntry: formData.keylessEntry,
+      powerLocks: formData.powerLocks,
+      powerSteering: formData.powerSteering,
+      powerWindows: formData.powerWindows,
     };
 
     // Send the form data to the backend
@@ -64,12 +90,6 @@ const AddCar = () => {
     setImages(imageArray);
     console.log(imageArray);
   }
-
-  // const handleUpload = () => {
-  //   const formData = new FormData();
-  //   images.forEach((image, index) => {
-  //     formData.append(`image_${index}`, image);
-  //   });
 
   return (
     <>
@@ -117,35 +137,6 @@ const AddCar = () => {
                         />
                       </div>
                     </div>
-                    {/* <div className="col-md-6">
-                      <div className="formrow">
-                        <select className="form-control" name="indus">
-                          <option>Type</option>
-                          <option>I want to Sell</option>
-                          <option>I want to Buy</option>
-                        </select>
-                      </div>
-                    </div> */}
-                    {/* <div className="col-md-6">
-                      <div className="formrow">
-                        <select className="form-control" name="indus">
-                          <option>Car type</option>
-                          <option>New</option>
-                          <option>Used</option>
-                        </select>
-                      </div>
-                    </div> */}
-
-                    {/* <div className="col-md-6">
-                      <div className="formrow">
-                        <select className="form-control" name="msalary">
-                          <option>Select Main Catgory</option>
-                          <option>Cars</option>
-                          <option>Motocycle</option>
-                          <option>Truck</option>
-                        </select>
-                      </div>
-                    </div> */}
 
                     <div className="col-md-6">
                       <div className="formrow">
@@ -198,15 +189,6 @@ const AddCar = () => {
                       </div>
                     </div>
 
-                    {/* <div className="col-md-4">
-                      <div className="formrow">
-                        <select className="form-control" name="msalary">
-                          <option>Assembly</option>
-                          <option>Local</option>
-                          <option>Imported</option>
-                        </select>
-                      </div>
-                    </div> */}
                     <div className="col-md-6">
                       <div className="formrow">
                         <select
@@ -216,7 +198,7 @@ const AddCar = () => {
                           value={formData.bodyType}
                           onChange={(event) => {
                             setFormData({
-                              ...FormData,
+                              ...formData,
                               bodyType: event.target.value,
                             });
                           }}
@@ -263,7 +245,7 @@ const AddCar = () => {
                           onChange={(event) => {
                             setFormData({
                               ...formData,
-                              formData: event.target.value,
+                              color: event.target.value,
                             });
                           }}
                         />
@@ -314,7 +296,7 @@ const AddCar = () => {
                           onChange={(event) => {
                             setFormData({
                               ...formData,
-                              mileage: event.target.value,
+                              registration: event.target.value,
                             });
                           }}
                         />
@@ -409,7 +391,13 @@ const AddCar = () => {
                           placeholder="City"
                           className="form-control"
                           name="city"
-                          value={formData.a}
+                          value={formData.city}
+                          onChange={(event) => {
+                            setFormData({
+                              ...formData,
+                              city: event.target.value,
+                            });
+                          }}
                         />
                       </div>
                     </div>
@@ -421,50 +409,80 @@ const AddCar = () => {
                       <div className="formrow">
                         <ul className="row featchoose">
                           <li className="col-md-4">
-                            <input type="checkbox" name="" /> ABS
+                            <input
+                              type="checkbox"
+                              name="abs"
+                              value={formData.abs}
+                              onChange={(event) => {
+                                setFormData({
+                                  ...formData,
+                                  abs: event.target.value,
+                                });
+                              }}
+                            />{" "}
+                            ABS
                           </li>
                           <li className="col-md-4">
-                            <input type="checkbox" name="" /> AM/FM Radio
+                            <input
+                              type="checkbox"
+                              name="radio"
+                              value={formData.radio}
+                              onChange={(event) => {
+                                setFormData({
+                                  ...formData,
+                                  radio: event.target.value,
+                                });
+                              }}
+                            />{" "}
+                            AM/FM Radio
                           </li>
                           <li className="col-md-4">
-                            <input type="checkbox" name="" /> Air Bags
+                            <input type="checkbox" name="features" /> Air Bags
                           </li>
                           <li className="col-md-4">
-                            <input type="checkbox" name="" /> Air Conditioning
+                            <input type="checkbox" name="features" /> Air
+                            Conditioning
                           </li>
                           <li className="col-md-4">
-                            <input type="checkbox" name="" /> Alloy Rims
+                            <input type="checkbox" name="features" /> Alloy Rims
                           </li>
                           <li className="col-md-4">
-                            <input type="checkbox" name="" /> CD Player
+                            <input type="checkbox" name="features" /> CD Player
                           </li>
                           <li className="col-md-4">
-                            <input type="checkbox" name="" /> Cassette Player
+                            <input type="checkbox" name="features" /> Cassette
+                            Player
                           </li>
                           <li className="col-md-4">
-                            <input type="checkbox" name="" /> Cruise Control
+                            <input type="checkbox" name="features" /> Cruise
+                            Control
                           </li>
                           <li className="col-md-4">
-                            <input type="checkbox" name="" /> DVD Player
+                            <input type="checkbox" name="features" /> DVD Player
+                          </li>
+                          {/* <li className="col-md-4">
+                            <input type="checkbox" name="features" />{" "}
+                            Immobilizer Key
+                          </li> */}
+                          <li className="col-md-4">
+                            <input type="checkbox" name="features" /> Keyless
+                            Entry
                           </li>
                           <li className="col-md-4">
-                            <input type="checkbox" name="" /> Immobilizer Key
+                            <input type="checkbox" name="features" /> Power
+                            Locks
                           </li>
                           <li className="col-md-4">
-                            <input type="checkbox" name="" /> Keyless Entry
+                            <input type="checkbox" name="features" /> Rear
+                            Parking Camera
                           </li>
                           <li className="col-md-4">
-                            <input type="checkbox" name="" /> Power Locks
+                            <input type="checkbox" name="features" /> Power
+                            Steering
                           </li>
                           <li className="col-md-4">
-                            <input type="checkbox" name="" /> Rear Parking
-                            Camera
-                          </li>
-                          <li className="col-md-4">
-                            <input type="checkbox" name="" /> Power Steering
-                          </li>
-                          <li className="col-md-4">
-                            <input type="checkbox" name="" /> Power Windows
+                            <input type="checkbox" name="features" /> Power
+                            Windows
                           </li>
                         </ul>
                       </div>
@@ -510,8 +528,15 @@ const AddCar = () => {
                       <div className="formrow">
                         <textarea
                           className="form-control"
-                          name="jobdetail"
+                          name="description"
                           placeholder="Vehicle Description"
+                          value={formData.description}
+                          onChange={(event) => {
+                            setFormData({
+                              ...formData,
+                              description: event.target.value,
+                            });
+                          }}
                         ></textarea>
                       </div>
                     </div>
@@ -521,8 +546,15 @@ const AddCar = () => {
                       <div className="formrow">
                         <textarea
                           className="form-control"
-                          name="jobdetail"
+                          name="safetyDescription"
                           placeholder="Safety Description"
+                          value={formData.safetyDescription}
+                          onChange={(event) => {
+                            setFormData({
+                              ...formData,
+                              safetyDescription: event.target.value,
+                            });
+                          }}
                         ></textarea>
                       </div>
                     </div>
