@@ -1,6 +1,5 @@
 import { useState } from "react";
 import SubNav from "../Navbar/SubNav";
-import { event } from "jquery";
 
 const AddCar = () => {
   const [formData, setFormData] = useState({
@@ -88,7 +87,7 @@ const AddCar = () => {
                       <div className="formrow">
                         <input
                           type="text"
-                          name="jobtitle"
+                          name="carName"
                           className="form-control"
                           placeholder="Car Name"
                           value={formData.carName}
@@ -118,35 +117,6 @@ const AddCar = () => {
                         />
                       </div>
                     </div>
-                    {/* <div className="col-md-6">
-                      <div className="formrow">
-                        <select className="form-control" name="indus">
-                          <option>Type</option>
-                          <option>I want to Sell</option>
-                          <option>I want to Buy</option>
-                        </select>
-                      </div>
-                    </div> */}
-                    {/* <div className="col-md-6">
-                      <div className="formrow">
-                        <select className="form-control" name="indus">
-                          <option>Car type</option>
-                          <option>New</option>
-                          <option>Used</option>
-                        </select>
-                      </div>
-                    </div> */}
-
-                    {/* <div className="col-md-6">
-                      <div className="formrow">
-                        <select className="form-control" name="msalary">
-                          <option>Select Main Catgory</option>
-                          <option>Cars</option>
-                          <option>Motocycle</option>
-                          <option>Truck</option>
-                        </select>
-                      </div>
-                    </div> */}
 
                     <div className="col-md-6">
                       <div className="formrow">
@@ -199,21 +169,11 @@ const AddCar = () => {
                       </div>
                     </div>
 
-                    {/* <div className="col-md-4">
-                      <div className="formrow">
-                        <select className="form-control" name="msalary">
-                          <option>Assembly</option>
-                          <option>Local</option>
-                          <option>Imported</option>
-                        </select>
-                      </div>
-                    </div> */}
                     <div className="col-md-6">
                       <div className="formrow">
                         <select
                           className="form-control"
                           name="bodyType"
-                          required
                           value={formData.bodyType}
                           onChange={(event) => {
                             setFormData({
