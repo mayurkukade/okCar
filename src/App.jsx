@@ -14,7 +14,7 @@ import Register from "./components/SignUp/SignUp.jsx";
 
 import NotFound from "./components/NotFound/NotFound.jsx";
 import Home from "./components/Home/Home";
-// import Footer from "./components/Footer/Footer";
+import Footer from "./components/Footer/Footer";
 import AddCar from "./components/AddCar/AddCar";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import CarCard from "./components/CarDetailsCard/CarDetails";
@@ -25,8 +25,8 @@ import { OnlyAdmin } from "./config/role";
 
 import CantAccess from "./components/cantAccess/CantAccess";
 import AddDealer from "./components/Form/AddDealer";
-import Contact from './components/Contact/Contact'
-import ResetPassword from './components/ResetPassword/ResetPassword'
+import Contact from "./components/Contact/Contact";
+import ResetPassword from "./components/ResetPassword/ResetPassword";
 const App = () => {
   return (
     <>
@@ -42,7 +42,7 @@ const App = () => {
             <Route element={<AdminPage />}>
               <Route path="/dealersManegment" element={<DealerManegment />} />
               <Route path="/userrequest" element={<UserRequest />} />
-              <Route path="/adddealer" element={<AddDealer/>} />
+              <Route path="/adddealer" element={<AddDealer />} />
             </Route>
           </Route>
 
@@ -59,7 +59,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
