@@ -14,7 +14,7 @@ import Register from "./components/SignUp/SignUp.jsx";
 
 import NotFound from "./components/NotFound/NotFound.jsx";
 import Home from "./components/Home/Home";
-import Footer from "./components/Footer/Footer";
+// import Footer from "./components/Footer/Footer";
 import AddCar from "./components/AddCar/AddCar";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import CarCard from "./components/CarDetailsCard/CarDetails";
@@ -28,6 +28,8 @@ import AddDealer from "./components/Form/AddDealer";
 import Contact from "./components/Contact/Contact";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
 import DealerDetails from "./components/Admin/DealerDetails";
+import CarList from "./components/CarDetailsCard/CarList.jsx";
+
 const App = () => {
   return (
     <>
@@ -59,11 +61,13 @@ const App = () => {
           <Route path="/carDetails" element={<CarCard />} />
           <Route path="/access" element={<CantAccess />} />
 
+          <Route path="/resetpassword" element={<ResetPassword />} />
+          <Route path="/carlist" element={<CarList />} />
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route path="/resetpassword" element={<ResetPassword />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
