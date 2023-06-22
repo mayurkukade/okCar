@@ -1,6 +1,5 @@
 import { useState } from "react";
 import SubNav from "../Navbar/SubNav";
-import { event } from "jquery";
 
 const AddCar = () => {
   const [images, setImages] = useState([]);
@@ -26,7 +25,7 @@ const AddCar = () => {
                       <div className="formrow">
                         <input
                           type="text"
-                          name="jobtitle"
+                          name="carName"
                           className="form-control"
                           placeholder="Car Name"
                           value={formData.carName}
@@ -113,7 +112,6 @@ const AddCar = () => {
                         <select
                           className="form-control"
                           name="bodyType"
-                          required
                           value={formData.bodyType}
                           onChange={(event) => {
                             setFormData({
