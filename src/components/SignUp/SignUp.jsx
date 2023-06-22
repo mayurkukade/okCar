@@ -37,7 +37,7 @@ const SignUp = () => {
               <div className="userccount">
                 <form onSubmit={onSubmitHandler}>
                   <div className="userbtns">
-                    <h1>User Register</h1>
+                    <h2>User Register</h2>
                   </div>
                   <div className="tab-content">
                     <div
