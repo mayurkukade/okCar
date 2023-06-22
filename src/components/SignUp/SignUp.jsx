@@ -1,7 +1,32 @@
 import { Link } from "react-router-dom";
 import SubNav from "../Navbar/SubNav";
+import { useState } from "react";
 
 const SignUp = () => {
+  const [inputField, setInputField] = useState({
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    roles: "USER",
+  });
+
+  const onChangeFormhandler = (e) => {
+    const { name, value } = e.target;
+    setInputField((preVal) => {
+      return {
+        ...preVal,
+        [name]: value,
+      };
+    });
+  };
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    console.log(inputField);
+  };
   return (
     <>
       <SubNav componentsName={"Register"} />
@@ -10,136 +35,104 @@ const SignUp = () => {
           <div className="row">
             <div className="col-md-6 col-md-offset-3">
               <div className="userccount">
-                <div className="userbtns">
-                  <ul className="nav nav-tabs">
-                    <li className="active">
-                      <a data-toggle="tab" href="#wsell">
-                        I want to sell
-                      </a>
-                    </li>
-                    <li>
-                      <a data-toggle="tab" href="#wbuy">
-                        I want to buy
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="tab-content">
-                  <div id="wsell" className="formpanel tab-pane fade in active">
-                    <div className="formrow">
-                      <input
-                        type="text"
-                        name="name"
-                        className="form-control"
-                        placeholder="Full Name"
-                      />
-                    </div>
-                    <div className="formrow">
-                      <select className="form-control">
-                        <option>Ad type</option>
-                        <option>New</option>
-                        <option>Used</option>
-                      </select>
-                    </div>
-                    <div className="formrow">
-                      <input
-                        type="text"
-                        name="username"
-                        className="form-control"
-                        placeholder="Username"
-                      />
-                    </div>
-                    <div className="formrow">
-                      <input
-                        type="text"
-                        name="email"
-                        className="form-control"
-                        placeholder="Email"
-                      />
-                    </div>
-                    <div className="formrow">
-                      <input
-                        type="text"
-                        name="password"
-                        className="form-control"
-                        placeholder="Password"
-                      />
-                    </div>
-                    <div className="formrow">
-                      <input
-                        type="text"
-                        name="conpass"
-                        className="form-control"
-                        placeholder="Confirm Password"
-                      />
-                    </div>
-                    <div className="formrow">
-                      <input type="checkbox" value="agree text" name="agree" />
-                      There are many variations of passages of Lorem Ipsum
-                      available
-                    </div>
-                    <input type="submit" className="btn" value="Register" />
+                <form>
+                  <div className="userbtns">
+                    <h1>User Register</h1>
                   </div>
-                  <div id="wbuy" className="formpanel tab-pane fade in">
-                    <div className="formrow">
-                      <input
-                        type="text"
-                        name="cname"
-                        className="form-control"
-                        placeholder="Full Name"
-                      />
+                  <div className="tab-content">
+                    <div
+                      id="wsell"
+                      className="formpanel tab-pane fade in active"
+                    >
+                      <div className="formrow">
+                        <input
+                          type="text"
+                          name="firstName"
+                          className="form-control"
+                          placeholder="First Name"
+                          onChange={onChangeFormhandler}
+                          required
+                        />
+                      </div>
+                      <div className="formrow">
+                        <input
+                          type="text"
+                          name="lastName"
+                          className="form-control"
+                          placeholder="Last Name"
+                          onChange={onChangeFormhandler}
+                          required
+                        />
+                      </div>
+                      <div className="formrow">
+                        <input
+                          type="text"
+                          name="phoneNumber"
+                          className="form-control"
+                          placeholder="Phone Number"
+                          onChange={onChangeFormhandler}
+                          required
+                        />
+                      </div>
+                      <div className="formrow">
+                        <input
+                          type="text"
+                          name="email"
+                          className="form-control"
+                          placeholder="Email"
+                          onChange={onChangeFormhandler}
+                          required
+                        />
+                      </div>
+                      <div className="formrow">
+                        <input
+                          type="text"
+                          name="password"
+                          className="form-control"
+                          placeholder="Password"
+                          onChange={onChangeFormhandler}
+                          required
+                        />
+                      </div>
+                      <div className="formrow">
+                        <input
+                          type="text"
+                          name="confirmPassword"
+                          className="form-control"
+                          placeholder="Confirm Password"
+                          onChange={onChangeFormhandler}
+                          required
+                        />
+                      </div>
+                      <div className="formrow">
+                        <input
+                          type="checkbox"
+                          value="agree text"
+                          name="agree"
+                          style={{ marginRight: "10px" }}
+                          required
+                        />
+                        Terms and Condition
+                      </div>
+                      <button
+                        type="submit"
+                        className="btn"
+                        value="Register"
+                        onClick={onSubmitHandler}
+                      >
+                        Register
+                      </button>
                     </div>
-                    <div className="formrow">
-                      <input
-                        type="text"
-                        name="cusername"
-                        className="form-control"
-                        placeholder="Username"
-                      />
-                    </div>
-                    <div className="formrow">
-                      <input
-                        type="text"
-                        name="cemail"
-                        className="form-control"
-                        placeholder="Email"
-                      />
-                    </div>
-                    <div className="formrow">
-                      <input
-                        type="text"
-                        name="cpass"
-                        className="form-control"
-                        placeholder="Password"
-                      />
-                    </div>
-                    <div className="formrow">
-                      <input
-                        type="text"
-                        name="cpass"
-                        className="form-control"
-                        placeholder="Confirm Password"
-                      />
-                    </div>
-                    <div className="formrow">
-                      <input
-                        type="checkbox"
-                        value="agree text c"
-                        name="cagree"
-                      />
-                      There are many variations of passages of Lorem Ipsum
-                      available
-                    </div>
-                    <input type="submit" className="btn" value="Register" />
                   </div>
-                </div>
-                <div className="newuser">
-                  <i className="fa fa-user" aria-hidden="true"></i> Already a
-                  Member?
-                  <Link to="/signin">
-                    <a> Login Here</a>
-                  </Link>
-                </div>
+
+                  <div className="newuser">
+                    <i className="fa fa-user" aria-hidden="true"></i> Already a
+                    Member?
+                    <Link to="/signin">
+                      <a> Login Here</a>
+                    </Link>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
