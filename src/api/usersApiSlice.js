@@ -1,6 +1,7 @@
 import { apiSlice } from './apiSlice';
 const USERS_URL = '/admin';
 
+
 export const userApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation({
