@@ -57,7 +57,7 @@ const DriverCard = ({
   return (
     <>
 
-    <Box>
+    <Box className="cardContainer">
       <Center py={6}>
         <Box
           // maxW={"350px"}

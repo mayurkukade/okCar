@@ -2,7 +2,8 @@ import React from "react";
 import { dealersManegment } from "../../json/dealersManegment.json";
 import TableModel from "../tableModel/TableModel";
 import { Button } from "@chakra-ui/react";
-import { EditIcon } from "@chakra-ui/icons";
+import { EditIcon,DeleteIcon,InfoIcon } from "@chakra-ui/icons";
+
 import { Link } from "react-router-dom";
 const DealerManegment = () => {
   const data = React.useMemo(() => dealersManegment, []);
@@ -38,7 +39,7 @@ const DealerManegment = () => {
             <Button
               variant="outline"
               colorScheme="blue"
-              leftIcon={<EditIcon />}
+              leftIcon={<InfoIcon />}
               marginRight={'0.2rem'}
               _hover={{ bg: "#2C5282",textColor:"white" }}
             >
@@ -62,7 +63,7 @@ const DealerManegment = () => {
             <Button
               variant="outline"
               colorScheme="red"
-              leftIcon={<EditIcon />}
+              leftIcon={<DeleteIcon />}
               _hover={{ bg: "#E53E3E",textColor:"white" }}
             >
               Delete
