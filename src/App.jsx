@@ -27,6 +27,8 @@ import CantAccess from "./components/cantAccess/CantAccess";
 import AddDealer from "./components/Form/AddDealer";
 import Contact from "./components/Contact/Contact";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
+import CarList from "./components/CarDetailsCard/CarList.jsx";
+
 const App = () => {
   return (
     <>
@@ -56,6 +58,7 @@ const App = () => {
           <Route path="/carDetails" element={<CarCard />} />
           <Route path="/access" element={<CantAccess />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
+          <Route path="/carlist" element={<CarList />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
