@@ -1,7 +1,63 @@
 import { useState } from "react";
 import SubNav from "../Navbar/SubNav";
+import { event } from "jquery";
 
 const AddCar = () => {
+  const [formData, setFormData] = useState({
+    carName: "",
+    carPrice: "",
+    make: "",
+    year: "",
+    bodyType: "",
+    transmission: "",
+    color: "",
+    engineCapacity: "",
+    mileage: "",
+    registration: "",
+    kmDriven: "",
+    fuelType: "",
+    owner: "",
+    insurance: "",
+    city: "",
+    features: [],
+    description: "",
+    safetyDescription: "",
+  });
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    // Prepare the form data to send to the backend
+    const data = {
+      carName: formData.carName,
+      carPrice: formData.carPrice,
+      make: formData.make,
+      year: formData.year,
+      bodyType: formData.bodyType,
+      transmission: formData.transmission,
+      color: formData.color,
+      engineCapacity: formData.engineCapacity,
+      mileage: formData.mileage,
+      registration: formData.registration,
+      kmDriven: formData.kmDriven,
+      fuelType: formData.fuelType,
+      owner: formData.owner,
+      insurance: formData.insurance,
+      city: formData.city,
+      features: formData.features,
+      description: formData.description,
+      safetyDescription: formData.safetyDescription,
+    };
+
+    // Send the form data to the backend
+    // try {
+    //   const response = await axios.post("/api/addCar", data); // Replace "/api/addCar" with the actual backend API endpoint
+    //   console.log(response.data); // Handle the response from the backend
+    // } catch (error) {
+    //   console.error(error); // Handle any errors that occur during the request
+    // }
+    console.log(data);
+  };
+
   const [images, setImages] = useState([]);
   function handleImage(event) {
     const fileList = event.target.files;
@@ -9,6 +65,12 @@ const AddCar = () => {
     setImages(imageArray);
     console.log(imageArray);
   }
+
+  // const handleUpload = () => {
+  //   const formData = new FormData();
+  //   images.forEach((image, index) => {
+  //     formData.append(`image_${index}`, image);
+  //   });
 
   return (
     <>
@@ -19,13 +81,14 @@ const AddCar = () => {
             <div className="col-md-12">
               <div className="userccount">
                 <div className="formpanel">
+                  {/* <h5>Car Information</h5> */}
                   <h5>Add Details Page</h5>
                   <div className="row">
                     <div className="col-md-6">
                       <div className="formrow">
                         <input
                           type="text"
-                          name="carName"
+                          name="jobtitle"
                           className="form-control"
                           placeholder="Car Name"
                           value={formData.carName}
@@ -55,6 +118,35 @@ const AddCar = () => {
                         />
                       </div>
                     </div>
+                    {/* <div className="col-md-6">
+                      <div className="formrow">
+                        <select className="form-control" name="indus">
+                          <option>Type</option>
+                          <option>I want to Sell</option>
+                          <option>I want to Buy</option>
+                        </select>
+                      </div>
+                    </div> */}
+                    {/* <div className="col-md-6">
+                      <div className="formrow">
+                        <select className="form-control" name="indus">
+                          <option>Car type</option>
+                          <option>New</option>
+                          <option>Used</option>
+                        </select>
+                      </div>
+                    </div> */}
+
+                    {/* <div className="col-md-6">
+                      <div className="formrow">
+                        <select className="form-control" name="msalary">
+                          <option>Select Main Catgory</option>
+                          <option>Cars</option>
+                          <option>Motocycle</option>
+                          <option>Truck</option>
+                        </select>
+                      </div>
+                    </div> */}
 
                     <div className="col-md-6">
                       <div className="formrow">
@@ -107,11 +199,21 @@ const AddCar = () => {
                       </div>
                     </div>
 
+                    {/* <div className="col-md-4">
+                      <div className="formrow">
+                        <select className="form-control" name="msalary">
+                          <option>Assembly</option>
+                          <option>Local</option>
+                          <option>Imported</option>
+                        </select>
+                      </div>
+                    </div> */}
                     <div className="col-md-6">
                       <div className="formrow">
                         <select
                           className="form-control"
                           name="bodyType"
+                          required
                           value={formData.bodyType}
                           onChange={(event) => {
                             setFormData({
@@ -312,6 +414,8 @@ const AddCar = () => {
                         />
                       </div>
                     </div>
+
+                    {/* Features */}
 
                     <div className="col-md-12">
                       <h5>Features</h5>
