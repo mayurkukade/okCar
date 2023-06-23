@@ -35,8 +35,12 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
+  
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<Register />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/carlist" element={<CarList />} />
+        <Route path="/carDetails" element={<CarCard />} />
         <Route element={<AppLayout />}>
           <Route
             element={
@@ -56,11 +60,11 @@ const App = () => {
           <Route path="/dealer" element={<DealersModel />} />
           <Route path="/addcar" element={<AddCar />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
-          <Route path="/carDetails" element={<CarCard />} />
+      
           <Route path="/dealer/carDetails" element={<CarCard />} />
           <Route path="/access" element={<CantAccess />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
-          <Route path="/carlist" element={<CarList />} />
+         
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route path="/resetpassword" element={<ResetPassword />} />
