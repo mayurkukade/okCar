@@ -6,11 +6,12 @@ const SignUp = () => {
   const [inputField, setInputField] = useState({
     firstName: "",
     lastName: "",
-    phoneNumber: "",
+    MobileNo: "",
     email: "",
-    password: "",
+    Password: "",
     confirmPassword: "",
     roles: "USER",
+    userType: "user",
   });
 
   const onChangeFormhandler = (e) => {
@@ -67,7 +68,7 @@ const SignUp = () => {
                       <div className="formrow">
                         <input
                           type="text"
-                          name="phoneNumber"
+                          name="MobileNo"
                           className="form-control"
                           placeholder="Phone Number"
                           onChange={onChangeFormhandler}
@@ -87,7 +88,7 @@ const SignUp = () => {
                       <div className="formrow">
                         <input
                           type="text"
-                          name="password"
+                          name="Password"
                           className="form-control"
                           placeholder="Password"
                           onChange={onChangeFormhandler}
