@@ -35,7 +35,7 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-  
+
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<Register />} />
         <Route path="/" element={<Home />} />
@@ -60,11 +60,11 @@ const App = () => {
           <Route path="/dealer" element={<DealersModel />} />
           <Route path="/addcar" element={<AddCar />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
-      
+
           <Route path="/dealer/carDetails" element={<CarCard />} />
           <Route path="/access" element={<CantAccess />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
-         
+
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route path="/resetpassword" element={<ResetPassword />} />
