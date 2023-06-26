@@ -70,12 +70,6 @@ const Home = () => {
         </div>
       </div>
 
-                <div className="clearfix"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div
         className="searchwrap"
@@ -784,6 +778,7 @@ const Home = () => {
             </div>
           </div>
         </div> */}
+    </div>
     </div>
   );
 };
