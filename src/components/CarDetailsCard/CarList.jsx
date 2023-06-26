@@ -212,7 +212,6 @@ const CarList = () => {
                     <div className="col-md-6">
                       <select className="form-control">
                         <option>To</option>
-                        <option>From</option>
                         <option>2022</option>
                         <option>2021</option>
                         <option>2020</option>

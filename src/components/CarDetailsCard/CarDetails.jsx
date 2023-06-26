@@ -418,7 +418,7 @@ const CarDetails = () => {
                   Price <strong>₹ 5,00,000</strong>
                 </div>
                 <div className="ptext">
-                  <i className="fa fa-clock-o" aria-hidden="true"></i> 7 Jan, 16
+                  <i className="fa fa-clock-o" aria-hidden="true"></i> 7 Jan
                   10:10 pm
                 </div>
                 <div className="ptext">
@@ -506,11 +506,12 @@ const CarDetails = () => {
                     </div>
                   </li>
                   <li className="row">
-                    <div className="col-md-6 col-xs-6">Millage</div>
+                    <div className="col-md-6 col-xs-6">KM Driven</div>
                     <div className="col-md-6 col-xs-6">
                       <span>165,000 km</span>
                     </div>
                   </li>
+
                   <li className="row">
                     <div className="col-md-6 col-xs-6">Fuel</div>
                     <div className="col-md-6 col-xs-6">

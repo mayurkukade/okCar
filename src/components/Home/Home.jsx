@@ -1,11 +1,10 @@
-
 import HomeCarousel from "../carousel/HomeCarousel";
 import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
     <div>
-           <div className="header">
+      <div className="header">
         <div className="container">
           <div className="row">
             <div className="col-md-2 col-sm-3 col-xs-12">
@@ -48,21 +47,17 @@ const Home = () => {
                     <li>
                       <Link to="/signin">Sign In</Link>
                     </li>
-                   
-                    <li className="postad">
-                   
-                    </li>
+
+                    <li className="postad"></li>
                   </ul>
                 </div>
-                <div className="clearfix">
-                 
-                </div>
+                <div className="clearfix"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
+
       <div
         className="searchwrap"
         style={{ border: "2px solid black", backgroundColor: "black" }}
@@ -70,8 +65,9 @@ const Home = () => {
         <div className="container">
           <h3>Find Used Cars In Pune</h3>
           <p>
-            Search from over 99,00,000 Active ads &amp; Post free unlimited
-            classNameifieds ads!
+            Search from over 1,00,000 Active Cars
+            {/* &amp; Post free unlimited
+            classNameifieds ads! */}
           </p>
           <div className="searchbar">
             <div className="row">
@@ -200,7 +196,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    
+
       {/* <div className="section whitebg">
         <div className="container">
           <div className="titleTop">
@@ -213,7 +209,7 @@ const Home = () => {
               maximus quam odio nec elit Pellentesque eget ipsum mattis
             </p>
           </div> */}
-          {/* <div className="topsearchwrap">
+      {/* <div className="topsearchwrap">
             <ul className="row catelist">
               <li className="col-md-3 col-sm-6 col-xs-6">
                 <a href="#">
