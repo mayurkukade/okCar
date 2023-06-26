@@ -122,7 +122,7 @@ const CarList = () => {
                   </div>
                 </div>
                 <div className="widget">
-                  <h4 className="widget-title">City</h4>
+                  <h4 className="widget-title">Area</h4>
                   <ul className="optionlist">
                     <li>
                       <input type="checkbox" name="checkname" id="newyork" />
@@ -212,7 +212,6 @@ const CarList = () => {
                     <div className="col-md-6">
                       <select className="form-control">
                         <option>To</option>
-                        <option>From</option>
                         <option>2022</option>
                         <option>2021</option>
                         <option>2020</option>
