@@ -3,7 +3,7 @@ import "./avtar.css";
 import AvtarModal from "./AvtarModal";
 const Navbar = () => {
   const username = localStorage.getItem("userInfo");
-  const user = JSON.parse(username).results.user[0].role;
+  const user = JSON.parse(username)?.results?.user[0].role;
   let roleNav;
   if (user == "admin") {
     roleNav = (
@@ -102,7 +102,7 @@ const Navbar = () => {
                       <Link to="/Contact">Contact</Link>
                     </li>
                     <li className="postad">
-                      <AvtarModal />
+                   {user ? <AvtarModal /> : ''}   
                     </li>
                   </ul>
                 </div>

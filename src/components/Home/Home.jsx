@@ -1,9 +1,13 @@
+import AvtarModal from "../Navbar/AvtarModal";
 import HomeCarousel from "../carousel/HomeCarousel";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  const username = localStorage.getItem("userInfo");
+
   return (
     <div>
+      <div className="header">
       <div className="header">
         <div className="container">
           <div className="row">
@@ -21,7 +25,7 @@ const Home = () => {
                   data-target=".navbar-collapse"
                 >
                   <span className="sr-only">Toggle navigation</span>
-                  <span className="icon-bar"></span>{" "}
+                  <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                 </button>
@@ -45,12 +49,27 @@ const Home = () => {
                       <Link to="/Contact">Contact</Link>
                     </li>
                     <li>
-                      <Link to="/signin">Sign In</Link>
+                      {username ? (
+                        <AvtarModal />
+                      ) : (
+                        <Link to="/signin">
+                          <p> Sign In</p>{" "}
+                        </Link>
+                      )}
                     </li>
+
+                    <li className="postad"></li>
 
                     <li className="postad"></li>
                   </ul>
                 </div>
+                <div className="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
                 <div className="clearfix"></div>
               </div>
             </div>
@@ -197,6 +216,7 @@ const Home = () => {
         </div>
       </div>
 
+
       {/* <div className="section whitebg">
         <div className="container">
           <div className="titleTop">
@@ -209,6 +229,7 @@ const Home = () => {
               maximus quam odio nec elit Pellentesque eget ipsum mattis
             </p>
           </div> */}
+      {/* <div className="topsearchwrap">
       {/* <div className="topsearchwrap">
             <ul className="row catelist">
               <li className="col-md-3 col-sm-6 col-xs-6">

@@ -22,7 +22,7 @@ const AdminPage = () => {
             </Link>
             <Link to={"/userrequest"}>
               <Tab fontSize={"20px"}>
-                {" "}
+                
                 <span>User Request</span>{" "}
               </Tab>
             </Link>
