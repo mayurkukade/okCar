@@ -9,7 +9,6 @@ import {
   useGlobalFilter,
 } from "react-table";
 
-
 import {
   Table,
   Thead,
@@ -42,7 +41,6 @@ import TableCard from "../TableCard/TableCard";
 import React from "react";
 
 const TableModel = ({ data: v, columns }) => {
-
   const data = React.useMemo(() => v, [v]);
 
   const {
@@ -60,7 +58,7 @@ const TableModel = ({ data: v, columns }) => {
     nextPage,
     previousPage,
     setPageSize,
-   
+
     state: { pageIndex, pageSize },
   } = useTable(
     { columns, data, initialState: { pageIndex: 0, pageSize: 5 } },
@@ -68,10 +66,6 @@ const TableModel = ({ data: v, columns }) => {
     useSortBy,
     usePagination
   );
-  
-
-
-
 
   return (
     <>
@@ -88,7 +82,7 @@ const TableModel = ({ data: v, columns }) => {
                       key={i}
                       {...column.getHeaderProps(column.getSortByToggleProps)}
                     >
-                     <span>{column.render("Header")}</span> 
+                      <span>{column.render("Header")}</span>
                       <Text>
                         <HStack>
                           <Flex>
@@ -112,14 +106,13 @@ const TableModel = ({ data: v, columns }) => {
                   <Tr key={i} {...row.getRowProps()} _hover={{ bg: "#EDF2F7" }}>
                     {row.cells.map((cell) => (
                       <Td key={i} {...cell.getCellProps()}>
-                      <span>{cell.render("Cell")}</span>  
-                      {
+                        <span>{cell.render("Cell")}</span>
+                        {/* {
                         console.log(cell.render("Cell").props.allColumns[7])
-                      }
+                      } */}
                       </Td>
                     ))}
                   </Tr>
-                 
                 );
               })}
             </Tbody>
@@ -134,7 +127,6 @@ const TableModel = ({ data: v, columns }) => {
                 disabled={!canPreviousPage}
               >
                 <BiFirstPage fontSize={"20px"} />
-                
               </Button>
               <Button
                 h={"35px"}
@@ -143,7 +135,6 @@ const TableModel = ({ data: v, columns }) => {
                 disabled={!canPreviousPage}
               >
                 <MdOutlineKeyboardArrowLeft fontSize={"22px"} />
-                
               </Button>
               <Text alignItems="center" fontSize="18px" pt={"2px"}>
                 Page
@@ -215,10 +206,7 @@ const TableModel = ({ data: v, columns }) => {
       >
         {/* Buyers card rendering */}
 
-        <TableCard
-        CardDatas = {v}
-        />
-       
+        <TableCard CardDatas={v} />
       </div>
     </>
   );
