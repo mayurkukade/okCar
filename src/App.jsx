@@ -30,6 +30,7 @@ import ResetPassword from "./components/ResetPassword/ResetPassword";
 import DealerDetails from "./components/Admin/DealerDetails";
 import CarList from "./components/CarDetailsCard/CarList.jsx";
 import EditUserProfile from "./components/EditUserProfile/EditUserProfile";
+import EditDealerProfile from "./components/EditDealerProfile/EditDealerProfile";
 
 const App = () => {
   return (
@@ -65,7 +66,8 @@ const App = () => {
           <Route path="/dealer/carDetails" element={<CarCard />} />
           <Route path="/access" element={<CantAccess />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
-          <Route path="/editUserprofile" element={<EditUserProfile />} />
+          <Route path="/editUserdetails" element={<EditUserProfile />} />
+          <Route path="/editDealerdetails" element={<EditDealerProfile />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>
