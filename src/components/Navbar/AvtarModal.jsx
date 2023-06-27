@@ -9,29 +9,25 @@ import {
   Avatar,
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { logout } from "../../api/authSlice";
 const AvtarModal = () => {
   const username = localStorage.getItem("userInfo");
-   console.log(JSON.parse(username)?.results)
-   
+  console.log(JSON.parse(username)?.results);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-
-
   const logoutHandler = async () => {
     try {
-   
       dispatch(logout());
-      navigate('/signin');
+      navigate("/signin");
     } catch (err) {
       console.error(err);
     }
   };
-   
+
   return (
     <Box className="card">
       <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
@@ -40,10 +36,12 @@ const AvtarModal = () => {
           {JSON.parse(username)?.results.user[0].username}
         </MenuButton>
         <MenuList>
-          <MenuItem>History</MenuItem>
+          {/* <MenuItem>History</MenuItem>
           <MenuItem>FAQ Managment</MenuItem>
-          <MenuItem>Settings</MenuItem>
-          <MenuItem>Payment</MenuItem>
+          <MenuItem>Settings</MenuItem> */}
+          <Link to='/edit'>
+          <MenuItem>Edit Profile</MenuItem>
+          </Link>
           <MenuItem onClick={logoutHandler}>Logout</MenuItem>
         </MenuList>
       </Menu>
