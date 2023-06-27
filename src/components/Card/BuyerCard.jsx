@@ -22,7 +22,7 @@ const TableCard = ({
  
   return (
     <Box className="cardContainer">
-      <Center py={6}>
+      <Center py={3}>
         <Box
           // maxW={"350px"}
           w={"full"}
