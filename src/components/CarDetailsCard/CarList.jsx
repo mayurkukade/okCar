@@ -7,7 +7,12 @@ import { CommonUtilities } from "../../util/common.utilities.js";
 
 const CarList = () => {
 
-
+ // TODO: This following 2 varaibles will be used in future
+  
+  /*
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(state => state.isLoggedIn);
+  */
   return (
     <>
       <SubNav componentsName={"Add Car"} />
