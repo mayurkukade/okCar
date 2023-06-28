@@ -4,14 +4,14 @@ import { useState } from "react";
 
 const SignUp = () => {
   const [inputField, setInputField] = useState({
+    password: "",
+    mobileNo: "",
+    roles: "USER",
     firstName: "",
     lastName: "",
-    MobileNo: "",
-    email: "",
-    Password: "",
+    city: "",
+    address: "",
     confirmPassword: "",
-    roles: "USER",
-    userType: "user",
   });
 
   const onChangeFormhandler = (e) => {
@@ -51,7 +51,9 @@ const SignUp = () => {
                           name="firstName"
                           className="form-control"
                           placeholder="First Name"
+                          value={inputField.firstName}
                           onChange={onChangeFormhandler}
+                          
                           required
                         />
                       </div>
@@ -62,16 +64,18 @@ const SignUp = () => {
                           className="form-control"
                           placeholder="Last Name"
                           onChange={onChangeFormhandler}
+                          value={inputField.lastName}
                           required
                         />
                       </div>
                       <div className="formrow">
                         <input
                           type="text"
-                          name="MobileNo"
+                          name="mobileNo"
                           className="form-control"
                           placeholder="Phone Number"
                           onChange={onChangeFormhandler}
+                          value={inputField.mobileNo}
                           required
                         />
                       </div>
@@ -82,16 +86,40 @@ const SignUp = () => {
                           className="form-control"
                           placeholder="Email"
                           onChange={onChangeFormhandler}
+                          value={inputField.email}
                           required
                         />
                       </div>
                       <div className="formrow">
                         <input
                           type="text"
-                          name="Password"
+                          name="address"
+                          className="form-control"
+                          placeholder="Address"
+                          onChange={onChangeFormhandler}
+                          value={inputField.address}
+                          required
+                        />
+                      </div>
+                      <div className="formrow">
+                        <input
+                          type="text"
+                          name="city"
+                          className="form-control"
+                          placeholder="City"
+                          onChange={onChangeFormhandler}
+                          value={inputField.city}
+                          required
+                        />
+                      </div>
+                      <div className="formrow">
+                        <input
+                          type="text"
+                          name="password"
                           className="form-control"
                           placeholder="Password"
                           onChange={onChangeFormhandler}
+                          value={inputField.password}
                           required
                         />
                       </div>
@@ -102,6 +130,7 @@ const SignUp = () => {
                           className="form-control"
                           placeholder="Confirm Password"
                           onChange={onChangeFormhandler}
+                          value={inputField.confirmPassword}
                           required
                         />
                       </div>
@@ -125,7 +154,7 @@ const SignUp = () => {
                     <i className="fa fa-user" aria-hidden="true"></i> Already a
                     Member?
                     <Link to="/signin">
-                      <a> Login Here</a>
+                      <span>Login Here</span> 
                     </Link>
                   </div>
                 </form>

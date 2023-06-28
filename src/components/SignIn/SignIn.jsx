@@ -6,16 +6,18 @@ import { setCredentials } from "../../api/authSlice.js";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
+import jwt_decode from "jwt-decode";
 const SignIn = () => {
   const [signState, setSignState] = useState({
-    email: "",
+    username: "",
     password: "",
   });
 
   const [login] = useLoginMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+  var decoded = jwt_decode("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQGdtYWlsLmNvbSIsImF1dGhvcml0aWVzIjpbIlVTRVIiXSwicm9sZXMiOlsiVVNFUiJdLCJpc0VuYWJsZSI6dHJ1ZSwiaWF0IjoxNjg3OTI2NTQ2LCJleHAiOjE2ODc5MzAxNDZ9.p1hqYYqJbpBUQwzJKEF8izCbPw5mvjEIyjBWO_aysTs");
+  console.log(decoded)
   const toast = useToast();
 
 
@@ -77,9 +79,9 @@ const SignIn = () => {
                       type="email"
                       className="form-control"
                       placeholder="Email"
-                      name="email"
+                      name="username"
                       onChange={onChangeHandler}
-                      value={signState.email}
+                      value={signState.username}
                     />
                   </div>
                   <div className="formrow">

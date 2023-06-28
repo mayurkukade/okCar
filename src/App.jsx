@@ -38,9 +38,12 @@ const App = () => {
 
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<Register />} />
+        <Route path="/resetpassword" element={<ResetPassword />} />
+
         <Route path="/" element={<Home />} />
         <Route path="/carlist" element={<CarList />} />
         <Route path="/carDetails" element={<CarCard />} />
+        
         <Route element={<AppLayout />}>
           <Route
             element={
@@ -67,7 +70,7 @@ const App = () => {
 
           <Route path="*" element={<NotFound />} />
         </Route>
-        <Route path="/resetpassword" element={<ResetPassword />} />
+       
       </Routes>
       <Footer />
     </>

@@ -2,6 +2,8 @@
 import SubNav from "../Navbar/SubNav";
 
 const CarDetails = () => {
+ 
+  
   return (
     <>
       <SubNav componentsName={"Mercedez C180 Elegance 2008 "} />
@@ -12,58 +14,12 @@ const CarDetails = () => {
               <div className="advert-header">
                 <div className="contentbox">
                   <div className="adimages">
-                    {/* <div id="adslider" className="flexslider">
-                    <ul className="slides">
-                      <li>
-                        {" "}
-                        <img src="images/cars/01.jpg" alt="" />{" "}
-                      </li>
-                      <li>
-                        {" "}
-                        <img src="images/cars/02.jpg" alt="" />{" "}
-                      </li>
-                      <li>
-                        {" "}
-                        <img src="images/cars/03.jpg" alt="" />{" "}
-                      </li>
-                      <li>
-                        {" "}
-                        <img src="images/cars/04.jpg" alt="" />{" "}
-                      </li>
-                      <li>
-                        {" "}
-                        <img src="images/cars/05.jpg" alt="" />{" "}
-                      </li>
-                      <li>
-                        {" "}
-                        <img src="images/cars/06.jpg" alt="" />{" "}
-                      </li>
-                    </ul>
-                  </div> */}
+                  
                     <div id="carousel" className="flexslider">
                       <ul className="slides">
-                        {/* <li>
-                        {" "}
-                        <img src="images/cars/01.jpg" alt="" />{" "}
-                      </li>
-                      <li>
-                        {" "}
-                        <img src="images/cars/02.jpg" alt="" />{" "}
-                      </li>
-                      <li>
-                        {" "}
-                        <img src="images/cars/03.jpg" alt="" />{" "}
-                      </li>
-                      <li>
-                        {" "}
-                        <img src="images/cars/04.jpg" alt="" />{" "}
-                      </li>
-                      <li>
-                        {" "}
-                        <img src="images/cars/05.jpg" alt="" />{" "}
-                      </li> */}
+                      
                         <li>
-                          {" "}
+                          
                           <img src="../../../images/cars/06.jpg" alt="" />{" "}
                         </li>
                       </ul>
@@ -180,242 +136,13 @@ const CarDetails = () => {
                 </div>
               </div>
 
-              {/* <div className="advert-header">
-                <div className="contentbox">
-                  <h3>Car Inspection is Important Before buy a Used Car</h3>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed pellentesque massa vel lorem fermentum fringilla.
-                        Pellentesque id est et neque blandit ornare malesuada a
-                        mauris. Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Sed sagittis, quam a fringilla congue,
-                        turpis turpis molestie ligula, ut laoreet elit arcu sed
-                        nulla.
-                      </p>
-                    </div>
-                    <div className="col-md-6">
-                      <img src="images/car-inspection.jpg" alt="" />
-                    </div>
-                  </div>
-                </div>
-              </div> */}
-              {/* 
-              <div className="relatedJobs">
-                <h3>Related Ads</h3>
-                <ul className="searchList">
-                  <li>
-                    <div className="row">
-                      <div className="col-md-3 col-sm-4">
-                        <div className="adimg">
-                          <img src="images/cars/04.jpg" alt="Ad Name" />
-                        </div>
-                      </div>
-                      <div className="col-md-9 col-sm-8">
-                        <div className="jobinfo">
-                          <div className="row">
-                            <div className="col-md-8 col-sm-7">
-                              <h3>
-                                <a href="#.">Sue gate F 1.0 for Sale</a>
-                              </h3>
-                              <div className="location">
-                                <i
-                                  className="fa fa-calendar"
-                                  aria-hidden="true"
-                                ></i>{" "}
-                                <span>2014</span>
-                              </div>
-                              <div className="location">
-                                <i
-                                  className="fa fa-tachometer"
-                                  aria-hidden="true"
-                                ></i>{" "}
-                                <span>38,000 km</span>
-                              </div>
-                              <div className="location">
-                                <i
-                                  className="fa fa-map-marker"
-                                  aria-hidden="true"
-                                ></i>{" "}
-                                <span>New York</span>
-                              </div>
-                              <div className="clearfix"></div>
-                              <div className="vinfo">
-                                <span>Petrol</span>
-                              </div>
-                              <div className="vinfo">
-                                <span>1300 cc</span>
-                              </div>
-                              <div className="vinfo">
-                                <span>Automatic</span>
-                              </div>
-                              <div className="clearfix"></div>
-                              <div className="date">
-                                Last Updated: 1 day ago
-                              </div>
-                            </div>
-                            <div className="col-md-4 col-sm-5 text-right">
-                              <div className="adprice">$456.00</div>
-                              <div className="listbtn">
-                                <Link to="/cardetails">
-                                  View Details{" "}
-                                  <i
-                                    className="fa fa-arrow-circle-right"
-                                    aria-hidden="true"
-                                  ></i>
-                                </Link>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li>
-                    <div className="row">
-                      <div className="col-md-3 col-sm-4">
-                        <div className="adimg">
-                          <img src="images/cars/05.jpg" alt="Ad Name" />
-                        </div>
-                      </div>
-                      <div className="col-md-9 col-sm-8">
-                        <div className="jobinfo">
-                          <div className="row">
-                            <div className="col-md-8 col-sm-7">
-                              <h3>
-                                <a href="#.">Sue gate F 1.0 for Sale</a>
-                              </h3>
-                              <div className="location">
-                                <i
-                                  className="fa fa-calendar"
-                                  aria-hidden="true"
-                                ></i>{" "}
-                                <span>2014</span>
-                              </div>
-                              <div className="location">
-                                <i
-                                  className="fa fa-tachometer"
-                                  aria-hidden="true"
-                                ></i>{" "}
-                                <span>38,000 km</span>
-                              </div>
-                              <div className="location">
-                                <i
-                                  className="fa fa-map-marker"
-                                  aria-hidden="true"
-                                ></i>{" "}
-                                <span>New York</span>
-                              </div>
-                              <div className="clearfix"></div>
-                              <div className="vinfo">
-                                <span>Petrol</span>
-                              </div>
-                              <div className="vinfo">
-                                <span>1300 cc</span>
-                              </div>
-                              <div className="vinfo">
-                                <span>Automatic</span>
-                              </div>
-                              <div className="clearfix"></div>
-                              <div className="date">
-                                Last Updated: 1 day ago
-                              </div>
-                            </div>
-                            <div className="col-md-4 col-sm-5 text-right">
-                              <div className="adprice">$456.00</div>
-                              <div className="listbtn">
-                                <Link to="/cardetails">
-                                  View Details{" "}
-                                  <i
-                                    className="fa fa-arrow-circle-right"
-                                    aria-hidden="true"
-                                  ></i>
-                                </Link>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li>
-                    <div className="row">
-                      <div className="col-md-3 col-sm-4">
-                        <div className="adimg">
-                          <img src="images/cars/06.jpg" alt="Ad Name" />
-                        </div>
-                      </div>
-                      <div className="col-md-9 col-sm-8">
-                        <div className="jobinfo">
-                          <div className="row">
-                            <div className="col-md-8 col-sm-7">
-                              <h3>
-                                <a href="#.">Sue gate F 1.0 for Sale</a>
-                              </h3>
-                              <div className="location">
-                                <i
-                                  className="fa fa-calendar"
-                                  aria-hidden="true"
-                                ></i>{" "}
-                                <span>2014</span>
-                              </div>
-                              <div className="location">
-                                <i
-                                  className="fa fa-tachometer"
-                                  aria-hidden="true"
-                                ></i>{" "}
-                                <span>38,000 km</span>
-                              </div>
-                              <div className="location">
-                                <i
-                                  className="fa fa-map-marker"
-                                  aria-hidden="true"
-                                ></i>{" "}
-                                <span>New York</span>
-                              </div>
-                              <div className="clearfix"></div>
-                              <div className="vinfo">
-                                <span>Petrol</span>
-                              </div>
-                              <div className="vinfo">
-                                <span>1300 cc</span>
-                              </div>
-                              <div className="vinfo">
-                                <span>Automatic</span>
-                              </div>
-                              <div className="clearfix"></div>
-                              <div className="date">
-                                Last Updated: 1 day ago
-                              </div>
-                            </div>
-                            <div className="col-md-4 col-sm-5 text-right">
-                              <div className="adprice">$456.00</div>
-                              <div className="listbtn">
-                                <Link to="/cardetails">
-                                  View Details{" "}
-                                  <i
-                                    className="fa fa-arrow-circle-right"
-                                    aria-hidden="true"
-                                  ></i>
-                                </Link>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div> */}
+             
             </div>
 
             <div className="col-md-4">
               <div className="jbside">
-                <div className="adsalary">
-                  Price <strong>₹ 5,00,000</strong>
+                <div className="adsalary" >
+                  Price <strong> ₹ 5,00,000</strong>
                 </div>
                 <div className="ptext">
                   <i className="fa fa-clock-o" aria-hidden="true"></i> 7 Jan
@@ -432,25 +159,7 @@ const CarDetails = () => {
                     <i className="fa fa-phone" aria-hidden="true"></i> 555 456
                     46679
                   </a>{" "}
-                  {/* <a href="#." className="btn">
-                    <i className="fa fa-envelope" aria-hidden="true"></i> Send A
-                    Message
-                  </a>{" "} */}
-                  {/* <a href="#." className="btn">
-                    <i className="fa fa-print" aria-hidden="true"></i> Print
-                    this Ad
-                  </a>{" "} */}
-                  {/* <a href="#." className="btn">
-                    <i className="fa fa-floppy-o" aria-hidden="true"></i> Save
-                    This Ad
-                  </a>{" "}
-                  <a href="#." className="btn">
-                    <i
-                      className="fa fa-exclamation-triangle"
-                      aria-hidden="true"
-                    ></i>{" "}
-                    Report Abuse
-                  </a>{" "} */}
+                
                 </div>
               </div>
 
