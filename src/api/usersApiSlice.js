@@ -21,6 +21,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
     register: builder.mutation({
       //done page
       query: (data) => ({
+        
         url: "/account/register",
 
         method: "POST",

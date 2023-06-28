@@ -14,7 +14,8 @@ import { useNavigate } from "react-router-dom";
 import { logout } from "../../api/authSlice";
 const AvtarModal = () => {
   const username = localStorage.getItem("userInfo");
-   console.log(JSON.parse(username)?.results)
+  //  console.log(JSON.parse(username)?.results)
+  console.log(JSON.parse(username))
    
 
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ const AvtarModal = () => {
       <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
       <Menu bg="white">
         <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-          {JSON.parse(username)?.results.user[0].username}
+          {JSON.parse(username)?.sub}
         </MenuButton>
         <MenuList>
           <MenuItem>History</MenuItem>

@@ -16,10 +16,8 @@ const SignIn = () => {
   const [login] = useLoginMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  var decoded = jwt_decode("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQGdtYWlsLmNvbSIsImF1dGhvcml0aWVzIjpbIlVTRVIiXSwicm9sZXMiOlsiVVNFUiJdLCJpc0VuYWJsZSI6dHJ1ZSwiaWF0IjoxNjg3OTI2NTQ2LCJleHAiOjE2ODc5MzAxNDZ9.p1hqYYqJbpBUQwzJKEF8izCbPw5mvjEIyjBWO_aysTs");
-  console.log(decoded)
-  const toast = useToast();
 
+  const toast = useToast();
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -31,28 +29,35 @@ const SignIn = () => {
     });
   };
 
-  
   const SubmitHandler = async (e) => {
     e.preventDefault();
-    const { email, password } = signState;
+    const { username, password } = signState;
     try {
-      const res = await login({ email, password }).unwrap();
+      const res = await login({ username, password }).unwrap();
       console.log(res);
-      dispatch(setCredentials({ ...res }));
-      const resRole = res.results.user[0].role
+     
+      var decoded = jwt_decode(res);
+      console.log(decoded);
+      dispatch(setCredentials({ ...decoded }));
+      const {sub,authorities,roles} = decoded
+   
+      console.log(sub,authorities,roles)
+      
+      // const resRole = res.results.user[0].role;
 
-      if(resRole === 'vendor'){
-        navigate("/dealer");
-      }else if(resRole === 'admin'){
+      if (roles.includes("USER")) {
+        navigate("/")
+      }else if(roles.includes("ADMIN")){
         navigate("/dealersManegment")
+      }else{
+        console.log('role not intialize')
       }
-        
+
       toast({
         status: "success",
         position: "top",
         description: "Successful Login",
       });
-   
     } catch (error) {
       toast({
         status: "error",
@@ -100,7 +105,7 @@ const SignIn = () => {
                     className="btn"
                     value="Login"
                   >
-                    Login
+                    <span>Login</span>
                   </button>
                 </div>
                 {/* <!-- login form  end-->  */}
@@ -109,11 +114,11 @@ const SignIn = () => {
                 <div className="newuser">
                   <i className="fa fa-user" aria-hidden="true"></i> New User?{" "}
                   <Link to="/signup">
-                    <a>Register Here</a>
-                  </Link>{" "}
+                    <span>Register Here</span>
+                  </Link>
                   |
                   <Link to="/resetpassword">
-                    <a> Forgot Password</a>
+                    <span> Forgot Password</span>
                   </Link>
                 </div>
               </div>

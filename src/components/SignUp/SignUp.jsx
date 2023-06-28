@@ -1,6 +1,13 @@
-import { Link } from "react-router-dom";
+/* eslint-disable no-unused-vars */
+import { Link} from "react-router-dom";
 import SubNav from "../Navbar/SubNav";
 import { useState } from "react";
+import { useRegisterMutation } from "../../api/usersApiSlice";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { useToast } from "@chakra-ui/react";
+
 
 const SignUp = () => {
   const [inputField, setInputField] = useState({
@@ -12,7 +19,17 @@ const SignUp = () => {
     city: "",
     address: "",
     confirmPassword: "",
+    email:""
   });
+
+  const dispatch = useDispatch()
+  const toast = useToast()
+  const navigate = useNavigate()
+  const [register] = useRegisterMutation()
+
+
+
+  
 
   const onChangeFormhandler = (e) => {
     const { name, value } = e.target;
@@ -24,9 +41,46 @@ const SignUp = () => {
     });
   };
 
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async(e) => {
+    
     e.preventDefault();
-    console.log(inputField);
+    console.log(inputField)
+    const {password,
+    mobileNo,
+    roles,
+    firstName,
+    lastName,
+    city,
+    address,
+    email,
+    confirmPassword} = inputField;
+
+    try {
+     const res = await  register({password,
+      mobileNo,
+      roles,
+      firstName,
+      lastName,
+      city,
+      address,
+      email,
+      confirmPassword}).unwrap()
+      
+      toast({
+        status: "success",
+        position: "top",
+        description: "Successful Register User",
+      });
+      navigate('/signin')
+
+    } catch (error) {
+      toast({
+        status: "error",
+        position: "top",
+        description: "User not register ",
+      });
+      console.log(error)
+    }
   };
   return (
     <>
