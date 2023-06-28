@@ -161,14 +161,6 @@ const EditDealerProfile = () => {
                       </div>
                     </div>
                   </div>
-
-                  {/* <div className="newuser">
-                      <i className="fa fa-user" aria-hidden="true"></i> Already a
-                      Member?
-                      <Link to="/signin">
-                        <a> Login Here</a>
-                      </Link>
-                    </div> */}
                 </form>
               </div>
             </div>
