@@ -4,7 +4,6 @@ import authReducer from '../../api/authSlice'
 import { apiSlice } from '../../api/apiSlice'
 
 import {dealersManegmentApiSlice} from '../../api/dealersManegmentApiSlice'
-import { LOGIN_STATUS } from '../../constants/common.constants'
 export const store = configureStore({
     reducer: {
         [apiSlice.reducerPath]: apiSlice.reducer,
@@ -12,16 +11,6 @@ export const store = configureStore({
      
 
         auth: authReducer,
-        isLoggedIn: (state = false, action) => {
-          switch (action.type) {
-            case LOGIN_STATUS.SET_LOGGED_IN:
-              return true;
-            case LOGIN_STATUS.SET_LOGGED_OUT:
-              return false;
-            default:
-              return state;
-          }
-        }
       },
       middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(apiSlice.middleware),

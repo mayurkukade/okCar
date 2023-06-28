@@ -2,6 +2,13 @@
 import SubNav from "../Navbar/SubNav";
 
 const CarDetails = () => {
+
+  // TODO: This following varaible will be used in future
+
+  /*
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  */
+
   return (
     <>
       <SubNav componentsName={"Mercedez C180 Elegance 2008 "} />
