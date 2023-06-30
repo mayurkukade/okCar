@@ -10,6 +10,8 @@ import { useToast } from "@chakra-ui/react";
 
 
 const SignUp = () => {
+  const toast = useToast();
+  const navigate = useNavigate();
   const [inputField, setInputField] = useState({
     password: "",
     mobileNo: "",
@@ -23,8 +25,7 @@ const SignUp = () => {
   });
 
   const dispatch = useDispatch()
-  const toast = useToast()
-  const navigate = useNavigate()
+
   const [register] = useRegisterMutation()
 
 
@@ -85,7 +86,7 @@ const SignUp = () => {
   return (
     <>
       <SubNav componentsName={"Register"} />
-      <div className="listpgWraper" style={{ backgroundColor: "#F5F7F9" }}>
+      <div className="listpgWraper">
         <div className="container">
           <div className="row">
             <div className="col-md-6 col-md-offset-3">
@@ -198,6 +199,7 @@ const SignUp = () => {
                         />
                         Terms and Condition
                       </div>
+                      {/* {error && <p>{error}</p>} */}
                       <button type="submit" className="btn" value="Register">
                         Register
                       </button>

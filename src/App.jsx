@@ -15,20 +15,21 @@ import Register from "./components/SignUp/SignUp.jsx";
 import NotFound from "./components/NotFound/NotFound.jsx";
 import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
-import AddCar from "./components/AddCar/AddCar";
+import AddCarDetails from "./components/AddCar/AddCarDetails";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import CarCard from "./components/CarDetailsCard/CarDetails";
-
 import RequireAuth from "./features/RequireAuth";
 import AppLayout from "./components/appLayout/AppLayout";
 import { OnlyAdmin } from "./config/role";
-
 import CantAccess from "./components/cantAccess/CantAccess";
 import AddDealer from "./components/Form/AddDealer";
 import Contact from "./components/Contact/Contact";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
 import DealerDetails from "./components/Admin/DealerDetails";
 import CarList from "./components/CarDetailsCard/CarList.jsx";
+import EditUserProfile from "./components/EditUserProfile/EditUserProfile";
+import EditDealerProfile from "./components/EditDealerProfile/EditDealerProfile";
+import EditCarDetails from "./components/AddCar/EditCarDetails";
 
 const App = () => {
   return (
@@ -61,12 +62,15 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/adminbuyers" element={<AdminBuyers />} />
           <Route path="/dealer" element={<DealersModel />} />
-          <Route path="/addcar" element={<AddCar />} />
+          <Route path="/addcardetails" element={<AddCarDetails />} />
+          <Route path="/editCarDetails" element={<EditCarDetails />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
 
           <Route path="/dealer/carDetails" element={<CarCard />} />
           <Route path="/access" element={<CantAccess />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
+          <Route path="/editUserdetails" element={<EditUserProfile />} />
+          <Route path="/editDealerdetails" element={<EditDealerProfile />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>
