@@ -43,13 +43,13 @@ const SignUp = () => {
         : toast({
             status: "error",
             position: "top",
-            description: "Invalid Email",
+            description: "Invalid Email Please Check Email",
           });
     } else {
       toast({
         status: "error",
         position: "top",
-        description: "Login error please check Password and Confirm Password",
+        description: " Password and Confirm Password fields should be same",
       });
     }
     console.log(inputField);
