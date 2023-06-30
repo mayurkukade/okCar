@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import SubNav from "../Navbar/SubNav";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
   const [inputField, setInputField] = useState({
     firstName: "",
     lastName: "",
@@ -24,8 +27,23 @@ const SignUp = () => {
     });
   };
 
+  // email valiation Regex
+  const validateEmail = (email) => {
+    const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    return emailRegex.test(email);
+  };
+
+  // submit handler
   const onSubmitHandler = (e) => {
     e.preventDefault();
+    if (inputField.confirmPassword === inputField.Password) {
+      console.log("Password match successfully");
+      validateEmail(inputField.email)
+        ? navigate("/")
+        : setError("Invalid Email ");
+    } else {
+      setError("Passwords do not match");
+    }
     console.log(inputField);
   };
   return (
@@ -115,6 +133,7 @@ const SignUp = () => {
                         />
                         Terms and Condition
                       </div>
+                      {error && <p>{error}</p>}
                       <button type="submit" className="btn" value="Register">
                         Register
                       </button>
@@ -124,7 +143,7 @@ const SignUp = () => {
                   <div className="newuser">
                     <i className="fa fa-user" aria-hidden="true"></i> Already a
                     Member?
-                    <Link to="/signin">Login Here</Link>
+                    <Link to="/signin"> Login Here</Link>
                   </div>
                 </form>
               </div>
