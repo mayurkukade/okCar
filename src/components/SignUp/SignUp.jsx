@@ -31,7 +31,16 @@ const SignUp = () => {
   return (
     <>
       <SubNav componentsName={"Register"} />
-      <div className="listpgWraper" style={{ backgroundColor: "#F5F7F9" }}>
+      <div
+        className="listpgWraper"
+        style={{
+          backgroundColor: "#F5F7F9",
+          height: "80vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <div className="container">
           <div className="row">
             <div className="col-md-6 col-md-offset-3">

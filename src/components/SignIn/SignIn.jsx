@@ -64,7 +64,14 @@ const SignIn = () => {
       <SubNav componentsName={"Login"} />
       {/* // <!-- Page Title End --> */}
 
-      <div className="listpgWraper">
+      <div className="listpgWraper"
+       style={{
+        height: "80vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+      >
         <div className="container">
           <div className="row">
             <div className="col-md-6 col-md-offset-3">

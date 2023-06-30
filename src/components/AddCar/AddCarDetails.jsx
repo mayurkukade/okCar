@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SubNav from "../Navbar/SubNav";
 
-const AddCar = () => {
+const AddCarDetails = () => {
   const [formData, setFormData] = useState({
     //features
     acFeature: false,
@@ -597,4 +597,4 @@ const AddCar = () => {
   );
 };
 
-export default AddCar;
+export default AddCarDetails;
