@@ -29,6 +29,12 @@ export const dealerApiSlice = apiSlice.injectEndpoints({
                 }
             })
            
+        }),
+        getAllDealer:builder.query({
+            query:()=>({
+                url:"//dealer/allDealers",
+                method:"GET"
+            })
         })
        
 

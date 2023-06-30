@@ -18,7 +18,6 @@ const SignIn = () => {
   const navigate = useNavigate();
   const toastUtility = new ToastUtility(useToast());
 
-
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
     setSignState((preVal) => {
@@ -29,24 +28,35 @@ const SignIn = () => {
     });
   };
 
+  //email Validation regex
+  const validateEmail = (email) => {
+    const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    return emailRegex.test(email);
+  };
 
-  const SubmitHandler = async (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     const { email, password } = signState;
     try {
-      const res = await login({ email, password }).unwrap();
-      console.log(res);
-      dispatch(setCredentials({ ...res }));
-      const resRole = res.results.user[0].role
+      if (validateEmail(email)) {
+        const res = await login({ email, password }).unwrap();
+        console.log(res);
+        dispatch(setCredentials({ ...res }));
+        const resRole = res.results.user[0].role;
 
-      if (resRole === 'vendor') {
-        navigate("/dealer");
-      } else if (resRole === 'admin') {
-        navigate("/dealersManegment")
+
+
+        if (resRole === "vendor") {
+          navigate("/dealer");
+        } else if (resRole === "admin") {
+          navigate("/dealersManegment");
+        }
+
+        toastUtility.showCustom(TOASTS.LOGIN_SUCCESS);
+
+      } else {
+        toastUtility.showError('Invalid Email', 'Entered email is invalid')
       }
-
-      toastUtility.showCustom(TOASTS.LOGIN_SUCCESS);
-
     } catch (error) {
       toastUtility.showCustom(TOASTS.LOGIN_FAILED);
     }
@@ -56,7 +66,15 @@ const SignIn = () => {
       <SubNav componentsName={"Login"} />
       {/* // <!-- Page Title End --> */}
 
-      <div className="listpgWraper">
+      <div
+        className="listpgWraper"
+        style={{
+          height: "80vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <div className="container">
           <div className="row">
             <div className="col-md-6 col-md-offset-3">
@@ -86,7 +104,7 @@ const SignIn = () => {
                   </div>
                   <button
                     type="submit"
-                    onClick={SubmitHandler}
+                    onClick={submitHandler}
                     className="btn"
                     value="Login"
                   >
@@ -98,13 +116,8 @@ const SignIn = () => {
                 {/* <!-- sign up form --> */}
                 <div className="newuser">
                   <i className="fa fa-user" aria-hidden="true"></i> New User?{" "}
-                  <Link to="/signup">
-                    <a>Register Here</a>
-                  </Link>{" "}
-                  |
-                  <Link to="/resetpassword">
-                    <a> Forgot Password</a>
-                  </Link>
+                  <Link to="/signup">Register Here</Link> |
+                  <Link to="/resetpassword"> Forgot Password</Link>
                 </div>
               </div>
             </div>

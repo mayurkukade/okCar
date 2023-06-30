@@ -1,20 +1,18 @@
-import { Link } from "react-router-dom";
 import SubNav from "../Navbar/SubNav";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useToast } from "@chakra-ui/react";
-const SignUp = () => {
-  const toast = useToast();
-  const navigate = useNavigate();
+
+const EditDealerProfile = () => {
   const [inputField, setInputField] = useState({
+    email: "",
+    mobileNo: "",
+    address: "",
+    city: "",
     firstName: "",
     lastName: "",
-    MobileNo: "",
-    email: "",
-    Password: "",
-    confirmPassword: "",
-    roles: "USER",
-    userType: "user",
+
+    adharShopact: "",
+    area: "",
+    shopName: "",
   });
 
   const onChangeFormhandler = (e) => {
@@ -27,44 +25,21 @@ const SignUp = () => {
     });
   };
 
-  // email valiation Regex
-  const validateEmail = (email) => {
-    const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
-    return emailRegex.test(email);
-  };
-
-  // submit handler
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    if (inputField.confirmPassword === inputField.Password) {
-      console.log("Password match successfully");
-      validateEmail(inputField.email)
-        ? navigate("/")
-        : toast({
-            status: "error",
-            position: "top",
-            description: "Invalid Email Please Check Email",
-          });
-    } else {
-      toast({
-        status: "error",
-        position: "top",
-        description: " Password and Confirm Password fields should be same",
-      });
-    }
     console.log(inputField);
   };
   return (
     <>
-      <SubNav componentsName={"Register"} />
-      <div className="listpgWraper">
+      <SubNav componentsName={"Edit Dealer"} />
+      <div className="listpgWraper" style={{ backgroundColor: "#F5F7F9" }}>
         <div className="container">
           <div className="row">
             <div className="col-md-6 col-md-offset-3">
               <div className="userccount">
                 <form onSubmit={onSubmitHandler}>
                   <div className="userbtns">
-                    <h2>User Register</h2>
+                    <h2>Edit Dealer Details </h2>
                   </div>
                   <div className="tab-content">
                     <div
@@ -94,7 +69,7 @@ const SignUp = () => {
                       <div className="formrow">
                         <input
                           type="text"
-                          name="MobileNo"
+                          name="mobileNo"
                           className="form-control"
                           placeholder="Phone Number"
                           onChange={onChangeFormhandler}
@@ -114,9 +89,9 @@ const SignUp = () => {
                       <div className="formrow">
                         <input
                           type="text"
-                          name="Password"
+                          name="address"
                           className="form-control"
-                          placeholder="Password"
+                          placeholder="Address"
                           onChange={onChangeFormhandler}
                           required
                         />
@@ -124,9 +99,39 @@ const SignUp = () => {
                       <div className="formrow">
                         <input
                           type="text"
-                          name="confirmPassword"
+                          name="city"
                           className="form-control"
-                          placeholder="Confirm Password"
+                          placeholder="City"
+                          onChange={onChangeFormhandler}
+                          required
+                        />
+                      </div>
+                      <div className="formrow">
+                        <input
+                          type="text"
+                          name="adharShopact"
+                          className="form-control"
+                          placeholder="Adhaar Card / Shop Cart"
+                          onChange={onChangeFormhandler}
+                          required
+                        />
+                      </div>
+                      <div className="formrow">
+                        <input
+                          type="text"
+                          name="area"
+                          className="form-control"
+                          placeholder="Area"
+                          onChange={onChangeFormhandler}
+                          required
+                        />
+                      </div>
+                      <div className="formrow">
+                        <input
+                          type="text"
+                          name="shopName"
+                          className="form-control"
+                          placeholder="Shop Name"
                           onChange={onChangeFormhandler}
                           required
                         />
@@ -141,17 +146,20 @@ const SignUp = () => {
                         />
                         Terms and Condition
                       </div>
-                      {/* {error && <p>{error}</p>} */}
-                      <button type="submit" className="btn" value="Register">
-                        Register
-                      </button>
+                      <div style={{ display: "flex", gap: "10px" }}>
+                        <button type="submit" className="btn" value="Register">
+                          Edit User
+                        </button>
+                        <button
+                          type="submit"
+                          className="btn"
+                          value="Register"
+                          style={{ backgroundColor: "red" }}
+                        >
+                          Delete User
+                        </button>
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="newuser">
-                    <i className="fa fa-user" aria-hidden="true"></i> Already a
-                    Member?
-                    <Link to="/signin"> Login Here</Link>
                   </div>
                 </form>
               </div>
@@ -162,4 +170,5 @@ const SignUp = () => {
     </>
   );
 };
-export default SignUp;
+
+export default EditDealerProfile;
