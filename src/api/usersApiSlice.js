@@ -41,6 +41,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
         url: `/user/changedPassword/${data.id}`,
         method: "PUT",
         body: data,
+        
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },

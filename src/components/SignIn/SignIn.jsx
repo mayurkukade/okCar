@@ -34,7 +34,7 @@ const SignIn = () => {
     const { username, password } = signState;
     try {
       const res = await login({ username, password }).unwrap();
-      console.log(res);
+      console.log(res,'res');
      
       var decoded = jwt_decode(res);
       console.log(decoded);

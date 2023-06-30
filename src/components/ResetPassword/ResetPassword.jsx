@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { useRegisterMutation } from "../../api/usersApiSlice";
 const ChangePasswordPage = () => {
   const navigate = useNavigate();
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-
+const [resetpassword] = useRegisterMutation()
   const handleNewPasswordChange = (e) => {
     setNewPassword(e.target.value);
   };
@@ -15,12 +15,11 @@ const ChangePasswordPage = () => {
     setConfirmPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
     if (newPassword === confirmPassword) {
-      console.log("Password updated successfully");
-      navigate("/");
+        await resetpassword({newPassword,confirmPassword})
     } else {
       setError("Passwords do not match");
     }
