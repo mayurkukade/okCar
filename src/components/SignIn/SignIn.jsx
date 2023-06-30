@@ -15,9 +15,8 @@ const SignIn = () => {
   const [login] = useLoginMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
-  const toast = useToast();
 
+  const toast = useToast();
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -29,7 +28,6 @@ const SignIn = () => {
     });
   };
 
-  
   const SubmitHandler = async (e) => {
     e.preventDefault();
     const { email, password } = signState;
@@ -37,20 +35,19 @@ const SignIn = () => {
       const res = await login({ email, password }).unwrap();
       console.log(res);
       dispatch(setCredentials({ ...res }));
-      const resRole = res.results.user[0].role
+      const resRole = res.results.user[0].role;
 
-      if(resRole === 'vendor'){
+      if (resRole === "vendor") {
         navigate("/dealer");
-      }else if(resRole === 'admin'){
-        navigate("/dealersManegment")
+      } else if (resRole === "admin") {
+        navigate("/dealersManegment");
       }
-        
+
       toast({
         status: "success",
         position: "top",
         description: "Successful Login",
       });
-   
     } catch (error) {
       toast({
         status: "error",
@@ -64,13 +61,14 @@ const SignIn = () => {
       <SubNav componentsName={"Login"} />
       {/* // <!-- Page Title End --> */}
 
-      <div className="listpgWraper"
-       style={{
-        height: "80vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      <div
+        className="listpgWraper"
+        style={{
+          height: "80vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
         <div className="container">
           <div className="row">
@@ -113,13 +111,8 @@ const SignIn = () => {
                 {/* <!-- sign up form --> */}
                 <div className="newuser">
                   <i className="fa fa-user" aria-hidden="true"></i> New User?{" "}
-                  <Link to="/signup">
-                    <a>Register Here</a>
-                  </Link>{" "}
-                  |
-                  <Link to="/resetpassword">
-                    <a> Forgot Password</a>
-                  </Link>
+                  <Link to="/signup">Register Here</Link> |
+                  <Link to="/resetpassword"> Forgot Password</Link>
                 </div>
               </div>
             </div>

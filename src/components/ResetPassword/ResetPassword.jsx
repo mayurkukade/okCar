@@ -29,12 +29,12 @@ const ChangePasswordPage = () => {
   return (
     <div
       className="listpgWraper"
-      style={{
-        height: "80vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      // style={{
+      //   height: "80vh",
+      //   display: "flex",
+      //   justifyContent: "center",
+      //   alignItems: "center",
+      // }}
     >
       <div className="container">
         <div className="row">

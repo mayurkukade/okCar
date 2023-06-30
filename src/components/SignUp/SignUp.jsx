@@ -31,16 +31,7 @@ const SignUp = () => {
   return (
     <>
       <SubNav componentsName={"Register"} />
-      <div
-        className="listpgWraper"
-        style={{
-          backgroundColor: "#F5F7F9",
-          height: "80vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <div className="listpgWraper">
         <div className="container">
           <div className="row">
             <div className="col-md-6 col-md-offset-3">
@@ -133,9 +124,7 @@ const SignUp = () => {
                   <div className="newuser">
                     <i className="fa fa-user" aria-hidden="true"></i> Already a
                     Member?
-                    <Link to="/signin">
-                      <a> Login Here</a>
-                    </Link>
+                    <Link to="/signin">Login Here</Link>
                   </div>
                 </form>
               </div>
