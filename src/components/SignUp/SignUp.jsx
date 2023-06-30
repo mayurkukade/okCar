@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import SubNav from "../Navbar/SubNav";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { useToast } from "@chakra-ui/react";
 const SignUp = () => {
+  const toast = useToast();
   const navigate = useNavigate();
-  const [error, setError] = useState("");
   const [inputField, setInputField] = useState({
     firstName: "",
     lastName: "",
@@ -40,9 +40,17 @@ const SignUp = () => {
       console.log("Password match successfully");
       validateEmail(inputField.email)
         ? navigate("/")
-        : setError("Invalid Email ");
+        : toast({
+            status: "error",
+            position: "top",
+            description: "Invalid Email",
+          });
     } else {
-      setError("Passwords do not match");
+      toast({
+        status: "error",
+        position: "top",
+        description: "Login error please check Password and Confirm Password",
+      });
     }
     console.log(inputField);
   };
@@ -133,7 +141,7 @@ const SignUp = () => {
                         />
                         Terms and Condition
                       </div>
-                      {error && <p>{error}</p>}
+                      {/* {error && <p>{error}</p>} */}
                       <button type="submit" className="btn" value="Register">
                         Register
                       </button>
