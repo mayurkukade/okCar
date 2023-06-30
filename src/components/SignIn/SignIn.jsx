@@ -28,26 +28,40 @@ const SignIn = () => {
     });
   };
 
-  const SubmitHandler = async (e) => {
+  //email Validation regex
+  const validateEmail = (email) => {
+    const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    return emailRegex.test(email);
+  };
+
+  const submitHandler = async (e) => {
     e.preventDefault();
     const { email, password } = signState;
     try {
-      const res = await login({ email, password }).unwrap();
-      console.log(res);
-      dispatch(setCredentials({ ...res }));
-      const resRole = res.results.user[0].role;
+      if (validateEmail(email)) {
+        const res = await login({ email, password }).unwrap();
+        console.log(res);
+        dispatch(setCredentials({ ...res }));
+        const resRole = res.results.user[0].role;
 
-      if (resRole === "vendor") {
-        navigate("/dealer");
-      } else if (resRole === "admin") {
-        navigate("/dealersManegment");
+        if (resRole === "vendor") {
+          navigate("/dealer");
+        } else if (resRole === "admin") {
+          navigate("/dealersManegment");
+        }
+
+        toast({
+          status: "success",
+          position: "top",
+          description: "Successful Login",
+        });
+      } else {
+        toast({
+          status: "error",
+          position: "top",
+          description: "Invalid Email",
+        });
       }
-
-      toast({
-        status: "success",
-        position: "top",
-        description: "Successful Login",
-      });
     } catch (error) {
       toast({
         status: "error",
@@ -99,7 +113,7 @@ const SignIn = () => {
                   </div>
                   <button
                     type="submit"
-                    onClick={SubmitHandler}
+                    onClick={submitHandler}
                     className="btn"
                     value="Login"
                   >
