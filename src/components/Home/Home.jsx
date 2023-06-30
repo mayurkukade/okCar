@@ -8,210 +8,207 @@ const Home = () => {
   return (
     <div>
       <div className="header">
-      <div className="header">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-2 col-sm-3 col-xs-12">
-              <a className="logo">
-                <Link to="/">
-                  <img src="../../../images/logo.png" alt="logo" />
-                </Link>
-              </a>
-              <div className="navbar-header">
-                <button
-                  type="button"
-                  className="navbar-toggle"
-                  data-toggle="collapse"
-                  data-target=".navbar-collapse"
-                >
-                  <span className="sr-only">Toggle navigation</span>
-                  <span className="icon-bar"></span>
-                  <span className="icon-bar"></span>
-                  <span className="icon-bar"></span>
-                </button>
-              </div>
-              <div className="clearfix"></div>
-            </div>
-            <div className="col-md-10 col-sm-12 col-xs-12">
-              <div className="navbar navbar-default" role="navigation">
-                <div className="navbar-collapse collapse" id="nav-main">
-                  <ul className="nav navbar-nav">
-                    <li className="dropdown active">
-                      <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                      <Link to="/carlist">Used Cars</Link>
-                    </li>
-                    {/* <li>
-                      <a href="listing.html">New Cars</a>
-                    </li> */}
-                    <li>
-                      <Link to="/Contact">Contact</Link>
-                    </li>
-                    <li>
-                      {username ? (
-                        <AvtarModal />
-                      ) : (
-                        <Link to="/signin">
-                          <p> Sign In</p>{" "}
-                        </Link>
-                      )}
-                    </li>
-
-                    <li className="postad"></li>
-
-                    <li className="postad"></li>
-                  </ul>
+        <div className="header">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-2 col-sm-3 col-xs-12">
+                <a className="logo">
+                  <Link to="/">
+                    <img src="../../../images/logo.png" alt="logo" />
+                  </Link>
+                </a>
+                <div className="navbar-header">
+                  <button
+                    type="button"
+                    className="navbar-toggle"
+                    data-toggle="collapse"
+                    data-target=".navbar-collapse"
+                  >
+                    <span className="sr-only">Toggle navigation</span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                  </button>
                 </div>
                 <div className="clearfix"></div>
               </div>
+              <div className="col-md-10 col-sm-12 col-xs-12">
+                <div className="navbar navbar-default" role="navigation">
+                  <div className="navbar-collapse collapse" id="nav-main">
+                    <ul className="nav navbar-nav">
+                      <li className="dropdown active">
+                        <Link to="/">Home</Link>
+                      </li>
+                      <li>
+                        <Link to="/carlist">Used Cars</Link>
+                      </li>
+                      {/* <li>
+                      <a href="listing.html">New Cars</a>
+                    </li> */}
+                      <li>
+                        <Link to="/Contact">Contact</Link>
+                      </li>
+                      <li>
+                        {username ? (
+                          <AvtarModal />
+                        ) : (
+                          <Link to="/signin">Sign In</Link>
+                        )}
+                      </li>
+
+                      <li className="postad"></li>
+
+                      <li className="postad"></li>
+                    </ul>
+                  </div>
+                  <div className="clearfix"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-
-      <div
-        className="searchwrap"
-        style={{ border: "2px solid black", backgroundColor: "black" }}
-      >
-        <div className="container">
-          <h3>Find Used Cars In Pune</h3>
-          <p>
-            Search from over 1,00,000 Active Cars
-            {/* &amp; Post free unlimited
+        <div
+          className="searchwrap"
+          style={{ border: "2px solid black", backgroundColor: "black" }}
+        >
+          <div className="container">
+            <h3>Find Used Cars In Pune</h3>
+            <p>
+              Search from over 1,00,000 Active Cars
+              {/* &amp; Post free unlimited
             classNameifieds ads! */}
-          </p>
-          <div className="searchbar">
-            <div className="row">
-              <div className="col-md-6">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Car Brand or Model"
-                />
-              </div>
-              <div className="col-md-2">
-                <select className="form-control">
-                  <option>Price</option>
-                  <option>₹50,000 - ₹99,999</option>
-                  <option>₹1,00,000 - ₹1,49,999</option>
-                  <option>₹1,50,000 - ₹1,99,999</option>
-                  <option>₹2,00,000 - ₹2,49,999</option>
-                  {/* <option>₹ - ₹3499</option>
+            </p>
+            <div className="searchbar">
+              <div className="row">
+                <div className="col-md-6">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Car Brand or Model"
+                  />
+                </div>
+                <div className="col-md-2">
+                  <select className="form-control">
+                    <option>Price</option>
+                    <option>₹50,000 - ₹99,999</option>
+                    <option>₹1,00,000 - ₹1,49,999</option>
+                    <option>₹1,50,000 - ₹1,99,999</option>
+                    <option>₹2,00,000 - ₹2,49,999</option>
+                    {/* <option>₹ - ₹3499</option>
                   <option>₹3500 - ₹3999</option>
                   <option>About ₹4000</option> */}
-                </select>
-              </div>
-              <div className="col-md-2">
-                <select className="form-control">
-                  <option>Area</option>
-                  <option>Kharadi</option>
-                  <option>Viman Nagar</option>
-                  <option>Koreagaon</option>
-                  <option>Hinjewadi</option>
-                </select>
-              </div>
-              <div className="col-md-2">
-                <input type="submit" className="btn" value="Search" />
+                  </select>
+                </div>
+                <div className="col-md-2">
+                  <select className="form-control">
+                    <option>Area</option>
+                    <option>Kharadi</option>
+                    <option>Viman Nagar</option>
+                    <option>Koreagaon</option>
+                    <option>Hinjewadi</option>
+                  </select>
+                </div>
+                <div className="col-md-2">
+                  <input type="submit" className="btn" value="Search" />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <HomeCarousel />
-      <div className="about-wrap">
-        <div className="col-md-6">
-          <div className="about-image"></div>
-        </div>
-        <div className="col-md-6">
-          <div className="aboutinfo">
-            <div className="title">
-              <span>World&apos;s Leading Used Cars</span>
-              <h1>
-                <span>Welcome to</span> Auto Car
-              </h1>
+        <HomeCarousel />
+        <div className="about-wrap">
+          <div className="col-md-6">
+            <div className="about-image"></div>
+          </div>
+          <div className="col-md-6">
+            <div className="aboutinfo">
+              <div className="title">
+                <span>World&apos;s Leading Used Cars</span>
+                <h1>
+                  <span>Welcome to</span> Auto Car
+                </h1>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Phasellus sapien metus, consectetur et efficitur ut, mattis et
+                nisl. Etiam aliquet erat lorem, sed rhoncus justo hendrerit ac.
+                Donec vel lacus tincidunt, sagittis lorem sed, ultricies magna.
+                Suspendisse gravida massa sit amet urna faucibus, fermentum
+                fringilla tellus congue. Integer lacinia iaculis dolor, in
+                convallis metus laoreet quis. Vestibulum pulvinar, felis sit
+                amet dignissim feugiat, est urna congue orci, nec mattis felis
+                nunc sed nulla.
+              </p>
+              <ul>
+                <li>Nam rutrum tortor eget lorem mattis mattis.</li>
+                <li>Duis fermentum sem nec lorem sodales egestas.</li>
+                <li>
+                  Duis mattis diam et ante tempor, quis tristique quam sagittis.
+                </li>
+                <li>Cras blandit ante ac hendrerit sodales.</li>
+                <li>Duis non massa id nisl imperdiet iaculis.</li>
+              </ul>
             </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              sapien metus, consectetur et efficitur ut, mattis et nisl. Etiam
-              aliquet erat lorem, sed rhoncus justo hendrerit ac. Donec vel
-              lacus tincidunt, sagittis lorem sed, ultricies magna. Suspendisse
-              gravida massa sit amet urna faucibus, fermentum fringilla tellus
-              congue. Integer lacinia iaculis dolor, in convallis metus laoreet
-              quis. Vestibulum pulvinar, felis sit amet dignissim feugiat, est
-              urna congue orci, nec mattis felis nunc sed nulla.
-            </p>
-            <ul>
-              <li>Nam rutrum tortor eget lorem mattis mattis.</li>
-              <li>Duis fermentum sem nec lorem sodales egestas.</li>
-              <li>
-                Duis mattis diam et ante tempor, quis tristique quam sagittis.
-              </li>
-              <li>Cras blandit ante ac hendrerit sodales.</li>
-              <li>Duis non massa id nisl imperdiet iaculis.</li>
-            </ul>
+          </div>
+          <div className="clearfix"></div>
+        </div>
+        <div className="section whitebg">
+          <div className="container">
+            <div className="titleTop">
+              <h3>
+                Search Cars By <span>Brand</span>
+              </h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+                varius, orci id facilisis egestas, neque purus sagittis arcu,
+                nec maximus quam odio nec elit Pellentesque eget ipsum mattis
+              </p>
+            </div>
+            <div className="topsearchwrap">
+              <ul className="row makelist">
+                <li className="col-md-2 col-sm-3 col-xs-6">
+                  <a href="listing.html">
+                    <img src="../../../images/logo/tata.png" alt="" />
+                    <strong>Tata Motors</strong>
+                  </a>
+                </li>
+                <li className="col-md-2 col-sm-3 col-xs-6">
+                  <a href="listing.html">
+                    <img src="../../../images/logo/suzuki.png" alt="" />
+                    <strong>Maruti Suzuki</strong>
+                  </a>
+                </li>
+                <li className="col-md-2 col-sm-3 col-xs-6">
+                  <a href="listing.html">
+                    <img src="../../../images/logo/hyundai.png" alt="" />
+                    <strong>Hyundai</strong>
+                  </a>
+                </li>
+                <li className="col-md-2 col-sm-3 col-xs-6">
+                  <a href="listing.html">
+                    <img src="../../../images/logo/Mahindra.png" alt="" />
+                    <strong>Mahindra</strong>
+                  </a>
+                </li>
+                <li className="col-md-2 col-sm-3 col-xs-6">
+                  <a href="listing.html">
+                    <img src="../../../images/logo/honda.png" alt="" />
+                    <strong>Honda</strong>
+                  </a>
+                </li>
+                <li className="col-md-2 col-sm-3 col-xs-6">
+                  <a href="listing.html">
+                    <img src="../../../images/logo/toyota.png" alt="" />
+                    <strong>Toyota</strong>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div className="clearfix"></div>
-      </div>
-      <div className="section whitebg">
-        <div className="container">
-          <div className="titleTop">
-            <h3>
-              Search Cars By <span>Brand</span>
-            </h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-              varius, orci id facilisis egestas, neque purus sagittis arcu, nec
-              maximus quam odio nec elit Pellentesque eget ipsum mattis
-            </p>
-          </div>
-          <div className="topsearchwrap">
-            <ul className="row makelist">
-              <li className="col-md-2 col-sm-3 col-xs-6">
-                <a href="listing.html">
-                  <img src="../../../images/logo/tata.png" alt="" />
-                  <strong>Tata Motors</strong>
-                </a>
-              </li>
-              <li className="col-md-2 col-sm-3 col-xs-6">
-                <a href="listing.html">
-                  <img src="../../../images/logo/suzuki.png" alt="" />
-                  <strong>Maruti Suzuki</strong>
-                </a>
-              </li>
-              <li className="col-md-2 col-sm-3 col-xs-6">
-                <a href="listing.html">
-                  <img src="../../../images/logo/hyundai.png" alt="" />
-                  <strong>Hyundai</strong>
-                </a>
-              </li>
-              <li className="col-md-2 col-sm-3 col-xs-6">
-                <a href="listing.html">
-                  <img src="../../../images/logo/Mahindra.png" alt="" />
-                  <strong>Mahindra</strong>
-                </a>
-              </li>
-              <li className="col-md-2 col-sm-3 col-xs-6">
-                <a href="listing.html">
-                  <img src="../../../images/logo/honda.png" alt="" />
-                  <strong>Honda</strong>
-                </a>
-              </li>
-              <li className="col-md-2 col-sm-3 col-xs-6">
-                <a href="listing.html">
-                  <img src="../../../images/logo/toyota.png" alt="" />
-                  <strong>Toyota</strong>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
 
-
-      {/* <div className="section whitebg">
+        {/* <div className="section whitebg">
         <div className="container">
           <div className="titleTop">
             <h3>
@@ -223,7 +220,7 @@ const Home = () => {
               maximus quam odio nec elit Pellentesque eget ipsum mattis
             </p>
           </div> */}
-      {/* <div className="topsearchwrap">
+        {/* <div className="topsearchwrap">
       {/* <div className="topsearchwrap">
             <ul className="row catelist">
               <li className="col-md-3 col-sm-6 col-xs-6">
@@ -597,45 +594,45 @@ const Home = () => {
           </ul>
         </div>
       </div> */}
-      <div className="section whitebg howitwrap">
-        <div className="container">
-          <ul className="howlist row">
-            <li className="col-md-4 col-sm-4">
-              <div className="iconcircle">
-                <img src="images/avatar.png" alt="" />
-              </div>
-              <h4>Create a Free Account</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incidid ut labore et dolore magna aliqua.
-              </p>
-            </li>
+        <div className="section whitebg howitwrap">
+          <div className="container">
+            <ul className="howlist row">
+              <li className="col-md-4 col-sm-4">
+                <div className="iconcircle">
+                  <img src="images/avatar.png" alt="" />
+                </div>
+                <h4>Create a Free Account</h4>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incidid ut labore et dolore magna aliqua.
+                </p>
+              </li>
 
-            <li className="col-md-4 col-sm-4">
-              <div className="iconcircle">
-                <img src="images/car.png" alt="" />
-              </div>
-              <h4>Post your Free Car</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incidid ut labore et dolore magna aliqua.
-              </p>
-            </li>
+              <li className="col-md-4 col-sm-4">
+                <div className="iconcircle">
+                  <img src="images/car.png" alt="" />
+                </div>
+                <h4>Post your Free Car</h4>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incidid ut labore et dolore magna aliqua.
+                </p>
+              </li>
 
-            <li className="col-md-4 col-sm-4">
-              <div className="iconcircle">
-                <img src="images/sell-icon.png" alt="" />
-              </div>
-              <h4>Sold or Buy</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incidid ut labore et dolore magna aliqua.
-              </p>
-            </li>
-          </ul>
+              <li className="col-md-4 col-sm-4">
+                <div className="iconcircle">
+                  <img src="images/sell-icon.png" alt="" />
+                </div>
+                <h4>Sold or Buy</h4>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incidid ut labore et dolore magna aliqua.
+                </p>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-      {/* <div className="section">
+        {/* <div className="section">
         <div className="container">
           <div className="titleTop">
             <h3>
@@ -712,7 +709,7 @@ const Home = () => {
           </ul>
         </div>
       </div> */}
-      {/* <div className="appwraper">
+        {/* <div className="appwraper">
           <div className="container">
             <div className="titleTop">
               <h3>Download Our App</h3>
@@ -752,7 +749,7 @@ const Home = () => {
             </div>
           </div>
         </div> */}
-      {/* <div className="subscribe">
+        {/* <div className="subscribe">
           <div className="container">
             <h6>Submit Newsletters</h6>
             <p>
@@ -778,7 +775,7 @@ const Home = () => {
             </div>
           </div>
         </div> */}
-    </div>
+      </div>
     </div>
   );
 };
