@@ -223,7 +223,7 @@ const DealersModel = () => {
   return (
     <>
       <Flex justifyContent={"flex-end"} padding={"20px"}>
-        <Link to="/addcar">
+        <Link to="/addcardetails">
           <Button bgColor={"#5DC302"} _on>
             Add Car
           </Button>

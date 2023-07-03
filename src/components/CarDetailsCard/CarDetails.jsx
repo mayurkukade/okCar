@@ -77,26 +77,38 @@ const CarDetails = () => {
                   <ul className="row carfeature">
                     <li className="col-md-4 col-sm-6">
                       <span className="feat">
-                        <img src="images/icons/disc-brake.png" alt="" /> ABS
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/radio.png" alt="" /> AM/FM Radio
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/air-bags.png" alt="" /> Air Bags
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
                         <img src="images/icons/minisplit.png" alt="" /> Air
                         Conditioning
                       </span>
                     </li>
+
                     <li className="col-md-4 col-sm-6">
+                      <span className="feat">
+                        <img src="images/icons/radio.png" alt="" /> Music
+                      </span>
+                    </li>
+                    <li className="col-md-4 col-sm-6">
+                      <span className="feat">
+                        <img
+                          src="../../../images/icons/rearcamera.png"
+                          alt=""
+                          style={{ height: "3 0px" }}
+                        />{" "}
+                        Rear Parking Camera
+                      </span>
+                    </li>
+                    {/* <li className="col-md-4 col-sm-6">
+                      <span className="feat">
+                        <img src="images/icons/disc-brake.png" alt="" /> ABS
+                      </span>
+                    </li> */}
+                    <li className="col-md-4 col-sm-6">
+                      <span className="feat">
+                        <img src="images/icons/power-window.png" alt="" /> Power
+                        Windows
+                      </span>
+                    </li>
+                    {/* <li className="col-md-4 col-sm-6">
                       <span className="feat">
                         <img src="images/icons/rim.png" alt="" /> Alloy Rims
                       </span>
@@ -159,7 +171,7 @@ const CarDetails = () => {
                         <img src="images/icons/power-window.png" alt="" /> Power
                         Windows
                       </span>
-                    </li>
+                    </li> */}
                   </ul>
                   <h3>Seller Comments</h3>
                   <p>
@@ -421,10 +433,10 @@ const CarDetails = () => {
                 <div className="adsalary">
                   Price <strong>₹ 5,00,000</strong>
                 </div>
-                <div className="ptext">
+                {/* <div className="ptext">
                   <i className="fa fa-clock-o" aria-hidden="true"></i> 7 Jan
                   10:10 pm
-                </div>
+                </div> */}
                 <div className="ptext">
                   <i className="fa fa-map-marker" aria-hidden="true"></i>
                   Kharadi, Pune
@@ -471,12 +483,12 @@ const CarDetails = () => {
                       <span>Pearl White</span>
                     </div>
                   </li>
-                  <li className="row">
+                  {/* <li className="row">
                     <div className="col-md-6 col-xs-6">Assembly</div>
                     <div className="col-md-6 col-xs-6">
                       <span>Imported</span>
                     </div>
-                  </li>
+                  </li> */}
                   <li className="row">
                     <div className="col-md-6 col-xs-6">Engine Capacity</div>
                     <div className="col-md-6 col-xs-6">
@@ -489,18 +501,18 @@ const CarDetails = () => {
                       <span>Mini Van</span>
                     </div>
                   </li>
-                  <li className="row">
+                  {/* <li className="row">
                     <div className="col-md-6 col-xs-6">Last Updated</div>
                     <div className="col-md-6 col-xs-6">
                       <span>Aug 24, 2017</span>
                     </div>
-                  </li>
-                  <li className="row">
+                  </li> */}
+                  {/* <li className="row">
                     <div className="col-md-6 col-xs-6">Ad Ref #</div>
                     <div className="col-md-6 col-xs-6">
                       <span>2043936</span>
                     </div>
-                  </li>
+                  </li> */}
                   <li className="row">
                     <div className="col-md-6 col-xs-6">Model</div>
                     <div className="col-md-6 col-xs-6">
