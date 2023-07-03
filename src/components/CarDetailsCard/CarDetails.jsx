@@ -200,6 +200,7 @@ const CarDetails = () => {
                     </li> */}
                   </ul>
                   <h3>Seller Comments</h3>
+                  
                   <p>
                     {" "}
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
