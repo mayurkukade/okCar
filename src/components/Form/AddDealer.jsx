@@ -3,6 +3,7 @@ import SubNav from "../Navbar/SubNav";
 import { Radio, RadioGroup } from "@chakra-ui/react";
 import { Stack } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
+import { TOASTS, ToastUtility } from "../../util/toast.utilities";
 const AddDealer = () => {
   const [inputField, setInputField] = useState({
     firstName: "",
@@ -21,7 +22,7 @@ const AddDealer = () => {
     adhar: "",
   });
   const [images, setImages] = useState([]);
-  const toast = useToast();
+  const toastUtility = new ToastUtility(useToast());
   function handleImage(event) {
     const fileList = event.target.files;
     const imageArray = Array.from(fileList);
@@ -43,17 +44,9 @@ const AddDealer = () => {
   
     try {
       console.log(inputField, inputRadio, images);
-      toast({
-        status: "success",
-        position: "top",
-        description: "Successful Login",
-      });
+      toastUtility.showCustom(TOASTS.LOGIN_SUCCESS);
     } catch (error) {
-      toast({
-        status: "warning",
-        position: "top",
-        description: "File not added",
-      });
+      toastUtility.showCustom(TOASTS.FILE_ADD_FAILED);
     }
   };
   return (

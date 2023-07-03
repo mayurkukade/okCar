@@ -1,7 +1,37 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useToast, Box, Button, Flex } from "@chakra-ui/react";
 import SubNav from "../Navbar/SubNav";
+import { useSelector } from 'react-redux';
+import { TOASTS, ToastUtility } from "../../util/toast.utilities";
 
 const CarDetails = () => {
+
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const toastUtility = new ToastUtility(useToast());
+
+  function handleDealerMessageButton() {
+    if (!isLoggedIn) return toastUtility.showCustom({ ...TOASTS.USER_NOT_LOGGED_IN, description: <ToastLoginButton /> });
+  }
+
+  const ToastLoginButton = () => {
+    return (
+      <Flex alignItems='center'>
+        <Box>
+          {TOASTS.USER_NOT_LOGGED_IN.description}
+          <Link to='/signin'>
+            <Button
+              backgroundColor='white'
+              variant="outline"
+              size="sm" ms={2}
+              >
+              Login
+            </Button>
+          </Link>
+        </Box>
+      </Flex>
+    )
+  }
+
   return (
     <>
       <SubNav componentsName={"Mercedez C180 Elegance 2008 "} />
@@ -438,12 +468,10 @@ const CarDetails = () => {
                   Kharadi, Pune
                 </div>
                 <div className="clearfix"></div>
-                <div className="adButtons">
+                <div className="adButtons" onClick={handleDealerMessageButton}>
                   {" "}
                   <a href="#." className="btn apply">
-                    <i className="fa fa-phone" aria-hidden="true"></i> 555 456
-                    46679
-                  </a>{" "}
+                    <i className="fa fa-phone" aria-hidden="true"></i>Notify Dealer</a>{" "}
                   {/* <a href="#." className="btn">
                     <i className="fa fa-envelope" aria-hidden="true"></i> Send A
                     Message

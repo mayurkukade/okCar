@@ -6,6 +6,7 @@ import { setCredentials } from "../../api/authSlice.js";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
+import { TOASTS, ToastUtility } from "../../util/toast.utilities.js";
 const SignIn = () => {
   const [signState, setSignState] = useState({
     email: "",
@@ -15,8 +16,7 @@ const SignIn = () => {
   const [login] = useLoginMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const toast = useToast();
+  const toastUtility = new ToastUtility(useToast());
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -44,30 +44,21 @@ const SignIn = () => {
         dispatch(setCredentials({ ...res }));
         const resRole = res.results.user[0].role;
 
+
+
         if (resRole === "vendor") {
           navigate("/dealer");
         } else if (resRole === "admin") {
           navigate("/dealersManegment");
         }
 
-        toast({
-          status: "success",
-          position: "top",
-          description: "Successful Login",
-        });
+        toastUtility.showCustom(TOASTS.LOGIN_SUCCESS);
+
       } else {
-        toast({
-          status: "error",
-          position: "top",
-          description: "Invalid Email",
-        });
+        toastUtility.showError('Invalid Email', 'Entered email is invalid')
       }
     } catch (error) {
-      toast({
-        status: "error",
-        position: "top",
-        description: "Login error please check email and password",
-      });
+      toastUtility.showCustom(TOASTS.LOGIN_FAILED);
     }
   };
   return (
