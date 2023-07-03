@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SubNav from "../Navbar/SubNav";
+import imageCompression from "browser-image-compression";
 
 const AddCarDetails = () => {
   const [formData, setFormData] = useState({
@@ -75,11 +76,38 @@ const AddCarDetails = () => {
     console.log(data);
   };
 
-  function handleImage(event) {
-    const fileList = event.target.files;
-    const imageArray = Array.from(fileList);
-    setImages(imageArray);
-    console.log(imageArray);
+  // handle image compressor
+  // React compress image component
+
+  // function handleImage(event) {
+  //   const fileList = event.target.files;
+  //   const imageArray = Array.from(fileList);
+  //   setImages(imageArray);
+  //   console.log(imageArray);
+  // }
+
+  async function handleImage(event) {
+    console.log(`handleImages call`);
+    const imageFiles = event.target.files;
+    const compressedImages = [];
+
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 1920,
+    };
+
+    try {
+      for (let i = 0; i < imageFiles.length; i++) {
+        const imageFile = imageFiles[i];
+        const compressedFile = await imageCompression(imageFile, options);
+        console.log(compressedFile.size / 1024 / 1024);
+        compressedImages.push(compressedFile);
+      }
+      setImages(compressedImages);
+      console.log(compressedImages);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
