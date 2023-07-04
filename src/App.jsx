@@ -30,6 +30,7 @@ import CarList from "./components/CarDetailsCard/CarList.jsx";
 import EditUserProfile from "./components/EditUserProfile/EditUserProfile";
 import EditDealerProfile from "./components/EditDealerProfile/EditDealerProfile";
 import EditCarDetails from "./components/AddCar/EditCarDetails";
+import Cloudnary from "./Dummy/Cloudnary";
 
 const App = () => {
   return (
@@ -68,6 +69,7 @@ const App = () => {
           <Route path="/resetpassword" element={<ResetPassword />} />
           <Route path="/editUserdetails" element={<EditUserProfile />} />
           <Route path="/editDealerdetails" element={<EditDealerProfile />} />
+          <Route path="/dummy" element={<Cloudnary />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>
