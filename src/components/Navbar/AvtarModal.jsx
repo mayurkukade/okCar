@@ -32,7 +32,11 @@ const AvtarModal = () => {
     <Box className="card">
       <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
       <Menu bg="white">
-        <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+        <MenuButton
+          as={Button}
+          rightIcon={<ChevronDownIcon />}
+          style={{ marginLeft: "10px", padding: "23px" }}
+        >
           {JSON.parse(username)?.results.user[0].username}
         </MenuButton>
         <MenuList>
