@@ -3,9 +3,9 @@ import { Tabs, TabList, TabPanels, Tab } from "@chakra-ui/react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import "./adminpage.css";
-
 const AdminPage = () => {
   const navigate = useNavigate();
+ 
 
   useEffect(() => {
     navigate("/dealersmanegment");

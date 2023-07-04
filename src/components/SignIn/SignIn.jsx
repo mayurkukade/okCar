@@ -2,10 +2,11 @@ import { Link } from "react-router-dom";
 import SubNav from "../Navbar/SubNav.jsx";
 import { useState } from "react";
 import { useLoginMutation } from "../../api/usersApiSlice.js";
-import { setCredentials } from "../../api/authSlice.js";
+import { setCredentials, token } from "../../api/authSlice.js";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
+
 import jwt_decode from "jwt-decode";
 const SignIn = () => {
   const [signState, setSignState] = useState({
@@ -34,23 +35,22 @@ const SignIn = () => {
     const { username, password } = signState;
     try {
       const res = await login({ username, password }).unwrap();
-      console.log(res,'res');
-     
+      dispatch(token(res))
       var decoded = jwt_decode(res);
       console.log(decoded);
       dispatch(setCredentials({ ...decoded }));
-      const {sub,authorities,roles} = decoded
-   
-      console.log(sub,authorities,roles)
-      
+      const { sub, authorities, roles } = decoded;
+
+      console.log(sub, authorities, roles);
+
       // const resRole = res.results.user[0].role;
 
       if (roles.includes("USER")) {
-        navigate("/")
-      }else if(roles.includes("ADMIN")){
-        navigate("/dealersManegment")
-      }else{
-        console.log('role not intialize')
+        navigate("/");
+      } else if (roles.includes("ADMIN")) {
+        navigate("/dealersManegment");
+      } else {
+        console.log("role not intialize");
       }
 
       toast({

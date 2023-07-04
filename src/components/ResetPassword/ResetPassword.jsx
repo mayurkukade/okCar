@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 import { useRegisterMutation } from "../../api/usersApiSlice";
 const ChangePasswordPage = () => {
-  const navigate = useNavigate();
+  
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
@@ -28,12 +28,7 @@ const [resetpassword] = useRegisterMutation()
   return (
     <div
       className="listpgWraper"
-      // style={{
-      //   height: "80vh",
-      //   display: "flex",
-      //   justifyContent: "center",
-      //   alignItems: "center",
-      // }}
+     
     >
       <div className="container">
         <div className="row">

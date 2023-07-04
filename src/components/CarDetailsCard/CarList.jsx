@@ -1,65 +1,24 @@
 /* eslint-disable react/prop-types */
 import SubNav from "../Navbar/SubNav.jsx";
 import "./CarList.css";
-import Car from '../Card/CarCard.jsx';
+import Car from "../Card/CarCard.jsx";
 import cars from "../../json/carData.js";
 import { CommonUtilities } from "../../util/common.utilities.js";
+import { useAllCarsQuery } from "../../api/carApiSlice.js";
+
 
 const CarList = () => {
+  const userToken = localStorage.getItem('userToken')
 
+console.log(userToken)
+  const {data} = useAllCarsQuery(userToken)
+  console.log(data)
 
   return (
     <>
       <SubNav componentsName={"Add Car"} />
       <div className="listpgWraper">
         <div className="container">
-          {/* <div className="sortbybar">
-            <div className="row">
-              <div className="col-sm-4">
-                {" "}
-                <a
-                  href="listing.html"
-                  data-toggle="tooltip"
-                  data-placement="top"
-                  title=""
-                  className="listby"
-                  data-original-title="Result by List View"
-                >
-                  <i className="fa fa-th-list" aria-hidden="true"></i>
-                </a>{" "}
-                <a
-                  href="grid.html"
-                  data-toggle="tooltip"
-                  data-placement="top"
-                  title=""
-                  className="listby"
-                  data-original-title="Result by Gallery View"
-                >
-                  <i className="fa fa-th-large" aria-hidden="true"></i>
-                </a>{" "}
-              </div>
-              <div className="col-sm-4">
-                <div className="input-group">
-                  {" "}
-                  <span className="input-group-addon" id="basic-addon3">
-                    Sort By
-                  </span>
-                  <select className="htmlForm-control">
-                    <option>Most recent</option>
-                    <option>Price: Rs Low to High</option>
-                    <option>Price: Rs High to Low</option>
-                  </select>
-                </div>
-              </div>
-              <div className="col-sm-4">
-                <div className="found">
-                  {" "}
-                  235 results htmlFor Mathematic Tutors{" "}
-                  <strong> Profile showing 1 to 10 out of 711 </strong>{" "}
-                </div>
-              </div>
-            </div>
-          </div> */}
           <div className="row">
             <div className="col-md-3 col-sm-5">
               <div className="sidebar">
@@ -75,7 +34,7 @@ const CarList = () => {
                       <button className="btn btn-default" type="button">
                         Go!
                       </button>
-                    </span>{" "}
+                    </span>
                   </div>
                 </div>
 
@@ -305,11 +264,23 @@ const CarList = () => {
             </div>
             <div className="col-md-9 col-sm-7">
               <ul className="searchList">
-                {
-                  cars.map((e) => {
-                    return <Car key={CommonUtilities.randomString(50)} imageSrc={e.imageSrc} model={e.model} price={e.price} year={e.year} kilometersDriven={e.kilometersDriven} location={e.location} fuelType={e.fuelType} cc={e.cc} transmission={e.transmission} lastUpdated={e.lastUpdated} />
-                  })
-                }
+                {cars.map((e) => {
+                  return (
+                    <Car
+                      key={CommonUtilities.randomString(50)}
+                      imageSrc={e.imageSrc}
+                      model={e.model}
+                      price={e.price}
+                      year={e.year}
+                      kilometersDriven={e.kilometersDriven}
+                      location={e.location}
+                      fuelType={e.fuelType}
+                      cc={e.cc}
+                      transmission={e.transmission}
+                      lastUpdated={e.lastUpdated}
+                    />
+                  );
+                })}
               </ul>
 
               <div className="pagiWrap">
