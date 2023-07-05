@@ -44,8 +44,6 @@ const SignIn = () => {
         dispatch(setCredentials({ ...res }));
         const resRole = res.results.user[0].role;
 
-
-
         if (resRole === "vendor") {
           navigate("/dealer");
         } else if (resRole === "admin") {
@@ -53,9 +51,8 @@ const SignIn = () => {
         }
 
         toastUtility.showCustom(TOASTS.LOGIN_SUCCESS);
-
       } else {
-        toastUtility.showError('Invalid Email', 'Entered email is invalid')
+        toastUtility.showError("Invalid Email", "Entered email is invalid");
       }
     } catch (error) {
       toastUtility.showCustom(TOASTS.LOGIN_FAILED);
