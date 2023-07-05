@@ -1,8 +1,8 @@
 import { useState } from "react";
 import SubNav from "../Navbar/SubNav";
 
-const EditCarDetails = () => {
-  // const { data, isLoading, isError } = useEditCarDetailsMutation();
+const UpdateCarDetails = () => {
+  const { data, isLoading, isError } = useEditCarDetailsMutation();
   const [formData, setFormData] = useState({
     brand: data.brand,
     bodyType: data.bodyType,
@@ -183,13 +183,15 @@ const EditCarDetails = () => {
                             }}
                           >
                             <option>Body Type</option>
-                            <option>Sedan</option>
-                            <option>Hatchback</option>
-                            <option>SUV</option>
-                            <option>MUV</option>
-                            <option>Coupe</option>
-                            <option>Convertibles</option>
-                            <option>Pickup Trucks</option>
+                            <option value={"Sedan"}>Sedan</option>
+                            <option value={"Hatchback"}>Hatchback</option>
+                            <option value={"SUV"}>SUV</option>
+                            <option value={"MUV"}>MUV</option>
+                            <option value={"Coupe"}>Coupe</option>
+                            <option value={"Convertibles"}>Convertibles</option>
+                            <option value={"Pickup Trucks"}>
+                              Pickup Trucks
+                            </option>
                           </select>
                         </div>
                       </div>
@@ -596,4 +598,4 @@ const EditCarDetails = () => {
   );
 };
 
-export default EditCarDetails;
+export default UpdateCarDetails;
