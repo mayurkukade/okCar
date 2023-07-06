@@ -42,11 +42,11 @@
 
 import { Link } from "react-router-dom";
 
-import SubNav from "../Navbar/SubNav";
+// import SubNav from "../Navbar/SubNav";
 
 import { useState } from "react";
 
-import { useRegisterMutation } from "../../api/usersApiSlice";
+// import { useRegisterMutation } from "../../api/usersApiSlice";
 
 import { useNavigate } from "react-router-dom";
 
@@ -171,7 +171,7 @@ const SignUp = () => {
 
   return (
     <>
-      <SubNav componentsName={"Register"} />
+      {/* <SubNav componentsName={"Register"} /> */}
 
       <div className="listpgWraper">
         <div className="container">
