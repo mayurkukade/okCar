@@ -87,7 +87,6 @@ const AddCarDetails = () => {
   // }
 
   async function handleImage(event) {
-    console.log(`handleImages call`);
     const imageFiles = event.target.files;
 
     const convertToBase64 = (file) => {
@@ -104,7 +103,6 @@ const AddCarDetails = () => {
       const base64 = await convertToBase64(imageFiles[i]);
       base64Images.push(base64);
     }
-    debugger;
 
     // Store base64 images in localStorage
     localStorage.setItem('images', JSON.stringify(base64Images));
