@@ -31,7 +31,7 @@ import {
 import {
   AiOutlineSortAscending,
   AiOutlineSortDescending,
-} from "react-icons/Ai";
+} from "react-icons/ai";
 import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
