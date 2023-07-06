@@ -1,8 +1,10 @@
 import { useState } from "react";
 import SubNav from "../Navbar/SubNav";
 import imageCompression from "browser-image-compression";
-
+import { useAddCarMutation } from "../../api/carApiSlice";
 const AddCarDetails = () => {
+  const [createPost, responseData] = useAddCarMutation();
+  console.log(responseData);
   const [formData, setFormData] = useState({
     //features
     acFeature: false,
@@ -74,6 +76,7 @@ const AddCarDetails = () => {
     //   console.error(error); // Handle any errors that occur during the request
     // }
     console.log(data);
+    createPost(data);
   };
 
   // handle image compressor
@@ -87,27 +90,45 @@ const AddCarDetails = () => {
   // }
 
   async function handleImage(event) {
-    console.log(`handleImages call`);
     const imageFiles = event.target.files;
-    const compressedImages = [];
 
-    const options = {
-      maxSizeMB: 1,
-      maxWidthOrHeight: 1920,
+    const convertToBase64 = (file) => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+      });
     };
 
-    try {
-      for (let i = 0; i < imageFiles.length; i++) {
-        const imageFile = imageFiles[i];
-        const compressedFile = await imageCompression(imageFile, options);
-        console.log(compressedFile.size / 1024 / 1024);
-        compressedImages.push(compressedFile);
-      }
-      setImages(compressedImages);
-      console.log(compressedImages);
-    } catch (error) {
-      console.log(error);
+    const base64Images = [];
+    for (let i = 0; i < imageFiles.length; i++) {
+      const base64 = await convertToBase64(imageFiles[i]);
+      base64Images.push(base64);
     }
+
+    // Store base64 images in localStorage
+    localStorage.setItem('images', JSON.stringify(base64Images));
+
+    // const compressedImages = [];
+
+    // const options = {
+    //   maxSizeMB: 1,
+    //   maxWidthOrHeight: 1920,
+    // };
+
+    // try {
+    //   for (let i = 0; i < imageFiles.length; i++) {
+    //     const imageFile = imageFiles[i];
+    //     const compressedFile = await imageCompression(imageFile, options);
+    //     console.log(compressedFile.size / 1024 / 1024);
+    //     compressedImages.push(compressedFile);
+    //   }
+    //   setImages(compressedImages);
+    //   console.log(compressedImages);
+    // } catch (error) {
+    //   console.log(error);
+    // }
   }
 
   return (

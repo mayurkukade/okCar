@@ -2,7 +2,7 @@ import { useState } from "react";
 import SubNav from "../Navbar/SubNav";
 
 const UpdateCarDetails = () => {
-  const { data, isLoading, isError } = useEditCarDetailsMutation();
+  const { data } = useEditCarDetailsMutation();
   const [formData, setFormData] = useState({
     brand: data.brand,
     bodyType: data.bodyType,
