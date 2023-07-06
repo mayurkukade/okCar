@@ -1,38 +1,18 @@
-import { Link } from "react-router-dom";
-import { useToast, Box, Button, Flex } from "@chakra-ui/react";
+
 import SubNav from "../Navbar/SubNav";
 import { useSelector } from "react-redux";
-import { TOASTS, ToastUtility } from "../../util/toast.utilities";
+
 import { CommonUtilities } from "../../util/common.utilities";
 import { useState } from "react";
 
 const CarDetails = () => {
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  const toastUtility = new ToastUtility(useToast());
+  
+  const userInfo = useSelector((state)=>state.auth.userInfo)
+
   const [largePreview, setLargePreview] = useState(null);
 
-  function handleDealerMessageButton() {
-    if (!isLoggedIn)
-      return toastUtility.showCustom({
-        ...TOASTS.USER_NOT_LOGGED_IN,
-        description: <ToastLoginButton />,
-      });
-  }
 
-  const ToastLoginButton = () => {
-    return (
-      <Flex alignItems="center">
-        <Box>
-          {TOASTS.USER_NOT_LOGGED_IN.description}
-          <Link to="/signin">
-            <Button backgroundColor="white" variant="outline" size="sm" ms={2}>
-              Login
-            </Button>
-          </Link>
-        </Box>
-      </Flex>
-    );
-  };
+
 
   const dummyImages = [
     "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg/400px-2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg",
@@ -132,70 +112,7 @@ const CarDetails = () => {
                         Windows
                       </span>
                     </li>
-                    {/* <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/rim.png" alt="" /> Alloy Rims
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/cd-player.png" alt="" /> CD
-                        Player
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/cassette.png" alt="" /> Cassette
-                        Player
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/cruise.png" alt="" /> Cruise
-                        Control
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/dvd-player.png" alt="" /> DVD
-                        Player
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/key.png" alt="" /> Immobilizer
-                        Key
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/key-less.png" alt="" /> Keyless
-                        Entry
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/power-lock.png" alt="" /> Power
-                        Locks
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/mirror.png" alt="" /> Power
-                        Mirrors
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/steering.png" /> Power Steering
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/power-window.png" alt="" /> Power
-                        Windows
-                      </span>
-                    </li> */}
+                   
                   </ul>
                   <h3>Seller Comments</h3>
 
@@ -229,20 +146,16 @@ const CarDetails = () => {
                 <div className="adsalary" >
                   Price <strong> ₹ 5,00,000</strong>
                 </div>
-                {/* <div className="ptext">
-                  <i className="fa fa-clock-o" aria-hidden="true"></i> 7 Jan
-                  10:10 pm
-                </div> */}
+                
                 <div className="ptext">
                   <i className="fa fa-map-marker" aria-hidden="true"></i>
                   Kharadi, Pune
                 </div>
                 <div className="clearfix"></div>
-                <div className="adButtons" onClick={handleDealerMessageButton}>
-                  {" "}
+                <div className="adButtons" >
+                  
                   <a href="#." className="btn apply">
-                    <i className="fa fa-phone" aria-hidden="true"></i>Notify
-                    Dealer
+                    <i className="fa fa-phone" aria-hidden="true"  ></i>{userInfo ? 999999999 :<span>please login</span> } 
                   </a>{" "}
                 
                 </div>

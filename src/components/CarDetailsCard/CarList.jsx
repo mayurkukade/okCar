@@ -2,7 +2,6 @@
 import SubNav from "../Navbar/SubNav.jsx";
 import "./CarList.css";
 import Car from "../Card/CarCard.jsx";
-import Car from "../Card/CarCard.jsx";
 import cars from "../../json/carData.js";
 import { CommonUtilities } from "../../util/common.utilities.js";
 import { useAllCarsQuery } from "../../api/carApiSlice.js";

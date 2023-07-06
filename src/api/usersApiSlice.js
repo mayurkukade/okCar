@@ -19,7 +19,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
       }),
     }),
     register: builder.mutation({
-      //done page
+      //done page  this same api is user for user and dealer register
       query: (data) => ({
         
         url: "/account/register",

@@ -1,15 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Tabs, TabList, TabPanels, Tab } from "@chakra-ui/react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import "./adminpage.css";
 const AdminPage = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
  
 
-  useEffect(() => {
-    navigate("/dealersmanegment");
-  }, []);
+  // useEffect(() => {
+  //   navigate("/dealersmanegment");
+  // }, []);
   return (
     <>
       <div className="Container">

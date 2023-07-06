@@ -5,7 +5,25 @@ import "./dealerdetails.css";
 import { Flex } from "@chakra-ui/react";
 import { Heading } from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
+import { useParams } from "react-router-dom";
+import { useGetDealerQuery } from "../../api/dealersManegmentApiSlice";
+import { useState } from "react";
+import { useEffect } from "react";
 const DealerDetails = () => {
+  const [dealerData,setDealerData]= useState([])
+  let {id} = useParams()
+  console.log(id)
+  
+  const userToken = localStorage.getItem('userToken')
+  console.log(userToken)
+  const {data:dealerID} = useGetDealerQuery({userToken,id})
+  
+  console.log(dealerID,'dealer')
+  console.log(dealerID)
+  console.log(dealerData)
+  useEffect(()=>{
+    setDealerData(dealerID)
+  },[dealerID])
   const data = React.useMemo(() => dealerdetails, []);
   const columns = React.useMemo(
     () => [
@@ -40,6 +58,8 @@ const DealerDetails = () => {
     ],
     []
   );
+
+ 
   return (
     <>
       <div className="containerCard">
@@ -52,14 +72,14 @@ const DealerDetails = () => {
         <div className="card-title">
           <Text>
             <Flex>
-              <Heading size="md">{dealerdetails[0].DealerName}</Heading>
+              <Heading size="md">{dealerData?.dealerDto?.firstName}</Heading>
             </Flex>
 
             <p>Dealer ID</p>
-            <h5>{dealerdetails[0].DealerID}</h5>
+            <h5>{dealerData?.dealerDto?.dealer_id}</h5>
 
             <p>Total Cars</p>
-            <h5>{dealerdetails[0].TotalCars}</h5>
+            <h5>{dealerData?.dealerDto?.dealer_id}</h5>
           </Text>
         </div>
       </div>

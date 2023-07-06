@@ -11,6 +11,7 @@ export const store = configureStore({
         [apiSlice.reducerPath]: apiSlice.reducer,
         [dealersManegmentApiSlice.reducerPath]:dealersManegmentApiSlice.reducer,
         [carApiSlice.reducerPath]:carApiSlice.reducer,
+      
 
         auth: authReducer,
       },

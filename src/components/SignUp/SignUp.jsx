@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useRegisterMutation } from "../../api/usersApiSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
+import { useEffect } from "react";
 import { useToast } from "@chakra-ui/react";
 
 
@@ -42,6 +42,7 @@ const SignUp = () => {
     });
   };
 
+  
   const onSubmitHandler = async(e) => {
     
     e.preventDefault();
@@ -56,7 +57,11 @@ const SignUp = () => {
     email,
     confirmPassword} = inputField;
 
+   
+  
+
     try {
+    
      const res = await  register({password,
       mobileNo,
       roles,
@@ -66,7 +71,9 @@ const SignUp = () => {
       address,
       email,
       confirmPassword}).unwrap()
-      
+      if(inputField.password ==! inputField.confirmPassword){
+        alert('not match password')
+      }
       toast({
         status: "success",
         position: "top",
@@ -83,6 +90,8 @@ const SignUp = () => {
       console.log(error)
     }
   };
+
+
   return (
     <>
       <SubNav componentsName={"Register"} />
@@ -169,7 +178,7 @@ const SignUp = () => {
                       </div>
                       <div className="formrow">
                         <input
-                          type="text"
+                          type="password"
                           name="password"
                           className="form-control"
                           placeholder="Password"
@@ -180,7 +189,7 @@ const SignUp = () => {
                       </div>
                       <div className="formrow">
                         <input
-                          type="text"
+                          type="password"
                           name="confirmPassword"
                           className="form-control"
                           placeholder="Confirm Password"

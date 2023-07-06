@@ -31,6 +31,7 @@ import EditUserProfile from "./components/EditUserProfile/EditUserProfile";
 import EditDealerProfile from "./components/EditDealerProfile/EditDealerProfile";
 import EditCarDetails from "./components/AddCar/EditCarDetails";
 import Cloudnary from "./Dummy/Cloudnary";
+import Dealer from "./components/Admin/Dealer";
 
 const App = () => {
   return (
@@ -53,10 +54,12 @@ const App = () => {
             }
           >
             <Route element={<AdminPage />}>
-              <Route path="/dealersManegment" element={<DealerManegment />} />
-              <Route path="/dealersManegment/1" element={<DealerDetails />} />
+              <Route path="/dealersManegment" element={<Dealer />} />
+              <Route path="/dealersManegment/:id" element={<DealerDetails />} />
               <Route path="/userrequest" element={<UserRequest />} />
               <Route path="/adddealer" element={<AddDealer />} />
+              <Route path="/editDealerdetails/:id" element={<EditDealerProfile />} />
+              
             </Route>
           </Route>
           <Route path="/adminrequest" element={<AdminRequest />} />
@@ -73,7 +76,7 @@ const App = () => {
           <Route path="/editUserdetails" element={<EditUserProfile />} />
           <Route path="/editDealerdetails" element={<EditDealerProfile />} />
           <Route path="/dummy" element={<Cloudnary />} />
-
+         
           <Route path="*" element={<NotFound />} />
         </Route>
        
