@@ -161,7 +161,7 @@ const TableModel = ({ data: v, columns }) => {
                 {/* Last Page */}
                 <BiLastPage fontSize={"20px"} />
               </Button>{" "}
-              <Text fontSize="18px" pt={"2px"}>
+              {/* <Text fontSize="18px" pt={"2px"}>
                 | Go to page :
               </Text>
               <Input
@@ -191,7 +191,7 @@ const TableModel = ({ data: v, columns }) => {
                     Show {pageSize}
                   </option>
                 ))}
-              </Select>
+              </Select> */}
             </Flex>
           </Box>
         </TableContainer>

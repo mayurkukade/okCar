@@ -2,6 +2,7 @@
 import SubNav from "../Navbar/SubNav.jsx";
 import "./CarList.css";
 import Car from "../Card/CarCard.jsx";
+import Car from "../Card/CarCard.jsx";
 import cars from "../../json/carData.js";
 import { CommonUtilities } from "../../util/common.utilities.js";
 import { useAllCarsQuery } from "../../api/carApiSlice.js";
@@ -40,7 +41,7 @@ console.log(userToken)
 
                 <div className="widget">
                   <h4 className="widget-title">Price Range</h4>
-                  <ul className="optionlist">
+                  {/* <ul className="optionlist">
                     <li>
                       <input type="checkbox" name="checkname" id="price1" />
                       <label htmlFor="price1"></label>₹ 50,000 to ₹ 99,999{" "}
@@ -71,56 +72,36 @@ console.log(userToken)
                       <label htmlFor="price6"></label>
                       Above ₹ 99,999 <span>865</span>{" "}
                     </li>
-                  </ul>
+                  </ul> */}
                   <div className="row">
                     <div className="col-md-6">
                       <select className="form-control">
                         <option>From</option>
+                        <option>50,000</option>
+                        <option>1,00,000</option>
                       </select>
                     </div>
                     <div className="col-md-6">
                       <select className="form-control">
                         <option>To</option>
+                        <option>1,00,000</option>
+                        <option>1,50,000</option>
                       </select>
                     </div>
                   </div>
                 </div>
+
                 <div className="widget">
                   <h4 className="widget-title">Area</h4>
-                  <ul className="optionlist">
-                    <li>
-                      <input type="checkbox" name="checkname" id="newyork" />
-                      <label htmlFor="newyork"></label>
-                      Kharadi <span>12</span>{" "}
-                    </li>
-                    <li>
-                      <input type="checkbox" name="checkname" id="losangles" />
-                      <label htmlFor="losangles"></label>
-                      Hinjewadi <span>33</span>{" "}
-                    </li>
-                    <li>
-                      <input type="checkbox" name="checkname" id="chicago" />
-                      <label htmlFor="chicago"></label>
-                      Yerwada <span>33</span>{" "}
-                    </li>
-                    <li>
-                      <input type="checkbox" name="checkname" id="houston" />
-                      <label htmlFor="houston"></label>
-                      Aundh <span>12</span>{" "}
-                    </li>
-                    <li>
-                      <input type="checkbox" name="checkname" id="sandiego" />
-                      <label htmlFor="sandiego"></label>
-                      Karve Nagar <span>555</span>{" "}
-                    </li>
-                    <li>
-                      <input type="checkbox" name="checkname" id="sanjose" />
-                      <label htmlFor="sanjose"></label>
-                      Baner <span>44</span>{" "}
-                    </li>
-                  </ul>
-                  <a href="#.">More Cities</a>{" "}
+                  <select className="form-control">
+                    <option>Kharadi</option>
+                    <option>Hinjewadi</option>
+                    <option>Baner</option>
+                    <option>Wagholi</option>
+                    <option>Karve Nagar</option>
+                  </select>
                 </div>
+
                 {/* <div className="widget">
                   <h4 className="widget-title">Register City</h4>
                   <ul className="optionlist">
@@ -197,7 +178,7 @@ console.log(userToken)
                 </div> */}
 
                 <div className="widget">
-                  <h4 className="widget-title">Make</h4>
+                  <h4 className="widget-title">Brand</h4>
                   <select className="form-control">
                     <option>Tata</option>
                     <option>Honda</option>
@@ -221,14 +202,29 @@ console.log(userToken)
                   <h4 className="widget-title">Transmission</h4>
                   <ul className="optionlist">
                     <li>
-                      <input type="checkbox" name="checkname" id="auto" />
+                      <input
+                        type="checkbox"
+                        name="checkname"
+                        id="auto"
+                        style={{
+                          marginRight: "10px",
+                          width: "15px",
+                        }}
+                      />
                       <label htmlFor="auto"></label>
-                      Auto <span>12</span>{" "}
+                      Auto
+                      {/* <span>12</span>{" "} */}
                     </li>
                     <li>
-                      <input type="checkbox" name="checkname" id="Manual" />
+                      <input
+                        type="checkbox"
+                        name="checkname"
+                        id="Manual"
+                        style={{ marginRight: "10px", width: "15px" }}
+                      />
                       <label htmlFor="Manual"></label>
-                      Manual <span>33</span>{" "}
+                      Manual
+                      {/* <span>33</span>{" "} */}
                     </li>
                   </ul>
                 </div>
@@ -239,17 +235,20 @@ console.log(userToken)
                     <li>
                       <input type="checkbox" name="checkname" id="Petrol" />
                       <label htmlFor="Petrol"></label>
-                      Petrol <span>12</span>{" "}
+                      Petrol
+                      {/* <span>12</span>{" "} */}
                     </li>
                     <li>
                       <input type="checkbox" name="checkname" id="Diesel" />
                       <label htmlFor="Diesel"></label>
-                      Diesel <span>33</span>{" "}
+                      Diesel
+                      {/* <span>33</span>{" "} */}
                     </li>
                     <li>
                       <input type="checkbox" name="checkname" id="Electric" />
                       <label htmlFor="Electric"></label>
-                      Electric <span>33</span>{" "}
+                      Electric
+                      {/* <span>33</span>{" "} */}
                     </li>
                   </ul>
                 </div>
@@ -262,8 +261,27 @@ console.log(userToken)
                 </div>
               </div>
             </div>
+
+            {/* Car Details Card */}
             <div className="col-md-9 col-sm-7">
               <ul className="searchList">
+                {cars.map((e) => {
+                  return (
+                    <Car
+                      key={CommonUtilities.randomString(50)}
+                      imageSrc={e.imageSrc}
+                      model={e.model}
+                      price={e.price}
+                      year={e.year}
+                      kilometersDriven={e.kilometersDriven}
+                      location={e.location}
+                      fuelType={e.fuelType}
+                      cc={e.cc}
+                      transmission={e.transmission}
+                      lastUpdated={e.lastUpdated}
+                    />
+                  );
+                })}
                 {cars.map((e) => {
                   return (
                     <Car

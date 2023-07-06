@@ -102,7 +102,7 @@ const EditUserProfile = () => {
                           required
                         />
                       </div>
-                      <div className="formrow">
+                      {/* <div className="formrow">
                         <input
                           type="checkbox"
                           value="agree text"
@@ -111,7 +111,7 @@ const EditUserProfile = () => {
                           required
                         />
                         Terms and Condition
-                      </div>
+                      </div> */}
                       <div style={{ display: "flex", gap: "10px" }}>
                         <button type="submit" className="btn" value="Register">
                           Edit User

@@ -1,9 +1,50 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useToast, Box, Button, Flex } from "@chakra-ui/react";
 import SubNav from "../Navbar/SubNav";
+import { useSelector } from "react-redux";
+import { TOASTS, ToastUtility } from "../../util/toast.utilities";
+import { CommonUtilities } from "../../util/common.utilities";
+import { useState } from "react";
 
 const CarDetails = () => {
- 
-  
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const toastUtility = new ToastUtility(useToast());
+  const [largePreview, setLargePreview] = useState(null);
+
+  function handleDealerMessageButton() {
+    if (!isLoggedIn)
+      return toastUtility.showCustom({
+        ...TOASTS.USER_NOT_LOGGED_IN,
+        description: <ToastLoginButton />,
+      });
+  }
+
+  const ToastLoginButton = () => {
+    return (
+      <Flex alignItems="center">
+        <Box>
+          {TOASTS.USER_NOT_LOGGED_IN.description}
+          <Link to="/signin">
+            <Button backgroundColor="white" variant="outline" size="sm" ms={2}>
+              Login
+            </Button>
+          </Link>
+        </Box>
+      </Flex>
+    );
+  };
+
+  const dummyImages = [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg/400px-2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/VW_Kuebelwagen_1.jpg/400px-VW_Kuebelwagen_1.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/2014_Porsche_Cayenne_%2892A_MY14%29_GTS_wagon_%282015-08-07%29_01.jpg/400px-2014_Porsche_Cayenne_%2892A_MY14%29_GTS_wagon_%282015-08-07%29_01.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Vintage_car_at_the_Wirral_Bus_%26_Tram_Show_-_DSC03336.JPG/400px-Vintage_car_at_the_Wirral_Bus_%26_Tram_Show_-_DSC03336.JPG",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Dynamixion_car_by_Buckminster_Fuller_1933_%28side_views%29.jpg/400px-Dynamixion_car_by_Buckminster_Fuller_1933_%28side_views%29.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Ford_Crown_Victoria_LX.jpg/400px-Ford_Crown_Victoria_LX.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Plymouth_Superbird.jpg/400px-Plymouth_Superbird.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/2nd-Saab-9000-hatch.jpg/400px-2nd-Saab-9000-hatch.jpg",
+  ];
+
   return (
     <>
       <SubNav componentsName={"Mercedez C180 Elegance 2008 "} />
@@ -14,41 +55,84 @@ const CarDetails = () => {
               <div className="advert-header">
                 <div className="contentbox">
                   <div className="adimages">
-                  
-                    <div id="carousel" className="flexslider">
-                      <ul className="slides">
-                      
-                        <li>
-                          
-                          <img src="../../../images/cars/06.jpg" alt="" />{" "}
-                        </li>
-                      </ul>
+                    {largePreview && (
+                      <img
+                        style={{ width: "100%" }}
+                        src={largePreview}
+                        alt=""
+                      />
+                    )}
+                    {!largePreview && (
+                      <img src="../../../images/cars/01.jpg" alt="" />
+                    )}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        flexWrap: "nowrap",
+                        marginTop: "2em",
+                        overflowX: "auto",
+                      }}
+                    >
+                      {dummyImages.map((image) => {
+                        return (
+                          <div
+                            onClick={() => {
+                              setLargePreview(() => image);
+                            }}
+                            key={CommonUtilities.randomString(16)}
+                            style={{
+                              overflow: "hidden",
+                              flexShrink: "0",
+                              margin: "1em",
+                              height: "8em",
+                              width: "10em",
+                              backgroundColor: "red",
+                              cursor: "pointer",
+                            }}
+                          >
+                            <img src={image} style={{ height: "8em" }} />
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                   <h3>Car Features</h3>
                   <ul className="row carfeature">
                     <li className="col-md-4 col-sm-6">
                       <span className="feat">
-                        <img src="images/icons/disc-brake.png" alt="" /> ABS
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/radio.png" alt="" /> AM/FM Radio
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/air-bags.png" alt="" /> Air Bags
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
                         <img src="images/icons/minisplit.png" alt="" /> Air
                         Conditioning
                       </span>
                     </li>
+
                     <li className="col-md-4 col-sm-6">
+                      <span className="feat">
+                        <img src="images/icons/radio.png" alt="" /> Music
+                      </span>
+                    </li>
+                    <li className="col-md-4 col-sm-6">
+                      <span className="feat">
+                        <img
+                          src="../../../images/icons/rearcamera-copy.png"
+                          alt=""
+                          style={{ height: "30px" }}
+                        />{" "}
+                        Rear Parking Camera
+                      </span>
+                    </li>
+                    {/* <li className="col-md-4 col-sm-6">
+                      <span className="feat">
+                        <img src="images/icons/disc-brake.png" alt="" /> ABS
+                      </span>
+                    </li> */}
+                    <li className="col-md-4 col-sm-6">
+                      <span className="feat">
+                        <img src="images/icons/power-window.png" alt="" /> Power
+                        Windows
+                      </span>
+                    </li>
+                    {/* <li className="col-md-4 col-sm-6">
                       <span className="feat">
                         <img src="images/icons/rim.png" alt="" /> Alloy Rims
                       </span>
@@ -111,9 +195,10 @@ const CarDetails = () => {
                         <img src="images/icons/power-window.png" alt="" /> Power
                         Windows
                       </span>
-                    </li>
+                    </li> */}
                   </ul>
                   <h3>Seller Comments</h3>
+
                   <p>
                     {" "}
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
@@ -144,20 +229,20 @@ const CarDetails = () => {
                 <div className="adsalary" >
                   Price <strong> ₹ 5,00,000</strong>
                 </div>
-                <div className="ptext">
+                {/* <div className="ptext">
                   <i className="fa fa-clock-o" aria-hidden="true"></i> 7 Jan
                   10:10 pm
-                </div>
+                </div> */}
                 <div className="ptext">
                   <i className="fa fa-map-marker" aria-hidden="true"></i>
                   Kharadi, Pune
                 </div>
                 <div className="clearfix"></div>
-                <div className="adButtons">
+                <div className="adButtons" onClick={handleDealerMessageButton}>
                   {" "}
                   <a href="#." className="btn apply">
-                    <i className="fa fa-phone" aria-hidden="true"></i> 555 456
-                    46679
+                    <i className="fa fa-phone" aria-hidden="true"></i>Notify
+                    Dealer
                   </a>{" "}
                 
                 </div>
@@ -178,12 +263,12 @@ const CarDetails = () => {
                       <span>Pearl White</span>
                     </div>
                   </li>
-                  <li className="row">
+                  {/* <li className="row">
                     <div className="col-md-6 col-xs-6">Assembly</div>
                     <div className="col-md-6 col-xs-6">
                       <span>Imported</span>
                     </div>
-                  </li>
+                  </li> */}
                   <li className="row">
                     <div className="col-md-6 col-xs-6">Engine Capacity</div>
                     <div className="col-md-6 col-xs-6">
@@ -196,18 +281,18 @@ const CarDetails = () => {
                       <span>Mini Van</span>
                     </div>
                   </li>
-                  <li className="row">
+                  {/* <li className="row">
                     <div className="col-md-6 col-xs-6">Last Updated</div>
                     <div className="col-md-6 col-xs-6">
                       <span>Aug 24, 2017</span>
                     </div>
-                  </li>
-                  <li className="row">
+                  </li> */}
+                  {/* <li className="row">
                     <div className="col-md-6 col-xs-6">Ad Ref #</div>
                     <div className="col-md-6 col-xs-6">
                       <span>2043936</span>
                     </div>
-                  </li>
+                  </li> */}
                   <li className="row">
                     <div className="col-md-6 col-xs-6">Model</div>
                     <div className="col-md-6 col-xs-6">

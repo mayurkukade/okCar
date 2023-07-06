@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 
 import jwt_decode from "jwt-decode";
+import { TOASTS, ToastUtility } from "../../util/toast.utilities.js";
 const SignIn = () => {
   const [signState, setSignState] = useState({
     username: "",
@@ -17,8 +18,7 @@ const SignIn = () => {
   const [login] = useLoginMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const toast = useToast();
+  const toastUtility = new ToastUtility(useToast());
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -53,17 +53,25 @@ const SignIn = () => {
         console.log("role not intialize");
       }
 
+
+        if (resRole === "vendor") {
+          navigate("/dealer");
+        } else if (resRole === "admin") {
+          navigate("/dealersManegment");
+        }
+
       toast({
         status: "success",
         position: "top",
         description: "Successful Login",
       });
+        toastUtility.showCustom(TOASTS.LOGIN_SUCCESS);
+
+      } else {
+        toastUtility.showError('Invalid Email', 'Entered email is invalid')
+      }
     } catch (error) {
-      toast({
-        status: "error",
-        position: "top",
-        description: "Login error please check email and password",
-      });
+      toastUtility.showCustom(TOASTS.LOGIN_FAILED);
     }
   };
   return (
