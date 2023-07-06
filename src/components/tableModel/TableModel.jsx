@@ -35,7 +35,7 @@ import {
 import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
-} from "react-icons/Md";
+} from "react-icons/md";
 import { BiFirstPage, BiLastPage } from "react-icons/bi";
 import TableCard from "../TableCard/TableCard";
 import React from "react";
