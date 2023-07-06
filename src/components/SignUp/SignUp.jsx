@@ -113,7 +113,7 @@ const SignUp = () => {
                       </div>
                       <div className="formrow">
                         <input
-                          type="text"
+                          type="Password"
                           name="Password"
                           className="form-control"
                           placeholder="Password"
@@ -123,7 +123,7 @@ const SignUp = () => {
                       </div>
                       <div className="formrow">
                         <input
-                          type="text"
+                          type="Password"
                           name="confirmPassword"
                           className="form-control"
                           placeholder="Confirm Password"
