@@ -1,8 +1,10 @@
 import { useState } from "react";
 import SubNav from "../Navbar/SubNav";
 import imageCompression from "browser-image-compression";
-
+import { useAddCarMutation } from "../../api/carApiSlice";
 const AddCarDetails = () => {
+  const [createPost, responseData] = useAddCarMutation();
+  console.log(responseData);
   const [formData, setFormData] = useState({
     //features
     acFeature: false,
@@ -74,6 +76,7 @@ const AddCarDetails = () => {
     //   console.error(error); // Handle any errors that occur during the request
     // }
     console.log(data);
+    createPost(data);
   };
 
   // handle image compressor

@@ -29,7 +29,7 @@ import DealerDetails from "./components/Admin/DealerDetails";
 import CarList from "./components/CarDetailsCard/CarList.jsx";
 import EditUserProfile from "./components/EditUserProfile/EditUserProfile";
 import EditDealerProfile from "./components/EditDealerProfile/EditDealerProfile";
-import EditCarDetails from "./components/AddCar/EditCarDetails";
+import UpdateCarDetails from "./components/AddCar/UpdateCarDetails";
 import Cloudnary from "./Dummy/Cloudnary";
 
 const App = () => {
@@ -61,7 +61,7 @@ const App = () => {
           <Route path="/adminbuyers" element={<AdminBuyers />} />
           <Route path="/dealer" element={<DealersModel />} />
           <Route path="/addcardetails" element={<AddCarDetails />} />
-          <Route path="/editCarDetails" element={<EditCarDetails />} />
+          <Route path="/updateCarDetails" element={<UpdateCarDetails />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
 
           <Route path="/dealer/carDetails" element={<CarCard />} />
