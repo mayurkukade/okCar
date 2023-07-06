@@ -39,7 +39,7 @@ const SignIn = () => {
     const { email, password } = signState;
     try {
       if (validateEmail(email)) {
-        const res = await login({ email, password }).unwrap();
+        const res = await login({ username: email, password }).unwrap();
         console.log(res);
         dispatch(setCredentials({ ...res }));
         const resRole = res.results.user[0].role;
