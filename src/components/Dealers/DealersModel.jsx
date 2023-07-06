@@ -2,7 +2,7 @@ import { useState } from "react";
 import React from "react";
 import TableModel from "../tableModel/TableModel";
 import { Dealers } from "../../json/driver.json";
-import { EditIcon, DeleteIcon, ExternalLinkIcon } from "@chakra-ui/icons";
+import { EditIcon, DeleteIcon, InfoIcon } from "@chakra-ui/icons";
 import {
   Button,
   Modal,
@@ -93,10 +93,10 @@ const DealersModel = () => {
             <Link to={`carDetails`}>
               <Button
                 variant="outline"
-                colorScheme="teal"
-                leftIcon={<ExternalLinkIcon />}
-                _hover={{ bg: "#5DC302" }}
-                mr={2}
+                colorScheme="blue"
+                leftIcon={<InfoIcon />}
+                marginRight={"0.2rem"}
+                _hover={{ bg: "#2C5282", textColor: "white" }}
               >
                 Details
               </Button>
@@ -120,13 +120,14 @@ const DealersModel = () => {
             >
               Edit
             </Button>
+
             {/* Delete */}
             <Button
               variant="outline"
-              colorScheme="teal"
+              colorScheme="red"
               onClick={handleDeleteClick}
               leftIcon={<DeleteIcon />}
-              _hover={{ bg: "#5DC302" }}
+              _hover={{ bg: "#E53E3E", textColor: "white" }}
             >
               Delete
             </Button>
