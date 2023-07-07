@@ -65,13 +65,13 @@ const App = () => {
           </Route>
 
           {/* PROTECTED ROUTE FOR DEALER */}
-          <Route
+          {/* <Route
             element={
               <RequireAuth allowedRoles={[...Object.values(OnlyDealer)]} />
             }
-          >
+          > */}
             <Route path="/dealer" element={<DealersModel />} />
-          </Route>
+          {/* </Route> */}
           <Route path="/adminrequest" element={<AdminRequest />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/adminbuyers" element={<AdminBuyers />} />

@@ -7,6 +7,6 @@ const baseQuery = fetchBaseQuery({baseUrl:'https://crazy-geckos-hang.loca.lt'})
 
 export const apiSlice = createApi({
     baseQuery,
-    tagTypes: ['User', "Admin", "Driver"],
+    tagTypes: ['User', "Admin", "Dealer"],
     endpoints: (builder) => ({})
 })
