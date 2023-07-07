@@ -20,7 +20,7 @@ import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import CarCard from "./components/CarDetailsCard/CarDetails";
 import RequireAuth from "./features/RequireAuth";
 import AppLayout from "./components/appLayout/AppLayout";
-import { OnlyAdmin, OnlyDealer } from "./config/role";
+import { OnlyAdmin} from "./config/role";
 import CantAccess from "./components/cantAccess/CantAccess";
 import AddDealer from "./components/Form/AddDealer";
 import Contact from "./components/Contact/Contact";
