@@ -4,6 +4,8 @@ import "./CarList.css";
 
 import { useState } from "react";
 import CarListCard from "./CarListCard.jsx";
+// import { useFilterCarQuery } from "../../api/carApiSlice.js";
+// import { useParams } from "react-router";
 
 const CarList = () => {
   // use State for input fields
@@ -17,6 +19,8 @@ const CarList = () => {
     maxPrice: "",
     minPrice: "",
   });
+  // let { id } = useParams();
+  // const { data, error, isLoading } = useFilterCarQuery(id);
 
   // on form change handler added
   const onChangeFormHandler = (e) => {
@@ -35,7 +39,7 @@ const CarList = () => {
   };
   return (
     <>
-      <SubNav componentsName={"Add Car"} />
+      <SubNav componentsName={"Car List"} />
       <div className="listpgWraper">
         <div className="container">
           <div className="row">
@@ -93,6 +97,7 @@ const CarList = () => {
                       value={inputFilter.area}
                       onChange={onChangeFormHandler}
                     >
+                      <option>Area</option>
                       <option>Kharadi</option>
                       <option>Hinjewadi</option>
                       <option>Baner</option>

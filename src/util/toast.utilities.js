@@ -22,6 +22,7 @@ export class ToastUtility {
       status: "success",
       duration,
       isClosable: true,
+      position: "top",
     });
   }
 
@@ -39,6 +40,7 @@ export class ToastUtility {
       status: "error",
       duration,
       isClosable: true,
+      position: "top",
     });
   }
 
@@ -56,6 +58,7 @@ export class ToastUtility {
       status: "error",
       duration,
       isClosable: true,
+      position: "top",
     });
   }
 
@@ -76,6 +79,7 @@ export class ToastUtility {
       duration: toastValues.duration || 3000,
       isClosable: toastValues.isClosable || true,
       description: toastValues.description,
+      position: "top"
     });
   }
 }
