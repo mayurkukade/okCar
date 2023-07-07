@@ -1,5 +1,6 @@
 import { apiSlice } from "./apiSlice";
 const USERS_URL = "/admin";
+const token = localStorage.getItem("userToken");
 
 export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -59,6 +60,16 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
         body:id
       }),
     }),
+    getDealerCars: builder.query({
+      query: ({id}) => ({
+        url: `car/dealer/${id}/status/Active`,
+        headers: {
+          'Content-Type': "application/json",
+          Authorization: `Bearer ${token}`,
+        }
+      }),
+      providesTags:['Dealer']
+    })
   }),
 });
 
@@ -67,4 +78,6 @@ export const {
   useGetAllDealerQuery,
   useGetDealerQuery,
   useDeleteDealerMutation,
+  useGetDealerCarsQuery,
+  useGetDealerIdQuery
 } = dealersManegmentApiSlice
