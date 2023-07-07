@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import SubNav from "../Navbar/SubNav.jsx";
-import { useState } from "react";
+import { useState} from "react";
 import { useLoginMutation } from "../../api/usersApiSlice.js";
 import { setCredentials, token } from "../../api/authSlice.js";
 import { useDispatch } from "react-redux";
@@ -8,11 +8,15 @@ import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 
 import jwt_decode from "jwt-decode";
+
+
 const SignIn = () => {
   const [signState, setSignState] = useState({
     username: "",
     password: "",
   });
+
+ 
 
   const [login] = useLoginMutation();
   const dispatch = useDispatch();
@@ -70,6 +74,10 @@ const SignIn = () => {
       });
     }
   };
+
+
+
+
   return (
     <>
       <SubNav componentsName={"Login"} />
@@ -99,8 +107,13 @@ const SignIn = () => {
                       name="username"
                       onChange={onChangeHandler}
                       value={signState.username}
+                      aria-describedby="namenote"
+                      
+                      required
                     />
+                    
                   </div>
+               
                   <div className="formrow">
                     <input
                       type="password"
@@ -109,6 +122,7 @@ const SignIn = () => {
                       name="password"
                       onChange={onChangeHandler}
                       value={signState.password}
+                      required
                     />
                   </div>
                   <button

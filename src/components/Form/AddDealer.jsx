@@ -1,9 +1,9 @@
 import { useState } from "react";
 import SubNav from "../Navbar/SubNav";
-import { Radio, RadioGroup } from "@chakra-ui/react";
-import { Stack } from "@chakra-ui/react";
+
 import { useToast } from "@chakra-ui/react";
 import { TOASTS, ToastUtility } from "../../util/toast.utilities";
+import { useAddDealerMutation } from "../../api/dealersManegmentApiSlice";
 const AddDealer = () => {
   const [inputField, setInputField] = useState({
     firstName: "",
@@ -11,24 +11,25 @@ const AddDealer = () => {
     address: "",
     city: "",
     area: "",
-    whatsApp: "",
-    alternateNumber: "",
+    
+   
     email: "",
-    roles:"DEALER"
+    roles:"DEALER",
+    password:""
   });
-
-  const [inputRadio, setInputRadio] = useState({
-    shopact: "",
-    adhar: "",
-  });
-  const [images, setImages] = useState([]);
+const [addDealer] = useAddDealerMutation()
+  // const [inputRadio, setInputRadio] = useState({
+  //   shopact: "",
+  //   adhar: "",
+  // });
+  // const [images, setImages] = useState([]);
   const toastUtility = new ToastUtility(useToast());
-  function handleImage(event) {
-    const fileList = event.target.files;
-    const imageArray = Array.from(fileList);
-    setImages(imageArray);
-    console.log(imageArray);
-  }
+  // function handleImage(event) {
+  //   const fileList = event.target.files;
+  //   const imageArray = Array.from(fileList);
+  //   setImages(imageArray);
+  //   console.log(imageArray);
+  // }
   const onChangeFormHandler = (e) => {
     const { name, value } = e.target;
     setInputField((preVal) => {
@@ -39,13 +40,17 @@ const AddDealer = () => {
     });
   };
 
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async(e) => {
     e.preventDefault();
   
     try {
-      console.log(inputField, inputRadio, images);
+      // console.log(inputField, inputRadio, images);
+      console.log(inputField)
+      const res = await addDealer(inputField).unwrap()
+      console.log(res)
       toastUtility.showCustom(TOASTS.LOGIN_SUCCESS);
     } catch (error) {
+      console.log(error)
       toastUtility.showCustom(TOASTS.FILE_ADD_FAILED);
     }
   };
@@ -121,7 +126,7 @@ const AddDealer = () => {
                           />
                         </div>
                       </div>
-                      <div className="col-md-6">
+                      {/* <div className="col-md-6">
                         <div className="formrow">
                           <input
                             type="number"
@@ -132,19 +137,19 @@ const AddDealer = () => {
                             required
                           />
                         </div>
-                      </div>
-                      <div className="col-md-6">
+                      </div> */}
+                      {/* <div className="col-md-6">
                         <div className="formrow">
                           <input
                             type="number"
-                            name="alternate"
+                            name="alternateNumber"
                             className="form-control"
                             placeholder="alternate number"
                             onChange={onChangeFormHandler}
                             required
                           />
                         </div>
-                      </div>
+                      </div> */}
                       <div className="col-md-6">
                         <div className="formrow">
                           <input
@@ -156,10 +161,22 @@ const AddDealer = () => {
                             required
                           />
                         </div>
+                      
                       </div>
-
+                      <div className="col-md-6">
+                      <div className="formrow">
+                          <input
+                            type="password"
+                            name="password"
+                            className="form-control"
+                            placeholder="password"
+                            onChange={onChangeFormHandler}
+                            required
+                          />
+                        </div>
+                        </div>
                       <div className="col-md-12">
-                        <RadioGroup onChange={setInputRadio} value={inputRadio}>
+                        {/* <RadioGroup onChange={setInputRadio} value={inputRadio}>
                           <Stack spacing={5} direction="row">
                             <Radio
                               colorScheme="green"
@@ -178,9 +195,9 @@ const AddDealer = () => {
                               Adhar
                             </Radio>
                           </Stack>
-                        </RadioGroup>
-                        <h5 style={{ marginTop: "1rem" }}>Upload Image</h5>
-                        <div className="formrow">
+                        </RadioGroup> */}
+                        {/* <h5 style={{ marginTop: "1rem" }}>Upload Image</h5> */}
+                        {/* <div className="formrow">
                           <div className="uploadphotobx">
                             {" "}
                             <i className="fa fa-upload" aria-hidden="true"></i>
@@ -211,7 +228,7 @@ const AddDealer = () => {
                                 <div className="clearfix"></div>
                               </div>
                             ))}
-                        </div>
+                        </div> */}
                       </div>
                       <br />
                       <input type="submit" className="btn" value="Post An Ad" />
