@@ -110,25 +110,25 @@ const AddCarDetails = () => {
     // Store base64 images in localStorage
     localStorage.setItem('images', JSON.stringify(base64Images));
 
-    // const compressedImages = [];
+    const compressedImages = [];
 
-    // const options = {
-    //   maxSizeMB: 1,
-    //   maxWidthOrHeight: 1920,
-    // };
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 1920,
+    };
 
-    // try {
-    //   for (let i = 0; i < imageFiles.length; i++) {
-    //     const imageFile = imageFiles[i];
-    //     const compressedFile = await imageCompression(imageFile, options);
-    //     console.log(compressedFile.size / 1024 / 1024);
-    //     compressedImages.push(compressedFile);
-    //   }
-    //   setImages(compressedImages);
-    //   console.log(compressedImages);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    try {
+      for (let i = 0; i < imageFiles.length; i++) {
+        const imageFile = imageFiles[i];
+        const compressedFile = await imageCompression(imageFile, options);
+        console.log(compressedFile.size / 1024 / 1024);
+        compressedImages.push(compressedFile);
+      }
+      setImages(compressedImages);
+      console.log(compressedImages);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (

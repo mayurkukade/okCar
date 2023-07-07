@@ -31,11 +31,11 @@ import {
 import {
   AiOutlineSortAscending,
   AiOutlineSortDescending,
-} from "react-icons/Ai";
+} from "react-icons/ai";
 import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
-} from "react-icons/Md";
+} from "react-icons/md";
 import { BiFirstPage, BiLastPage } from "react-icons/bi";
 import TableCard from "../TableCard/TableCard";
 import React from "react";
