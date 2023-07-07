@@ -14,14 +14,14 @@ export const carApiSlice = apiSlice.injectEndpoints({
         }),
 
         // get all cars query
-        allCars: builder.query({
-            query: (userToken) => ({
-                url: `/car/getAllCars?pageNo=0`,
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${userToken}`
-                },
-            }),
+        getAllCars: builder.query({
+            query: (pageNo) => {
+                console.log('slice page No', pageNo)
+                return {
+                    url: `cars/getAllCars?pageNo=${pageNo}`,
+                    method: 'GET',
+                }
+            },
         }),
 
         // edit cars query
@@ -61,4 +61,4 @@ export const carApiSlice = apiSlice.injectEndpoints({
 
 
 
-export const { useAddCarMutation, useAllCarsQuery, useFilterCarQuery } = carApiSlice;
+export const { useAddCarMutation, useGetAllCarsQuery, useFilterCarQuery } = carApiSlice;
