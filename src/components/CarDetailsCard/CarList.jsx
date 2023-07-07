@@ -1,15 +1,10 @@
 /* eslint-disable react/prop-types */
 import SubNav from "../Navbar/SubNav.jsx";
 import "./CarList.css";
-
 import { useState, useEffect } from "react";
 import CarListCard from "./CarListCard.jsx";
 import { useGetAllCarsQuery } from "../../api/carApiSlice.js";
-// import Loading from "../Loading/Loading.jsx";
-// import { useParams } from "react-router";
 
-// import { useFilterCarQuery } from "../../api/carApiSlice.js";
-// import CarNotFound from "./CarNotFound.jsx";
 const CarList = () => {
   // use State for input fields
   const [inputFilter, setInputFilter] = useState({
@@ -22,31 +17,13 @@ const CarList = () => {
     maxPrice: "",
     minPrice: "",
   });
-  // let { id } = useParams();
-
-  // const { data } = useFilterCarQuery(id);
-  // const { data, error, isLoading } = useFilterCarQuery(id);
-
-  // Hanlding pagination
-  // const [pageNo, setPageNo] = useState(0);
-
-  // const handleNextPage = () => {
-  //   setPageNo((prevPageNo) => prevPageNo + 1);
-  // };
-
-  // const handlePreviousPage = () => {
-  //   setPageNo((prevPageNo) => Math.max(prevPageNo - 1, 0));
-  // };
+  // useState for pagination
+  const [currentPage, setCurrentPage] = useState(1);
 
   // for fetching all cars
-  const { data: v } = useGetAllCarsQuery(0);
+  const { data: v } = useGetAllCarsQuery(currentPage);
   // console.log(v);
   const [responseData, setResponseData] = useState([]);
-
-  // setResponseData(data?.list);
-
-  // setResponseData(data?.list);
-  // console.log(responseData);
 
   // on form change handler added
   const onChangeFormHandler = (e) => {
@@ -69,6 +46,15 @@ const CarList = () => {
       setResponseData(v?.list);
     }
   }, [v]);
+
+  // Page handler
+  const goToPreviousPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+
+  const goToNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
 
   // console.log("use Stata data", responseData);
   return (
@@ -279,34 +265,19 @@ const CarList = () => {
           </div>
           <div className="pagiWrap">
             <div className="row">
-              <div className="col-md-4 col-sm-4">
-                <div className="showreslt">Showing 1-10</div>
-              </div>
+              <div className="col-md-4 col-sm-4"></div>
               <div className="col-md-8 col-sm-8 text-right">
                 <ul className="pagination">
-                  <li className="active">
-                    <a>1</a>
-                  </li>
                   <li>
-                    <a>2</a>
+                    <button
+                      onClick={goToPreviousPage}
+                      disabled={currentPage === 1}
+                    >
+                      Previous Page
+                    </button>
                   </li>
-                  <li>
-                    <a>3</a>
-                  </li>
-                  <li>
-                    <a>4</a>
-                  </li>
-                  <li>
-                    <a>5</a>
-                  </li>
-                  <li>
-                    <a>6</a>
-                  </li>
-                  <li>
-                    <a>7</a>
-                  </li>
-                  <li>
-                    <a>8</a>
+                  <li style={{ marginLeft: "20px" }}>
+                    <button onClick={goToNextPage}>Next Page</button>
                   </li>
                 </ul>
               </div>
