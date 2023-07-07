@@ -29,9 +29,9 @@ import DealerDetails from "./components/Admin/DealerDetails";
 import CarList from "./components/CarDetailsCard/CarList.jsx";
 import EditUserProfile from "./components/EditUserProfile/EditUserProfile";
 import EditDealerProfile from "./components/EditDealerProfile/EditDealerProfile";
-import EditCarDetails from "./components/AddCar/EditCarDetails";
-import Cloudnary from "./Dummy/Cloudnary";
 import Dealer from "./components/Admin/Dealer";
+import UpdateCarDetails from "./components/AddCar/UpdateCarDetails";
+// import Cloudnary from "./Dummy/Cloudnary";
 
 const App = () => {
   return (
@@ -67,19 +67,19 @@ const App = () => {
           <Route path="/adminbuyers" element={<AdminBuyers />} />
           <Route path="/dealer" element={<DealersModel />} />
           <Route path="/addcardetails" element={<AddCarDetails />} />
-          <Route path="/editCarDetails" element={<EditCarDetails />} />
+          <Route path="/updateCarDetails" element={<UpdateCarDetails />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
 
           <Route path="/dealer/carDetails" element={<CarCard />} />
           <Route path="/access" element={<CantAccess />} />
-          <Route path="/resetpassword" element={<ResetPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/editUserdetails" element={<EditUserProfile />} />
-        
-          <Route path="/dummy" element={<Cloudnary />} />
-         
+          <Route path="/editDealerdetails" element={<EditDealerProfile />} />
+          <Route path="/dummy" element={<>Not Implemented yet</>} />
+
           <Route path="*" element={<NotFound />} />
         </Route>
-       
+        <Route path="/resetpassword/:token" element={<ResetPassword />} />
       </Routes>
       <Footer />
     </>

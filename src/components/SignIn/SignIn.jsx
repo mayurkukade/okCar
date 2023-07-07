@@ -129,7 +129,7 @@ const SignIn = () => {
                     <span>Register Here</span>
                   </Link>
                   |
-                  <Link to="/resetpassword">
+                  <Link to="/ForgotPassword">
                     <span> Forgot Password</span>
                   </Link>
                 </div>
