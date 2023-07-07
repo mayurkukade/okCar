@@ -5,7 +5,7 @@ import DealersModel from "./components/Dealers/DealersModel";
 
 //Admin🤴
 import AdminPage from "./components/Admin/AdminPage";
-import DealerManegment from "./components/Admin/DealerManegment";
+// import DealerManegment from "./components/Admin/DealerManegment";
 
 import UserRequest from "./components/Admin/UserRequest";
 
@@ -74,7 +74,7 @@ const App = () => {
           <Route path="/access" element={<CantAccess />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
           <Route path="/editUserdetails" element={<EditUserProfile />} />
-          <Route path="/editDealerdetails" element={<EditDealerProfile />} />
+        
           <Route path="/dummy" element={<Cloudnary />} />
          
           <Route path="*" element={<NotFound />} />

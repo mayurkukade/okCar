@@ -30,17 +30,33 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
         headers:{
           "Content-Type" :"application/json",
           Authorization:`Bearer ${userToken}`
-        }
+        },
+        
+      }),
+      providesTags:['Dealer']
+    }),
+    editDealer: builder.query({
+      query:({userToken,id}) =>({
+        url:`/dealer/updateDealer/${id}`,
+        headers:{
+          "Content-Type" :"application/json",
+          Authorization:`Bearer ${userToken}`
+        },
+        
+        
       }),
       providesTags:['Dealer']
     }),
     deleteDealer: builder.mutation({
       query:({userToken,id}) =>({
         url:`/dealer/${id}`,
+       
         headers:{
           "Content-Type" :"application/json",
           Authorization:`Bearer ${userToken}`
-        }
+        },
+        method:"DELETE",
+        body:id
       }),
     }),
   }),

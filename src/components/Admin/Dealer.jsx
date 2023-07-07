@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import TableM from "./TableM";
-import { useDeleteDealerMutation, useGetAllDealerQuery } from "../../api/dealersManegmentApiSlice";
+import { useGetAllDealerQuery } from "../../api/dealersManegmentApiSlice";
 import { Link } from "react-router-dom";
 import { Button } from "@chakra-ui/react";
-import { InfoIcon,EditIcon,DeleteIcon } from "@chakra-ui/icons";
+import { InfoIcon,EditIcon} from "@chakra-ui/icons";
 const Dealer = () => {
   const userToken = localStorage.getItem("userToken");
   const { data: v, error, isLoading } = useGetAllDealerQuery(userToken);
   console.log(v);
   const [vendorFetchData, setVendorFetchData] = useState([]);
 
-const {deleteDealer}  = useDeleteDealerMutation()
+// const [deleteDealer]  = useDeleteDealerMutation()
   const data = React.useMemo(() => vendorFetchData, [vendorFetchData]);
   const columns = React.useMemo(
     () => [
@@ -59,6 +59,16 @@ const {deleteDealer}  = useDeleteDealerMutation()
               </Button>
             </Link>
 
+            {/* <Button
+                variant="outline"
+                colorScheme="teal"
+                leftIcon={<EditIcon />}
+                _hover={{ bg: "#5DC302" }}
+                mr={2}
+              >
+                Edit
+              </Button> */}
+
             <Link to={`/editDealerdetails/${cell.row.values.dealer_id}`}>
               <Button
                 variant="outline"
@@ -71,7 +81,7 @@ const {deleteDealer}  = useDeleteDealerMutation()
               </Button>
             </Link>
 
-            <Link to={`${cell.row.values.dealer_id}`}>
+            {/* <Link to={`${cell.row.values.dealer_id}`}>
               <Button
                 variant="outline"
                 colorScheme="red"
@@ -81,7 +91,7 @@ const {deleteDealer}  = useDeleteDealerMutation()
               >
                 Delete
               </Button>
-            </Link>
+            </Link> */}
           </div>
           )
         },
