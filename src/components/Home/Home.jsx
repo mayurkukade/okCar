@@ -12,11 +12,9 @@ const Home = () => {
           <div className="container">
             <div className="row">
               <div className="col-md-2 col-sm-3 col-xs-12">
-                <a className="logo">
-                  <Link to="/">
-                    <img src="../../../images/logo.png" alt="logo" />
-                  </Link>
-                </a>
+                <Link className="logo" to="/">
+                  <img src="../../../images/logo.png" alt="logo" />
+                </Link>
                 <div className="navbar-header">
                   <button
                     type="button"

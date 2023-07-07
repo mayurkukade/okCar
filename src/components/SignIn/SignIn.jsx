@@ -112,7 +112,7 @@ const SignIn = () => {
 
                 {/* <!-- sign up form --> */}
                 <div className="newuser">
-                  <i className="fa fa-user" aria-hidden="true"></i> New User?{" "}
+                  <i className="fa fa-user" aria-hidden="true"></i> New User ?{" "}
                   <Link to="/signup">Register Here</Link> |
                   <Link to="/ForgotPassword"> Forgot Password</Link>
                 </div>
