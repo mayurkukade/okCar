@@ -47,12 +47,18 @@ export const carApiSlice = apiSlice.injectEndpoints({
 
 
         //filter car query
-        
+        filterCarQuery: builder.query({
+            query: (data, id) => ({
+                url: `/car/mainFilter/${id}`,
+                method: "POST",
+                body: data,
+            }),
+        })
+
     }),
 
 });
 
 
 
-
-export const { useAddCarMutation, useAllCarsQuery } = carApiSlice;
+export const { useAddCarMutation, useAllCarsQuery, useFilterCarQuery } = carApiSlice;

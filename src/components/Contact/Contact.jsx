@@ -1,9 +1,6 @@
 const Contact = () => {
   return (
-    <div
-      className="inner-page"
-      style={{ backgroundColor: "aqua", height: "85vh" }}
-    >
+    <div className="inner-page" style={{ backgroundColor: "aqua" }}>
       <div className="container">
         <div className="contact-wrap">
           <div className="row">

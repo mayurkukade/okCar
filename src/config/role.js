@@ -9,5 +9,6 @@ export const OnlyAdmin = {
 };
 
 export const OnlyDealer = {
-  Dealer: "dealer"
+  Dealer: "dealer",
+  Admin: "admin"
 }

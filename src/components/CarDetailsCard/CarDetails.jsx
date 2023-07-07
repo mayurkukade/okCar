@@ -10,7 +10,9 @@ const CarDetails = () => {
   const userInfo = useSelector((state)=>state.auth.userInfo)
 
   const [largePreview, setLargePreview] = useState(null);
-  const [dummyImages, setDummyImages] = useState(JSON.parse(localStorage.getItem('images')) ?? [])
+  const [dummyImages, setDummyImages] = useState(
+    JSON.parse(localStorage.getItem("images")) ?? []
+  );
 
 
 
@@ -28,7 +30,7 @@ const CarDetails = () => {
 
   return (
     <>
-      <SubNav componentsName={"Mercedez C180 Elegance 2008 "} />
+      <SubNav componentsName={" Swift Dzire "} />
       <div className="listpgWraper">
         <div className="container">
           <div className="row">

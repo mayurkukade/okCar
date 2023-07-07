@@ -12,7 +12,7 @@ const SubNav = ({ componentsName }) => {
           <div className="col-md-6 col-sm-6">
             <div className="breadCrumb">
               <Link to="/">
-                Home / <span>{componentsName}</span>
+                Home /<span>{componentsName}</span>
               </Link>
             </div>
           </div>
