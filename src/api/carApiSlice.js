@@ -47,12 +47,25 @@ export const carApiSlice = apiSlice.injectEndpoints({
 
 
         //filter car query
+        // filterCarQuery: builder.query({
+        //     query: (data, id) => ({
+        //         url: `/car/mainFilter/${id}`,
+        //         method: "GET",
+        //         body: data,
+        //     }),
+        // })
+
+
         filterCarQuery: builder.query({
-            query: (data, id) => ({
-                url: `/car/mainFilter/${id}`,
-                method: "POST",
-                body: data,
-            }),
+            query: (data, pageNo) => {
+                console.log('data', data)
+                console.log('Page No', pageNo)
+                return {
+                    url: `/car/mainFilter/${pageNo}`,
+                    method: "GET",
+                    body: data,
+                }
+            }
         })
 
     }),
@@ -60,5 +73,4 @@ export const carApiSlice = apiSlice.injectEndpoints({
 });
 
 
-
-export const { useAddCarMutation, useGetAllCarsQuery, useFilterCarQuery } = carApiSlice;
+export const { useAddCarMutation, useGetAllCarsQuery, useFilterCarQueryQuery } = carApiSlice;
