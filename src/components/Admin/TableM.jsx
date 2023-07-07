@@ -35,11 +35,11 @@ import {
 import {
   AiOutlineSortAscending,
   AiOutlineSortDescending,
-} from "react-icons/Ai";
+} from "react-icons/ai";
 import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
-} from "react-icons/Md";
+} from "react-icons/md";
 import { BiFirstPage, BiLastPage } from "react-icons/bi";
 const TableM = ({
   data: v,
