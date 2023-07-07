@@ -304,28 +304,28 @@ const CarList = () => {
               <div className="col-md-8 col-sm-8 text-right">
                 <ul className="pagination">
                   <li className="active">
-                    <a href="#.">1</a>
+                    <a>1</a>
                   </li>
                   <li>
-                    <a href="#.">2</a>
+                    <a>2</a>
                   </li>
                   <li>
-                    <a href="#.">3</a>
+                    <a>3</a>
                   </li>
                   <li>
-                    <a href="#.">4</a>
+                    <a>4</a>
                   </li>
                   <li>
-                    <a href="#.">5</a>
+                    <a>5</a>
                   </li>
                   <li>
-                    <a href="#.">6</a>
+                    <a>6</a>
                   </li>
                   <li>
-                    <a href="#.">7</a>
+                    <a>7</a>
                   </li>
                   <li>
-                    <a href="#.">8</a>
+                    <a>8</a>
                   </li>
                 </ul>
               </div>
