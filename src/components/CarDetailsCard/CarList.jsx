@@ -69,16 +69,8 @@ const CarList = () => {
       setResponseData(v?.list);
     }
   }, [v]);
-  // useEffect(() => {
-  //   const getData = setTimeout(() => {
-  //     setResponseData(v?.list);
-  //   }, 100);
 
-  //   return () => clearTimeout(getData);
-  // }, [v]);
-
-  console.log("use Stata data", responseData);
-
+  // console.log("use Stata data", responseData);
   return (
     <>
       <SubNav componentsName={"Car List"} />
@@ -282,18 +274,7 @@ const CarList = () => {
 
             {/* {data.length === 0 ? <CarNotFound /> : <CarListCard />} */}
             {responseData.map((carDetails, index) => {
-              return (
-                <CarListCard
-                  key={index}
-                  model={carDetails.model}
-                  year={carDetails.year}
-                  kmDriven={carDetails.kmDriven}
-                  location={carDetails.location}
-                  fuelType={carDetails.fuelType}
-                  transmission={carDetails.transmission}
-                  price={carDetails.price}
-                />
-              );
+              return <CarListCard key={index} {...carDetails} />;
             })}
           </div>
           <div className="pagiWrap">
