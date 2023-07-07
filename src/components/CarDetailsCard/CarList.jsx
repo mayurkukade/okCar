@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import SubNav from "../Navbar/SubNav.jsx";
 import "./CarList.css";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CarListCard from "./CarListCard.jsx";
-// import { useFilterCarQuery } from "../../api/carApiSlice.js";
-// import { useParams } from "react-router";
-// import CarNotFound from "./CarNotFound.jsx";
+import {
+  useGetAllCarsQuery,
+  useFilterCarQueryQuery,
+} from "../../api/carApiSlice.js";
+
 const CarList = () => {
   // use State for input fields
   const [inputFilter, setInputFilter] = useState({
@@ -19,9 +20,18 @@ const CarList = () => {
     maxPrice: "",
     minPrice: "",
   });
-  // let { id } = useParams();
-  // const { data } = useFilterCarQuery(id);
-  // const { data, error, isLoading } = useFilterCarQuery(id);
+  // useState for pagination
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // for fetching all cars
+  const { data: v } = useGetAllCarsQuery(currentPage);
+  const { data: filterData } = useFilterCarQueryQuery(inputFilter, 1);
+  console.log("filterData", filterData);
+  
+  const [responseData, setResponseData] = useState([]);
+
+  // const [filterResponseData, setfilterResponseData] = useState(null);
+  // const [error, setError] = useState(null);
 
   // on form change handler added
   const onChangeFormHandler = (e) => {
@@ -37,7 +47,52 @@ const CarList = () => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
     console.log(inputFilter);
+    // fetchData();
   };
+
+  useEffect(() => {
+    if (v) {
+      setResponseData(v?.list);
+    }
+  }, [v]);
+
+  // Page handler
+  const goToPreviousPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+
+  const goToNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  // console.log("use Stata data", responseData);
+
+  //  filter data api
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       "https://a537-144-48-178-178.ngrok-free.app/cars/mainFilter/1",
+  //       {
+  //         method: "GET",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({ data: inputFilter }),
+  //       }
+  //     );
+
+  //     if (!response.ok) {
+  //       throw new Error("Request failed");
+  //     }
+
+  //     const data = await response.json();
+  //     setfilterResponseData(data);
+  //   } catch (error) {
+  //     setError(error.message);
+  //   }
+  // };
+  // console.log("Filtered data", filterResponseData);
+
   return (
     <>
       <SubNav componentsName={"Car List"} />
@@ -238,8 +293,31 @@ const CarList = () => {
             </div>
 
             {/* Car Details Card */}
+
             {/* {data.length === 0 ? <CarNotFound /> : <CarListCard />} */}
-            <CarListCard />
+            {responseData.map((carDetails, index) => {
+              return <CarListCard key={index} {...carDetails} />;
+            })}
+          </div>
+          <div className="pagiWrap">
+            <div className="row">
+              <div className="col-md-4 col-sm-4"></div>
+              <div className="col-md-8 col-sm-8 text-right">
+                <ul className="pagination">
+                  <li>
+                    <button
+                      onClick={goToPreviousPage}
+                      disabled={currentPage === 1}
+                    >
+                      Previous Page
+                    </button>
+                  </li>
+                  <li style={{ marginLeft: "20px" }}>
+                    <button onClick={goToNextPage}>Next Page</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { fetchBaseQuery, createApi } from '@reduxjs/toolkit/query/react'
 
 const baseQuery = fetchBaseQuery({baseUrl: 'https://a537-144-48-178-178.ngrok-free.app'})
 // const baseQuery = fetchBaseQuery({baseUrl:'http://localhost:8088'},)
+// const baseQuery = fetchBaseQuery({ baseUrl: 'http://192.168.1.59:5173/' },)
 
 
 export const apiSlice = createApi({
