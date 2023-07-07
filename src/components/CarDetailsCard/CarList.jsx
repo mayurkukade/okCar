@@ -3,7 +3,7 @@ import SubNav from "../Navbar/SubNav.jsx";
 import "./CarList.css";
 
 import { useState } from "react";
-// import CarListCard from "./CarListCard.jsx";
+import CarListCard from "./CarListCard.jsx";
 // import { useFilterCarQuery } from "../../api/carApiSlice.js";
 // import { useParams } from "react-router";
 // import CarNotFound from "./CarNotFound.jsx";
@@ -239,6 +239,7 @@ const CarList = () => {
 
             {/* Car Details Card */}
             {/* {data.length === 0 ? <CarNotFound /> : <CarListCard />} */}
+            <CarListCard />
           </div>
         </div>
       </div>
