@@ -1,5 +1,7 @@
 import { apiSlice } from "./apiSlice";
 
+const token = localStorage.getItem("userToken");
+
 export const carApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         // Add car query
@@ -9,19 +11,23 @@ export const carApiSlice = apiSlice.injectEndpoints({
                 url: "/car/carregister",
                 method: "POST",
                 body: data,
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                },
             }),
 
         }),
 
         // get all cars query
-        allCars: builder.query({
-            query: (userToken) => ({
-                url: `/car/getAllCars?pageNo=0`,
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${userToken}`
-                },
-            }),
+        getAllCars: builder.query({
+            query: (pageNo) => {
+                console.log('slice page No', pageNo)
+                return {
+                    url: `cars/getAllCars?pageNo=${pageNo}`,
+                    method: 'GET',
+                }
+            },
         }),
 
         // edit cars query
@@ -47,12 +53,25 @@ export const carApiSlice = apiSlice.injectEndpoints({
 
 
         //filter car query
+        // filterCarQuery: builder.query({
+        //     query: (data, id) => ({
+        //         url: `/car/mainFilter/${id}`,
+        //         method: "GET",
+        //         body: data,
+        //     }),
+        // })
+
+
         filterCarQuery: builder.query({
-            query: (data, id) => ({
-                url: `/car/mainFilter/${id}`,
-                method: "POST",
-                body: data,
-            }),
+            query: (data, pageNo) => {
+                console.log('data', data)
+                console.log('Page No', pageNo)
+                return {
+                    url: `/car/mainFilter/${pageNo}`,
+                    method: "GET",
+                    body: data,
+                }
+            }
         })
 
     }),
@@ -60,5 +79,4 @@ export const carApiSlice = apiSlice.injectEndpoints({
 });
 
 
-
-export const { useAddCarMutation, useAllCarsQuery, useFilterCarQuery } = carApiSlice;
+export const { useAddCarMutation, useGetAllCarsQuery, useFilterCarQueryQuery } = carApiSlice;
