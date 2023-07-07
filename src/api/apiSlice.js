@@ -8,6 +8,6 @@ const baseQuery = fetchBaseQuery({ baseUrl: 'https://a537-144-48-178-178.ngrok-f
 
 export const apiSlice = createApi({
     baseQuery,
-    tagTypes: ['User', "Admin", "Driver"],
+    tagTypes: ['User', "Admin", "Dealer"],
     endpoints: (builder) => ({})
 })
