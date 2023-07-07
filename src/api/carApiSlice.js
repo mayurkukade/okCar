@@ -1,5 +1,7 @@
 import { apiSlice } from "./apiSlice";
 
+const token = localStorage.getItem("userToken");
+
 export const carApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         // Add car query
@@ -9,6 +11,10 @@ export const carApiSlice = apiSlice.injectEndpoints({
                 url: "/car/carregister",
                 method: "POST",
                 body: data,
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                },
             }),
 
         }),
