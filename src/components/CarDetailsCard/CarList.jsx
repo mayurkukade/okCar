@@ -3,10 +3,10 @@ import SubNav from "../Navbar/SubNav.jsx";
 import "./CarList.css";
 
 import { useState } from "react";
-import CarListCard from "./CarListCard.jsx";
+// import CarListCard from "./CarListCard.jsx";
 // import { useFilterCarQuery } from "../../api/carApiSlice.js";
 // import { useParams } from "react-router";
-
+// import CarNotFound from "./CarNotFound.jsx";
 const CarList = () => {
   // use State for input fields
   const [inputFilter, setInputFilter] = useState({
@@ -20,6 +20,7 @@ const CarList = () => {
     minPrice: "",
   });
   // let { id } = useParams();
+  // const { data } = useFilterCarQuery(id);
   // const { data, error, isLoading } = useFilterCarQuery(id);
 
   // on form change handler added
@@ -237,7 +238,7 @@ const CarList = () => {
             </div>
 
             {/* Car Details Card */}
-            <CarListCard />
+            {/* {data.length === 0 ? <CarNotFound /> : <CarListCard />} */}
           </div>
         </div>
       </div>
