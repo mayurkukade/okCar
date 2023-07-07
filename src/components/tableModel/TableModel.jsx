@@ -40,7 +40,9 @@ import { BiFirstPage, BiLastPage } from "react-icons/bi";
 import TableCard from "../TableCard/TableCard";
 import React from "react";
 
-const TableModel = ({ data: v, columns }) => {
+const TableModel = ({ data: v, columns,FetchData }) => {
+  console.log(v)
+ console.log(FetchData)
   const data = React.useMemo(() => v, [v]);
 
   const {
@@ -161,37 +163,7 @@ const TableModel = ({ data: v, columns }) => {
                 {/* Last Page */}
                 <BiLastPage fontSize={"20px"} />
               </Button>{" "}
-              {/* <Text fontSize="18px" pt={"2px"}>
-                | Go to page :
-              </Text>
-              <Input
-                border={"1px solid black"}
-                h={"35px"}
-                type="number"
-                defaultValue={pageIndex + 1}
-                onChange={(e) => {
-                  const page = e.target.value ? Number(e.target.value) - 1 : 0;
-                  gotoPage(page);
-                }}
-                width="50px"
-              />
-              <Select
-                //  _hover={{ bg: "#95B6D8" }}
-                border={"1px solid black"}
-                h={"35px"}
-                // placeholder="Select option"
-                value={pageSize}
-                onChange={(e) => {
-                  setPageSize(Number(e.target.value));
-                }}
-                width="110px"
-              >
-                {[5, 10, 15, 20, 25].map((pageSize) => (
-                  <option key={pageSize} value={pageSize}>
-                    Show {pageSize}
-                  </option>
-                ))}
-              </Select> */}
+            
             </Flex>
           </Box>
         </TableContainer>
@@ -206,7 +178,7 @@ const TableModel = ({ data: v, columns }) => {
       >
         {/* Buyers card rendering */}
 
-        <TableCard CardDatas={v} />
+        {/* <TableCard CardDatas={FetchData} /> */}
       </div>
     </>
   );

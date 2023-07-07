@@ -3,9 +3,9 @@ import "./avtar.css";
 import AvtarModal from "./AvtarModal";
 const Navbar = () => {
   const username = localStorage.getItem("userInfo");
-  const user = JSON.parse(username)?.results?.user[0].role;
+  const user = JSON.parse(username)?.roles
   let roleNav;
-  if (user == "admin") {
+  if (user == "ADMIN") {
     roleNav = (
       <div className="header">
         <div className="container">

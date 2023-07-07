@@ -61,5 +61,4 @@ export const carApiSlice = apiSlice.injectEndpoints({
 
 
 
-
 export const { useAddCarMutation, useAllCarsQuery, useFilterCarQuery } = carApiSlice;

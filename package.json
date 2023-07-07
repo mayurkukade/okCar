@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
@@ -27,7 +28,8 @@
     "react-table": "^7.8.0",
     "sass": "^1.63.3",
     "slick-carousel": "^1.8.1",
-    "swiper": "^9.4.1"
+    "swiper": "^9.4.1",
+      "jwt-decode": "^3.1.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",

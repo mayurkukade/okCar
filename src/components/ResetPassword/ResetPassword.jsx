@@ -113,6 +113,7 @@ import SubNav from "../Navbar/SubNav";
 import { useToast } from "@chakra-ui/react";
 import { useResetPasswordMutation } from "../../api/usersApiSlice";
 
+// import { useRegisterMutation } from "../../api/usersApiSlice";
 const ChangePasswordPage = () => {
   const toast = useToast();
   const navigate = useNavigate();
@@ -122,6 +123,8 @@ const ChangePasswordPage = () => {
 
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  // const [error, setError] = useState("");
+  // const [resetpassword] = useRegisterMutation()
 
   const { mutate: resetPassword } = useResetPasswordMutation();
 

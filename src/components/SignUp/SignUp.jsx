@@ -1,21 +1,36 @@
-import { Link } from "react-router-dom";
+/* eslint-disable no-unused-vars */
+import { Link} from "react-router-dom";
 import SubNav from "../Navbar/SubNav";
 import { useState } from "react";
+import { useRegisterMutation } from "../../api/usersApiSlice";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 import { useToast } from "@chakra-ui/react";
+
+
 const SignUp = () => {
   const toast = useToast();
   const navigate = useNavigate();
   const [inputField, setInputField] = useState({
+    password: "",
+    mobileNo: "",
+    roles: "USER",
     firstName: "",
     lastName: "",
-    MobileNo: "",
-    email: "",
-    Password: "",
+    city: "",
+    address: "",
     confirmPassword: "",
-    roles: "USER",
-    userType: "user",
+    email:""
   });
+
+  const dispatch = useDispatch()
+
+  const [register] = useRegisterMutation()
+
+
+
+  
 
   const onChangeFormhandler = (e) => {
     const { name, value } = e.target;
@@ -27,33 +42,56 @@ const SignUp = () => {
     });
   };
 
-  // email valiation Regex
-  const validateEmail = (email) => {
-    const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
-    return emailRegex.test(email);
-  };
-
-  // submit handler
-  const onSubmitHandler = (e) => {
+  
+  const onSubmitHandler = async(e) => {
+    
     e.preventDefault();
-    if (inputField.confirmPassword === inputField.Password) {
-      console.log("Password match successfully");
-      validateEmail(inputField.email)
-        ? navigate("/")
-        : toast({
-            status: "error",
-            position: "top",
-            description: "Invalid Email Please Check Email",
-          });
-    } else {
+    console.log(inputField)
+    const {password,
+    mobileNo,
+    roles,
+    firstName,
+    lastName,
+    city,
+    address,
+    email,
+    confirmPassword} = inputField;
+
+   
+  
+
+    try {
+    
+     const res = await  register({password,
+      mobileNo,
+      roles,
+      firstName,
+      lastName,
+      city,
+      address,
+      email,
+      confirmPassword}).unwrap()
+      if(inputField.password ==! inputField.confirmPassword){
+        alert('not match password')
+      }
+      toast({
+        status: "success",
+        position: "top",
+        description: "Successful Register User",
+      });
+      navigate('/signin')
+
+    } catch (error) {
       toast({
         status: "error",
         position: "top",
-        description: " Password and Confirm Password fields should be same",
+        description: "User not register ",
       });
+      console.log(error)
     }
-    console.log(inputField);
   };
+
+
   return (
     <>
       <SubNav componentsName={"Register"} />
@@ -77,7 +115,9 @@ const SignUp = () => {
                           name="firstName"
                           className="form-control"
                           placeholder="First Name"
+                          value={inputField.firstName}
                           onChange={onChangeFormhandler}
+                          
                           required
                         />
                       </div>
@@ -88,16 +128,18 @@ const SignUp = () => {
                           className="form-control"
                           placeholder="Last Name"
                           onChange={onChangeFormhandler}
+                          value={inputField.lastName}
                           required
                         />
                       </div>
                       <div className="formrow">
                         <input
                           type="text"
-                          name="MobileNo"
+                          name="mobileNo"
                           className="form-control"
                           placeholder="Phone Number"
                           onChange={onChangeFormhandler}
+                          value={inputField.mobileNo}
                           required
                         />
                       </div>
@@ -108,26 +150,51 @@ const SignUp = () => {
                           className="form-control"
                           placeholder="Email"
                           onChange={onChangeFormhandler}
+                          value={inputField.email}
                           required
                         />
                       </div>
                       <div className="formrow">
                         <input
-                          type="Password"
-                          name="Password"
+                          type="text"
+                          name="address"
+                          className="form-control"
+                          placeholder="Address"
+                          onChange={onChangeFormhandler}
+                          value={inputField.address}
+                          required
+                        />
+                      </div>
+                      <div className="formrow">
+                        <input
+                          type="text"
+                          name="city"
+                          className="form-control"
+                          placeholder="City"
+                          onChange={onChangeFormhandler}
+                          value={inputField.city}
+                          required
+                        />
+                      </div>
+                      <div className="formrow">
+                        <input
+                          type="password"
+                          name="password"
                           className="form-control"
                           placeholder="Password"
                           onChange={onChangeFormhandler}
+                          value={inputField.password}
                           required
                         />
                       </div>
                       <div className="formrow">
                         <input
-                          type="Password"
+                          type="password"
                           name="confirmPassword"
                           className="form-control"
                           placeholder="Confirm Password"
                           onChange={onChangeFormhandler}
+                          value={inputField.confirmPassword}
                           required
                         />
                       </div>
@@ -151,7 +218,9 @@ const SignUp = () => {
                   <div className="newuser">
                     <i className="fa fa-user" aria-hidden="true"></i> Already a
                     Member?
-                    <Link to="/signin"> Login Here</Link>
+                    <Link to="/signin">
+                      <span>Login Here</span> 
+                    </Link>
                   </div>
                 </form>
               </div>
