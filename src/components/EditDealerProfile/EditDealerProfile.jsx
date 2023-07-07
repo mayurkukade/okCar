@@ -1,19 +1,25 @@
+
 import SubNav from "../Navbar/SubNav";
 import { useState } from "react";
-
+import { useParams } from "react-router-dom";
+import { useUpdateDealerMutation } from "../../api/dealersManegmentApiSlice";
 const EditDealerProfile = () => {
   const [inputField, setInputField] = useState({
     email: "",
     mobileNo: "",
     address: "",
     city: "",
-    // firstName: "",
-    // lastName: "",
-
-    // adharShopact: "",
     area: "",
     shopName: "",
   });
+
+  
+
+  const userToken = localStorage.getItem("userToken")
+  console.log(userToken)
+  const {id} = useParams()
+console.log(id)
+  const [updateDealer,{isLoading}] = useUpdateDealerMutation({id})
 
   const onChangeFormhandler = (e) => {
     const { name, value } = e.target;
@@ -25,12 +31,24 @@ const EditDealerProfile = () => {
     });
   };
 
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async(e) => {
     e.preventDefault();
-    console.log(inputField);
+
+   try {
+    const res = await updateDealer(inputField).unwrap()
+    console.log(res)
+   } catch (error) {
+    console.log(error)
+   }
+   
   };
   return (
     <>
+    {
+      isLoading ?
+      <p>Loading...</p>
+      :
+      <>
       <SubNav componentsName={"Edit Dealer"} />
       <div className="listpgWraper" style={{ backgroundColor: "#F5F7F9" }}>
         <div className="container">
@@ -46,26 +64,7 @@ const EditDealerProfile = () => {
                       id="wsell"
                       className="formpanel tab-pane fade in active"
                     >
-                      {/* <div className="formrow">
-                        <input
-                          type="text"
-                          name="firstName"
-                          className="form-control"
-                          placeholder="First Name"
-                          onChange={onChangeFormhandler}
-                          required
-                        />
-                      </div>
-                      <div className="formrow">
-                        <input
-                          type="text"
-                          name="lastName"
-                          className="form-control"
-                          placeholder="Last Name"
-                          onChange={onChangeFormhandler}
-                          required
-                        />
-                      </div> */}
+                   
                       <div className="formrow">
                         <input
                           type="number"
@@ -158,6 +157,9 @@ const EditDealerProfile = () => {
           </div>
         </div>
       </div>
+      </>
+    }
+      
     </>
   );
 };
