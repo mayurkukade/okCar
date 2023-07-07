@@ -69,14 +69,14 @@ const DriverCard = ({
             <Box p={6}>
               <Stack spacing={0} align={"center"} mb={3}>
                 <Heading fontSize={"2xl"} fontWeight={500} fontFamily={"body"}>
-                  {DealerName}
+                  {DealerName.firstName}
                 </Heading>
               </Stack>
 
               <Box direction={"row"} justify={"center"} spacing={6}>
                 <Text color={"gray.500"}>Dealer ID : {DealerID}</Text>
                 <Text color={"gray.500"}>
-                  Dealer&apos;s Name :{DealerName}{" "}
+                  Dealer&apos;s Name :{DealerName}
                 </Text>
                 <Text color={"gray.500"}>Location : {Location}</Text>
                 <Text color={"gray.500"}>Phone No :{PhoneNo}</Text>

@@ -2,21 +2,23 @@ import { Link } from "react-router-dom";
 import SubNav from "../Navbar/SubNav.jsx";
 import { useState } from "react";
 import { useLoginMutation } from "../../api/usersApiSlice.js";
-import { setCredentials } from "../../api/authSlice.js";
+import { setCredentials, token } from "../../api/authSlice.js";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
-import { TOASTS, ToastUtility } from "../../util/toast.utilities.js";
+
+import jwt_decode from "jwt-decode";
 const SignIn = () => {
   const [signState, setSignState] = useState({
-    email: "",
+    username: "",
     password: "",
   });
 
   const [login] = useLoginMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const toastUtility = new ToastUtility(useToast());
+
+  const toast = useToast();
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -28,34 +30,44 @@ const SignIn = () => {
     });
   };
 
-  //email Validation regex
-  const validateEmail = (email) => {
-    const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
-    return emailRegex.test(email);
-  };
-
-  const submitHandler = async (e) => {
+  const SubmitHandler = async (e) => {
     e.preventDefault();
-    const { email, password } = signState;
+    const { username, password } = signState;
     try {
-      if (validateEmail(email)) {
-        const res = await login({ username: email, password }).unwrap();
-        console.log(res);
-        dispatch(setCredentials({ ...res }));
-        const resRole = res.results.user[0].role;
+      const res = await login({ username, password }).unwrap();
+      dispatch(token(res))
+      var decoded = jwt_decode(res);
+      console.log(decoded);
+      dispatch(setCredentials({ ...decoded }));
+      const { sub, authorities, roles } = decoded;
 
-        if (resRole === "vendor") {
-          navigate("/dealer");
-        } else if (resRole === "admin") {
-          navigate("/dealersManegment");
-        }
+      console.log(sub, authorities, roles);
 
-        toastUtility.showCustom(TOASTS.LOGIN_SUCCESS);
-      } else {
-        toastUtility.showError("Invalid Email", "Entered email is invalid");
+      // const resRole = res.results.user[0].role;
+
+      if (roles.includes("USER")) {
+        navigate("/");
+      } else if (roles.includes("ADMIN")) {
+        navigate("/dealersManegment");
+      }else if(roles.includes("DEALER")){
+        navigate("/dealer")
+      } 
+      
+      else {
+        console.log("role not intialize");
       }
+
+      toast({
+        status: "success",
+        position: "top",
+        description: "Successful Login",
+      });
     } catch (error) {
-      toastUtility.showCustom(TOASTS.LOGIN_FAILED);
+      toast({
+        status: "error",
+        position: "top",
+        description: "Login error please check email and password",
+      });
     }
   };
   return (
@@ -84,9 +96,9 @@ const SignIn = () => {
                       type="email"
                       className="form-control"
                       placeholder="Email"
-                      name="email"
+                      name="username"
                       onChange={onChangeHandler}
-                      value={signState.email}
+                      value={signState.username}
                     />
                   </div>
                   <div className="formrow">
@@ -101,20 +113,26 @@ const SignIn = () => {
                   </div>
                   <button
                     type="submit"
-                    onClick={submitHandler}
+                    onClick={SubmitHandler}
                     className="btn"
                     value="Login"
                   >
-                    Login
+                    <span>Login</span>
                   </button>
                 </div>
                 {/* <!-- login form  end-->  */}
 
                 {/* <!-- sign up form --> */}
                 <div className="newuser">
-                  <i className="fa fa-user" aria-hidden="true"></i> New User ?{" "}
-                  <Link to="/signup">Register Here</Link> |
-                  <Link to="/ForgotPassword"> Forgot Password</Link>
+                  <i className="fa fa-user" aria-hidden="true"></i> New User?{" "}
+                  <Link to="/signup">
+                    <span>Register Here</span>
+                  </Link>
+                  |
+                  <Link to="/ForgotPassword">
+                    <span> Forgot Password</span>
+                  </Link>
+
                 </div>
               </div>
             </div>
@@ -126,3 +144,4 @@ const SignIn = () => {
 };
 
 export default SignIn;
+

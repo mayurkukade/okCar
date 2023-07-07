@@ -7,10 +7,10 @@ const EditDealerProfile = () => {
     mobileNo: "",
     address: "",
     city: "",
-    firstName: "",
-    lastName: "",
+    // firstName: "",
+    // lastName: "",
 
-    adharShopact: "",
+    // adharShopact: "",
     area: "",
     shopName: "",
   });
@@ -46,7 +46,7 @@ const EditDealerProfile = () => {
                       id="wsell"
                       className="formpanel tab-pane fade in active"
                     >
-                      <div className="formrow">
+                      {/* <div className="formrow">
                         <input
                           type="text"
                           name="firstName"
@@ -65,10 +65,10 @@ const EditDealerProfile = () => {
                           onChange={onChangeFormhandler}
                           required
                         />
-                      </div>
+                      </div> */}
                       <div className="formrow">
                         <input
-                          type="text"
+                          type="number"
                           name="mobileNo"
                           className="form-control"
                           placeholder="Phone Number"
@@ -78,7 +78,7 @@ const EditDealerProfile = () => {
                       </div>
                       <div className="formrow">
                         <input
-                          type="text"
+                          type="email"
                           name="email"
                           className="form-control"
                           placeholder="Email"
@@ -106,16 +106,7 @@ const EditDealerProfile = () => {
                           required
                         />
                       </div>
-                      <div className="formrow">
-                        <input
-                          type="text"
-                          name="adharShopact"
-                          className="form-control"
-                          placeholder="Adhaar Card / Shop Cart"
-                          onChange={onChangeFormhandler}
-                          required
-                        />
-                      </div>
+                     
                       <div className="formrow">
                         <input
                           type="text"

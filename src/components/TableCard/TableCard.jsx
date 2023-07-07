@@ -9,7 +9,8 @@ import UserRequestCard from "../Card/UserRequestCard";
 
 
 export default function TableCard({ CardDatas }) {
-  let cardConditionalRender = Object.keys(CardDatas[0])[0];
+  console.log(CardDatas)
+  let cardConditionalRender = Object.keys(CardDatas[0])[4];
   console.log(cardConditionalRender)
   let cardDetails;
   if (cardConditionalRender === "customerName") {
@@ -30,18 +31,16 @@ export default function TableCard({ CardDatas }) {
         </div>
       );
     });
-  } else if (cardConditionalRender === "DealerID") {
+  } else if (cardConditionalRender === "firstName") {
     cardDetails = CardDatas.map((cardData, index) => {
       
       return (
         <div key={index}>
           <DealerCard
-            DealerID={cardData.DealerID}
-            DealerName={cardData.DealerName}
-            Location={cardData.Location}
-            PhoneNo={cardData.PhoneNo}
-            TotalCars={cardData.TotalCars}
-            TotalDeals={cardData.TotalDeals}
+           
+            DealerName={cardData.firstName}
+            Location={cardData.area}
+            
           />
         </div>
       );

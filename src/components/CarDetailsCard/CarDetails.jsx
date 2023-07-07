@@ -1,41 +1,21 @@
-import { Link } from "react-router-dom";
-import { useToast, Box, Button, Flex } from "@chakra-ui/react";
+
 import SubNav from "../Navbar/SubNav";
 import { useSelector } from "react-redux";
-import { TOASTS, ToastUtility } from "../../util/toast.utilities";
+
 import { CommonUtilities } from "../../util/common.utilities";
 import { useState } from "react";
 
 const CarDetails = () => {
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  const toastUtility = new ToastUtility(useToast());
+  
+  const userInfo = useSelector((state)=>state.auth.userInfo)
+
   const [largePreview, setLargePreview] = useState(null);
   const [dummyImages, setDummyImages] = useState(
     JSON.parse(localStorage.getItem("images")) ?? []
   );
 
-  function handleDealerMessageButton() {
-    if (!isLoggedIn)
-      return toastUtility.showCustom({
-        ...TOASTS.USER_NOT_LOGGED_IN,
-        description: <ToastLoginButton />,
-      });
-  }
 
-  const ToastLoginButton = () => {
-    return (
-      <Flex alignItems="center">
-        <Box>
-          {TOASTS.USER_NOT_LOGGED_IN.description}
-          <Link to="/signin">
-            <Button backgroundColor="white" variant="outline" size="sm" ms={2}>
-              Login
-            </Button>
-          </Link>
-        </Box>
-      </Flex>
-    );
-  };
+
 
   // const dummyImages = [
   //   "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg/400px-2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg",
@@ -135,70 +115,7 @@ const CarDetails = () => {
                         Windows
                       </span>
                     </li>
-                    {/* <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/rim.png" alt="" /> Alloy Rims
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/cd-player.png" alt="" /> CD
-                        Player
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/cassette.png" alt="" /> Cassette
-                        Player
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/cruise.png" alt="" /> Cruise
-                        Control
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/dvd-player.png" alt="" /> DVD
-                        Player
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/key.png" alt="" /> Immobilizer
-                        Key
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/key-less.png" alt="" /> Keyless
-                        Entry
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/power-lock.png" alt="" /> Power
-                        Locks
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/mirror.png" alt="" /> Power
-                        Mirrors
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/steering.png" /> Power Steering
-                      </span>
-                    </li>
-                    <li className="col-md-4 col-sm-6">
-                      <span className="feat">
-                        <img src="images/icons/power-window.png" alt="" /> Power
-                        Windows
-                      </span>
-                    </li> */}
+                   
                   </ul>
                   <h3>Seller Comments</h3>
 
@@ -224,277 +141,26 @@ const CarDetails = () => {
                 </div>
               </div>
 
-              {/* <div className="advert-header">
-                <div className="contentbox">
-                  <h3>Car Inspection is Important Before buy a Used Car</h3>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed pellentesque massa vel lorem fermentum fringilla.
-                        Pellentesque id est et neque blandit ornare malesuada a
-                        mauris. Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Sed sagittis, quam a fringilla congue,
-                        turpis turpis molestie ligula, ut laoreet elit arcu sed
-                        nulla.
-                      </p>
-                    </div>
-                    <div className="col-md-6">
-                      <img src="images/car-inspection.jpg" alt="" />
-                    </div>
-                  </div>
-                </div>
-              </div> */}
-              {/* 
-              <div className="relatedJobs">
-                <h3>Related Ads</h3>
-                <ul className="searchList">
-                  <li>
-                    <div className="row">
-                      <div className="col-md-3 col-sm-4">
-                        <div className="adimg">
-                          <img src="images/cars/04.jpg" alt="Ad Name" />
-                        </div>
-                      </div>
-                      <div className="col-md-9 col-sm-8">
-                        <div className="jobinfo">
-                          <div className="row">
-                            <div className="col-md-8 col-sm-7">
-                              <h3>
-                                <a href="#.">Sue gate F 1.0 for Sale</a>
-                              </h3>
-                              <div className="location">
-                                <i
-                                  className="fa fa-calendar"
-                                  aria-hidden="true"
-                                ></i>{" "}
-                                <span>2014</span>
-                              </div>
-                              <div className="location">
-                                <i
-                                  className="fa fa-tachometer"
-                                  aria-hidden="true"
-                                ></i>{" "}
-                                <span>38,000 km</span>
-                              </div>
-                              <div className="location">
-                                <i
-                                  className="fa fa-map-marker"
-                                  aria-hidden="true"
-                                ></i>{" "}
-                                <span>New York</span>
-                              </div>
-                              <div className="clearfix"></div>
-                              <div className="vinfo">
-                                <span>Petrol</span>
-                              </div>
-                              <div className="vinfo">
-                                <span>1300 cc</span>
-                              </div>
-                              <div className="vinfo">
-                                <span>Automatic</span>
-                              </div>
-                              <div className="clearfix"></div>
-                              <div className="date">
-                                Last Updated: 1 day ago
-                              </div>
-                            </div>
-                            <div className="col-md-4 col-sm-5 text-right">
-                              <div className="adprice">$456.00</div>
-                              <div className="listbtn">
-                                <Link to="/cardetails">
-                                  View Details{" "}
-                                  <i
-                                    className="fa fa-arrow-circle-right"
-                                    aria-hidden="true"
-                                  ></i>
-                                </Link>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li>
-                    <div className="row">
-                      <div className="col-md-3 col-sm-4">
-                        <div className="adimg">
-                          <img src="images/cars/05.jpg" alt="Ad Name" />
-                        </div>
-                      </div>
-                      <div className="col-md-9 col-sm-8">
-                        <div className="jobinfo">
-                          <div className="row">
-                            <div className="col-md-8 col-sm-7">
-                              <h3>
-                                <a href="#.">Sue gate F 1.0 for Sale</a>
-                              </h3>
-                              <div className="location">
-                                <i
-                                  className="fa fa-calendar"
-                                  aria-hidden="true"
-                                ></i>{" "}
-                                <span>2014</span>
-                              </div>
-                              <div className="location">
-                                <i
-                                  className="fa fa-tachometer"
-                                  aria-hidden="true"
-                                ></i>{" "}
-                                <span>38,000 km</span>
-                              </div>
-                              <div className="location">
-                                <i
-                                  className="fa fa-map-marker"
-                                  aria-hidden="true"
-                                ></i>{" "}
-                                <span>New York</span>
-                              </div>
-                              <div className="clearfix"></div>
-                              <div className="vinfo">
-                                <span>Petrol</span>
-                              </div>
-                              <div className="vinfo">
-                                <span>1300 cc</span>
-                              </div>
-                              <div className="vinfo">
-                                <span>Automatic</span>
-                              </div>
-                              <div className="clearfix"></div>
-                              <div className="date">
-                                Last Updated: 1 day ago
-                              </div>
-                            </div>
-                            <div className="col-md-4 col-sm-5 text-right">
-                              <div className="adprice">$456.00</div>
-                              <div className="listbtn">
-                                <Link to="/cardetails">
-                                  View Details{" "}
-                                  <i
-                                    className="fa fa-arrow-circle-right"
-                                    aria-hidden="true"
-                                  ></i>
-                                </Link>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li>
-                    <div className="row">
-                      <div className="col-md-3 col-sm-4">
-                        <div className="adimg">
-                          <img src="images/cars/06.jpg" alt="Ad Name" />
-                        </div>
-                      </div>
-                      <div className="col-md-9 col-sm-8">
-                        <div className="jobinfo">
-                          <div className="row">
-                            <div className="col-md-8 col-sm-7">
-                              <h3>
-                                <a href="#.">Sue gate F 1.0 for Sale</a>
-                              </h3>
-                              <div className="location">
-                                <i
-                                  className="fa fa-calendar"
-                                  aria-hidden="true"
-                                ></i>{" "}
-                                <span>2014</span>
-                              </div>
-                              <div className="location">
-                                <i
-                                  className="fa fa-tachometer"
-                                  aria-hidden="true"
-                                ></i>{" "}
-                                <span>38,000 km</span>
-                              </div>
-                              <div className="location">
-                                <i
-                                  className="fa fa-map-marker"
-                                  aria-hidden="true"
-                                ></i>{" "}
-                                <span>New York</span>
-                              </div>
-                              <div className="clearfix"></div>
-                              <div className="vinfo">
-                                <span>Petrol</span>
-                              </div>
-                              <div className="vinfo">
-                                <span>1300 cc</span>
-                              </div>
-                              <div className="vinfo">
-                                <span>Automatic</span>
-                              </div>
-                              <div className="clearfix"></div>
-                              <div className="date">
-                                Last Updated: 1 day ago
-                              </div>
-                            </div>
-                            <div className="col-md-4 col-sm-5 text-right">
-                              <div className="adprice">$456.00</div>
-                              <div className="listbtn">
-                                <Link to="/cardetails">
-                                  View Details{" "}
-                                  <i
-                                    className="fa fa-arrow-circle-right"
-                                    aria-hidden="true"
-                                  ></i>
-                                </Link>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div> */}
+             
             </div>
 
             <div className="col-md-4">
               <div className="jbside">
-                <div className="adsalary">
-                  Price <strong>₹ 5,00,000</strong>
+                <div className="adsalary" >
+                  Price <strong> ₹ 5,00,000</strong>
                 </div>
-                {/* <div className="ptext">
-                  <i className="fa fa-clock-o" aria-hidden="true"></i> 7 Jan
-                  10:10 pm
-                </div> */}
+                
                 <div className="ptext">
                   <i className="fa fa-map-marker" aria-hidden="true"></i>
                   Kharadi, Pune
                 </div>
                 <div className="clearfix"></div>
-                <div className="adButtons" onClick={handleDealerMessageButton}>
-                  {" "}
+                <div className="adButtons" >
+                  
                   <a href="#." className="btn apply">
-                    <i className="fa fa-phone" aria-hidden="true"></i>Notify
-                    Dealer
+                    <i className="fa fa-phone" aria-hidden="true"  ></i>{userInfo ? 999999999 :<span>please login</span> } 
                   </a>{" "}
-                  {/* <a href="#." className="btn">
-                    <i className="fa fa-envelope" aria-hidden="true"></i> Send A
-                    Message
-                  </a>{" "} */}
-                  {/* <a href="#." className="btn">
-                    <i className="fa fa-print" aria-hidden="true"></i> Print
-                    this Ad
-                  </a>{" "} */}
-                  {/* <a href="#." className="btn">
-                    <i className="fa fa-floppy-o" aria-hidden="true"></i> Save
-                    This Ad
-                  </a>{" "}
-                  <a href="#." className="btn">
-                    <i
-                      className="fa fa-exclamation-triangle"
-                      aria-hidden="true"
-                    ></i>{" "}
-                    Report Abuse
-                  </a>{" "} */}
+                
                 </div>
               </div>
 

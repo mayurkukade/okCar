@@ -5,7 +5,7 @@ import DealersModel from "./components/Dealers/DealersModel";
 
 //Admin🤴
 import AdminPage from "./components/Admin/AdminPage";
-import DealerManegment from "./components/Admin/DealerManegment";
+// import DealerManegment from "./components/Admin/DealerManegment";
 
 import UserRequest from "./components/Admin/UserRequest";
 
@@ -29,6 +29,7 @@ import DealerDetails from "./components/Admin/DealerDetails";
 import CarList from "./components/CarDetailsCard/CarList.jsx";
 import EditUserProfile from "./components/EditUserProfile/EditUserProfile";
 import EditDealerProfile from "./components/EditDealerProfile/EditDealerProfile";
+import Dealer from "./components/Admin/Dealer";
 import UpdateCarDetails from "./components/AddCar/UpdateCarDetails";
 // import Cloudnary from "./Dummy/Cloudnary";
 // import Cloudnary from "./Dummy/Cloudnary";
@@ -40,9 +41,12 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<Register />} />
+        <Route path="/resetpassword" element={<ResetPassword />} />
+
         <Route path="/" element={<Home />} />
         <Route path="/carlist" element={<CarList />} />
         <Route path="/carDetails" element={<CarCard />} />
+        
         <Route element={<AppLayout />}>
           {/* PROTECTED ROUTE FOR ADMIN */}
           <Route
@@ -51,10 +55,12 @@ const App = () => {
             }
           >
             <Route element={<AdminPage />}>
-              <Route path="/dealersManegment" element={<DealerManegment />} />
-              <Route path="/dealersManegment/1" element={<DealerDetails />} />
+              <Route path="/dealersManegment" element={<Dealer />} />
+              <Route path="/dealersManegment/:id" element={<DealerDetails />} />
               <Route path="/userrequest" element={<UserRequest />} />
               <Route path="/adddealer" element={<AddDealer />} />
+              <Route path="/editDealerdetails/:id" element={<EditDealerProfile />} />
+              
             </Route>
           </Route>
 
