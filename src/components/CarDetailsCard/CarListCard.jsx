@@ -10,7 +10,7 @@ const CarListCard = ({
   transmission,
   price,
 }) => {
-  console.log("data from car card", model);
+  // console.log("data from car card", model);
   return (
     <div className="col-md-9 col-sm-7">
       <ul className="searchList">

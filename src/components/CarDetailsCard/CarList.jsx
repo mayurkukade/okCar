@@ -3,7 +3,10 @@ import SubNav from "../Navbar/SubNav.jsx";
 import "./CarList.css";
 import { useState, useEffect } from "react";
 import CarListCard from "./CarListCard.jsx";
-import { useGetAllCarsQuery } from "../../api/carApiSlice.js";
+import {
+  useGetAllCarsQuery,
+  useFilterCarQueryQuery,
+} from "../../api/carApiSlice.js";
 
 const CarList = () => {
   // use State for input fields
@@ -22,8 +25,13 @@ const CarList = () => {
 
   // for fetching all cars
   const { data: v } = useGetAllCarsQuery(currentPage);
-  // console.log(v);
+  const { data: filterData } = useFilterCarQueryQuery(inputFilter, 1);
+  console.log("filterData", filterData);
+  
   const [responseData, setResponseData] = useState([]);
+
+  // const [filterResponseData, setfilterResponseData] = useState(null);
+  // const [error, setError] = useState(null);
 
   // on form change handler added
   const onChangeFormHandler = (e) => {
@@ -39,6 +47,7 @@ const CarList = () => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
     console.log(inputFilter);
+    // fetchData();
   };
 
   useEffect(() => {
@@ -57,6 +66,33 @@ const CarList = () => {
   };
 
   // console.log("use Stata data", responseData);
+
+  //  filter data api
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       "https://a537-144-48-178-178.ngrok-free.app/cars/mainFilter/1",
+  //       {
+  //         method: "GET",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({ data: inputFilter }),
+  //       }
+  //     );
+
+  //     if (!response.ok) {
+  //       throw new Error("Request failed");
+  //     }
+
+  //     const data = await response.json();
+  //     setfilterResponseData(data);
+  //   } catch (error) {
+  //     setError(error.message);
+  //   }
+  // };
+  // console.log("Filtered data", filterResponseData);
+
   return (
     <>
       <SubNav componentsName={"Car List"} />
