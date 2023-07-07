@@ -31,6 +31,7 @@ import EditUserProfile from "./components/EditUserProfile/EditUserProfile";
 import EditDealerProfile from "./components/EditDealerProfile/EditDealerProfile";
 import UpdateCarDetails from "./components/AddCar/UpdateCarDetails";
 // import Cloudnary from "./Dummy/Cloudnary";
+// import Cloudnary from "./Dummy/Cloudnary";
 
 const App = () => {
   return (

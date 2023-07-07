@@ -26,7 +26,7 @@ const Cloudnary = () => {
 
   return (
     <>
-      <SubNav componentsName={"Register"} />
+      {/* <SubNav componentsName={"Register"} /> */}
 
       <div className="listpgWraper">
         <div className="container">
