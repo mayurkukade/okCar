@@ -77,7 +77,6 @@ const App = () => {
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/editUserdetails" element={<EditUserProfile />} />
           <Route path="/editDealerdetails" element={<EditDealerProfile />} />
-          <Route path="/dummy" element={<Cloudnary />} />
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
