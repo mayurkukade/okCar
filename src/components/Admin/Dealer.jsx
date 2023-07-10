@@ -9,6 +9,7 @@ const Dealer = () => {
   const { data: v, error, isLoading } = useGetAllDealerQuery(userToken);
   console.log(v);
   const [vendorFetchData, setVendorFetchData] = useState([]);
+// const [catchUserId,setCatchUserId] = useState()
 
 // const [deleteDealer]  = useDeleteDealerMutation()
   const data = React.useMemo(() => vendorFetchData, [vendorFetchData]);
@@ -37,6 +38,11 @@ const Dealer = () => {
       {
         Header: "Accept",
         accessor: "status.label",
+      },
+      {
+        Header: 'user id',
+        accessor: 'userId',
+        disableSortBy: true
       },
 
       {
@@ -69,7 +75,8 @@ const Dealer = () => {
                 Edit
               </Button> */}
 
-            <Link to={`/editDealerdetails/${cell.row.values.dealer_id}`}>
+          
+            <Link to={`/editDealerdetails/${cell.row.values.userId}`}>
               <Button
                 variant="outline"
                 colorScheme="teal"
@@ -106,6 +113,13 @@ const Dealer = () => {
 
     return () => clearTimeout(getData);
   }, [v]);
+  // useEffect(() => {
+  //   const getData = setTimeout(() => {
+  //     setCatchUserId(v.list);
+  //   }, 100);
+
+  //   return () => clearTimeout(getData);
+  // }, [v]);
 
   return (
     <>

@@ -1,13 +1,12 @@
 /* eslint-disable no-unused-vars */
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import SubNav from "../Navbar/SubNav";
 import { useState } from "react";
 import { useRegisterMutation } from "../../api/usersApiSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { useToast } from "@chakra-ui/react";
 
+import { useToast } from "@chakra-ui/react";
 
 const SignUp = () => {
   const toast = useToast();
@@ -21,16 +20,12 @@ const SignUp = () => {
     city: "",
     address: "",
     confirmPassword: "",
-    email:""
+    email: "",
   });
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const [register] = useRegisterMutation()
-
-
-
-  
+  const [register] = useRegisterMutation();
 
   const onChangeFormhandler = (e) => {
     const { name, value } = e.target;
@@ -42,27 +37,11 @@ const SignUp = () => {
     });
   };
 
-  
-  const onSubmitHandler = async(e) => {
-    
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
-    console.log(inputField)
-    const {password,
-    mobileNo,
-    roles,
-    firstName,
-    lastName,
-    city,
-    address,
-    email,
-    confirmPassword} = inputField;
-
-   
-  
-
-    try {
-    
-     const res = await  register({password,
+    console.log(inputField);
+    const {
+      password,
       mobileNo,
       roles,
       firstName,
@@ -70,27 +49,39 @@ const SignUp = () => {
       city,
       address,
       email,
-      confirmPassword}).unwrap()
-      if(inputField.password ==! inputField.confirmPassword){
-        alert('not match password')
+      confirmPassword,
+    } = inputField;
+
+    try {
+      const res = await register({
+        password,
+        mobileNo,
+        roles,
+        firstName,
+        lastName,
+        city,
+        address,
+        email,
+        confirmPassword,
+      }).unwrap();
+      if (inputField.password == !inputField.confirmPassword) {
+        alert("not match password");
       }
       toast({
         status: "success",
         position: "top",
         description: "Successful Register User",
       });
-      navigate('/signin')
-
+      navigate("/signin");
     } catch (error) {
       toast({
         status: "error",
         position: "top",
         description: "User not register ",
       });
-      console.log(error)
+      console.log(error);
     }
   };
-
 
   return (
     <>
@@ -117,7 +108,6 @@ const SignUp = () => {
                           placeholder="First Name"
                           value={inputField.firstName}
                           onChange={onChangeFormhandler}
-                          
                           required
                         />
                       </div>
@@ -219,7 +209,7 @@ const SignUp = () => {
                     <i className="fa fa-user" aria-hidden="true"></i> Already a
                     Member?
                     <Link to="/signin">
-                      <span>Login Here</span> 
+                      <span>Login Here</span>
                     </Link>
                   </div>
                 </form>

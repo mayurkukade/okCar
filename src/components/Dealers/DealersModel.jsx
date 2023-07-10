@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import TableModel from "../tableModel/TableModel";
-import { Dealers } from "../../json/driver.json";
 import { EditIcon, DeleteIcon, InfoIcon } from "@chakra-ui/icons";
 import {
   Button,
@@ -21,6 +20,8 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { useGetDealerCarsQuery } from '../../api/dealersManegmentApiSlice';
+import jwt_decode from 'jwt-decode';
 const DealersModel = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -63,19 +64,29 @@ const DealersModel = () => {
     console.log("Delete");
     setIsDeleteModalOpen(false);
   };
-  const data = React.useMemo(() => Dealers, []);
+
+  
+  
+  const userToken = `Bearer ${localStorage.getItem('userToken')}`;
+  const { dealerId } = jwt_decode(userToken);
+  const { data, isLoading, isError } = useGetDealerCarsQuery({ id: dealerId }, { skip: !dealerId });
+  
   const columns = React.useMemo(
     () => [
       {
-        Header: "Car ID",
-        accessor: "DealerID",
-      },
-      {
-        Header: "Price",
-        accessor: "DealerName",
+        Header: "Brand",
+        accessor: "brand",
       },
       {
         Header: "Location",
+        accessor: "area",
+      },
+      {
+        Header: "City",
+        accessor: "city",
+      },
+      {
+        Header: "Price",
         accessor: "Location",
       },
       {
@@ -84,8 +95,8 @@ const DealersModel = () => {
       },
       {
         Header: "Car Details",
-        accessor: "TotalCars",
-        Cell: () => (
+        accessor: "dealer_id",
+        Cell: (cell) => (
           // Cell: (cell) => (
           <Flex>
             {/* Edit Button */}
@@ -221,6 +232,14 @@ const DealersModel = () => {
     ]
   );
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error occurred while fetching dealer cars data.</div>;
+  }
+
   return (
     <>
       <Flex justifyContent={"flex-end"} padding={"20px"}>
@@ -230,7 +249,7 @@ const DealersModel = () => {
           </Button>
         </Link>
       </Flex>
-      <TableModel data={data} columns={columns} />
+      { (!isLoading && !isError && !!data) && <TableModel data={data || []} columns={columns} /> }
     </>
   );
 };

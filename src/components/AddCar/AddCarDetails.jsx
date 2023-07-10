@@ -2,6 +2,8 @@ import { useState } from "react";
 import SubNav from "../Navbar/SubNav";
 import imageCompression from "browser-image-compression";
 import { useAddCarMutation } from "../../api/carApiSlice";
+import jwt_decode from 'jwt-decode';
+
 const AddCarDetails = () => {
   const [createPost, responseData] = useAddCarMutation();
   console.log(responseData);
@@ -38,6 +40,11 @@ const AddCarDetails = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const { dealerId: dealer_id } = jwt_decode(`Bearer ${localStorage.getItem('userToken')}`);
+
+    if (!dealer_id) return;
+
     // Prepare the form data to send to the backend
     const data = {
       brand: formData.brand,
@@ -59,13 +66,13 @@ const AddCarDetails = () => {
       noOfWheels: formData.noOfWheels,
       ownerSerial: formData.ownerSerial,
       tyre: formData.tyre,
-      dealer_id: "",
+      dealer_id,
       // features
       acFeature: formData.acFeature,
       musicFeature: formData.musicFeature,
       powerWindowFeature: formData.powerWindowFeature,
       rearParkingCameraFeature: formData.rearParkingCameraFeature,
-      images,
+      // images,
     };
 
     // Send the form data to the backend
@@ -75,7 +82,8 @@ const AddCarDetails = () => {
     // } catch (error) {
     //   console.error(error); // Handle any errors that occur during the request
     // }
-    console.log(data);
+    
+    // console.log(data);
     createPost(data);
   };
 
