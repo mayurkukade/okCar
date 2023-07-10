@@ -5,10 +5,11 @@ const CarListCard = ({
   model,
   year,
   kmDriven,
-  Area,
+  area,
   fuelType,
   transmission,
   price,
+  carId,
 }) => {
   // console.log("data from car card", model);
   return (
@@ -59,7 +60,7 @@ const CarListCard = ({
                     </div>
                     <div className="location">
                       <i className="fa fa-map-marker" aria-hidden="true"></i>{" "}
-                      <span>{Area}</span>
+                      <span>{area}</span>
                     </div>
                     <div className="clearfix"></div>
                     <div className="vinfo">
@@ -78,7 +79,7 @@ const CarListCard = ({
                       ₹{Number(price).toLocaleString("en-IN")}
                     </div>
                     <div className="listbtn">
-                      <Link to="/carDetails">
+                      <Link to={`/carDetails/${carId}`}>
                         View Details{" "}
                         <i
                           className="fa fa-arrow-circle-right"

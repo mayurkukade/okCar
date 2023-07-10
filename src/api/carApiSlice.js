@@ -51,6 +51,16 @@ export const carApiSlice = apiSlice.injectEndpoints({
 
         }),
 
+        getCarById: builder.query({
+            query: (id) => {
+                console.log('Car ID', id)
+                return {
+                    url: `cars/getCar?carId=${id}`,
+                    method: "GET"
+                }
+            }
+        })
+
 
         //filter car query
         // filterCarQuery: builder.query({
@@ -62,20 +72,20 @@ export const carApiSlice = apiSlice.injectEndpoints({
         // })
 
 
-        filterCarQuery: builder.query({
-            query: (data, pageNo) => {
-                console.log('data', data)
-                console.log('Page No', pageNo)
-                return {
-                    url: `/car/mainFilter/${pageNo}`,
-                    method: "GET",
-                }
-            }
-        })
+        // filterCarQuery: builder.query({
+        //     query: (currentPage, year, minPrice, maxPrice, area, transmission, fuelType, brand, model) => {
+        //         // console.log(1?minPrice=&maxPrice=&area=South Beach&year=2016&brand=Chevrolet&model=&transmission=&fuel_type=Petrol)
+        //         console.log(`Filter Api Slice ${currentPage}?minPrice=${minPrice}&maxPrice=${maxPrice}&area=${area}&year=${year}&brand=${brand}&model=${model}&transmission=${transmission}&fuel_type=${fuelType}`)
+        //         return {
+        //             url: `/cars/mainFilter/${currentPage}?minPrice=${minPrice}&maxPrice=${maxPrice}&area=${area}&year=${year}&brand=${brand}&model=${model}&transmission=${transmission}&fuel_type=${fuelType}`,
+        //             method: "GET",
+        //         }
+        //     }
+        // })
 
     }),
 
 });
 
 
-export const { useAddCarMutation, useGetAllCarsQuery, useFilterCarQueryQuery } = carApiSlice;
+export const { useAddCarMutation, useGetAllCarsQuery, useGetCarByIdQuery } = carApiSlice;
