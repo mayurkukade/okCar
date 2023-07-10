@@ -40,7 +40,7 @@ import { BiFirstPage, BiLastPage } from "react-icons/bi";
 import TableCard from "../TableCard/TableCard";
 import React from "react";
 
-const TableModel = ({ data: v, columns,FetchData }) => {
+const TableModel = ({ data: v, columns,FetchData,isLoading,isError,isSuccess }) => {
   console.log(v)
  console.log(FetchData)
   const data = React.useMemo(() => v, [v]);
@@ -71,7 +71,16 @@ const TableModel = ({ data: v, columns,FetchData }) => {
 
   return (
     <>
-      <div className="tableContainer">
+    {
+      isLoading && <p>loading...</p>
+    }
+    {
+      isError && <p>error</p>
+    }
+    {
+      isSuccess &&
+      <>
+        <div className="tableContainer">
         <TableContainer>
           <Table {...getTableProps()}>
             <Thead bgColor={"#95B6D8"} padding="20px 0px">
@@ -180,6 +189,10 @@ const TableModel = ({ data: v, columns,FetchData }) => {
 
         {/* <TableCard CardDatas={FetchData} /> */}
       </div>
+      
+      </>
+    }
+    
     </>
   );
 };
