@@ -20,7 +20,7 @@ import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import CarCard from "./components/CarDetailsCard/CarDetails";
 import RequireAuth from "./features/RequireAuth";
 import AppLayout from "./components/appLayout/AppLayout";
-import { OnlyAdmin} from "./config/role";
+import { OnlyAdmin } from "./config/role";
 import CantAccess from "./components/cantAccess/CantAccess";
 import AddDealer from "./components/Form/AddDealer";
 import Contact from "./components/Contact/Contact";
@@ -45,8 +45,8 @@ const App = () => {
 
         <Route path="/" element={<Home />} />
         <Route path="/carlist" element={<CarList />} />
-        <Route path="/carDetails" element={<CarCard />} />
-        
+        <Route path="/carDetails/:id" element={<CarCard />} />
+
         <Route element={<AppLayout />}>
           {/* PROTECTED ROUTE FOR ADMIN */}
           <Route
@@ -70,7 +70,7 @@ const App = () => {
               <RequireAuth allowedRoles={[...Object.values(OnlyDealer)]} />
             }
           > */}
-            <Route path="/dealer" element={<DealersModel />} />
+          <Route path="/dealer" element={<DealersModel />} />
           {/* </Route> */}
           <Route path="/adminrequest" element={<AdminRequest />} />
           <Route path="/contact" element={<Contact />} />
@@ -78,7 +78,7 @@ const App = () => {
           <Route path="/addcardetails" element={<AddCarDetails />} />
           <Route path="/updateCarDetails" element={<UpdateCarDetails />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
-          <Route path="/dealer/carDetails" element={<CarCard />} />
+          <Route path="/dealer/carDetails/:id" element={<CarCard />} />
           <Route path="/access" element={<CantAccess />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/editUserdetails" element={<EditUserProfile />} />

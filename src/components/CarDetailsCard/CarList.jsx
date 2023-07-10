@@ -3,9 +3,10 @@ import SubNav from "../Navbar/SubNav.jsx";
 import "./CarList.css";
 import { useState, useEffect } from "react";
 import CarListCard from "./CarListCard.jsx";
+// import { baseQuery } from "../../api/apiSlice";
 import {
   useGetAllCarsQuery,
-  useFilterCarQueryQuery,
+  // useFilterCarQueryQuery,
 } from "../../api/carApiSlice.js";
 
 const CarList = () => {
@@ -25,13 +26,21 @@ const CarList = () => {
 
   // for fetching all cars
   const { data: v } = useGetAllCarsQuery(currentPage);
-  const { data: filterData } = useFilterCarQueryQuery(inputFilter, 1);
-  console.log("filterData", filterData);
-  
-  const [responseData, setResponseData] = useState([]);
+  // const { data: filterData,  } =
+  //   useFilterCarQueryQuery(
+  //     currentPage,
+  //     inputFilter.year,
+  //     inputFilter.fuelType,
+  //     inputFilter.transmission,
+  //     inputFilter.brand,
+  //     inputFilter.model,
+  //     inputFilter.area,
+  //     inputFilter.maxPrice,
+  //     inputFilter.minPrice
+  //   );
+  // console.log("filterData", filterData);
 
-  // const [filterResponseData, setfilterResponseData] = useState(null);
-  // const [error, setError] = useState(null);
+  const [responseData, setResponseData] = useState([]);
 
   // on form change handler added
   const onChangeFormHandler = (e) => {
@@ -47,7 +56,7 @@ const CarList = () => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
     console.log(inputFilter);
-    // fetchData();
+    fetchData();
   };
 
   useEffect(() => {
@@ -65,34 +74,25 @@ const CarList = () => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
 
-  // console.log("use Stata data", responseData);
+  // using fetch
 
-  //  filter data api
-  // const fetchData = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       "https://a537-144-48-178-178.ngrok-free.app/cars/mainFilter/1",
-  //       {
-  //         method: "GET",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({ data: inputFilter }),
-  //       }
-  //     );
+  const fetchData = async () => {
+    try {
+      const queryParams = new URLSearchParams(inputFilter).toString();
+      const url = `https://9815-144-48-178-178.ngrok-free.app/cars/mainFilter/1?${queryParams}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      setResponseData(data?.list);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
-  //     if (!response.ok) {
-  //       throw new Error("Request failed");
-  //     }
-
-  //     const data = await response.json();
-  //     setfilterResponseData(data);
-  //   } catch (error) {
-  //     setError(error.message);
-  //   }
-  // };
-  // console.log("Filtered data", filterResponseData);
-
+  console.log("use Stata data", responseData);
+  // console.log("filter data", filterData1);
+  // if (responseData === null) {
+  //   return <p>No car found</p>;
+  // }
   return (
     <>
       <SubNav componentsName={"Car List"} />
@@ -147,7 +147,7 @@ const CarList = () => {
 
                   <div className="widget">
                     <h4 className="widget-title">Area</h4>
-                    <select
+                    {/* <select
                       className="form-control"
                       name="area"
                       value={inputFilter.area}
@@ -159,11 +159,19 @@ const CarList = () => {
                       <option>Baner</option>
                       <option>Wagholi</option>
                       <option>Karve Nagar</option>
-                    </select>
+                    </select> */}
+                    <input
+                      type="text"
+                      name="area"
+                      value={inputFilter.area}
+                      className="form-control"
+                      placeholder="Area"
+                      onChange={onChangeFormHandler}
+                    />
                   </div>
 
                   <div className="widget">
-                    <h4 className="widget-title">Year Range</h4>
+                    <h4 className="widget-title">Year </h4>
                     <input
                       type="number"
                       name="year"
@@ -193,7 +201,7 @@ const CarList = () => {
 
                   <div className="widget">
                     <h4 className="widget-title">Model</h4>
-                    <select
+                    {/* <select
                       className="form-control"
                       name="model"
                       value={inputFilter.model}
@@ -203,7 +211,15 @@ const CarList = () => {
                       <option>JIMNY DX MT</option>
                       <option>SUZUKI CIAZ GL AT</option>
                       <option>SWIFT AT</option>
-                    </select>
+                    </select> */}
+                    <input
+                      type="text"
+                      name="model"
+                      value={inputFilter.model}
+                      className="form-control"
+                      placeholder="Model"
+                      onChange={onChangeFormHandler}
+                    />
                   </div>
 
                   <div className="widget">
@@ -215,7 +231,7 @@ const CarList = () => {
                       onChange={onChangeFormHandler}
                     >
                       <option>Transmission</option>
-                      <option>Auto</option>
+                      <option>Automatic</option>
                       <option>Manual</option>
                     </select>
                   </div>
@@ -295,9 +311,34 @@ const CarList = () => {
             {/* Car Details Card */}
 
             {/* {data.length === 0 ? <CarNotFound /> : <CarListCard />} */}
-            {responseData.map((carDetails, index) => {
-              return <CarListCard key={index} {...carDetails} />;
-            })}
+
+            {responseData === null ? (
+              <h3
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "80vh",
+                }}
+              >
+                No car Found
+              </h3>
+            ) : responseData.length === 0 ? (
+              <h3
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "80vh",
+                }}
+              >
+                Something Went Wrong Can&apos;t fetch Car list
+              </h3>
+            ) : (
+              responseData.map((carDetails, index) => {
+                return <CarListCard key={index} {...carDetails} />;
+              })
+            )}
           </div>
           <div className="pagiWrap">
             <div className="row">
