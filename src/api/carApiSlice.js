@@ -65,7 +65,7 @@ export const carApiSlice = apiSlice.injectEndpoints({
         filterCarQuery: builder.query({
             query: (data, pageNo) => {
                 console.log('data', data)
-                console.log('Page No', pageNo)
+                console.log(`pageNo:${pageNo}?minPrice=` )
                 return {
                     url: `/car/mainFilter/${pageNo}`,
                     method: "GET",
