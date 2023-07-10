@@ -184,3 +184,5 @@ export const {
 
 } = dealersManegmentApiSlice
 
+export const { setSelectedCar } = dealersManegmentCarSlice.actions;
+

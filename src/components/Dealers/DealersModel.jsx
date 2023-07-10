@@ -12,16 +12,11 @@ import {
   ModalBody,
   ModalFooter,
   ModalCloseButton,
-  FormLabel,
-  Select,
-  Input,
-  FormControl,
-  Textarea,
   Text,
   Flex,
 } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
-import { useGetDealerCarsMutation, useDeleteDealerCarMutation, dealersManegmentCarSlice, setSelectedCar } from '../../api/dealersManegmentApiSlice';
+import { useGetDealerCarsMutation, useDeleteDealerCarMutation, setSelectedCar } from '../../api/dealersManegmentApiSlice';
 import jwt_decode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 
@@ -69,7 +64,6 @@ const DealersModel = () => {
     if (type !== TYPE.EDIT) return;
 
     const carToUpdate = (carsData.list.filter(e => e.carId === id));
-    debugger
     if (!carToUpdate) return;
     dispatch(setSelectedCar(carToUpdate));
     navigate('/updateCarDetails');
@@ -91,7 +85,7 @@ const DealersModel = () => {
   };
 
   const handleViewButtonClick = (id) => {
-    navigate(`carDetails?id=${id}`);
+    navigate(`carDetails/${id}`);
   }
 
   async function fetchDealerCars() {
