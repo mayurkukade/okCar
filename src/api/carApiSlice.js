@@ -63,11 +63,11 @@ export const carApiSlice = apiSlice.injectEndpoints({
 
 
         filterCarQuery: builder.query({
-            query: (data, pageNo) => {
-                console.log('data', data)
-                console.log(`pageNo:${pageNo}?minPrice=` )
+            query: (currentPage, year, minPrice, maxPrice, area, transmission, fuelType, brand, model) => {
+                // console.log(1?minPrice=&maxPrice=&area=South Beach&year=2016&brand=Chevrolet&model=&transmission=&fuel_type=Petrol)
+                console.log(`Filter Api Slice ${currentPage}?minPrice=${minPrice}&maxPrice=${maxPrice}&area=${area}&year=${year}&brand=${brand}&model=${model}&transmission=${transmission}&fuel_type=${fuelType}`)
                 return {
-                    url: `/car/mainFilter/${pageNo}`,
+                    url: `/cars/mainFilter/${currentPage}?minPrice=${minPrice}&maxPrice=${maxPrice}&area=${area}&year=${year}&brand=${brand}&model=${model}&transmission=${transmission}&fuel_type=${fuelType}`,
                     method: "GET",
                 }
             }
