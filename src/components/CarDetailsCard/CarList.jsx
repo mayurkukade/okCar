@@ -231,7 +231,7 @@ const CarList = () => {
                       onChange={onChangeFormHandler}
                     >
                       <option>Transmission</option>
-                      <option>Auto</option>
+                      <option>Automatic</option>
                       <option>Manual</option>
                     </select>
                   </div>

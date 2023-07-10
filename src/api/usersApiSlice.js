@@ -21,9 +21,8 @@ export const userApiSlice = apiSlice.injectEndpoints({
     register: builder.mutation({
       //done page  this same api is user for user and dealer register
       query: (data) => ({
-        
-        url: "/account/register",
 
+        url: "/account/register",
         method: "POST",
         body: data,
         headers: {
@@ -35,18 +34,8 @@ export const userApiSlice = apiSlice.injectEndpoints({
       //not done page
       query: (id) => `/user/getAllUsers?pageNo=${id}`,
     }),
-    resetPassword: builder.mutation({
-      // done page
-      query: (data) => ({
-        url: `/user/changedPassword/${data.id}`,
-        method: "PUT",
-        body: data,
-        
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      }),
-    }),
+
+
     editUser: builder.mutation({
       //not done page
       query: (data) => ({
@@ -68,8 +57,33 @@ export const userApiSlice = apiSlice.injectEndpoints({
         },
       }),
     }),
-    
-    
+
+    forgotPassword: builder.mutation({
+      query: (email) => {
+        // console.log(`Email is ${email}`);
+        console.log(`Email is ${email}`);
+        return {
+          url: `/cars/forgot-password?email=${email}`,
+          method: "POST",
+        }
+      },
+    }),
+
+    resetPassword: builder.mutation({
+      // done page
+      query: (data) => {
+        console.log(`Email is ${data}`);
+        return {
+          url: `/cars/reset-password`,
+          method: "POST",
+          body: data,
+          headers: {
+            "Content-type": "application/json:charset=UTF-8",
+          },
+        }
+      },
+    }),
+
   }),
 });
 
@@ -81,4 +95,5 @@ export const {
   useResetPasswordMutation,
   useEditUserMutation,
   useDeleteUserMutation,
+  useForgotPasswordMutation
 } = userApiSlice;
