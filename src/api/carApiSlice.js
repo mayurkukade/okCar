@@ -69,7 +69,6 @@ export const carApiSlice = apiSlice.injectEndpoints({
                 return {
                     url: `/car/mainFilter/${pageNo}`,
                     method: "GET",
-                    body: data,
                 }
             }
         })
