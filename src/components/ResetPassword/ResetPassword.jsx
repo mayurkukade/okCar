@@ -126,7 +126,7 @@ const ChangePasswordPage = () => {
   // const [error, setError] = useState("");
   // const [resetpassword] = useRegisterMutation()
 
-  const { mutate: resetPassword } = useResetPasswordMutation();
+  const [createPost, responseData] = useResetPasswordMutation();
 
   const handleNewPasswordChange = (e) => {
     setNewPassword(e.target.value);
@@ -142,12 +142,12 @@ const ChangePasswordPage = () => {
     try {
       if (newPassword === confirmPassword) {
         console.log(token, newPassword);
-        const response = await resetPassword({ password: newPassword, token });
-        if (response.error) {
+        createPost(token, newPassword);
+        if (responseData.error) {
           toast({
             status: "error",
             position: "top",
-            description: response.error.message,
+            description: responseData.error.message,
           });
         } else {
           toast({
@@ -182,7 +182,7 @@ const ChangePasswordPage = () => {
             <div className="col-md-6 col-md-offset-3">
               <div className="userccount">
                 <h5>Reset Password</h5>
-                <p>Here is the token: {token}</p>
+                {/* <p>Here is the token: {token}</p> */}
                 <div className="formpanel">
                   <form onSubmit={handleSubmit}>
                     <div className="formrow">
