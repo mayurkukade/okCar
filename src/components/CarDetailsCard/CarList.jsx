@@ -25,7 +25,17 @@ const CarList = () => {
 
   // for fetching all cars
   const { data: v } = useGetAllCarsQuery(currentPage);
-  const { data: filterData } = useFilterCarQueryQuery(inputFilter, 1);
+  const { data: filterData } = useFilterCarQueryQuery(
+    inputFilter.year,
+    inputFilter.fuelType,
+    inputFilter.transmission,
+    inputFilter.brand,
+    inputFilter.model,
+    inputFilter.area,
+    inputFilter.maxPrice,
+    inputFilter.minPrice,
+    1
+  );
   console.log("filterData", filterData);
 
   const [responseData, setResponseData] = useState([]);
@@ -65,33 +75,7 @@ const CarList = () => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
 
-  // console.log("use Stata data", responseData);
-
-  //  filter data api
-  // const fetchData = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       "https://a537-144-48-178-178.ngrok-free.app/cars/mainFilter/1",
-  //       {
-  //         method: "GET",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({ data: inputFilter }),
-  //       }
-  //     );
-
-  //     if (!response.ok) {
-  //       throw new Error("Request failed");
-  //     }
-
-  //     const data = await response.json();
-  //     setfilterResponseData(data);
-  //   } catch (error) {
-  //     setError(error.message);
-  //   }
-  // };
-  // console.log("Filtered data", filterResponseData);
+  console.log("use Stata data", responseData);
 
   return (
     <>
@@ -163,7 +147,7 @@ const CarList = () => {
                   </div>
 
                   <div className="widget">
-                    <h4 className="widget-title">Year Range</h4>
+                    <h4 className="widget-title">Year </h4>
                     <input
                       type="number"
                       name="year"

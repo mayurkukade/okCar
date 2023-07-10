@@ -5,7 +5,7 @@ const CarListCard = ({
   model,
   year,
   kmDriven,
-  Area,
+  area,
   fuelType,
   transmission,
   price,
@@ -59,7 +59,7 @@ const CarListCard = ({
                     </div>
                     <div className="location">
                       <i className="fa fa-map-marker" aria-hidden="true"></i>{" "}
-                      <span>{Area}</span>
+                      <span>{area}</span>
                     </div>
                     <div className="clearfix"></div>
                     <div className="vinfo">
