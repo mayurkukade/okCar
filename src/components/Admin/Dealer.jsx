@@ -1,27 +1,35 @@
 import React, { useEffect, useState } from "react";
 import TableM from "./TableM";
 import { useGetAllDealerQuery } from "../../api/dealersManegmentApiSlice";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button } from "@chakra-ui/react";
-import { InfoIcon,EditIcon} from "@chakra-ui/icons";
+import { InfoIcon,EditIcon,DeleteIcon} from "@chakra-ui/icons";
+import { useDeleteDealerMutation } from "../../api/dealersManegmentApiSlice";
 const Dealer = () => {
-  const userToken = localStorage.getItem("userToken");
-  const { data: v, error, isLoading } = useGetAllDealerQuery(userToken);
+
+  const {id} = useParams()
+  console.log(id)
+  const { data: v, error, isLoading } = useGetAllDealerQuery();
   console.log(v);
   const [vendorFetchData, setVendorFetchData] = useState([]);
 // const [catchUserId,setCatchUserId] = useState()
 
-// const [deleteDealer]  = useDeleteDealerMutation()
+const [deleteDealer]  = useDeleteDealerMutation()
   const data = React.useMemo(() => vendorFetchData, [vendorFetchData]);
   const columns = React.useMemo(
     () => [
       {
         Header: "ID",
         accessor: "dealer_id",
+        
       },
       {
-        Header: "Dealor Name ",
+        Header: "First Name ",
         accessor: "firstName",
+      },
+      {
+        Header: "Last Name ",
+        accessor: "lastName",
       },
       {
         Header: "Location",
@@ -31,20 +39,51 @@ const Dealer = () => {
         Header: "Phone",
         accessor: "mobileNo",
       },
-      {
-        Header: "Total Trips",
-        accessor: "total_trips",
-      },
-      {
-        Header: "Accept",
-        accessor: "status.label",
-      },
+      // {
+      //   Header: "Total Trips",
+      //   accessor: "total_trips",
+      // },
+      // {
+      //   Header: "Accept",
+      //   accessor: "status.label",
+      // },
       {
         Header: 'user id',
         accessor: 'userId',
         disableSortBy: true
       },
-
+      // {
+      //   Header: "Cars",
+      //   Cell:(cell)=>{
+      //     return(
+      //       <>
+      //          <Link to={` ${cell.row.values.dealer_id}`}>
+      //       <Button
+      //         variant="outline"
+      //         colorScheme="blue"
+      //         leftIcon={<InfoIcon />}
+      //         marginRight={"0.2rem"}
+      //         _hover={{ bg: "#2C5282", textColor: "white" }}
+      //       >
+      //         Active
+      //       </Button>
+      //     </Link>
+      //          <Link to={` ${cell.row.values.dealer_id}`}>
+      //       <Button
+      //         variant="outline"
+      //         colorScheme="blue"
+      //         leftIcon={<InfoIcon />}
+      //         marginRight={"0.2rem"}
+      //         _hover={{ bg: "#2C5282", textColor: "white" }}
+      //       >
+      //         Pending
+      //       </Button>
+      //     </Link>
+      //       </>
+         
+      //     )
+      //   }
+      // },
       {
         Header: "Edit",
         accessor: "Edit",
@@ -76,7 +115,7 @@ const Dealer = () => {
               </Button> */}
 
           
-            <Link to={`/editDealerdetails/${cell.row.values.userId}`}>
+            <Link to={`/editDealerdetails/${cell.row.values.userId}/${cell.row.values.dealer_id}`}>
               <Button
                 variant="outline"
                 colorScheme="teal"
@@ -88,7 +127,7 @@ const Dealer = () => {
               </Button>
             </Link>
 
-            {/* <Link to={`${cell.row.values.dealer_id}`}>
+            
               <Button
                 variant="outline"
                 colorScheme="red"
@@ -98,7 +137,7 @@ const Dealer = () => {
               >
                 Delete
               </Button>
-            </Link> */}
+          
           </div>
           )
         },

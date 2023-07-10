@@ -3,23 +3,36 @@ import SubNav from "../Navbar/SubNav";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useUpdateDealerMutation } from "../../api/dealersManegmentApiSlice";
+import { useGetAllDealerQuery } from "../../api/dealersManegmentApiSlice";
+import { useGetDealerQuery } from "../../api/dealersManegmentApiSlice";
+
 const EditDealerProfile = () => {
+  const userToken = localStorage.getItem("userToken")
+    const {userid,id} = useParams()
+    const {data:dealerID} = useGetDealerQuery({id})
+    
+  console.log(dealerID?.dealerDto?.address)
+
+    console.log(userid,id)
   const [inputField, setInputField] = useState({
-    email: "",
-    mobileNo: "",
-    address: "",
-    city: "",
-    area: "",
-    shopName: "",
+    email: `${dealerID?.dealerDto?.email}`,
+    mobileNo:`${dealerID?.dealerDto?.mobileNo}`,
+    address: `${dealerID?.dealerDto?.address}`,
+    city: `${dealerID?.dealerDto?.city}`,
+    area: `${dealerID?.dealerDto?.area}`,
+    shopName: `${dealerID?.dealerDto?.shopName}`,
+    userid
   });
+  
+  console.log(dealerID)
 
   
-
-  const userToken = localStorage.getItem("userToken")
   console.log(userToken)
-  const {id} = useParams()
-console.log(id)
-  const [updateDealer,{isLoading}] = useUpdateDealerMutation({id})
+
+console.log(userid)
+const { data: v, } = useGetAllDealerQuery();
+console.log(v);
+  const [updateDealer,{isLoading}] = useUpdateDealerMutation()
 
   const onChangeFormhandler = (e) => {
     const { name, value } = e.target;
@@ -71,8 +84,9 @@ console.log(id)
                           name="mobileNo"
                           className="form-control"
                           placeholder="Phone Number"
+                          defaultValue={inputField.mobileNo}
                           onChange={onChangeFormhandler}
-                          required
+                          
                         />
                       </div>
                       <div className="formrow">
@@ -82,7 +96,8 @@ console.log(id)
                           className="form-control"
                           placeholder="Email"
                           onChange={onChangeFormhandler}
-                          required
+                          value={inputField.email}
+                          
                         />
                       </div>
                       <div className="formrow">
@@ -91,8 +106,9 @@ console.log(id)
                           name="address"
                           className="form-control"
                           placeholder="Address"
+                          value={inputField.address}
                           onChange={onChangeFormhandler}
-                          required
+                          
                         />
                       </div>
                       <div className="formrow">
@@ -102,7 +118,7 @@ console.log(id)
                           className="form-control"
                           placeholder="City"
                           onChange={onChangeFormhandler}
-                          required
+                          value={inputField.city}
                         />
                       </div>
                      
@@ -113,7 +129,7 @@ console.log(id)
                           className="form-control"
                           placeholder="Area"
                           onChange={onChangeFormhandler}
-                          required
+                          value={inputField.area}
                         />
                       </div>
                       <div className="formrow">
@@ -123,7 +139,7 @@ console.log(id)
                           className="form-control"
                           placeholder="Shop Name"
                           onChange={onChangeFormhandler}
-                          required
+                          value={inputField.shopName}
                         />
                       </div>
                       <div className="formrow">
@@ -132,7 +148,7 @@ console.log(id)
                           value="agree text"
                           name="agree"
                           style={{ marginRight: "10px" }}
-                          required
+                          
                         />
                         Terms and Condition
                       </div>

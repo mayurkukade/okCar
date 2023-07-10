@@ -16,14 +16,15 @@ const DealerDetails = () => {
   
   const userToken = localStorage.getItem('userToken')
   console.log(userToken)
-  const {data:dealerID} = useGetDealerQuery({userToken,id})
+  const {data:dealerID} = useGetDealerQuery({id})
   
   console.log(dealerID,'dealer')
   console.log(dealerID)
   console.log(dealerData)
   useEffect(()=>{
-    setDealerData(dealerID)
+    setDealerData(dealerID?.dealerDto)
   },[dealerID])
+  console.log(dealerData)
   const data = React.useMemo(() => dealerdetails, []);
   const columns = React.useMemo(
     () => [
@@ -76,10 +77,10 @@ const DealerDetails = () => {
             </Flex>
 
             <p>Dealer ID</p>
-            <h5>{dealerData?.dealerDto?.dealer_id}</h5>
+            <h5>{dealerData?.dealer_id}</h5>
 
             <p>Total Cars</p>
-            <h5>{dealerData?.dealerDto?.dealer_id}</h5>
+            <h5>{dealerData?.dealer_id}</h5>
           </Text>
         </div>
       </div>
