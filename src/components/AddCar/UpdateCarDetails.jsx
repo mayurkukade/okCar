@@ -1,8 +1,45 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SubNav from "../Navbar/SubNav";
+import { useSelector } from "react-redux";
 
 const UpdateCarDetails = () => {
-  const { data } = useEditCarDetailsMutation();
+  const data = {
+    acFeature: true,
+    area: "Greenwich Village",
+    bodyType: "Sedan",
+    brand: "BMW0",
+    carId: 136,
+    carInsurance: true,
+    carStatus: "active",
+    city: "New York City",
+    color: "Gray",
+    dealer_id: 4,
+    description: "This luxury sedan is owned by Emily Thompson, a successful businesswoman. It was carefully chosen to match her sophisticated style and offers a perfect blend of elegance and performance.",
+    fuelType: "Diesel",
+    kmDriven: 30000,
+    model: "5 Series",
+    musicFeature: true,
+    noOfWheels: 4,
+    ownerSerial: 2,
+    powerWindowFeature: true,
+    price: 55000,
+    rearParkingCameraFeature: true,
+    registration: "2020-01-15",
+    safetyDescription: "The car prioritizes safety with features such as adaptive headlights, forward collision warning, lane departure warning, and a reinforced body structure for maximum protection.",
+    transmission: "Automatic",
+    tyre: "Run-flat",
+    year: 2019
+  };
+
+  const mystate = useSelector(state => state.dealersSelectedCar.selectedCar);
+  
+  useEffect(() => {
+    // const a = Object.entries(data).map([key, value]);
+    const a = mystate;
+    debugger
+    // .map(({ key, value }) => { console.log('key', key, '\nvalue: ', value) })
+  }, []);
+
   const [formData, setFormData] = useState({
     brand: data.brand,
     bodyType: data.bodyType,

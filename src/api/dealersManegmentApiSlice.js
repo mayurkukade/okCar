@@ -1,8 +1,8 @@
 import { apiSlice } from "./apiSlice";
+import { createSlice } from '@reduxjs/toolkit';
 const USERS_URL = "/admin";
 const token = localStorage.getItem("userToken");
 
-const token = localStorage.getItem("userToken");
 export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     addDealer: builder.mutation({
@@ -42,7 +42,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
     }),
 
     deleteDealer: builder.mutation({
-      query: ({ userToken, id }) => ({
+      query: ({ userToken,id }) => ({
         url: `/dealer/${id}`,
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -60,24 +60,50 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
         url:`/dealer/updateDealer/1001`,
         headers:{
           "Content-Type": "application/json",
-          Authorization:`Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXJwQGFkbWluLmNvbSIsImF1dGhvcml0aWVzIjpbIkFETUlOIl0sInJvbGVzIjpbIkFETUlOIl0sImlzRW5hYmxlIjp0cnVlLCJpYXQiOjE2ODg3NDAzNTEsImV4cCI6MTY4ODc0Mzk1MX0.S1dDWHQB9jBbAIg878EZd0CeSGjs1EjbIoDmqmQEhQU`
+          Authorization:`Bearer ${token}`
         },
         method:"PUT",
         body:body
         
       }),
     }),
-    getDealerCars: builder.query({
+    getDealerCars: builder.mutation({
       query: ({id}) => ({
         url: `car/dealer/${id}/status/Active`,
         headers: {
           'Content-Type': "application/json",
           Authorization: `Bearer ${token}`,
-        }
+        },
+        method: 'GET'
+      }),
+      providesTags:['Dealer']
+    }),
+    deleteDealerCar: builder.mutation({
+      query: ({id}) => ({
+        url: `/car/removeCar?carId=${id}`,
+        headers: {
+          'Content-Type': "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        method: 'DELETE'
       }),
       providesTags:['Dealer']
     })
   }),
+});
+
+const initialState = {
+  selectedCar: null
+};
+
+export const dealersManegmentCarSlice = createSlice({
+  name: 'dealers-car-slice',
+  initialState,
+  reducers: {
+    setSelectedCar: (state, { payload }) => {
+      state.selectedCar = payload[0];
+    },
+  },
 });
 
 export const {
@@ -85,6 +111,10 @@ export const {
   useGetAllDealerQuery,
   useGetDealerQuery,
   useDeleteDealerMutation,
-  useGetDealerCarsQuery,
-  useGetDealerIdQuery
+  useGetDealerCarsMutation,
+  useGetDealerIdQuery,
+  useUpdateDealerMutation,
+  useDeleteDealerCarMutation,
 } = dealersManegmentApiSlice
+
+export const{ setSelectedCar } = dealersManegmentCarSlice.actions;
