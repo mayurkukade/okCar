@@ -15,6 +15,8 @@ const EditDealerProfile = () => {
 
     console.log(userid,id)
   const [inputField, setInputField] = useState({
+    firstName:`${dealerID?.dealerDto?.firstname}`,
+    lastName:`${dealerID?.dealerDto?.lastName}`,
     email: `${dealerID?.dealerDto?.email}`,
     mobileNo:`${dealerID?.dealerDto?.mobileNo}`,
     address: `${dealerID?.dealerDto?.address}`,
@@ -77,7 +79,28 @@ console.log(v);
                       id="wsell"
                       className="formpanel tab-pane fade in active"
                     >
-                   
+                     <div className="formrow">
+                        <input
+                          type="text"
+                          name="firstName"
+                          className="form-control"
+                          placeholder="firstname"
+                          value={inputField.firstname}
+                          onChange={onChangeFormhandler}
+                          
+                        />
+                      </div>
+                     <div className="formrow">
+                        <input
+                          type="text"
+                          name="lastName"
+                          className="form-control"
+                          placeholder="Address"
+                          value={inputField.lastName}
+                          onChange={onChangeFormhandler}
+                          
+                        />
+                      </div>
                       <div className="formrow">
                         <input
                           type="number"

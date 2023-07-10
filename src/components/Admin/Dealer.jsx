@@ -9,7 +9,7 @@ const Dealer = () => {
 
   const {id} = useParams()
   console.log(id)
-  const { data: v, error, isLoading } = useGetAllDealerQuery();
+  const { data: v,  isLoading,isError } = useGetAllDealerQuery();
   console.log(v);
   const [vendorFetchData, setVendorFetchData] = useState([]);
 // const [catchUserId,setCatchUserId] = useState()
@@ -24,9 +24,11 @@ const [deleteDealer]  = useDeleteDealerMutation()
         
       },
       {
-        Header: "First Name ",
+        Header: "First Name",
         accessor: "firstName",
+        
       },
+      
       {
         Header: "Last Name ",
         accessor: "lastName",
@@ -166,7 +168,7 @@ const [deleteDealer]  = useDeleteDealerMutation()
         data={data}
         columns={columns}
         FetchData={vendorFetchData}
-        error={error}
+        error={isError}
         isLoading={isLoading}
       />
     </>
