@@ -26,6 +26,8 @@ import jwt_decode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 
 const DealersModel = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const TYPE = { EDIT: "EDIT_CAR", DELETE: "DELETE_CAR" }
   const selectedCar = useMemo(() => {
     return { type: null, carId: null };
@@ -38,22 +40,11 @@ const DealersModel = () => {
     status: "",
     carDetails: "",
   });
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  
+  const userToken = `Bearer ${localStorage.getItem('userToken')}`;
+  const { dealerId } = jwt_decode(userToken);
+  const [getDealersCars, { data: carsData, isLoading, isError }] = useGetDealerCarsMutation();
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
-
-  // const handleFormSubmit = (event) => {
-  //   event.preventDefault();
-  //   console.log("Form data:", formData);
-  //   handleModalClose();
-  // };
 
   const [deleteDealerCar, { data: isDeleteCarLoading, isLoading: isDeleteCarError, isError: errorDeleteCar }] = useDeleteDealerCarMutation();
   const handleDeleteClick = async (id) => {
@@ -71,26 +62,19 @@ const DealersModel = () => {
     setIsDeleteModalOpen(false);
   };
 
-  function viewCarDetails(id) {
-    if (!id) return;
-
-    const carToUpdate = (carsData.filter(e => e.carId === id));
-    if (!carToUpdate) return;
-    dispatch(setSelectedCar(carToUpdate));
-    navigate('dealer/carDetails');
-  }
-
   // edit item
   const handleEditItem = () => {
     const { carId: id, type } = selectedCar;
     if (!id || !type) return;
     if (type !== TYPE.EDIT) return;
 
-    const carToUpdate = (carsData.filter(e => e.carId === id));
+    const carToUpdate = (carsData.list.filter(e => e.carId === id));
+    debugger
     if (!carToUpdate) return;
     dispatch(setSelectedCar(carToUpdate));
     navigate('/updateCarDetails');
   }
+
 
   // delete item
   const handleDeleteItem = () => {
@@ -106,14 +90,12 @@ const DealersModel = () => {
     });
   };
 
-
-
-  const userToken = `Bearer ${localStorage.getItem('userToken')}`;
-  const { dealerId } = jwt_decode(userToken);
-  const [getDealersCars, { data: carsData, isLoading, isError }] = useGetDealerCarsMutation();
+  const handleViewButtonClick = (id) => {
+    navigate(`carDetails?id=${id}`);
+  }
 
   async function fetchDealerCars() {
-    getDealersCars({ id: dealerId, pageNo: 0 }, { skip: !dealerId })
+    await getDealersCars({ id: dealerId, pageNo: 0 }, { skip: !dealerId })
   }
 
   useEffect(() => {
@@ -156,7 +138,7 @@ const DealersModel = () => {
               leftIcon={<InfoIcon />}
               marginRight={"0.2rem"}
               _hover={{ bg: "#2C5282", textColor: "white" }}
-              onClick={() => viewCarDetails(cell.row.values.carId)}
+              onClick={() => handleViewButtonClick(cell.row.values.carId)}
             >
               Details
             </Button>
