@@ -1,10 +1,6 @@
 import { apiSlice } from "./apiSlice";
-
-
-
-
-
-
+import { createSlice } from '@reduxjs/toolkit';
+const USERS_URL = "/admin";
 const token = localStorage.getItem("userToken");
 
 export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
@@ -85,9 +81,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
 
 
     deleteDealer: builder.mutation({
-
-      query: ({ userToken, id }) => ({
-
+      query: ({ userToken,id }) => ({
         url: `/dealer/${id}`,
 
         headers: {
@@ -108,59 +102,69 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
 
     }),
 
-
-
-
-    updateDealer: builder.mutation({
-
-      query: (body) => ({
-
-        transformResponse: console.log(body),
-
-        url: `/dealer/updateDealer/${body.id}`,
-
-        headers: {
-
+    updateDealer:builder.mutation({
+      query:(body) =>({
+        transformResponse:console.log({body}),
+        url:`/dealer/updateDealer/1001`,
+        headers:{
           "Content-Type": "application/json",
-
-          Authorization: `Bearer ${token}`
-
+          Authorization:`Bearer ${token}`
         },
-
-        method: "PUT",
-
-        body: body
-
-
-
+        method:"PUT",
+        body:body
+        
       }),
-
       invalidatesTags: ["Dealer"]
-
     }),
-
-    getDealerCars: builder.query({
-
-      query: ({ id }) => ({
-
-        url: `car/dealer/${id}/status/Active`,
-
+    getDealerCars: builder.mutation({
+      query: ({ id, pageNo }) => ({
+        url: `car/dealer/${id}/status/Active?pageNo=0`,
         headers: {
-
           'Content-Type': "application/json",
-
           Authorization: `Bearer ${token}`,
-
-        }
-
+        },
+        method: 'GET'
       }),
+      providesTags:['Dealer']
+    }),
+    deleteDealerCar: builder.mutation({
+      query: ({id}) => ({
+        url: `/car/removeCar?carId=${id}`,
+        headers: {
+          'Content-Type': "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        method: 'DELETE'
+      }),
+      providesTags:['Dealer']
+    }),
+    putDealerCar: builder.mutation({
+      query:({ id, body }) =>({
+        url:`/car/edit/${id}`,
+        headers:{
+          "Content-Type": "application/json",
+          Authorization:`Bearer ${token}`
+        },
+        method:"PUT",
+        body
+        
+      }),
+    }),
+  })
+});
 
-      providesTags: ['Dealer']
+const initialState = {
+  selectedCar: null
+};
 
-    })
-
-  }),
-
+export const dealersManegmentCarSlice = createSlice({
+  name: 'dealers-car-slice',
+  initialState,
+  reducers: {
+    setSelectedCar: (state, { payload }) => {
+      state.selectedCar = payload[0];
+    },
+  },
 });
 
 
@@ -169,17 +173,16 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
 export const {
 
   useAddDealerMutation,
-
   useGetAllDealerQuery,
-
   useGetDealerQuery,
-
   useDeleteDealerMutation,
-
-  useGetDealerCarsQuery,
-
+  useGetDealerCarsMutation,
   useGetDealerIdQuery,
-
-  useUpdateDealerMutation
+  useUpdateDealerMutation,
+  useDeleteDealerCarMutation,
+  usePutDealerCarMutation,
 
 } = dealersManegmentApiSlice
+
+export const { setSelectedCar } = dealersManegmentCarSlice.actions;
+

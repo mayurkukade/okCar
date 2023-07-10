@@ -80,7 +80,7 @@ const App = () => {
           <Route path="/addcardetails" element={<AddCarDetails />} />
           <Route path="/updateCarDetails" element={<UpdateCarDetails />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
-          <Route path="/dealer/carDetails" element={<CarCard />} />
+          <Route path="/dealer/carDetails/:id" element={<CarCard />} />
           <Route path="/access" element={<CantAccess />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/editUserdetails" element={<EditUserProfile />} />

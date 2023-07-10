@@ -3,7 +3,7 @@ import {configureStore} from '@reduxjs/toolkit'
 import authReducer from '../../api/authSlice'
 import { apiSlice } from '../../api/apiSlice'
 
-import {dealersManegmentApiSlice} from '../../api/dealersManegmentApiSlice'
+import {dealersManegmentApiSlice, dealersManegmentCarSlice} from '../../api/dealersManegmentApiSlice'
 import { carApiSlice } from '../../api/carApiSlice'
 
 export const store = configureStore({
@@ -11,9 +11,9 @@ export const store = configureStore({
         [apiSlice.reducerPath]: apiSlice.reducer,
         [dealersManegmentApiSlice.reducerPath]:dealersManegmentApiSlice.reducer,
         [carApiSlice.reducerPath]:carApiSlice.reducer,
-      
-
+        
         auth: authReducer,
+        dealersSelectedCar: dealersManegmentCarSlice.reducer,
       },
       middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(apiSlice.middleware),

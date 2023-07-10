@@ -3,10 +3,12 @@ import SubNav from "../Navbar/SubNav";
 import imageCompression from "browser-image-compression";
 import { useAddCarMutation } from "../../api/carApiSlice";
 import jwt_decode from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 
 const AddCarDetails = () => {
   const [createPost, responseData] = useAddCarMutation();
   console.log(responseData);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     //features
     acFeature: false,
@@ -84,7 +86,10 @@ const AddCarDetails = () => {
     // }
     
     // console.log(data);
-    createPost(data);
+    createPost(data).then(responseData => {
+      if (responseData?.error) return;
+      navigate('/dealer')
+    });
   };
 
   // handle image compressor
