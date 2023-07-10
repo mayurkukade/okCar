@@ -36,27 +36,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
     }),
 
 
-    editUser: builder.mutation({
-      //not done page
-      query: (data) => ({
-        url: `/user/edit/${data.id}`,
-        method: "PUT",
-        body: data,
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      }),
-    }),
-    deleteUser: builder.mutation({
-      query: (data) => ({
-        url: `/user/delete/${data.id}`,
-        method: "DELETE",
-        body: data,
-        headers: {
-          "Content-type": "application/json:charset=UTF-8",
-        },
-      }),
-    }),
+
 
     forgotPassword: builder.mutation({
       query: (email) => {
@@ -82,6 +62,31 @@ export const userApiSlice = apiSlice.injectEndpoints({
           },
         }
       },
+    }),
+
+    // edit user by id
+    editUser: builder.mutation({
+      //not done page
+      query: (data) => ({
+        url: `/user/edit/${data.id}`,
+        method: "PUT",
+        body: data,
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }),
+    }),
+
+    // delete user by id
+    deleteUser: builder.mutation({
+      query: (data) => ({
+        url: `/user/delete/${data.id}`,
+        method: "DELETE",
+        body: data,
+        headers: {
+          "Content-type": "application/json:charset=UTF-8",
+        },
+      }),
     }),
 
   }),
