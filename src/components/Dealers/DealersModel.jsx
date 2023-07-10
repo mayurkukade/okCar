@@ -71,12 +71,21 @@ const DealersModel = () => {
     setIsDeleteModalOpen(false);
   };
 
+  function viewCarDetails(id) {
+    if (!id) return;
+
+    const carToUpdate = (carsData.filter(e => e.carId === id));
+    if (!carToUpdate) return;
+    dispatch(setSelectedCar(carToUpdate));
+    navigate('dealer/carDetails');
+  }
+
   // edit item
   const handleEditItem = () => {
     const { carId: id, type } = selectedCar;
     if (!id || !type) return;
     if (type !== TYPE.EDIT) return;
-    
+
     const carToUpdate = (carsData.filter(e => e.carId === id));
     if (!carToUpdate) return;
     dispatch(setSelectedCar(carToUpdate));
@@ -104,7 +113,7 @@ const DealersModel = () => {
   const [getDealersCars, { data: carsData, isLoading, isError }] = useGetDealerCarsMutation();
 
   async function fetchDealerCars() {
-    getDealersCars({ id: dealerId }, { skip: !dealerId })
+    getDealersCars({ id: dealerId, pageNo: 0 }, { skip: !dealerId })
   }
 
   useEffect(() => {
@@ -135,23 +144,22 @@ const DealersModel = () => {
       },
       {
         Header: "Car Details",
-        accessor: "dealer_id",
+        accessor: "",
         Cell: (cell) => (
           // Cell: (cell) => (
           <Flex>
             {/* Edit Button */}
             {/* <Link to={`carDetails/${cell.value}`}> */}
-            <Link to={`carDetails`}>
-              <Button
-                variant="outline"
-                colorScheme="blue"
-                leftIcon={<InfoIcon />}
-                marginRight={"0.2rem"}
-                _hover={{ bg: "#2C5282", textColor: "white" }}
-              >
-                Details
-              </Button>
-            </Link>
+            <Button
+              variant="outline"
+              colorScheme="blue"
+              leftIcon={<InfoIcon />}
+              marginRight={"0.2rem"}
+              _hover={{ bg: "#2C5282", textColor: "white" }}
+              onClick={() => viewCarDetails(cell.row.values.carId)}
+            >
+              Details
+            </Button>
           </Flex>
         ),
       },
@@ -320,7 +328,7 @@ const DealersModel = () => {
           </Button>
         </Link>
       </Flex>
-      {(!isLoading && !isError && !!carsData) && <TableModel data={carsData || []} columns={columns} />}
+      {(!isLoading && !isError && !!carsData) && <TableModel data={carsData.list || []} columns={columns} />}
     </>
   );
 };

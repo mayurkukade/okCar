@@ -1,78 +1,51 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SubNav from "../Navbar/SubNav";
 import { useSelector } from "react-redux";
-
+import { usePutDealerCarMutation } from '../../api/dealersManegmentApiSlice';
 const UpdateCarDetails = () => {
-  const data = {
-    acFeature: true,
-    area: "Greenwich Village",
-    bodyType: "Sedan",
-    brand: "BMW0",
-    carId: 136,
-    carInsurance: true,
-    carStatus: "active",
-    city: "New York City",
-    color: "Gray",
-    dealer_id: 4,
-    description: "This luxury sedan is owned by Emily Thompson, a successful businesswoman. It was carefully chosen to match her sophisticated style and offers a perfect blend of elegance and performance.",
-    fuelType: "Diesel",
-    kmDriven: 30000,
-    model: "5 Series",
-    musicFeature: true,
-    noOfWheels: 4,
-    ownerSerial: 2,
-    powerWindowFeature: true,
-    price: 55000,
-    rearParkingCameraFeature: true,
-    registration: "2020-01-15",
-    safetyDescription: "The car prioritizes safety with features such as adaptive headlights, forward collision warning, lane departure warning, and a reinforced body structure for maximum protection.",
-    transmission: "Automatic",
-    tyre: "Run-flat",
-    year: 2019
-  };
-
-  const mystate = useSelector(state => state.dealersSelectedCar.selectedCar);
+  
+  const [ putDealerCar, { data: responseData, isLoading: isCarPutLoading, isError: isCarPutError }] = usePutDealerCarMutation();
+  const data = useSelector(state => state.dealersSelectedCar.selectedCar);
+  const navigate = useNavigate('/dealers');
   
   useEffect(() => {
-    // const a = Object.entries(data).map([key, value]);
-    const a = mystate;
-    debugger
-    // .map(({ key, value }) => { console.log('key', key, '\nvalue: ', value) })
+    if (!data) navigate('/dealer');
   }, []);
 
   const [formData, setFormData] = useState({
-    brand: data.brand,
-    bodyType: data.bodyType,
-    price: data.price,
-    model: data.price,
-    year: data.year,
-    transmission: data.transmission,
-    color: data.color,
-    city: data.city,
-    fuelType: data.fuelType,
-    kmDriven: data.kmDriven,
-    carInsurance: data.carInsurance,
-    registration: data.registration,
-    description: data.description,
-    safetyDescription: data.safetyDescription,
-    area: data.area,
-    carStatus: data.carStatus,
-    noOfWheels: data.noOfWheels,
-    ownerSerial: data.ownerSerial,
-    tyre: data.type,
-    dealer_id: data.dealer_id,
+    brand: data?.brand || "",
+    bodyType: data?.bodyType || "",
+    price: data?.price || "",
+    model: data?.model || "",
+    year: data?.year || "",
+    transmission: data?.transmission || "",
+    color: data?.color || "",
+    city: data?.city || "",
+    fuelType: data?.fuelType || "",
+    kmDriven: data?.kmDriven || "",
+    carInsurance: data?.carInsurance || "",
+    registration: data?.registration || "",
+    description: data?.description || "",
+    safetyDescription: data?.safetyDescription || "",
+    area: data?.area || "",
+    carStatus: data?.carStatus || "",
+    noOfWheels: data?.noOfWheels || "",
+    ownerSerial: data?.ownerSerial || "",
+    tyre: data?.tyre || "",
+    dealer_id: data?.dealer_id || "",
     //features
-    acFeature: data.acFeature,
-    musicFeature: data.musicFeature,
-    powerWindowFeature: data.powerWindowFeature,
-    rearParkingCameraFeature: data.rearParkingCameraFeature,
+    acFeature: data?.acFeature || false,
+    musicFeature: data?.musicFeature || false,
+    powerWindowFeature: data?.powerWindowFeature || false,
+    rearParkingCameraFeature: data?.rearParkingCameraFeature || false,
   });
   const [images, setImages] = useState([]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     // Prepare the form data to send to the backend
-    const data = {
+    const formdata = {
       brand: formData.brand,
       price: formData.price,
       model: formData.model,
@@ -98,7 +71,7 @@ const UpdateCarDetails = () => {
       musicFeature: formData.musicFeature,
       powerWindowFeature: formData.powerWindowFeature,
       rearParkingCameraFeature: formData.rearParkingCameraFeature,
-      images,
+      // images,
     };
 
     // Send the form data to the backend
@@ -108,7 +81,18 @@ const UpdateCarDetails = () => {
     // } catch (error) {
     //   console.error(error); // Handle any errors that occur during the request
     // }
-    console.log(data);
+    
+    if (data?.carId){
+      putDealerCar({ id: data.carId, body: formData })
+        .then(response => {
+          if (response.error) {
+            alert('Error saving car'); return;
+          }
+          navigate('/dealer');
+        })
+        .catch(error => { console.error('Something aint right') })
+    }
+    console.log(formdata);
   };
 
   function handleImage(event) {
@@ -281,7 +265,7 @@ const UpdateCarDetails = () => {
                             name="ownerSerial"
                             className="form-control"
                             placeholder="Owner Type"
-                            value={formData.type}
+                            value={formData.ownerSerial}
                             onChange={(event) =>
                               setFormData({
                                 ...formData,
@@ -490,7 +474,7 @@ const UpdateCarDetails = () => {
                               <input
                                 type="checkbox"
                                 name="musicFeature"
-                                value={formData.musicFeature}
+                                checked={ formData.musicFeature || false}
                                 onChange={(event) => {
                                   setFormData({
                                     ...formData,
@@ -504,7 +488,7 @@ const UpdateCarDetails = () => {
                               <input
                                 type="checkbox"
                                 name="powerWindowFeature"
-                                value={formData.powerWindowFeature}
+                                checked={ formData.powerWindowFeature || false}
                                 onChange={(event) => {
                                   setFormData({
                                     ...formData,
@@ -518,7 +502,7 @@ const UpdateCarDetails = () => {
                               <input
                                 type="checkbox"
                                 name="acFeature"
-                                value={formData.acFeature}
+                                checked={formData.acFeature || false}
                                 onChange={(event) => {
                                   setFormData({
                                     ...formData,
@@ -532,7 +516,7 @@ const UpdateCarDetails = () => {
                               <input
                                 type="checkbox"
                                 name="rearParkingCameraFeature"
-                                value={formData.rearParkingCamera}
+                                checked={ formData.rearParkingCameraFeature || false }
                                 onChange={(event) => {
                                   setFormData({
                                     ...formData,
@@ -623,7 +607,7 @@ const UpdateCarDetails = () => {
                     </div>
 
                     {/* <br /> */}
-                    <input type="submit" className="btn" value="Post An Ad" />
+                    <input type="submit" className="btn" value="Save Car" />
                   </div>
                 </div>
               </div>

@@ -68,8 +68,8 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
       }),
     }),
     getDealerCars: builder.mutation({
-      query: ({id}) => ({
-        url: `car/dealer/${id}/status/Active`,
+      query: ({ id, pageNo }) => ({
+        url: `car/dealer/${id}/status/Active?pageNo=0`,
         headers: {
           'Content-Type': "application/json",
           Authorization: `Bearer ${token}`,
@@ -88,8 +88,20 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
         method: 'DELETE'
       }),
       providesTags:['Dealer']
-    })
-  }),
+    }),
+    putDealerCar: builder.mutation({
+      query:({ id, body }) =>({
+        url:`/car/edit/${id}`,
+        headers:{
+          "Content-Type": "application/json",
+          Authorization:`Bearer ${token}`
+        },
+        method:"PUT",
+        body
+        
+      }),
+    }),
+  })
 });
 
 const initialState = {
@@ -115,6 +127,7 @@ export const {
   useGetDealerIdQuery,
   useUpdateDealerMutation,
   useDeleteDealerCarMutation,
+  usePutDealerCarMutation
 } = dealersManegmentApiSlice
 
 export const{ setSelectedCar } = dealersManegmentCarSlice.actions;
