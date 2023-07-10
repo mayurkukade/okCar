@@ -27,7 +27,7 @@ const CarList = () => {
   const { data: v } = useGetAllCarsQuery(currentPage);
   const { data: filterData } = useFilterCarQueryQuery(inputFilter, 1);
   console.log("filterData", filterData);
-  
+
   const [responseData, setResponseData] = useState([]);
 
   // const [filterResponseData, setfilterResponseData] = useState(null);
@@ -295,9 +295,23 @@ const CarList = () => {
             {/* Car Details Card */}
 
             {/* {data.length === 0 ? <CarNotFound /> : <CarListCard />} */}
-            {responseData.map((carDetails, index) => {
-              return <CarListCard key={index} {...carDetails} />;
-            })}
+
+            {responseData.length === 0 ? (
+              <h3
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "80vh",
+                }}
+              >
+                Something Went Wrong Can&apos;t fetch Car list
+              </h3>
+            ) : (
+              responseData.map((carDetails, index) => {
+                return <CarListCard key={index} {...carDetails} />;
+              })
+            )}
           </div>
           <div className="pagiWrap">
             <div className="row">
