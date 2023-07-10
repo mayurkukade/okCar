@@ -74,12 +74,12 @@ const Home = () => {
         >
           <div className="container">
             <h3>Find Used Cars In Pune</h3>
-            <p>
-              Search from over 1,00,000 Active Cars
-              {/* &amp; Post free unlimited
+            {/* <p>
+              Search from over 1,00,000 Active Cars */}
+            {/* &amp; Post free unlimited
             classNameifieds ads! */}
-            </p>
-            <div className="searchbar">
+            {/* </p> */}
+            {/* <div className="searchbar">
               <div className="row">
                 <div className="col-md-6">
                   <input
@@ -95,9 +95,7 @@ const Home = () => {
                     <option>₹1,00,000 - ₹1,49,999</option>
                     <option>₹1,50,000 - ₹1,99,999</option>
                     <option>₹2,00,000 - ₹2,49,999</option>
-                    {/* <option>₹ - ₹3499</option>
-                  <option>₹3500 - ₹3999</option>
-                  <option>About ₹4000</option> */}
+                   
                   </select>
                 </div>
                 <div className="col-md-2">
@@ -113,7 +111,7 @@ const Home = () => {
                   <input type="submit" className="btn" value="Search" />
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <HomeCarousel />
