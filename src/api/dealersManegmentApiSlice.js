@@ -1,90 +1,185 @@
 import { apiSlice } from "./apiSlice";
-const USERS_URL = "/admin";
-const token = localStorage.getItem("userToken");
+
+
+
+
+
 
 const token = localStorage.getItem("userToken");
+
 export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
+
   endpoints: (builder) => ({
+
     addDealer: builder.mutation({
+
       query: (body) => ({
+
         url: `/account/register `,
+
         method: "POST",
-        
+
+
+
         headers: {
+
           "Content-type": "application/json; charset=UTF-8",
-          Authorization:`Bearer ${token}`
+
+          Authorization: `Bearer ${token}`
+
         },
+
         body: body,
+
       }),
+
       invalidatesTags: ["Dealer"],
+
     }),
+
     getAllDealer: builder.query({
+
       query: (userToken) => ({
+
         transformResponse: console.log(userToken),
+
         url: `/dealer/allDealers/0`,
+
         headers: {
+
           "Content-Type": "application/json",
+
           Authorization: `Bearer ${userToken}`,
+
         },
+
       }),
+
       providesTags: ["Dealer"],
+
     }),
+
     getDealer: builder.query({
+
       query: ({ id }) => ({
+
         transformResponse: console.log(token),
+
         url: `/dealer/${id}`,
+
         headers: {
+
           "Content-Type": "application/json",
+
           Authorization: `Bearer ${token}`,
+
         },
+
       }),
+
       providesTags: ["Dealer"],
+
     }),
+
+
+
 
     deleteDealer: builder.mutation({
+
       query: ({ userToken, id }) => ({
+
         url: `/dealer/${id}`,
+
         headers: {
+
           "Content-type": "application/json; charset=UTF-8",
+
           Authorization: `Bearer ${userToken}`,
+
         },
+
         method: "DELETE",
+
         body: id,
+
       }),
+
       invalidatesTags: ['Dealer']
+
     }),
 
-    updateDealer:builder.mutation({
-      query:(body) =>({
-        transformResponse:console.log({body}),
-        url:`/dealer/updateDealer/1001`,
-        headers:{
-          "Content-Type": "application/json",
-          Authorization:`Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXJwQGFkbWluLmNvbSIsImF1dGhvcml0aWVzIjpbIkFETUlOIl0sInJvbGVzIjpbIkFETUlOIl0sImlzRW5hYmxlIjp0cnVlLCJpYXQiOjE2ODg3NDAzNTEsImV4cCI6MTY4ODc0Mzk1MX0.S1dDWHQB9jBbAIg878EZd0CeSGjs1EjbIoDmqmQEhQU`
-        },
-        method:"PUT",
-        body:body
-        
-      }),
-    }),
-    getDealerCars: builder.query({
-      query: ({id}) => ({
-        url: `car/dealer/${id}/status/Active`,
+
+
+
+    updateDealer: builder.mutation({
+
+      query: (body) => ({
+
+        transformResponse: console.log(body),
+
+        url: `/dealer/updateDealer/${body.id}`,
+
         headers: {
-          'Content-Type': "application/json",
-          Authorization: `Bearer ${token}`,
-        }
+
+          "Content-Type": "application/json",
+
+          Authorization: `Bearer ${token}`
+
+        },
+
+        method: "PUT",
+
+        body: body
+
+
+
       }),
-      providesTags:['Dealer']
+
+      invalidatesTags: ["Dealer"]
+
+    }),
+
+    getDealerCars: builder.query({
+
+      query: ({ id }) => ({
+
+        url: `car/dealer/${id}/status/Active`,
+
+        headers: {
+
+          'Content-Type': "application/json",
+
+          Authorization: `Bearer ${token}`,
+
+        }
+
+      }),
+
+      providesTags: ['Dealer']
+
     })
+
   }),
+
 });
 
+
+
+
 export const {
+
   useAddDealerMutation,
+
   useGetAllDealerQuery,
+
   useGetDealerQuery,
+
   useDeleteDealerMutation,
+
   useGetDealerCarsQuery,
-  useGetDealerIdQuery
+
+  useGetDealerIdQuery,
+
+  useUpdateDealerMutation
+
 } = dealersManegmentApiSlice
