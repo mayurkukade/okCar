@@ -9,6 +9,7 @@ const CarListCard = ({
   fuelType,
   transmission,
   price,
+  carId,
 }) => {
   // console.log("data from car card", model);
   return (
@@ -78,7 +79,7 @@ const CarListCard = ({
                       ₹{Number(price).toLocaleString("en-IN")}
                     </div>
                     <div className="listbtn">
-                      <Link to="/carDetails">
+                      <Link to={`/carDetails/${carId}`}>
                         View Details{" "}
                         <i
                           className="fa fa-arrow-circle-right"
