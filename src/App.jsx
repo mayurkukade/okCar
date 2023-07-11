@@ -59,10 +59,8 @@ const App = () => {
               <Route path="/dealersManegment/:id" element={<DealerDetails />} />
               <Route path="/userrequest" element={<UserRequest />} />
               <Route path="/adddealer" element={<AddDealer />} />
-              <Route
-                path="/editDealerdetails/:id"
-                element={<EditDealerProfile />}
-              />
+              <Route path="/editDealerdetails/:userid/:id" element={<EditDealerProfile />} />
+              
             </Route>
           </Route>
 
@@ -80,7 +78,7 @@ const App = () => {
           <Route path="/addcardetails" element={<AddCarDetails />} />
           <Route path="/updateCarDetails" element={<UpdateCarDetails />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
-          <Route path="/dealer/carDetails" element={<CarCard />} />
+          <Route path="/dealer/carDetails/:id" element={<CarCard />} />
           <Route path="/access" element={<CantAccess />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/editUserdetails" element={<EditUserProfile />} />
