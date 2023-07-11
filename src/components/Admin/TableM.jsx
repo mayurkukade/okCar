@@ -8,6 +8,7 @@ import {
   useSortBy,
   useGlobalFilter,
 } from "react-table";
+import './adminpage.css'
 // import { useVendorDetailsQuery } from "../../api/vendorSlice";
 // import React, { useEffect, useState } from "react";
 import TableCard from "../TableCard/TableCard";
@@ -226,12 +227,15 @@ const TableM = ({
                 </Flex>
               </Box>
             </TableContainer>
+            
           </div>
+       
           
         </>
       ) : (
         "no data"
       )}
+         
     </>
   );
 };

@@ -3,7 +3,7 @@ import SubNav from "../Navbar/SubNav.jsx";
 import "./CarList.css";
 import { useState, useEffect } from "react";
 import CarListCard from "./CarListCard.jsx";
-import { baseQuery } from "../../api/apiSlice";
+
 import {
   useGetAllCarsQuery,
   // useFilterCarQueryQuery,

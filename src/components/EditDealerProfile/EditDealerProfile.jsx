@@ -9,7 +9,7 @@ import { useGetDealerQuery } from "../../api/dealersManegmentApiSlice";
 const EditDealerProfile = () => {
   const userToken = localStorage.getItem("userToken")
     const {userid,id} = useParams()
-    const {data:dealerID} = useGetDealerQuery({id})
+    const {data:dealerID,isLoading:isDealerIdLoading,isFetching} = useGetDealerQuery({id})
     
   console.log(dealerID?.dealerDto?.address)
 
@@ -34,7 +34,7 @@ const EditDealerProfile = () => {
 console.log(userid)
 // const { data: v, } = useGetAllDealerQuery();
 // console.log(v);
-  const [updateDealer,{isLoading}] = useUpdateDealerMutation()
+  const [updateDealer] = useUpdateDealerMutation()
 
   const onChangeFormhandler = (e) => {
     const { name, value } = e.target;
@@ -60,8 +60,9 @@ console.log(userid)
   return (
     <>
     {
-      isLoading ?
+      isFetching ?
       <p>Loading...</p>
+
       :
       <>
       <SubNav componentsName={"Edit Dealer"} />
@@ -177,7 +178,7 @@ console.log(userid)
                       </div>
                       <div style={{ display: "flex", gap: "10px" }}>
                         <button type="submit" className="btn" value="Register">
-                          Edit User
+                          Dealer Edit
                         </button>
                         <button
                           type="submit"
@@ -185,7 +186,7 @@ console.log(userid)
                           value="Register"
                           style={{ backgroundColor: "red" }}
                         >
-                          Delete User
+                          Delete Dealer
                         </button>
                       </div>
                     </div>

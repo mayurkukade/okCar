@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import { Button } from "@chakra-ui/react";
 import { InfoIcon,EditIcon,DeleteIcon} from "@chakra-ui/icons";
 import { useDeleteDealerMutation } from "../../api/dealersManegmentApiSlice";
+import TableCard from "../TableCard/TableCard";
 const Dealer = () => {
 
   const {id} = useParams()
@@ -164,12 +165,20 @@ const [deleteDealer]  = useDeleteDealerMutation()
 
   return (
     <>
+    
       <TableM
         data={data}
         columns={columns}
         FetchData={vendorFetchData}
         error={isError}
         isLoading={isLoading}
+      />
+      <TableCard
+       data={data}
+       columns={columns}
+       FetchData={vendorFetchData}
+       error={isError}
+       isLoading={isLoading}
       />
     </>
   );
