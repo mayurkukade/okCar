@@ -59,10 +59,8 @@ const App = () => {
               <Route path="/dealersManegment/:id" element={<DealerDetails />} />
               <Route path="/userrequest" element={<UserRequest />} />
               <Route path="/adddealer" element={<AddDealer />} />
-              <Route
-                path="/editDealerdetails/:id"
-                element={<EditDealerProfile />}
-              />
+              <Route path="/editDealerdetails/:userid/:id" element={<EditDealerProfile />} />
+              
             </Route>
           </Route>
 

@@ -10,102 +10,58 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
     addDealer: builder.mutation({
 
       query: (body) => ({
-
         url: `/account/register `,
-
         method: "POST",
-
-
-
         headers: {
-
           "Content-type": "application/json; charset=UTF-8",
-
           Authorization: `Bearer ${token}`
-
         },
-
         body: body,
-
       }),
 
       invalidatesTags: ["Dealer"],
-
     }),
-
     getAllDealer: builder.query({
-
       query: (userToken) => ({
-
         transformResponse: console.log(userToken),
-
         url: `/dealer/allDealers/0`,
-
         headers: {
-
           "Content-Type": "application/json",
-
-          Authorization: `Bearer ${userToken}`,
-
-        },
-
-      }),
-
-      providesTags: ["Dealer"],
-
-    }),
-
-    getDealer: builder.query({
-
-      query: ({ id }) => ({
-
-        transformResponse: console.log(token),
-
-        url: `/dealer/${id}`,
-
-        headers: {
-
-          "Content-Type": "application/json",
-
           Authorization: `Bearer ${token}`,
-
         },
-
       }),
-
       providesTags: ["Dealer"],
-
     }),
-
-
-
+    getDealer: builder.query({
+      query: ({ id }) => ({
+        transformResponse: console.log(id),
+        url: `/dealer/${id}`,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+      providesTags: ["Dealer"],
+    }),
 
     deleteDealer: builder.mutation({
-      query: ({ userToken,id }) => ({
-        url: `/dealer/${id}`,
-
+      query: (body) => ({
+        transformResponse:console.log(body),
+        url: `/dealer/delete/${body}`,
         headers: {
-
           "Content-type": "application/json; charset=UTF-8",
-
-          Authorization: `Bearer ${userToken}`,
-
+          Authorization: `Bearer ${token}`,
         },
-
         method: "DELETE",
-
-        body: id,
-
+        body
       }),
-
-      invalidatesTags: ['Dealer']
-
+      invalidatesTags: ['Dealer'],
     }),
 
     updateDealer:builder.mutation({
       query:(body) =>({
-        transformResponse:console.log({body}),
-        url:`/dealer/updateDealer/1001`,
+        transformResponse:console.log(body),
+        url:`/dealer/updateDealer/${body.userid}`,
         headers:{
           "Content-Type": "application/json",
           Authorization:`Bearer ${token}`
@@ -176,6 +132,7 @@ export const {
   useGetAllDealerQuery,
   useGetDealerQuery,
   useDeleteDealerMutation,
+  useGetDealerCarsQuery,
   useGetDealerCarsMutation,
   useGetDealerIdQuery,
   useUpdateDealerMutation,

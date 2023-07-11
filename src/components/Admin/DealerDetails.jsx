@@ -1,12 +1,12 @@
 import React from "react";
-import { dealerdetails } from "../../json/dealerdetails.json";
-import TableModel from "../tableModel/TableModel";
+// import { dealerdetails } from "../../json/dealerdetails.json";
+import TableM from "./TableM";
 import "./dealerdetails.css";
 import { Flex } from "@chakra-ui/react";
 import { Heading } from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-import { useGetDealerQuery } from "../../api/dealersManegmentApiSlice";
+import { useGetDealerQuery, useGetDealerCarsQuery } from "../../api/dealersManegmentApiSlice";
 import { useState } from "react";
 import { useEffect } from "react";
 const DealerDetails = () => {
@@ -14,51 +14,73 @@ const DealerDetails = () => {
   let {id} = useParams()
   console.log(id)
   
-  const userToken = localStorage.getItem('userToken')
-  console.log(userToken)
-  const {data:dealerID} = useGetDealerQuery({userToken,id})
-  
+
+  const {data:dealerID} = useGetDealerQuery({id})
+  const {data:dealerCars,isError,isLoading} = useGetDealerCarsQuery({id})
+const [carData,setCarData] = useState([])
+  console.log(dealerCars?.list)
   console.log(dealerID,'dealer')
   console.log(dealerID)
   console.log(dealerData)
   useEffect(()=>{
-    setDealerData(dealerID)
+    setDealerData(dealerID?.dealerDto)
   },[dealerID])
-  const data = React.useMemo(() => dealerdetails, []);
+  console.log(dealerData)
+  const data = React.useMemo(() => carData, [carData]);
   const columns = React.useMemo(
     () => [
       {
-        Header: "Car Brand",
-        accessor: "CarBrand",
+        Header: "CarId",
+        accessor: "carId",
+      },
+      {
+        Header: "Brand",
+        accessor: "brand",
       },
       {
         Header: "Model",
-        accessor: "Model",
+        accessor: "model",
       },
       {
-        Header: "Body Type",
-        accessor: "BodyType",
+        Header: "Fuel Type",
+        accessor: "fuelType",
       },
       {
-        Header: "CarId",
-        accessor: "CarId",
+        Header: "Transmission",
+        accessor: "transmission",
       },
       {
-        Header: "Location",
-        accessor: "Location",
+        Header: "Reg.No.",
+        accessor: "registration",
       },
       {
-        Header: "Km Driven",
-        accessor: "KmDriven",
+        Header: "Area",
+        accessor: "area",
+      },
+     
+  
+      {
+        Header: "Owner Serial",
+        accessor: "ownerSerial",
       },
       {
-        Header: "Year",
-        accessor: "Year",
+        Header: "City",
+        accessor: "city",
+      },
+      {
+        Header: "Price",
+        accessor: "price",
       },
     ],
     []
   );
+  useEffect(() => {
+    const getData = setTimeout(() => {
+      setCarData(dealerCars.list);
+    }, 100);
 
+    return () => clearTimeout(getData);
+  }, [dealerCars]);
  
   return (
     <>
@@ -76,15 +98,21 @@ const DealerDetails = () => {
             </Flex>
 
             <p>Dealer ID</p>
-            <h5>{dealerData?.dealerDto?.dealer_id}</h5>
+            <h5>{dealerData?.dealer_id}</h5>
 
             <p>Total Cars</p>
-            <h5>{dealerData?.dealerDto?.dealer_id}</h5>
+            <h5>{dealerData?.dealer_id}</h5>
           </Text>
         </div>
       </div>
 
-      <TableModel data={data} columns={columns} />
+      <TableM
+        data={data}
+        columns={columns}
+        FetchData={carData}
+        error={isError}
+        isLoading={isLoading}
+      />
     </>
   );
 };
