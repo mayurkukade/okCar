@@ -1,7 +1,10 @@
+import { useEditUserMutation, useGetAllUsersQuery } from "../../api/usersApiSlice";
 import SubNav from "../Navbar/SubNav";
 import { useState } from "react";
-
+useGetAllUsersQuery
 const EditUserProfile = () => {
+  // const [updateUser] = useEditUserMutation;
+  // const [updateUser, { isLoading, isError }] = useUpdateUserMutation();
   const [inputField, setInputField] = useState({
     firstName: "",
     lastName: "",
@@ -21,9 +24,22 @@ const EditUserProfile = () => {
     });
   };
 
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
     console.log(inputField);
+    try {
+      const response = await updateUser(1, {
+        firstName: inputField.firstName,
+        lastName: inputField.lastName,
+        mobile_no: inputField.mobile_no,
+        email: inputField.email,
+        address: inputField.address,
+        city: inputField.city,
+      });
+      console.log("User Updated", response.data);
+    } catch (error) {
+      console.error("Error updating user:", error);
+    }
   };
   return (
     <>

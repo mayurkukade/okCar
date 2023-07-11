@@ -27,7 +27,6 @@ const CarList = () => {
   });
   // useState for pagination
   const [currentPage, setCurrentPage] = useState(1);
-
   // for fetching all cars
   const { data: v } = useGetAllCarsQuery(currentPage);
   // const { data: filterData,  } =
@@ -83,7 +82,7 @@ const CarList = () => {
   const fetchData = async () => {
     try {
       const queryParams = new URLSearchParams(inputFilter).toString();
-      const url = `https://9815-144-48-178-178.ngrok-free.app/cars/mainFilter/1?${queryParams}`;
+      const url = `https://1eff-144-48-178-178.ngrok-free.app/cars/mainFilter/1?${queryParams}`;
       const response = await fetch(url);
       const data = await response.json();
       setResponseData(data?.list);
@@ -127,6 +126,19 @@ const CarList = () => {
 
 
 
+                  <div className="widget">
+                    <h4 className="widget-title">Transmission</h4>
+                    <select
+                      className="form-control"
+                      name="transmission"
+                      value={inputFilter.transmission}
+                      onChange={onChangeFormHandler}
+                    >
+                      <option>Transmission</option>
+                      <option>Automatic</option>
+                      <option>Manual</option>
+                    </select>
+                  </div>
 
 
                  {/* <div className="widget">

@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import React from "react";
 import TableModel from "../tableModel/TableModel";
 import { EditIcon, DeleteIcon, InfoIcon } from "@chakra-ui/icons";
+import PropTypes from 'prop-types';
 import {
   Button,
   Modal,
@@ -11,18 +12,23 @@ import {
   ModalBody,
   ModalFooter,
   ModalCloseButton,
-  FormLabel,
-  Select,
-  Input,
-  FormControl,
-  Textarea,
   Text,
   Flex,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
-import { useGetDealerCarsQuery } from '../../api/dealersManegmentApiSlice';
+import { Link, useNavigate } from "react-router-dom";
+import { useLazyGetDealerCarsQuery, useDeleteDealerCarMutation, setSelectedCar } from '../../api/dealersManegmentApiSlice';
 import jwt_decode from 'jwt-decode';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import { baseUrl } from '../../api/apiSlice'
+
 const DealersModel = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const TYPE = { EDIT: "EDIT_CAR", DELETE: "DELETE_CAR" }
+  const selectedCar = useMemo(() => {
+    return { type: null, carId: null };
+  }, []);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -31,27 +37,23 @@ const DealersModel = () => {
     status: "",
     carDetails: "",
   });
+  const userToken = `Bearer ${localStorage.getItem('userToken')}`;
+  const { dealerId } = jwt_decode(userToken);
+  // const [getDealersCars, { data: carsData, isLoading: il, isError: iE }] = useLazyGetDealerCarsQuery();
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
+  const [carsData, setCarsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(true);
 
-  // const handleFormSubmit = (event) => {
-  //   event.preventDefault();
-  //   console.log("Form data:", formData);
-  //   handleModalClose();
-  // };
-
-  const handleEditClick = () => {
-    setIsEditModalOpen(true);
-  };
-
-  const handleDeleteClick = () => {
+  const [deleteDealerCar, { data: isDeleteCarLoading, isLoading: isDeleteCarError, isError: errorDeleteCar }] = useDeleteDealerCarMutation();
+  const handleDeleteClick = async (id) => {
+    selectedCar.type = TYPE.DELETE; selectedCar.carId = id;
     setIsDeleteModalOpen(true);
+  };
+
+  const handleEditClick = async (id) => {
+    selectedCar.type = TYPE.EDIT; selectedCar.carId = id;
+    setIsEditModalOpen(true);
   };
 
   const handleModalClose = () => {
@@ -59,18 +61,57 @@ const DealersModel = () => {
     setIsDeleteModalOpen(false);
   };
 
+  // edit item
+  const handleEditItem = () => {
+    const { carId: id, type } = selectedCar;
+    if (!id || !type) return;
+    if (type !== TYPE.EDIT) return;
+
+    const carToUpdate = (carsData.filter(e => e.carId === id));
+    if (!carToUpdate) return;
+    dispatch(setSelectedCar(carToUpdate));
+    navigate('/updateCarDetails');
+  }
+
+
   // delete item
   const handleDeleteItem = () => {
-    console.log("Delete");
-    setIsDeleteModalOpen(false);
+    const { carId: id, type } = selectedCar;
+    if (!id || !type) return;
+    if (type !== TYPE.DELETE) return;
+    deleteDealerCar({ id }).then(response => {
+      if (response?.error) { console.error('An error occurred while deleting a car'); return; }
+
+      fetchDealerCars().then(() => setIsDeleteModalOpen(false))
+    }).catch(error => {
+      console.log(error);
+    });
   };
 
-  
-  
-  const userToken = `Bearer ${localStorage.getItem('userToken')}`;
-  const { dealerId } = jwt_decode(userToken);
-  const { data, isLoading, isError } = useGetDealerCarsQuery({ id: dealerId }, { skip: !dealerId });
-  
+  const handleViewButtonClick = (id) => {
+    navigate(`carDetails/${id}`);
+  }
+
+  async function fetchDealerCars() {
+    // getDealersCars({ id: dealerId, pageNo: 0 }, { skip: !dealerId }).then(e => console.log(e));
+    const url = baseUrl + '/car/dealer/4/status/Active?pageNo=0';
+    const token = localStorage.getItem('userToken');
+    const headers = { Authorization: `Bearer ${token}` }
+    try{
+      const { data } = await axios.get(url, { headers });
+      setCarsData(state => {
+        setIsLoading(e => false);
+        setIsError(e => false);
+        return data.list;
+      });
+    } catch (error) { console.error(error); }
+
+  }
+
+  useEffect(() => {
+    fetchDealerCars();
+  }, []);
+
   const columns = React.useMemo(
     () => [
       {
@@ -95,36 +136,35 @@ const DealersModel = () => {
       },
       {
         Header: "Car Details",
-        accessor: "dealer_id",
+        accessor: "",
         Cell: (cell) => (
           // Cell: (cell) => (
           <Flex>
             {/* Edit Button */}
             {/* <Link to={`carDetails/${cell.value}`}> */}
-            <Link to={`carDetails`}>
-              <Button
-                variant="outline"
-                colorScheme="blue"
-                leftIcon={<InfoIcon />}
-                marginRight={"0.2rem"}
-                _hover={{ bg: "#2C5282", textColor: "white" }}
-              >
-                Details
-              </Button>
-            </Link>
+            <Button
+              variant="outline"
+              colorScheme="blue"
+              leftIcon={<InfoIcon />}
+              marginRight={"0.2rem"}
+              _hover={{ bg: "#2C5282", textColor: "white" }}
+              onClick={() => handleViewButtonClick(cell.row.values.carId)}
+            >
+              Details
+            </Button>
           </Flex>
         ),
       },
       {
         Header: "Action",
-        accessor: "Edit",
+        accessor: "carId",
         Cell: (cell) => (
           <Flex>
             {/* Edit Button */}
             <Button
               variant="outline"
               colorScheme="teal"
-              onClick={handleEditClick}
+              onClick={() => handleEditClick(cell.value)}
               leftIcon={<EditIcon />}
               _hover={{ bg: "#5DC302" }}
               mr={2}
@@ -136,70 +176,17 @@ const DealersModel = () => {
             <Button
               variant="outline"
               colorScheme="red"
-              onClick={handleDeleteClick}
+              onClick={() => handleDeleteClick(cell.value)}
               leftIcon={<DeleteIcon />}
               _hover={{ bg: "#E53E3E", textColor: "white" }}
             >
               Delete
             </Button>
             {/* Edit Modal */}
-            <Modal isOpen={isEditModalOpen} onClose={handleModalClose}>
-              <ModalOverlay />
-              <ModalContent>
-                <ModalHeader>Edit Details</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                  {/* <form onSubmit={handleFormSubmit}> */}
-                  <FormControl>
-                    <FormLabel>Price</FormLabel>
-                    <Input
-                      type="text"
-                      placeholder="Enter price"
-                      name="price"
-                      value={formData.price}
-                      onChange={handleInputChange}
-                    />
-                    <FormLabel>Location</FormLabel>
-                    <Input
-                      type="text"
-                      name="location"
-                      placeholder="Enter location"
-                      value={formData.location}
-                      onChange={handleInputChange}
-                    />
-                    <FormLabel>Status</FormLabel>
-                    <Select
-                      placeholder="Select status"
-                      name="status"
-                      value={formData.status}
-                      onChange={handleInputChange}
-                    >
-                      <option value="open">Open</option>
-                      <option value="close">Close</option>
-                    </Select>
-                    <FormLabel>Car Details</FormLabel>
-                    <Textarea
-                      placeholder="Enter car details"
-                      name="carDetails"
-                      value={formData.carDetails}
-                      onChange={handleInputChange}
-                    />
-                  </FormControl>
-                  {/* </form> */}
-                </ModalBody>
-                <ModalFooter>
-                  <Button colorScheme="teal" mr={3} onClick={handleModalClose}>
-                    Save
-                  </Button>
-                  <Button variant="ghost" onClick={handleModalClose}>
-                    Cancel
-                  </Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
+            <EditModal />
             {/* Delete Modal */}
             <Modal isOpen={isDeleteModalOpen} onClose={handleModalClose}>
-              <ModalOverlay />
+              <ModalOverlay style={{ backgroundColor: 'rgb(50, 50, 50, 0.1)' }} />
               <ModalContent>
                 <ModalHeader>Delete Item</ModalHeader>
                 <ModalCloseButton />
@@ -207,11 +194,9 @@ const DealersModel = () => {
                   <Text>Are you sure you want to delete this item?</Text>
                 </ModalBody>
                 <ModalFooter>
-                  <Link to={`carDetails/${cell.value}`}>
-                    <Button colorScheme="red" mr={3} onClick={handleDeleteItem}>
-                      Delete
-                    </Button>
-                  </Link>
+                  <Button colorScheme="red" mr={3} onClick={handleDeleteItem}>
+                    Delete
+                  </Button>
                   <Button variant="ghost" onClick={handleModalClose}>
                     Cancel
                   </Button>
@@ -237,7 +222,93 @@ const DealersModel = () => {
   }
 
   if (isError) {
-    return <div>Error occurred while fetching dealer cars data.</div>;
+    return <div>An error occurred while fetching dealer cars data.</div>;
+  }
+
+  function EditModal({ id }) {
+    // return (
+    //   <>
+    //     <Modal isOpen={isEditModalOpen} onClose={handleModalClose}>
+    //       <ModalOverlay style={{ backgroundColor: 'rgb(50, 50, 50, 0.1)' }} />
+    //       <ModalContent>
+    //         <ModalHeader>Edit Details</ModalHeader>
+    //         <ModalCloseButton />
+    //         <ModalBody>
+    //           {/* <form onSubmit={handleFormSubmit}> */}
+    //           <FormControl>
+    //             <FormLabel>Price</FormLabel>
+    //             <Input
+    //               type="text"
+    //               placeholder="Enter price"
+    //               name="price"
+    //               value={formData.price}
+    //               onChange={handleInputChange}
+    //             />
+    //             <FormLabel>Location</FormLabel>
+    //             <Input
+    //               type="text"
+    //               name="location"
+    //               placeholder="Enter location"
+    //               value={formData.location}
+    //               onChange={handleInputChange}
+    //             />
+    //             <FormLabel>Status</FormLabel>
+    //             <Select
+    //               placeholder="Select status"
+    //               name="status"
+    //               value={formData.status}
+    //               onChange={handleInputChange}
+    //             >
+    //               <option value="open">Open</option>
+    //               <option value="close">Close</option>
+    //             </Select>
+    //             <FormLabel>Car Details</FormLabel>
+    //             <Textarea
+    //               placeholder="Enter car details"
+    //               name="carDetails"
+    //               value={formData.carDetails}
+    //               onChange={handleInputChange}
+    //             />
+    //           </FormControl>
+    //           {/* </form> */}
+    //         </ModalBody>
+    //         <ModalFooter>
+    //           <Button colorScheme="teal" mr={3} onClick={handleModalClose}>
+    //             Save
+    //           </Button>
+    //           <Button variant="ghost" onClick={handleModalClose}>
+    //             Cancel
+    //           </Button>
+    //         </ModalFooter>
+    //       </ModalContent>
+    //     </Modal>
+    //   </>
+    // )
+
+    return (
+      <Modal isOpen={isEditModalOpen} onClose={handleModalClose}>
+        <ModalOverlay style={{ backgroundColor: 'rgb(50, 50, 50, 0.1)' }} />
+        <ModalContent>
+          <ModalHeader>Edit Item</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Text>Are you sure you want to edit this item?</Text>
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="teal" mr={3} onClick={handleEditItem}>
+              Edit
+            </Button>
+            <Button variant="ghost" onClick={handleModalClose}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    )
+  }
+
+  EditModal.propTypes = {
+    id: PropTypes.number
   }
 
   return (
@@ -249,7 +320,7 @@ const DealersModel = () => {
           </Button>
         </Link>
       </Flex>
-      { (!isLoading && !isError && !!data) && <TableModel data={data || []} columns={columns} /> }
+      {(!isLoading && !isError) && <TableModel data={carsData} FetchData={carsData} columns={columns} isError={false} isLoading={false} isSuccess={true} />}
     </>
   );
 };

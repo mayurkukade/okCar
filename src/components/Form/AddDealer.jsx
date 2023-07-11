@@ -11,8 +11,8 @@ const AddDealer = () => {
     address: "",
     city: "",
     area: "",
-    
-   
+    mobileNo:"",
+   shopName:"",
     email: "",
     roles:"DEALER",
     password:""
@@ -118,6 +118,16 @@ const [addDealer] = useAddDealerMutation()
                         <div className="formrow">
                           <input
                             type="text"
+                            name="mobileNo"
+                            className="form-control"
+                            placeholder="mobileNo"
+                            onChange={onChangeFormHandler}
+                            required
+                          />
+                        </div>
+                        <div className="formrow">
+                          <input
+                            type="text"
                             name="area"
                             className="form-control"
                             placeholder="area"
@@ -157,6 +167,16 @@ const [addDealer] = useAddDealerMutation()
                             name="email"
                             className="form-control"
                             placeholder="Email"
+                            onChange={onChangeFormHandler}
+                            required
+                          />
+                        </div>
+                        <div className="formrow">
+                          <input
+                            type="text"
+                            name="shopName"
+                            className="form-control"
+                            placeholder="shopName"
                             onChange={onChangeFormHandler}
                             required
                           />

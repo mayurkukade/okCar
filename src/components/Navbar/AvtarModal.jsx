@@ -15,8 +15,7 @@ import { logout } from "../../api/authSlice";
 const AvtarModal = () => {
   const username = localStorage.getItem("userInfo");
   //  console.log(JSON.parse(username)?.results)
-  console.log(JSON.parse(username))
-   
+  console.log(JSON.parse(username)?.firstname);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -34,14 +33,21 @@ const AvtarModal = () => {
     <Box className="card">
       <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
       <Menu bg="white">
-        <MenuButton as={Button} rightIcon={<ChevronDownIcon />} style={{ marginLeft: "10px", padding: "23px" }}>
-          {JSON.parse(username)?.firstname}
+        <MenuButton
+          as={Button}
+          rightIcon={<ChevronDownIcon />}
+          style={{ marginLeft: "10px", padding: "23px" }}
+        >
+          {JSON.parse(username)?.roles[0] === "ADMIN"
+            ? "Admin"
+            : JSON.parse(username)?.firstname}
+          {/* {JSON.parse(username).results.user[0].username} */}
         </MenuButton>
         <MenuList>
           {/* <MenuItem>History</MenuItem>
           <MenuItem>FAQ Managment</MenuItem>
           <MenuItem>Settings</MenuItem> */}
-          <Link to="/edit">
+          <Link to="/edituserdetails">
             <MenuItem color={"black"}>Edit Profile</MenuItem>
           </Link>
           <MenuItem onClick={logoutHandler}>Logout</MenuItem>
@@ -52,4 +58,3 @@ const AvtarModal = () => {
 };
 
 export default AvtarModal;
-
