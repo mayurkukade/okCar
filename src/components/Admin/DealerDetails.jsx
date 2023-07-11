@@ -6,7 +6,8 @@ import { Flex } from "@chakra-ui/react";
 import { Heading } from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-import { useGetDealerQuery, useGetDealerCarsQuery } from "../../api/dealersManegmentApiSlice";
+import { useGetDealerCarsDealerManegmentPageQuery, useGetDealerQuery } from "../../api/dealersManegmentApiSlice";
+
 import { useState } from "react";
 import { useEffect } from "react";
 const DealerDetails = () => {
@@ -16,7 +17,7 @@ const DealerDetails = () => {
   
 
   const {data:dealerID} = useGetDealerQuery({id})
-  const {data:dealerCars,isError,isLoading} = useGetDealerCarsQuery({id})
+  const {data:dealerCars,isError,isLoading} = useGetDealerCarsDealerManegmentPageQuery({id})
 const [carData,setCarData] = useState([])
   console.log(dealerCars?.list)
   console.log(dealerID,'dealer')
