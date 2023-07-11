@@ -6,6 +6,7 @@ export const baseQuery = fetchBaseQuery({ baseUrl: 'https://1eff-144-48-178-178.
 // const baseQuery = fetchBaseQuery({ baseUrl: 'http://192.168.1.59:5173/' },)
 
 
+
 export const apiSlice = createApi({
     baseQuery,
     tagTypes: ['User', "Admin", "Dealer"],

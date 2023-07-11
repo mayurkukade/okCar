@@ -1,7 +1,7 @@
-import { useEditUserMutation } from "../../api/usersApiSlice";
+import { useEditUserMutation, useGetAllUsersQuery } from "../../api/usersApiSlice";
 import SubNav from "../Navbar/SubNav";
 import { useState } from "react";
-
+useGetAllUsersQuery
 const EditUserProfile = () => {
   // const [updateUser] = useEditUserMutation;
   // const [updateUser, { isLoading, isError }] = useUpdateUserMutation();
