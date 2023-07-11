@@ -1,6 +1,6 @@
 import { apiSlice } from "./apiSlice";
 import { createSlice } from '@reduxjs/toolkit';
-const USERS_URL = "/admin";
+
 const token = localStorage.getItem("userToken");
 
 export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
@@ -73,7 +73,20 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
       invalidatesTags: ["Dealer"]
     }),
     getDealerCars: builder.mutation({
-      query: ({ id, pageNo }) => ({
+      query: ({ id}) => ({
+        transformResponse:console.log(id),
+        url: `car/dealer/${id}/status/Active?pageNo=0`,
+        headers: {
+          'Content-Type': "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        method: 'GET'
+      }),
+      providesTags:['Dealer']
+    }),
+    getDealerCarsDealerManegmentPage: builder.query({
+      query: ({ id}) => ({
+        transformResponse:console.log(id),
         url: `car/dealer/${id}/status/Active?pageNo=0`,
         headers: {
           'Content-Type': "application/json",
@@ -138,6 +151,7 @@ export const {
   useUpdateDealerMutation,
   useDeleteDealerCarMutation,
   usePutDealerCarMutation,
+  useGetDealerCarsDealerManegmentPageQuery
 
 } = dealersManegmentApiSlice
 
