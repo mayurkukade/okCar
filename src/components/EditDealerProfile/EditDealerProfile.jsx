@@ -3,7 +3,7 @@ import SubNav from "../Navbar/SubNav";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useUpdateDealerMutation } from "../../api/dealersManegmentApiSlice";
-import { useGetAllDealerQuery } from "../../api/dealersManegmentApiSlice";
+// import { useGetAllDealerQuery } from "../../api/dealersManegmentApiSlice";
 import { useGetDealerQuery } from "../../api/dealersManegmentApiSlice";
 
 const EditDealerProfile = () => {
@@ -32,8 +32,8 @@ const EditDealerProfile = () => {
   console.log(userToken)
 
 console.log(userid)
-const { data: v, } = useGetAllDealerQuery();
-console.log(v);
+// const { data: v, } = useGetAllDealerQuery();
+// console.log(v);
   const [updateDealer,{isLoading}] = useUpdateDealerMutation()
 
   const onChangeFormhandler = (e) => {
@@ -85,7 +85,7 @@ console.log(v);
                           name="firstName"
                           className="form-control"
                           placeholder="firstname"
-                          value={inputField.firstname}
+                          value={inputField.firstName}
                           onChange={onChangeFormhandler}
                           
                         />
