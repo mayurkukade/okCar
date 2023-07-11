@@ -72,14 +72,13 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Dealer"]
     }),
-    getDealerCars: builder.mutation({
+    getDealerCars: builder.query({
       query: ({ id, pageNo }) => ({
-        url: `car/dealer/${id}/status/Active?pageNo=0`,
+        url: `car/dealer/${id}/status/Active?pageNo=${pageNo}`,
         headers: {
           'Content-Type': "application/json",
           Authorization: `Bearer ${token}`,
         },
-        method: 'GET'
       }),
       providesTags:['Dealer']
     }),
@@ -133,7 +132,7 @@ export const {
   useGetDealerQuery,
   useDeleteDealerMutation,
   useGetDealerCarsQuery,
-  useGetDealerCarsMutation,
+  useLazyGetDealerCarsQuery,
   useGetDealerIdQuery,
   useUpdateDealerMutation,
   useDeleteDealerCarMutation,
