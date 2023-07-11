@@ -15,7 +15,7 @@ import { logout } from "../../api/authSlice";
 const AvtarModal = () => {
   const username = localStorage.getItem("userInfo");
   //  console.log(JSON.parse(username)?.results)
-  console.log(JSON.parse(username));
+  console.log(JSON.parse(username)?.roles[0]);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -38,7 +38,9 @@ const AvtarModal = () => {
           rightIcon={<ChevronDownIcon />}
           style={{ marginLeft: "10px", padding: "23px" }}
         >
-          {JSON.parse(username)?.firstname}
+          {JSON.parse(username)?.roles[0] === "ADMIN"
+            ? "Admin"
+            : JSON.parse(username).results.user[0].username}
         </MenuButton>
         <MenuList>
           {/* <MenuItem>History</MenuItem>
