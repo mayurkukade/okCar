@@ -96,7 +96,6 @@ const DealersModel = () => {
   async function fetchDealerCars() {
     // getDealersCars({ id: dealerId, pageNo: 0 }, { skip: !dealerId }).then(e => console.log(e));
     const url = baseUrl + `/car/dealer/${dealerId}/status/Active?pageNo=0`;
-    debugger
     const token = localStorage.getItem('userToken');
     const headers = { Authorization: `Bearer ${token}` }
     try{
