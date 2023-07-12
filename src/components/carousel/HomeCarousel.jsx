@@ -10,7 +10,7 @@ const HomeCarousel = () => {
     <>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         <SwiperSlide>
-            <img src="../../images/cars/01.jpg" />
+            <img src="C:\CP\okCar\images\slider\car slider 1.png" />
         </SwiperSlide>
         <SwiperSlide>
         <img src="../../images/cars/01.jpg" />  

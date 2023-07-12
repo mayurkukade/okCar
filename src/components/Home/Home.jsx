@@ -73,6 +73,8 @@ const Home = () => {
           style={{ border: "2px solid black", backgroundColor: "black" }}
         >
           <div className="container">
+           <img src="C:\CP\okCar\images\Heading images.png" alt="Image" className="image-in-heading" /> 
+
             <h3>Buy Cars with Ease!</h3>
             {/* <p>
               Search from over 1,00,000 Active Cars */}
@@ -128,18 +130,18 @@ const Home = () => {
                 </h1>
               </div>
               <p>
-                 "Auto Car", we are passionate about driving the digital transformation of enterprises within the automotive industry. Our store-without-walls concept revolutionizes car selling, making it efficient, convenient, and customer-centric. Join us on this exciting journey as we reshape the way vehicles are bought and sold, one digital transaction at a time.
+                At "Auto Car", we are passionate about driving the digital transformation of enterprises within the automotive industry. Our store-without-walls concept revolutionizes car selling, making it efficient, convenient, and customer-centric. Join us on this exciting journey as we reshape the way vehicles are bought and sold, one digital transaction at a time.
 
 Ready to experience the future of car selling?   Sign up on our platform today and embark on a seamless journey towards digitizing your automotive sales process.
               </p>
               <ul>
-                <li>Nam rutrum tortor eget lorem mattis mattis.</li>
-                <li>Duis fermentum sem nec lorem sodales egestas.</li>
+                <li>Easy car buying and selling Simple and user-friendly interface.</li>
+                <li>Access to a wide range of cars and potential buyers/sellers.</li>
                 <li>
-                  Duis mattis diam et ante tempor, quis tristique quam sagittis.
+                Sellers can create detailed listings for their cars, including high-resolution images, specifications, and pricing information.
                 </li>
-                <li>Cras blandit ante ac hendrerit sodales.</li>
-                <li>Duis non massa id nisl imperdiet iaculis.</li>
+                <li>By eliminating the need for physical showrooms and extensive paperwork, our platform saves valuable time and resources for both buyers and sellers.</li>
+                {/* <li>Duis non massa id nisl imperdiet iaculis.</li> */}
               </ul>
             </div>
           </div>
@@ -152,9 +154,7 @@ Ready to experience the future of car selling?   Sign up on our platform today a
                 Our <span>Brand</span>
               </h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                varius, orci id facilisis egestas, neque purus sagittis arcu,
-                nec maximus quam odio nec elit Pellentesque eget ipsum mattis
+              we pride ourselves on offering a wide selection of vehicles from renowned car brands. We have established strong partnerships with top manufacturers in the industry, ensuring that our customers have access to the best and most reliable vehicles on the market.
               </p>
             </div>
             <div className="topsearchwrap">
