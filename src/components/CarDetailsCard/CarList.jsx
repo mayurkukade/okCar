@@ -362,9 +362,9 @@ const CarList = () => {
             {/* <div className="cardcontaier" style={{ height: "100px" }}> */}
 
             <div className="col-md-9 col-sm-7"> 
-            <div className="card-container-wrapper" style={{ height: "950px", overflowY: "auto" }}>
+            <div className="card-container-wrapper" style={{ height: "1070px", overflowY: "auto" }}>
 
-               <div className="card-container" style={{ height: "100px" }}>  
+               <div className="card-container" style={{ height: "200px" }}>  
 
                
 
@@ -405,7 +405,7 @@ const CarList = () => {
           </div>  
 
 
-          <div className="pagiWrap">
+          <div className="pagiWrap" >
             <div className="row">
               <div className="col-md-4 col-sm-4"></div>
               <div className="col-md-8 col-sm-8 text-right">
@@ -424,7 +424,7 @@ const CarList = () => {
                     >
                       
                       <Button colorScheme='teal' variant='outline' size='sm'>
-                      <span style={{ marginRight: "5px" }}>
+                      <span style={{ marginRight: "5px", padding: "10px 10px"}}>
                         <ArrowLeftIcon/>
                         </span>
                       Previous Page
@@ -447,7 +447,7 @@ const CarList = () => {
                         
                         >
                            <Button colorScheme='teal' variant='outline'size='sm'>
-                           <span style={{ marginLeft: "5px" }}>
+                           <span style={{ marginLeft: "5px" ,padding: "10px 10px"}}>
                            Next Page <ArrowRightIcon/></span>
                             </Button></button>
                   

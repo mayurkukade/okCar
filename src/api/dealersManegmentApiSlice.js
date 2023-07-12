@@ -32,6 +32,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
       }),
       providesTags: ["Dealer"],
     }),
+    
     getDealer: builder.query({
       query: ({ id }) => ({
         transformResponse: console.log(id),

@@ -38,13 +38,13 @@ const Home = () => {
                         <Link to="/">Home</Link>
                       </li>
                       <li>
-                        <Link to="/carlist">Used Cars</Link>
+                        <Link to="/carlist"> Buy Cars </Link>
                       </li>
                       {/* <li>
                       <a href="listing.html">New Cars</a>
                     </li> */}
                       <li>
-                        <Link to="/Contact">Contact</Link>
+                        <Link to="/Contact">Contact Us</Link>
                       </li>
                       <li>
                         {username ? (
@@ -55,13 +55,13 @@ const Home = () => {
                           </Link>
                         )}
                       </li>
-
+                      {/* 
                       <li className="postad"></li>
 
-                      <li className="postad"></li>
+                      <li className="postad"></li> */}
                     </ul>
                   </div>
-                  <div className="clearfix"></div>
+                  {/* <div className="clearfix"></div> */}
                 </div>
               </div>
             </div>
@@ -73,7 +73,7 @@ const Home = () => {
           style={{ border: "2px solid black", backgroundColor: "black" }}
         >
           <div className="container">
-            <h3>Find Used Cars In Pune</h3>
+            <h3>Revolutionize Your Car Buying Experience with us!</h3>
             {/* <p>
               Search from over 1,00,000 Active Cars */}
             {/* &amp; Post free unlimited
@@ -128,15 +128,9 @@ const Home = () => {
                 </h1>
               </div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus sapien metus, consectetur et efficitur ut, mattis et
-                nisl. Etiam aliquet erat lorem, sed rhoncus justo hendrerit ac.
-                Donec vel lacus tincidunt, sagittis lorem sed, ultricies magna.
-                Suspendisse gravida massa sit amet urna faucibus, fermentum
-                fringilla tellus congue. Integer lacinia iaculis dolor, in
-                convallis metus laoreet quis. Vestibulum pulvinar, felis sit
-                amet dignissim feugiat, est urna congue orci, nec mattis felis
-                nunc sed nulla.
+                 "Auto Car", we are passionate about driving the digital transformation of enterprises within the automotive industry. Our store-without-walls concept revolutionizes car selling, making it efficient, convenient, and customer-centric. Join us on this exciting journey as we reshape the way vehicles are bought and sold, one digital transaction at a time.
+
+Ready to experience the future of car selling?   Sign up on our platform today and embark on a seamless journey towards digitizing your automotive sales process.
               </p>
               <ul>
                 <li>Nam rutrum tortor eget lorem mattis mattis.</li>
@@ -155,7 +149,7 @@ const Home = () => {
           <div className="container">
             <div className="titleTop">
               <h3>
-                Search Cars By <span>Brand</span>
+                Our <span>Brand</span>
               </h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
@@ -164,41 +158,48 @@ const Home = () => {
               </p>
             </div>
             <div className="topsearchwrap">
-              <ul className="row makelist">
+              <ul
+                className="row makelist"
+                style={{
+                  display: "flex",
+                  gap: "20px",
+                  // border: "2px solid black",
+                }}
+              >
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
-                    <img src="../../../images/logo/tata.png" alt="" />
-                    <strong>Tata Motors</strong>
+                    <img src="../../../images/logo/new car logos/Tata Motor Logo.png" alt="" />
+                    {/* <strong>Tata Motors</strong> */}
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
-                    <img src="../../../images/logo/suzuki.png" alt="" />
-                    <strong>Maruti Suzuki</strong>
+                    <img src="../../../images/logo/new car logos/suzuki logo.png" alt="" />
+                    {/* <strong>Maruti Suzuki</strong> */}
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
-                    <img src="../../../images/logo/hyundai.png" alt="" />
-                    <strong>Hyundai</strong>
+                    <img src="../../../images/logo/new car logos/Hyundai Logo.png" alt="" />
+                    {/* <strong>Hyundai</strong> */}
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
-                    <img src="../../../images/logo/Mahindra.png" alt="" />
-                    <strong>Mahindra</strong>
+                    <img src="../../../images/logo/new car logos/Mahindra Logo.png" alt="" />
+                    {/* <strong>Mahindra</strong> */}
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
-                    <img src="../../../images/logo/honda.png" alt="" />
-                    <strong>Honda</strong>
+                    <img src="../../../images/logo/new car logos/Honda Logo.png" alt="" />
+                    {/* <strong>Honda</strong> */}
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
                     <img src="../../../images/logo/toyota.png" alt="" />
-                    <strong>Toyota</strong>
+                    {/* <strong>Toyota</strong> */}
                   </a>
                 </li>
               </ul>
