@@ -5,21 +5,22 @@ import {
   useGetUserQuery,
   useUpdateUserMutation,
 } from "../../api/usersApiSlice";
+import { useToast } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 const EditUserProfile = () => {
+  const toast = useToast();
+  const navigate = useNavigate();
   const userToken = localStorage.getItem("userToken");
   // decode user token
   const decode = jwt_decode(userToken);
   const id = decode?.userProfileId;
-  console.log(decode?.userProfileId);
+  // console.log(decode?.userProfileId);
 
   //get user by id query
   const responseData = useGetUserQuery(id);
   const { data, isLoading } = responseData;
-  console.log("response data", responseData);
+  // console.log("response data", responseData);
 
-  // update user Mutation
-  const [updateUser] = useUpdateUserMutation();
-  console.log();
   const [inputField, setInputField] = useState({
     firstName: "",
     lastName: "",
@@ -40,7 +41,7 @@ const EditUserProfile = () => {
         city: data.city,
       });
     }
-  }, [data]);
+  }, [data, id]);
 
   const onChangeFormhandler = (e) => {
     const { name, value } = e.target;
@@ -52,16 +53,32 @@ const EditUserProfile = () => {
     });
   };
 
+  // update user Mutation
+  const [updateUser] = useUpdateUserMutation();
+
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    console.log(inputField);
+    // console.log(inputField);
     try {
-      const res = await updateUser({ id, data: inputField });
+      const res = await updateUser({ data: { ...inputField, id } }).unwrap();
       console.log(res);
+      toast({
+        status: "success",
+        position: "top",
+        description: "Details updated successfully",
+      });
+      navigate("/");
+      
     } catch (error) {
       console.log(error);
+      toast({
+        status: "error",
+        position: "top",
+        description: responseData.error.message,
+      });
     }
   };
+
   return (
     <>
       {isLoading ? (
@@ -107,7 +124,7 @@ const EditUserProfile = () => {
                           </div>
                           <div className="formrow">
                             <input
-                              type="text"
+                              type="number"
                               name="mobile_no"
                               className="form-control"
                               placeholder="Phone Number"
