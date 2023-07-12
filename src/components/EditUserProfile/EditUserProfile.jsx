@@ -191,14 +191,14 @@ const EditUserProfile = () => {
                             <button type="submit" className="btn">
                               Update User
                             </button>
-                            <button
+                            {/* <button
                               type="submit"
                               className="btn"
                               value="Register"
                               style={{ backgroundColor: "red" }}
                             >
                               Delete User
-                            </button>
+                            </button> */}
                           </div>
                         </div>
                       </div>
