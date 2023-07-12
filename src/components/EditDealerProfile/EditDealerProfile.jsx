@@ -1,40 +1,53 @@
 
 import SubNav from "../Navbar/SubNav";
-import { useState } from "react";
+import {  useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useUpdateDealerMutation } from "../../api/dealersManegmentApiSlice";
 // import { useGetAllDealerQuery } from "../../api/dealersManegmentApiSlice";
 import { useGetDealerQuery } from "../../api/dealersManegmentApiSlice";
 
 const EditDealerProfile = () => {
-  const userToken = localStorage.getItem("userToken")
+  
     const {userid,id} = useParams()
-    const {data:dealerID} = useGetDealerQuery({id})
+    const {data:dealerID,isLoading} = useGetDealerQuery({id})
     
-  console.log(dealerID?.dealerDto?.address)
+  console.log(dealerID?.dealerDto)
 
     console.log(userid,id)
   const [inputField, setInputField] = useState({
-    firstName:`${dealerID?.dealerDto?.firstname}`,
-    lastName:`${dealerID?.dealerDto?.lastName}`,
-    email: `${dealerID?.dealerDto?.email}`,
-    mobileNo:`${dealerID?.dealerDto?.mobileNo}`,
-    address: `${dealerID?.dealerDto?.address}`,
-    city: `${dealerID?.dealerDto?.city}`,
-    area: `${dealerID?.dealerDto?.area}`,
-    shopName: `${dealerID?.dealerDto?.shopName}`,
-    userid
+    firstName: "",
+    lastName: "",
+    email: "",
+    mobileNo: "",
+    address: "",
+    city: "",
+    area: "",
+    shopName: "",
+    userid,
+   
   });
-  
-  console.log(dealerID)
+
 
   
-  console.log(userToken)
-
-console.log(userid)
+  useEffect(() => {
+    if (dealerID) {
+      const { dealerDto } = dealerID;
+      setInputField({
+        firstName: dealerDto?.firstName || "",
+        lastName: dealerDto?.lastName || "",
+        email: dealerDto?.email || "",
+        mobileNo: dealerDto?.mobileNo || "",
+        address: dealerDto?.address || "",
+        city: dealerDto?.city || "",
+        area: dealerDto?.area || "",
+        shopName: dealerDto?.shopName || "",
+        userid,
+      });
+    }
+  }, [dealerID, userid]);
 // const { data: v, } = useGetAllDealerQuery();
 // console.log(v);
-  const [updateDealer,{isLoading}] = useUpdateDealerMutation()
+  const [updateDealer] = useUpdateDealerMutation()
 
   const onChangeFormhandler = (e) => {
     const { name, value } = e.target;
@@ -50,19 +63,21 @@ console.log(userid)
     e.preventDefault();
 
    try {
-    const res = await updateDealer(inputField).unwrap()
+    const res = await updateDealer(inputField,).unwrap()
     console.log(res)
    } catch (error) {
     console.log(error)
    }
    
   };
+
+  
   return (
     <>
     {
       isLoading ?
       <p>Loading...</p>
-      :
+      : 
       <>
       <SubNav componentsName={"Edit Dealer"} />
       <div className="listpgWraper" style={{ backgroundColor: "#F5F7F9" }}>
@@ -85,7 +100,7 @@ console.log(userid)
                           name="firstName"
                           className="form-control"
                           placeholder="firstname"
-                          value={inputField.firstName}
+                          defaultValue={dealerID?.dealerDto?.firstName || ""}
                           onChange={onChangeFormhandler}
                           
                         />
@@ -96,7 +111,7 @@ console.log(userid)
                           name="lastName"
                           className="form-control"
                           placeholder="Address"
-                          value={inputField.lastName}
+                          defaultValue={dealerID?.dealerDto?.lastName || ""}
                           onChange={onChangeFormhandler}
                           
                         />
@@ -107,7 +122,7 @@ console.log(userid)
                           name="mobileNo"
                           className="form-control"
                           placeholder="Phone Number"
-                          defaultValue={inputField.mobileNo}
+                          defaultValue={dealerID?.dealerDto?.mobileNo || ""}
                           onChange={onChangeFormhandler}
                           
                         />
@@ -119,7 +134,7 @@ console.log(userid)
                           className="form-control"
                           placeholder="Email"
                           onChange={onChangeFormhandler}
-                          value={inputField.email}
+                          defaultValue={dealerID?.dealerDto?.email|| ""}
                           
                         />
                       </div>
@@ -129,7 +144,7 @@ console.log(userid)
                           name="address"
                           className="form-control"
                           placeholder="Address"
-                          value={inputField.address}
+                          defaultValue={dealerID?.dealerDto?.address|| ""}
                           onChange={onChangeFormhandler}
                           
                         />
@@ -141,7 +156,7 @@ console.log(userid)
                           className="form-control"
                           placeholder="City"
                           onChange={onChangeFormhandler}
-                          value={inputField.city}
+                          defaultValue={dealerID?.dealerDto?.city|| ""}
                         />
                       </div>
                      
@@ -152,7 +167,7 @@ console.log(userid)
                           className="form-control"
                           placeholder="Area"
                           onChange={onChangeFormhandler}
-                          value={inputField.area}
+                          defaultValue={dealerID?.dealerDto?.area|| ""}
                         />
                       </div>
                       <div className="formrow">
@@ -162,7 +177,7 @@ console.log(userid)
                           className="form-control"
                           placeholder="Shop Name"
                           onChange={onChangeFormhandler}
-                          value={inputField.shopName}
+                          defaultValue={dealerID?.dealerDto?.shopName|| ""}
                         />
                       </div>
                       <div className="formrow">
@@ -177,7 +192,7 @@ console.log(userid)
                       </div>
                       <div style={{ display: "flex", gap: "10px" }}>
                         <button type="submit" className="btn" value="Register">
-                          Edit User
+                          Update Dealer
                         </button>
                         <button
                           type="submit"
@@ -185,7 +200,7 @@ console.log(userid)
                           value="Register"
                           style={{ backgroundColor: "red" }}
                         >
-                          Delete User
+                          Delete Dealer
                         </button>
                       </div>
                     </div>

@@ -370,7 +370,7 @@ const CarList = () => {
               <div className="row">
                 <div className="col-md-4 col-sm-4"></div>
                 <div className="col-md-8 col-sm-8 text-right">
-                  <ul className="pagination">
+                  <ul className="pagination" style={{ marginTop: '2em' }}>
                     <li>
                       {/* <div className="col-md-12 col-sm-12 text-center"> */}
 
@@ -382,8 +382,8 @@ const CarList = () => {
                         //  style={{ paddingRight: "10px" }}
                       >
                         <Button colorScheme="teal" variant="outline" size="sm">
-                          <span style={{ marginRight: "5px" }}>
-                            <ArrowLeftIcon />
+                          <span style={{ marginRight: "5px", padding: "10px" }}>
+                            <ArrowLeftIcon /> 
                           </span>
                           Previous Page
                         </Button>
@@ -400,7 +400,7 @@ const CarList = () => {
                         // style={{ paddingLeft: "10px" }}
                       >
                         <Button colorScheme="teal" variant="outline" size="sm">
-                          <span style={{ marginLeft: "5px" }}>
+                          <span style={{ marginLeft: "5px", padding: "10px" }}>
                             Next Page <ArrowRightIcon />
                           </span>
                         </Button>
