@@ -95,6 +95,7 @@ const EditDealerProfile = () => {
                       className="formpanel tab-pane fade in active"
                     >
                      <div className="formrow">
+                        <label>First Name</label>
                         <input
                           type="text"
                           name="firstName"
@@ -106,6 +107,7 @@ const EditDealerProfile = () => {
                         />
                       </div>
                      <div className="formrow">
+                        <label>Last Name</label>
                         <input
                           type="text"
                           name="lastName"
@@ -117,6 +119,7 @@ const EditDealerProfile = () => {
                         />
                       </div>
                       <div className="formrow">
+                        <label>Mobile No</label>
                         <input
                           type="number"
                           name="mobileNo"
@@ -128,6 +131,7 @@ const EditDealerProfile = () => {
                         />
                       </div>
                       <div className="formrow">
+                        <label>Email</label>
                         <input
                           type="email"
                           name="email"
@@ -139,6 +143,7 @@ const EditDealerProfile = () => {
                         />
                       </div>
                       <div className="formrow">
+                        <label>Address</label>
                         <input
                           type="text"
                           name="address"
@@ -150,6 +155,7 @@ const EditDealerProfile = () => {
                         />
                       </div>
                       <div className="formrow">
+                        <label>City</label>
                         <input
                           type="text"
                           name="city"
@@ -161,6 +167,7 @@ const EditDealerProfile = () => {
                       </div>
                      
                       <div className="formrow">
+                        <label>Area</label>
                         <input
                           type="text"
                           name="area"
@@ -171,6 +178,7 @@ const EditDealerProfile = () => {
                         />
                       </div>
                       <div className="formrow">
+                        <label>Shop Name</label>
                         <input
                           type="text"
                           name="shopName"

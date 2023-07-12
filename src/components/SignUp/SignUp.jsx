@@ -101,6 +101,7 @@ const SignUp = () => {
                       className="formpanel tab-pane fade in active"
                     >
                       <div className="formrow">
+                        <label>First Name</label>
                         <input
                           type="text"
                           name="firstName"
@@ -112,6 +113,7 @@ const SignUp = () => {
                         />
                       </div>
                       <div className="formrow">
+                        <label>Last Name</label>
                         <input
                           type="text"
                           name="lastName"
@@ -123,6 +125,7 @@ const SignUp = () => {
                         />
                       </div>
                       <div className="formrow">
+                        <label>Mobile No</label>
                         <input
                           type="text"
                           name="mobileNo"
@@ -134,6 +137,7 @@ const SignUp = () => {
                         />
                       </div>
                       <div className="formrow">
+                        <label>Email</label>
                         <input
                           type="text"
                           name="email"
@@ -145,6 +149,7 @@ const SignUp = () => {
                         />
                       </div>
                       <div className="formrow">
+                        <label>Address</label>
                         <input
                           type="text"
                           name="address"
@@ -156,6 +161,7 @@ const SignUp = () => {
                         />
                       </div>
                       <div className="formrow">
+                        <label>City</label>
                         <input
                           type="text"
                           name="city"
@@ -167,6 +173,7 @@ const SignUp = () => {
                         />
                       </div>
                       <div className="formrow">
+                        <label>Password</label>
                         <input
                           type="password"
                           name="password"
@@ -178,6 +185,7 @@ const SignUp = () => {
                         />
                       </div>
                       <div className="formrow">
+                        <label>Confirm Password</label>
                         <input
                           type="password"
                           name="confirmPassword"
