@@ -14,13 +14,14 @@ import {
   ModalCloseButton,
   Text,
   Flex,
+  Badge
 } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 import { useLazyGetDealerCarsQuery, useDeleteDealerCarMutation, setSelectedCar } from '../../api/dealersManegmentApiSlice';
 import jwt_decode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
-import { baseUrl } from '../../api/apiSlice'
+import { baseUrl } from '../../api/apiSlice';
 
 const DealersModel = () => {
   const dispatch = useDispatch();
@@ -94,7 +95,8 @@ const DealersModel = () => {
 
   async function fetchDealerCars() {
     // getDealersCars({ id: dealerId, pageNo: 0 }, { skip: !dealerId }).then(e => console.log(e));
-    const url = baseUrl + '/car/dealer/4/status/Active?pageNo=0';
+    const url = baseUrl + `/car/dealer/${dealerId}/status/Active?pageNo=0`;
+    debugger
     const token = localStorage.getItem('userToken');
     const headers = { Authorization: `Bearer ${token}` }
     try{
@@ -104,7 +106,13 @@ const DealersModel = () => {
         setIsError(e => false);
         return data.list;
       });
-    } catch (error) { console.error(error); }
+    } catch (error) { 
+      setCarsData(state => {
+        setIsLoading(e => false);
+        setIsError(e => false);
+        return [];
+      });
+    }
 
   }
 
@@ -128,11 +136,20 @@ const DealersModel = () => {
       },
       {
         Header: "Price",
-        accessor: "Location",
+        accessor: "price",
+        Cell: (cell) => (
+          <>{ Number(cell.value).toLocaleString("en-IN") }</>
+        )
       },
       {
         Header: "Status",
-        accessor: "PhoneNo",
+        accessor: "carStatus",
+        Cell: (cell) => (
+          <>
+          { (cell.value.toLowerCase() === 'active') && <Badge colorScheme='green'>ACTIVE</Badge> }
+          { (cell.value.toLowerCase() !== 'active') && <Badge colorScheme='red'>INACTIVE</Badge> }
+          </>
+        )
       },
       {
         Header: "Car Details",
