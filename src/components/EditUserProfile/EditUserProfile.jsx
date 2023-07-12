@@ -1,10 +1,17 @@
-import { useEditUserMutation, useGetAllUsersQuery } from "../../api/usersApiSlice";
 import SubNav from "../Navbar/SubNav";
 import { useState } from "react";
-useGetAllUsersQuery
+import jwt_decode from "jwt-decode";
+import { useGetUserQuery } from "../../api/usersApiSlice";
 const EditUserProfile = () => {
-  // const [updateUser] = useEditUserMutation;
-  // const [updateUser, { isLoading, isError }] = useUpdateUserMutation();
+  const userToken = localStorage.getItem("userToken");
+  // decode user token
+  const decode = jwt_decode(userToken);
+  const id = decode?.userProfileId;
+  console.log(decode?.userProfileId);
+
+  const responseData = useGetUserQuery(id);
+  const { data } = responseData;
+  console.log("response data", data);
   const [inputField, setInputField] = useState({
     firstName: "",
     lastName: "",
@@ -27,19 +34,19 @@ const EditUserProfile = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     console.log(inputField);
-    try {
-      const response = await updateUser(1, {
-        firstName: inputField.firstName,
-        lastName: inputField.lastName,
-        mobile_no: inputField.mobile_no,
-        email: inputField.email,
-        address: inputField.address,
-        city: inputField.city,
-      });
-      console.log("User Updated", response.data);
-    } catch (error) {
-      console.error("Error updating user:", error);
-    }
+    // try {
+    //   const response = await updateUser(1, {
+    //     firstName: inputField.firstName,
+    //     lastName: inputField.lastName,
+    //     mobile_no: inputField.mobile_no,
+    //     email: inputField.email,
+    //     address: inputField.address,
+    //     city: inputField.city,
+    //   });
+    //   console.log("User Updated", response.data);
+    // } catch (error) {
+    //   console.error("Error updating user:", error);
+    // }
   };
   return (
     <>
@@ -130,7 +137,7 @@ const EditUserProfile = () => {
                       </div> */}
                       <div style={{ display: "flex", gap: "10px" }}>
                         <button type="submit" className="btn" value="Register">
-                          Edit User
+                          Update User
                         </button>
                         <button
                           type="submit"

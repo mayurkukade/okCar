@@ -1,14 +1,16 @@
 export const ROLES = {
-  User: "user",
-  Vendor: "vendor",
+  User: "USER",
   Admin: "ADMIN",
-  Dealer: "dealer",
+  Dealer: "DEALER",
 };
 export const OnlyAdmin = {
   Admin: "ADMIN"
 };
 
 export const OnlyDealer = {
-  Dealer: "dealer",
-  Admin: "admin"
+  Dealer: "DEALER",
+}
+
+export const OnlyUser = {
+  User: "USER",
 }
