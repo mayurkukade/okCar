@@ -422,7 +422,7 @@ const AddCarDetails = () => {
                           <label>Km Driven</label>
                           <input
                             required
-                            type="text"
+                            type="number"
                             placeholder="Km Driven"
                             className="form-control"
                             value={formData.kmDriven}
