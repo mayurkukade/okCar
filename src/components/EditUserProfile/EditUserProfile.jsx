@@ -67,8 +67,13 @@ const EditUserProfile = () => {
         position: "top",
         description: "Details updated successfully",
       });
+      const username = localStorage.getItem("userInfo");
+      const mutatedName = JSON.parse(username);
+      mutatedName.firstname = inputField.firstName;
+      // console.log(mutatedName);
+      localStorage.setItem("userInfo", JSON.stringify(mutatedName));
+
       navigate("/");
-      
     } catch (error) {
       console.log(error);
       toast({
@@ -101,6 +106,7 @@ const EditUserProfile = () => {
                           className="formpanel tab-pane fade in active"
                         >
                           <div className="formrow">
+                            {/* <label htmlFor="firstName">First Name</label> */}
                             <input
                               type="text"
                               name="firstName"
