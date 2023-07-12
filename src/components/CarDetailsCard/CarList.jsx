@@ -11,7 +11,7 @@ import {
   useGetAllCarsQuery,
   // useFilterCarQueryQuery,
 } from "../../api/carApiSlice.js";
-import { Container, background } from "@chakra-ui/react";
+
 
 const CarList = () => {
   // use State for input fields
