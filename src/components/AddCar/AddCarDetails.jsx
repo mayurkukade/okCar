@@ -146,7 +146,7 @@ const AddCarDetails = () => {
 
   return (
     <>
-      <SubNav componentsName={"AddCar"} />
+      <SubNav componentsName={"Add Car Details"} />
       <div className="listpgWraper">
         <div className="container">
           <form onSubmit={handleSubmit}>
@@ -182,7 +182,7 @@ const AddCarDetails = () => {
                         <div className="formrow">
                           <label>Price</label>
                           <input
-                            type="text"
+                            type="number"
                             name="price"
                             className="form-control"
                             placeholder="Car Price"
@@ -222,6 +222,7 @@ const AddCarDetails = () => {
                           <input
                             className="form-control"
                             name="year"
+                            type="number"
                             value={formData.year}
                             placeholder="Manufacture Year"
                             onChange={(event) => {
@@ -289,7 +290,7 @@ const AddCarDetails = () => {
                           <label>No of Wheels</label>
                           <input
                             required
-                            type="text"
+                            type="number"
                             name="noOfWheels"
                             className="form-control"
                             placeholder="Number of Wheels"
@@ -309,7 +310,7 @@ const AddCarDetails = () => {
                           <label>Owner Serial</label>
                           <input
                             required
-                            type="text"
+                            type="number"
                             name="ownerSerial"
                             className="form-control"
                             placeholder="Owner Type"
@@ -421,7 +422,7 @@ const AddCarDetails = () => {
                           <label>Km Driven</label>
                           <input
                             required
-                            type="text"
+                            type="number"
                             placeholder="Km Driven"
                             className="form-control"
                             value={formData.kmDriven}

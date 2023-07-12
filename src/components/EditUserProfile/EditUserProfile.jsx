@@ -20,6 +20,7 @@ const EditUserProfile = () => {
   const responseData = useGetUserQuery(id);
   const { data, isLoading } = responseData;
   // console.log("response data", responseData);
+  // console.log("data", data);
 
   const [inputField, setInputField] = useState({
     firstName: "",
@@ -141,7 +142,7 @@ const EditUserProfile = () => {
                               required
                             />
                           </div>
-                          <div className="formrow">
+                          {/* <div className="formrow">
                             <label>Email</label>
                             <input
                               type="text"
@@ -152,7 +153,7 @@ const EditUserProfile = () => {
                               value={inputField.email}
                               required
                             />
-                          </div>
+                          </div> */}
                           <div className="formrow">
                             <label>Address</label>
                             <input

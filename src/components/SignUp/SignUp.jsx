@@ -53,7 +53,7 @@ const SignUp = () => {
       email,
       confirmPassword,
     } = inputField;
-    if (password.length <= 8) {
+    if (password.length < 8) {
       setPHelperText('characters should be atleast 8');
       return;
     }

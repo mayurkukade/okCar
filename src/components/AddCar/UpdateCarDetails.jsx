@@ -140,7 +140,7 @@ const UpdateCarDetails = () => {
                         <div className="formrow">
                           <label>Price</label>
                           <input
-                            type="text"
+                            type="number"
                             name="price"
                             className="form-control"
                             placeholder="Car Price"
@@ -181,6 +181,7 @@ const UpdateCarDetails = () => {
                             className="form-control"
                             name="year"
                             value={formData.year}
+                            type="number"
                             placeholder="Manufacture Year"
                             onChange={(event) => {
                               setFormData({
@@ -249,7 +250,7 @@ const UpdateCarDetails = () => {
                           <label>No of Wheels</label>
                           <input
                             required
-                            type="text"
+                            type="number"
                             name="noOfWheels"
                             className="form-control"
                             placeholder="Number of Wheels"
@@ -269,7 +270,7 @@ const UpdateCarDetails = () => {
                           <label>Owner Serial</label>
                           <input
                             required
-                            type="text"
+                            type="number"
                             name="ownerSerial"
                             className="form-control"
                             placeholder="Owner Type"
@@ -381,7 +382,7 @@ const UpdateCarDetails = () => {
                           <label>Km Driven</label>
                           <input
                             required
-                            type="text"
+                            type="number"
                             placeholder="Km Driven"
                             className="form-control"
                             value={formData.kmDriven}

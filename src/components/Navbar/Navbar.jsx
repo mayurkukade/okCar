@@ -4,8 +4,7 @@ import AvtarModal from "./AvtarModal";
 import { Button } from "@chakra-ui/button";
 const Navbar = () => {
   const username = localStorage.getItem("userInfo");
-  const user = JSON.parse(username)?.roles
-  console.log(user)
+  const user = JSON.parse(username)?.roles;
   let roleNav;
   if (user == "ADMIN") {
     roleNav = (
@@ -96,13 +95,13 @@ const Navbar = () => {
                       <Link to="/">Home</Link>
                     </li>
                     <li>
-                      <Link to="/carlist">Used Cars</Link>
+                      <Link to="/carlist">Buy Cars</Link>
                     </li>
                     {/* <li>
                       <a href="listing.html">New Cars</a>
                     </li> */}
                     <li>
-                      <Link to="/Contact">Contact</Link>
+                      <Link to="/Contact">Contact Us</Link>
                     </li>
                     
                     <li className="postad">{user ? <AvtarModal /> : ""}</li>
