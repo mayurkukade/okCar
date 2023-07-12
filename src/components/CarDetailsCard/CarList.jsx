@@ -3,9 +3,9 @@ import SubNav from "../Navbar/SubNav.jsx";
 import "./CarList.css";
 import { useState, useEffect } from "react";
 import CarListCard from "./CarListCard.jsx";
-import { ArrowRightIcon,ArrowLeftIcon} from '@chakra-ui/icons'
-import { Button } from '@chakra-ui/react'
-import { baseUrl } from '../../api/apiSlice.js';
+import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
+import { Button } from "@chakra-ui/react";
+import { baseUrl } from "../../api/apiSlice.js";
 
 import {
   useGetAllCarsQuery,
@@ -105,20 +105,6 @@ const CarList = () => {
                   {/* <div className="sidebar"  style={{ height: "fit-content", display: "flex", flexDirection: "column", gap: "10px" }}> */}
 
                   {/* <div className="sidebar" style={{ flex: "0 0 30%", height: "400%" }}>  */}
-
-                  <div className="widget">
-                    <h4 className="widget-title">Transmission</h4>
-                    <select
-                      className="form-control"
-                      name="transmission"
-                      value={inputFilter.transmission}
-                      onChange={onChangeFormHandler}
-                    >
-                      <option>Transmission</option>
-                      <option>Automatic</option>
-                      <option>Manual</option>
-                    </select>
-                  </div>
 
                   {/* <div className="widget">
                    <h4 className="widget-title">Search By Keyword</h4>
@@ -315,6 +301,19 @@ const CarList = () => {
                      </li>
                    </ul>
                  </div> */}
+                  <div className="widget">
+                    <h4 className="widget-title">Transmission</h4>
+                    <select
+                      className="form-control"
+                      name="transmission"
+                      value={inputFilter.transmission}
+                      onChange={onChangeFormHandler}
+                    >
+                      <option>Transmission</option>
+                      <option>Automatic</option>
+                      <option>Manual</option>
+                    </select>
+                  </div>
 
                   <div className="searchnt">
                     <button className="btn">
@@ -344,7 +343,16 @@ const CarList = () => {
                     {/* <div className="card-container" ref={cardContainerRef}> */}
 
                     {responseData === null ? (
-                      <h3>No car Found</h3>
+                      <h1
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          minHeight: "70vh",
+                        }}
+                      >
+                        No car Found
+                      </h1>
                     ) : responseData.length === 0 ? (
                       <h3
                         style={{
@@ -370,7 +378,7 @@ const CarList = () => {
               <div className="row">
                 <div className="col-md-4 col-sm-4"></div>
                 <div className="col-md-8 col-sm-8 text-right">
-                  <ul className="pagination" style={{ marginTop: '2em' }}>
+                  <ul className="pagination" style={{ marginTop: "2em" }}>
                     <li>
                       {/* <div className="col-md-12 col-sm-12 text-center"> */}
 
@@ -383,7 +391,7 @@ const CarList = () => {
                       >
                         <Button colorScheme="teal" variant="outline" size="sm">
                           <span style={{ marginRight: "5px", padding: "10px" }}>
-                            <ArrowLeftIcon /> 
+                            <ArrowLeftIcon />
                           </span>
                           Previous Page
                         </Button>
