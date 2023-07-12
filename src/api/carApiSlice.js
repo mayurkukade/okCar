@@ -88,4 +88,4 @@ export const carApiSlice = apiSlice.injectEndpoints({
 });
 
 
-export const { useAddCarMutation, useGetAllCarsQuery, useGetCarByIdQuery } = carApiSlice;
+export const { useAddCarMutation, useGetAllCarsQuery, useGetCarByIdQuery, useLazyGetCarByIdQuery } = carApiSlice;

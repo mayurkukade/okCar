@@ -2,9 +2,9 @@ import SubNav from "../Navbar/SubNav";
 import { useSelector } from "react-redux";
 
 import { CommonUtilities } from "../../util/common.utilities";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useGetCarByIdQuery } from "../../api/carApiSlice";
+import { useGetCarByIdQuery, useLazyGetCarByIdQuery } from "../../api/carApiSlice";
 const CarDetails = () => {
   const userInfo = useSelector((state) => state.auth.userInfo);
   const [largePreview, setLargePreview] = useState(null);
@@ -12,9 +12,15 @@ const CarDetails = () => {
     JSON.parse(localStorage.getItem("images")) ?? []
   );
   let { id } = useParams();
-  const responseData = useGetCarByIdQuery(id);
-  const { data } = responseData;
+  // const responseData = useGetCarByIdQuery(id);
+  // const { data } = responseData;
+  const [getCarById, { data, isLoading, isError }] = useLazyGetCarByIdQuery(id);
   console.log("Response data:", data?.object);
+  
+  useEffect(() => {
+    if (!!id) getCarById(id);
+  }, []);
+  if (!!data && !isLoading && !isError){
   return (
     <>
       <SubNav componentsName={data?.object.brand} />
@@ -131,7 +137,7 @@ const CarDetails = () => {
             <div className="col-md-4">
               <div className="jbside">
                 <div className="adsalary">
-                  Price <strong> ₹ {data?.object.price}</strong>
+                  Price <strong> ₹ {Number(data?.object.price).toLocaleString("en-IN") }</strong>
                 </div>
 
                 <div className="ptext">
@@ -142,7 +148,7 @@ const CarDetails = () => {
                 <div className="adButtons">
                   <a href="#." className="btn apply">
                     <i className="fa fa-phone" aria-hidden="true"></i>
-                    {userInfo ? 999999999 : <span>please login</span>}
+                    {userInfo ? 'Request' : <span>please login</span>}
                   </a>{" "}
                 </div>
               </div>
@@ -285,7 +291,11 @@ const CarDetails = () => {
         </div>
       </div>
     </>
-  );
+  );}
+  
+  else if (isLoading) return <>Loading...</>;
+  else if (isError) return <>Something went wrong</>;
+  return <></>;
 };
 
 export default CarDetails;
