@@ -240,7 +240,7 @@ const CarList = () => {
                     />
                   </div>
 
-                  <div className="widget">
+                  {/* <div className="widget">
                     <h4 className="widget-title">Transmission</h4>
                     <select
                       className="form-control"
@@ -252,7 +252,7 @@ const CarList = () => {
                       <option>Auto</option>
                       <option>Manual</option>
                     </select>
-                  </div>
+                  </div> */}
 
                   <div className="widget">
                     <h4 className="widget-title">Fuel Type</h4>
