@@ -68,8 +68,8 @@ export const userApiSlice = apiSlice.injectEndpoints({
     // get user by id
     getUser: builder.query({
       query: (id) => {
-        console.log("id from User", id)
-        console.log(`token ${token}`)
+        // console.log("id from User", id)
+        // console.log(`token ${token}`)
         return {
           url: `/user/getUser/${id}`,
           method: "GET",
@@ -86,11 +86,11 @@ export const userApiSlice = apiSlice.injectEndpoints({
     // edit user by id
     updateUser: builder.mutation({
       //not done page
-      query: (data, id) => {
+      query: ({ data }) => {
         console.log("data", data);
         console.log("id ", data.id);
         return {
-          url: `/user/edit/${id}`,
+          url: `/user/edit/${data.id}`,
           method: "PUT",
           body: data,
           headers: {
