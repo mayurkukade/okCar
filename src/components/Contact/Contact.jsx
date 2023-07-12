@@ -57,6 +57,7 @@ const Contact = () => {
                 >
                   <div className="row">
                     <div className="col-md-6">
+                      <label>Full name</label>
                       <input
                         name="name"
                         type="text"
@@ -65,6 +66,7 @@ const Contact = () => {
                       />
                     </div>
                     <div className="col-md-6">
+                      <label>Phone Number</label>
                       <input
                         type="text"
                         name="phone"
@@ -72,6 +74,7 @@ const Contact = () => {
                       />
                     </div>
                     <div className="col-md-6">
+                      <label>Email</label>
                       <input
                         name="email"
                         type="text"

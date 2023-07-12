@@ -118,6 +118,7 @@ const UpdateCarDetails = () => {
                     <div className="row">
                       <div className="col-md-6">
                         <div className="formrow">
+                          <label>Brand</label>
                           <input
                             type="text"
                             name="brand"
@@ -137,6 +138,7 @@ const UpdateCarDetails = () => {
 
                       <div className="col-md-4">
                         <div className="formrow">
+                          <label>Price</label>
                           <input
                             type="text"
                             name="price"
@@ -156,6 +158,7 @@ const UpdateCarDetails = () => {
 
                       <div className="col-md-6">
                         <div className="formrow">
+                          <label>Model</label>
                           <input
                             className="form-control"
                             name="model"
@@ -173,6 +176,7 @@ const UpdateCarDetails = () => {
 
                       <div className="col-md-4">
                         <div className="formrow">
+                          <label>Year</label>
                           <input
                             className="form-control"
                             name="year"
@@ -191,6 +195,7 @@ const UpdateCarDetails = () => {
 
                       <div className="col-md-6">
                         <div className="formrow">
+                          <label>Body Type</label>
                           <select
                             className="form-control"
                             name="bodyType"
@@ -219,6 +224,7 @@ const UpdateCarDetails = () => {
 
                       <div className="col-md-4">
                         <div className="formrow">
+                          <label>Transmission</label>
                           <select
                             required
                             className="form-control"
@@ -240,6 +246,7 @@ const UpdateCarDetails = () => {
 
                       <div className="col-md-4">
                         <div className="formrow">
+                          <label>No of Wheels</label>
                           <input
                             required
                             type="text"
@@ -259,6 +266,7 @@ const UpdateCarDetails = () => {
 
                       <div className="col-md-6">
                         <div className="formrow">
+                          <label>Owner Serial</label>
                           <input
                             required
                             type="text"
@@ -278,6 +286,7 @@ const UpdateCarDetails = () => {
 
                       <div className="col-md-4">
                         <div className="formrow">
+                          <label>Tyre</label>
                           <input
                             required
                             type="text"
@@ -297,6 +306,7 @@ const UpdateCarDetails = () => {
 
                       <div className="col-md-4">
                         <div className="formrow">
+                          <label>Color</label>
                           <input
                             required
                             type="text"
@@ -349,6 +359,7 @@ const UpdateCarDetails = () => {
 
                       <div className="col-md-4">
                         <div className="formrow">
+                          <label>Registration</label>
                           <input
                             required
                             type="text"
@@ -367,6 +378,7 @@ const UpdateCarDetails = () => {
 
                       <div className="col-md-4">
                         <div className="formrow">
+                          <label>Km Driven</label>
                           <input
                             required
                             type="text"
@@ -429,6 +441,7 @@ const UpdateCarDetails = () => {
 
                       <div className="col-md-4">
                         <div className="formrow">
+                          <label>City</label>
                           <input
                             required
                             type="text"
@@ -448,6 +461,7 @@ const UpdateCarDetails = () => {
 
                       <div className="col-md-4">
                         <div className="formrow">
+                          <label>Area</label>
                           <input
                             required
                             className="form-control"

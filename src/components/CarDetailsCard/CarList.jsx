@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import CarListCard from "./CarListCard.jsx";
 import { ArrowRightIcon,ArrowLeftIcon} from '@chakra-ui/icons'
 import { Button } from '@chakra-ui/react'
+import { baseUrl } from '../../api/apiSlice.js';
 
 // import { baseQuery } from "../../api/apiSlice";
 import {
@@ -82,7 +83,7 @@ const CarList = () => {
   const fetchData = async () => {
     try {
       const queryParams = new URLSearchParams(inputFilter).toString();
-      const url = `https://1eff-144-48-178-178.ngrok-free.app/cars/mainFilter/1?${queryParams}`;
+      const url = `${baseUrl}/cars/mainFilter/1?${queryParams}`;
       const response = await fetch(url);
       const data = await response.json();
       setResponseData(data?.list);
