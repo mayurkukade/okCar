@@ -15,7 +15,7 @@ import { logout } from "../../api/authSlice";
 const AvtarModal = () => {
   const username = localStorage.getItem("userInfo");
   //  console.log(JSON.parse(username)?.results)
-  console.log(JSON.parse(username)?.roles[0]);
+  console.log(JSON.parse(username)?.firstname);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -40,6 +40,8 @@ const AvtarModal = () => {
         >
           {JSON.parse(username)?.roles[0] === "ADMIN"
             ? "Admin"
+            : JSON.parse(username)?.firstname}
+          {/* {JSON.parse(username).results.user[0].username} */}
             :  JSON.parse(username)?.firstname}
         </MenuButton>
         <MenuList>

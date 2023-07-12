@@ -16,9 +16,11 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
-import { useGetDealerCarsMutation, useDeleteDealerCarMutation, setSelectedCar } from '../../api/dealersManegmentApiSlice';
+import { useLazyGetDealerCarsQuery, useDeleteDealerCarMutation, setSelectedCar } from '../../api/dealersManegmentApiSlice';
 import jwt_decode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import { baseUrl } from '../../api/apiSlice'
 
 const DealersModel = () => {
   const dispatch = useDispatch();
@@ -35,11 +37,13 @@ const DealersModel = () => {
     status: "",
     carDetails: "",
   });
-  
   const userToken = `Bearer ${localStorage.getItem('userToken')}`;
   const { dealerId } = jwt_decode(userToken);
-  const [getDealersCars, { data: carsData, isLoading, isError }] = useGetDealerCarsMutation();
+  // const [getDealersCars, { data: carsData, isLoading: il, isError: iE }] = useLazyGetDealerCarsQuery();
 
+  const [carsData, setCarsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(true);
 
   const [deleteDealerCar, { data: isDeleteCarLoading, isLoading: isDeleteCarError, isError: errorDeleteCar }] = useDeleteDealerCarMutation();
   const handleDeleteClick = async (id) => {
@@ -63,7 +67,7 @@ const DealersModel = () => {
     if (!id || !type) return;
     if (type !== TYPE.EDIT) return;
 
-    const carToUpdate = (carsData.list.filter(e => e.carId === id));
+    const carToUpdate = (carsData.filter(e => e.carId === id));
     if (!carToUpdate) return;
     dispatch(setSelectedCar(carToUpdate));
     navigate('/updateCarDetails');
@@ -89,7 +93,19 @@ const DealersModel = () => {
   }
 
   async function fetchDealerCars() {
-    await getDealersCars({ id: dealerId, pageNo: 0 }, { skip: !dealerId })
+    // getDealersCars({ id: dealerId, pageNo: 0 }, { skip: !dealerId }).then(e => console.log(e));
+    const url = baseUrl + '/car/dealer/4/status/Active?pageNo=0';
+    const token = localStorage.getItem('userToken');
+    const headers = { Authorization: `Bearer ${token}` }
+    try{
+      const { data } = await axios.get(url, { headers });
+      setCarsData(state => {
+        setIsLoading(e => false);
+        setIsError(e => false);
+        return data.list;
+      });
+    } catch (error) { console.error(error); }
+
   }
 
   useEffect(() => {
@@ -304,7 +320,7 @@ const DealersModel = () => {
           </Button>
         </Link>
       </Flex>
-      {(!isLoading && !isError && !!carsData) && <TableModel data={carsData.list || []} columns={columns} />}
+      {(!isLoading && !isError) && <TableModel data={carsData} FetchData={carsData} columns={columns} isError={false} isLoading={false} isSuccess={true} />}
     </>
   );
 };

@@ -84,7 +84,7 @@ const TableM = ({
       {error ? (
         <>Something Went Wrong Try After Sometime</>
       ) : isLoading ? (
-        <>Loading...</>
+        <p>Loading...</p>
       ) : data ? (
         <>
           <div className="tableContainer">

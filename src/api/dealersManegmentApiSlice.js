@@ -32,6 +32,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
       }),
       providesTags: ["Dealer"],
     }),
+    
     getDealer: builder.query({
       query: ({ id }) => ({
         transformResponse: console.log(id),
@@ -72,10 +73,9 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Dealer"]
     }),
-    getDealerCars: builder.mutation({
-      query: ({ id}) => ({
-        transformResponse:console.log(id),
-        url: `car/dealer/${id}/status/Active?pageNo=0`,
+    getDealerCars: builder.query({
+      query: ({ id, pageNo }) => ({
+        url: `car/dealer/${id}/status/Active?pageNo=${pageNo}`,
         headers: {
           'Content-Type': "application/json",
           Authorization: `Bearer ${token}`,
@@ -92,7 +92,6 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
           'Content-Type': "application/json",
           Authorization: `Bearer ${token}`,
         },
-        method: 'GET'
       }),
       providesTags:['Dealer']
     }),
@@ -118,6 +117,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
         body
         
       }),
+      invalidatesTags: ["Dealer"]
     }),
   })
 });
@@ -146,7 +146,7 @@ export const {
   useGetDealerQuery,
   useDeleteDealerMutation,
   useGetDealerCarsQuery,
-  useGetDealerCarsMutation,
+  useLazyGetDealerCarsQuery,
   useGetDealerIdQuery,
   useUpdateDealerMutation,
   useDeleteDealerCarMutation,

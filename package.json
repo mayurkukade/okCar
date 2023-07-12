@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
@@ -16,8 +15,10 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@reduxjs/toolkit": "^1.9.5",
+    "axios": "^1.4.0",
     "browser-image-compression": "^2.0.2",
     "framer-motion": "^10.12.16",
+    "jwt-decode": "^3.1.2",
     "pwa-asset-generator": "^6.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -28,8 +29,7 @@
     "react-table": "^7.8.0",
     "sass": "^1.63.3",
     "slick-carousel": "^1.8.1",
-    "swiper": "^9.4.1",
-      "jwt-decode": "^3.1.2"
+    "swiper": "^9.4.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
