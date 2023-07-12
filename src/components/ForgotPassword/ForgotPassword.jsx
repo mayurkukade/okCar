@@ -41,9 +41,12 @@ const ForgotPassword = () => {
 
   };
   return (
-    <>
+    <div>
       <SubNav componentsName={"ForgotPassword"} />
-      <div className="listpgWraper">
+      <div
+        className="listpgWraper"
+        style={{ minHeight: "62vh", display: "flex", alignItems: "center" }}
+      >
         <div className="container">
           <form onSubmit={submitHandler}>
             <div className="row">
@@ -76,7 +79,7 @@ const ForgotPassword = () => {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
