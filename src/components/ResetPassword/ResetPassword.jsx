@@ -142,7 +142,7 @@ const ChangePasswordPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (newPassword.length <= 8) {
+    if (newPassword.length < 8) {
       toastUtility.showError('Password Incorrect', 'characters should be atleast 8');
       return;
     }
