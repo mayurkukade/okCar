@@ -38,13 +38,13 @@ const Home = () => {
                         <Link to="/">Home</Link>
                       </li>
                       <li>
-                        <Link to="/carlist">Used Cars</Link>
+                        <Link to="/carlist"> Buy Cars </Link>
                       </li>
                       {/* <li>
                       <a href="listing.html">New Cars</a>
                     </li> */}
                       <li>
-                        <Link to="/Contact">Contact</Link>
+                        <Link to="/Contact">Contact Us</Link>
                       </li>
                       <li>
                         {username ? (
@@ -55,13 +55,13 @@ const Home = () => {
                           </Link>
                         )}
                       </li>
-
+                      {/* 
                       <li className="postad"></li>
 
-                      <li className="postad"></li>
+                      <li className="postad"></li> */}
                     </ul>
                   </div>
-                  <div className="clearfix"></div>
+                  {/* <div className="clearfix"></div> */}
                 </div>
               </div>
             </div>
@@ -73,7 +73,7 @@ const Home = () => {
           style={{ border: "2px solid black", backgroundColor: "black" }}
         >
           <div className="container">
-            <h3>Find Used Cars In Pune</h3>
+            <h3>Find Pre-Owned Cars In Pune</h3>
             {/* <p>
               Search from over 1,00,000 Active Cars */}
             {/* &amp; Post free unlimited
@@ -155,7 +155,7 @@ const Home = () => {
           <div className="container">
             <div className="titleTop">
               <h3>
-                Search Cars By <span>Brand</span>
+                Our <span>Brand</span>
               </h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
@@ -164,41 +164,48 @@ const Home = () => {
               </p>
             </div>
             <div className="topsearchwrap">
-              <ul className="row makelist">
+              <ul
+                className="row makelist"
+                style={{
+                  display: "flex",
+                  gap: "20px",
+                  // border: "2px solid black",
+                }}
+              >
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
                     <img src="../../../images/logo/tata.png" alt="" />
-                    <strong>Tata Motors</strong>
+                    {/* <strong>Tata Motors</strong> */}
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
                     <img src="../../../images/logo/suzuki.png" alt="" />
-                    <strong>Maruti Suzuki</strong>
+                    {/* <strong>Maruti Suzuki</strong> */}
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
                     <img src="../../../images/logo/hyundai.png" alt="" />
-                    <strong>Hyundai</strong>
+                    {/* <strong>Hyundai</strong> */}
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
                     <img src="../../../images/logo/Mahindra.png" alt="" />
-                    <strong>Mahindra</strong>
+                    {/* <strong>Mahindra</strong> */}
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
                     <img src="../../../images/logo/honda.png" alt="" />
-                    <strong>Honda</strong>
+                    {/* <strong>Honda</strong> */}
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
                     <img src="../../../images/logo/toyota.png" alt="" />
-                    <strong>Toyota</strong>
+                    {/* <strong>Toyota</strong> */}
                   </a>
                 </li>
               </ul>

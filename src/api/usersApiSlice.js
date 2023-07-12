@@ -1,6 +1,7 @@
 import { apiSlice } from "./apiSlice";
 const USERS_URL = "/admin";
 
+const token = localStorage.getItem("userToken");
 export const userApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation({
@@ -64,8 +65,52 @@ export const userApiSlice = apiSlice.injectEndpoints({
       },
     }),
 
+    // get user by id
+    // getUser: builder.query({
+    //   query: (id) => {
+    //     console.log(id)
+    //     return {
+    //       url: `/user/getUser/${id}`,
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //         Authorization: `Bearer ${token}`,
+    //       },
+    //     }
+    //   },
+    //   providesTags: ["User"],
+    // }),
+
+    // getDealer: builder.query({
+    //   query: ({ id }) => ({
+    //     transformResponse: console.log(id),
+    //     url: `/dealer/${id}`,
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Authorization: `Bearer ${token}`,
+    //     },
+    //   }),
+    //   providesTags: ["Dealer"],
+    // }),
+
+    getUser: builder.query({
+      query: (id) => {
+        console.log("id from User", id)
+        console.log(`token ${token}`)
+        return {
+          url: `/user/getUser/${id}`,
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      },
+      providesTags: ["User"],
+    }),
+
+
     // edit user by id
-    editUser: builder.mutation({
+    updateUser: builder.mutation({
       //not done page
       query: (data) => ({
         url: `/user/edit/${data.id}`,
@@ -75,6 +120,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
           "Content-type": "application/json; charset=UTF-8",
         },
       }),
+      invalidatesTags: ["User"]
     }),
 
     // delete user by id
@@ -87,7 +133,9 @@ export const userApiSlice = apiSlice.injectEndpoints({
           "Content-type": "application/json:charset=UTF-8",
         },
       }),
+      invalidatesTags: ['User'],
     }),
+
 
   }),
 });
@@ -98,7 +146,8 @@ export const {
   useRegisterMutation,
   useGetAllUsersQuery,
   useResetPasswordMutation,
-  useEditUserMutation,
+  useForgotPasswordMutation,
+  useUpdateUserMutation,
   useDeleteUserMutation,
-  useForgotPasswordMutation
+  useGetUserQuery
 } = userApiSlice;
