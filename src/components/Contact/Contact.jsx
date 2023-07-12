@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <>
       <SubNav componentsName={"Contact Us"} />
-      <div className="inner-page" style={{ backgroundColor: "teal" }}>
+      <div className="inner-page" style={{ backgroundColor: "aqua" }}>
         <div className="container">
           <div className="contact-wrap">
             <div className="row">
@@ -51,7 +51,7 @@ const Contact = () => {
               </div>
 
               <div className="col-md-12 column">
-                <div className="contact-form">
+                <div className="contact-form text-align-left">
                   <div id="message"></div>
                   <form
                     method="post"
@@ -61,6 +61,7 @@ const Contact = () => {
                   >
                     <div className="row">
                       <div className="col-md-6">
+                        {/* <label>Full name</label> */}
                         <input
                           name="name"
                           type="text"
@@ -69,6 +70,7 @@ const Contact = () => {
                         />
                       </div>
                       <div className="col-md-6">
+                        {/* <label>Phone Number</label> */}
                         <input
                           type="text"
                           name="phone"
@@ -76,6 +78,7 @@ const Contact = () => {
                         />
                       </div>
                       <div className="col-md-6">
+                        {/* <label>Email</label> */}
                         <input
                           name="email"
                           type="text"
@@ -84,6 +87,7 @@ const Contact = () => {
                         />
                       </div>
                       <div className="col-md-6">
+                        {/* <label>Address</label> */}
                         <input
                           name="email"
                           type="text"
@@ -92,6 +96,7 @@ const Contact = () => {
                         />
                       </div>
                       <div className="col-md-12">
+                        {/* <label>Details</label> */}
                         <textarea
                           rows="4"
                           name="comments"

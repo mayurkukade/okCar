@@ -20,6 +20,7 @@ const EditUserProfile = () => {
   const responseData = useGetUserQuery(id);
   const { data, isLoading } = responseData;
   // console.log("response data", responseData);
+  // console.log("data", data);
 
   const [inputField, setInputField] = useState({
     firstName: "",
@@ -67,8 +68,13 @@ const EditUserProfile = () => {
         position: "top",
         description: "Details updated successfully",
       });
+      const username = localStorage.getItem("userInfo");
+      const mutatedName = JSON.parse(username);
+      mutatedName.firstname = inputField.firstName;
+      // console.log(mutatedName);
+      localStorage.setItem("userInfo", JSON.stringify(mutatedName));
+
       navigate("/");
-      
     } catch (error) {
       console.log(error);
       toast({
@@ -101,6 +107,7 @@ const EditUserProfile = () => {
                           className="formpanel tab-pane fade in active"
                         >
                           <div className="formrow">
+                            <label>First Name</label>
                             <input
                               type="text"
                               name="firstName"
@@ -112,6 +119,7 @@ const EditUserProfile = () => {
                             />
                           </div>
                           <div className="formrow">
+                            <label>Last Name</label>
                             <input
                               type="text"
                               name="lastName"
@@ -123,6 +131,7 @@ const EditUserProfile = () => {
                             />
                           </div>
                           <div className="formrow">
+                            <label>Phone Number</label>
                             <input
                               type="number"
                               name="mobile_no"
@@ -133,7 +142,8 @@ const EditUserProfile = () => {
                               required
                             />
                           </div>
-                          <div className="formrow">
+                          {/* <div className="formrow">
+                            <label>Email</label>
                             <input
                               type="text"
                               name="email"
@@ -143,8 +153,9 @@ const EditUserProfile = () => {
                               value={inputField.email}
                               required
                             />
-                          </div>
+                          </div> */}
                           <div className="formrow">
+                            <label>Address</label>
                             <input
                               type="text"
                               name="address"
@@ -156,6 +167,7 @@ const EditUserProfile = () => {
                             />
                           </div>
                           <div className="formrow">
+                            <label>City</label>
                             <input
                               type="text"
                               name="city"
@@ -180,14 +192,14 @@ const EditUserProfile = () => {
                             <button type="submit" className="btn">
                               Update User
                             </button>
-                            <button
+                            {/* <button
                               type="submit"
                               className="btn"
                               value="Register"
                               style={{ backgroundColor: "red" }}
                             >
                               Delete User
-                            </button>
+                            </button> */}
                           </div>
                         </div>
                       </div>
