@@ -23,6 +23,9 @@ const SignUp = () => {
     email: "",
   });
 
+  const [pHelperText, setPHelperText] = useState('');
+  const [cpHelperText, setCPHelperText] = useState('');
+
   const dispatch = useDispatch();
 
   const [register] = useRegisterMutation();
@@ -39,6 +42,49 @@ const SignUp = () => {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    const {
+      password,
+      mobileNo,
+      roles,
+      firstName,
+      lastName,
+      city,
+      address,
+      email,
+      confirmPassword,
+    } = inputField;
+    if (password.length <= 8) {
+      setPHelperText('characters should be atleast 8');
+      return;
+    }
+    else if (!/[A-Z]/.test(password)) {
+      setPHelperText('atleast one capital letter required')
+      return;
+    }
+    else if (!/[a-z]/.test(password)) {
+      setPHelperText('atleast one small letter required')
+      return;
+    }
+    else if (!/[0-9]/.test(password)) {
+      setPHelperText('atleast one number required')
+      return;
+    }
+    else if (!/[!@#$%^&*()_\-{}[\]<>,\.?:;'"]/.test(password)) {
+      setPHelperText('atleast one special symbol required')
+      return;
+    }
+    else {
+      setPHelperText('');
+    }
+
+    if (confirmPassword !== password) {
+      setCPHelperText('passwords do not match');
+      return;
+    }
+    submitForm(e)
+  }
+
+  const submitForm = async (e) => {
     console.log(inputField);
     const {
       password,
@@ -51,6 +97,8 @@ const SignUp = () => {
       email,
       confirmPassword,
     } = inputField;
+
+    
 
     try {
       const res = await register({
@@ -127,7 +175,7 @@ const SignUp = () => {
                       <div className="formrow">
                         <label>Mobile No</label>
                         <input
-                          type="text"
+                          type="number"
                           name="mobileNo"
                           className="form-control"
                           placeholder="Phone Number"
@@ -183,6 +231,7 @@ const SignUp = () => {
                           value={inputField.password}
                           required
                         />
+                        { (!!pHelperText.length) && <label style={{ color: 'rgb(250, 100, 100)' }}>{ pHelperText }</label> }
                       </div>
                       <div className="formrow">
                         <label>Confirm Password</label>
@@ -195,6 +244,7 @@ const SignUp = () => {
                           value={inputField.confirmPassword}
                           required
                         />
+                        { (!!cpHelperText.length) && <label style={{ color: 'rgb(250, 100, 100)' }}>{ cpHelperText }</label> }
                       </div>
                       <div className="formrow">
                         <input
