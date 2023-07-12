@@ -101,6 +101,7 @@ const EditUserProfile = () => {
                           className="formpanel tab-pane fade in active"
                         >
                           <div className="formrow">
+                            <label>First Name</label>
                             <input
                               type="text"
                               name="firstName"
@@ -112,6 +113,7 @@ const EditUserProfile = () => {
                             />
                           </div>
                           <div className="formrow">
+                            <label>Last Name</label>
                             <input
                               type="text"
                               name="lastName"
@@ -123,6 +125,7 @@ const EditUserProfile = () => {
                             />
                           </div>
                           <div className="formrow">
+                            <label>Phone Number</label>
                             <input
                               type="number"
                               name="mobile_no"
@@ -134,6 +137,7 @@ const EditUserProfile = () => {
                             />
                           </div>
                           <div className="formrow">
+                            <label>Email</label>
                             <input
                               type="text"
                               name="email"
@@ -145,6 +149,7 @@ const EditUserProfile = () => {
                             />
                           </div>
                           <div className="formrow">
+                            <label>Address</label>
                             <input
                               type="text"
                               name="address"
@@ -156,6 +161,7 @@ const EditUserProfile = () => {
                             />
                           </div>
                           <div className="formrow">
+                            <label>City</label>
                             <input
                               type="text"
                               name="city"

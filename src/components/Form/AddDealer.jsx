@@ -68,6 +68,7 @@ const [addDealer] = useAddDealerMutation()
                     <form onSubmit={onSubmitHandler}>
                       <div className="col-md-6">
                         <div className="formrow">
+                          <label>First Name</label>
                           <input
                             type="text"
                             name="firstName"
@@ -80,6 +81,7 @@ const [addDealer] = useAddDealerMutation()
                       </div>
                       <div className="col-md-6">
                         <div className="formrow">
+                          <label>Last Name</label>
                           <input
                             type="text"
                             name="lastName"
@@ -92,6 +94,7 @@ const [addDealer] = useAddDealerMutation()
                       </div>
                       <div className="col-md-6">
                         <div className="formrow">
+                          <label>Address</label>
                           <input
                             type="text"
                             name="address"
@@ -104,6 +107,7 @@ const [addDealer] = useAddDealerMutation()
                       </div>
                       <div className="col-md-6">
                         <div className="formrow">
+                          <label>City</label>
                           <input
                             type="text"
                             name="city"
@@ -116,6 +120,7 @@ const [addDealer] = useAddDealerMutation()
                       </div>
                       <div className="col-md-6">
                         <div className="formrow">
+                          <label>Mobile No</label>
                           <input
                             type="text"
                             name="mobileNo"
@@ -126,6 +131,7 @@ const [addDealer] = useAddDealerMutation()
                           />
                         </div>
                         <div className="formrow">
+                          <label>Area</label>
                           <input
                             type="text"
                             name="area"
@@ -162,6 +168,7 @@ const [addDealer] = useAddDealerMutation()
                       </div> */}
                       <div className="col-md-6">
                         <div className="formrow">
+                          <label>Email</label>
                           <input
                             type="email"
                             name="email"
@@ -172,6 +179,7 @@ const [addDealer] = useAddDealerMutation()
                           />
                         </div>
                         <div className="formrow">
+                          <label>Shop Name</label>
                           <input
                             type="text"
                             name="shopName"
@@ -185,6 +193,7 @@ const [addDealer] = useAddDealerMutation()
                       </div>
                       <div className="col-md-6">
                       <div className="formrow">
+                          <label>Password</label>
                           <input
                             type="password"
                             name="password"

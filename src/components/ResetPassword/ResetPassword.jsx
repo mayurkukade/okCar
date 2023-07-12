@@ -186,6 +186,7 @@ const ChangePasswordPage = () => {
                 <div className="formpanel">
                   <form onSubmit={handleSubmit}>
                     <div className="formrow">
+                      <label>New Password</label>
                       <input
                         type="password"
                         className="form-control"
@@ -196,6 +197,7 @@ const ChangePasswordPage = () => {
                       />
                     </div>
                     <div className="formrow">
+                      <label>Confirm Password</label>
                       <input
                         type="password"
                         className="form-control"
