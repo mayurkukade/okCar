@@ -14,6 +14,7 @@ import {
   ModalCloseButton,
   Text,
   Flex,
+  Badge
 } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 import { useLazyGetDealerCarsQuery, useDeleteDealerCarMutation, setSelectedCar } from '../../api/dealersManegmentApiSlice';
@@ -128,11 +129,20 @@ const DealersModel = () => {
       },
       {
         Header: "Price",
-        accessor: "Location",
+        accessor: "price",
+        Cell: (cell) => (
+          <>{ Number(cell.value).toLocaleString("en-IN") }</>
+        )
       },
       {
         Header: "Status",
-        accessor: "PhoneNo",
+        accessor: "carStatus",
+        Cell: (cell) => (
+          <>
+          { (cell.value.toLowerCase() === 'active') && <Badge colorScheme='green'>ACTIVE</Badge> }
+          { (cell.value.toLowerCase() !== 'active') && <Badge colorScheme='red'>INACTIVE</Badge> }
+          </>
+        )
       },
       {
         Header: "Car Details",
