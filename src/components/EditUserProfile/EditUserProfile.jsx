@@ -14,11 +14,11 @@ const EditUserProfile = () => {
 
   //get user by id query
   const responseData = useGetUserQuery(id);
-  const { data } = responseData;
-  console.log("response data", data);
+  const { data, isLoading } = responseData;
+  console.log("response data", responseData);
 
   // update user Mutation
-  const [updateUser, { isLoading }] = useUpdateUserMutation();
+  const [updateUser] = useUpdateUserMutation();
   console.log();
   const [inputField, setInputField] = useState({
     firstName: "",
@@ -56,7 +56,7 @@ const EditUserProfile = () => {
     e.preventDefault();
     console.log(inputField);
     try {
-      const res = await updateUser(inputField, id).unwrap();
+      const res = await updateUser({ id, data: inputField });
       console.log(res);
     } catch (error) {
       console.log(error);
@@ -160,11 +160,7 @@ const EditUserProfile = () => {
                         Terms and Condition
                       </div> */}
                           <div style={{ display: "flex", gap: "10px" }}>
-                            <button
-                              type="submit"
-                              className="btn"
-                              value="Register"
-                            >
+                            <button type="submit" className="btn">
                               Update User
                             </button>
                             <button
