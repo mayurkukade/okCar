@@ -122,7 +122,7 @@ const [addDealer] = useAddDealerMutation()
                         <div className="formrow">
                           <label>Mobile No</label>
                           <input
-                            type="text"
+                            type="number"
                             name="mobileNo"
                             className="form-control"
                             placeholder="mobileNo"
