@@ -39,6 +39,7 @@ const ForgotPassword = () => {
                   <h6>Please Enter Email to send Password Reset Link</h6>
                   <div className="formpanel">
                     <div className="formrow">
+                      <label>Email Address</label>
                       <input
                         type="text"
                         className="form-control"
