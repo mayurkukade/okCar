@@ -1,3 +1,7 @@
-body {
-  /* display: none; */
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
 }

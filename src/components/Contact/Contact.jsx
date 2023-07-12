@@ -51,7 +51,7 @@ const Contact = () => {
               </div>
 
               <div className="col-md-12 column">
-                <div className="contact-form">
+                <div className="contact-form text-align-left">
                   <div id="message"></div>
                   <form
                     method="post"
@@ -87,6 +87,7 @@ const Contact = () => {
                         />
                       </div>
                       <div className="col-md-6">
+                        <label>Address</label>
                         <input
                           name="email"
                           type="text"
@@ -95,6 +96,7 @@ const Contact = () => {
                         />
                       </div>
                       <div className="col-md-12">
+                        <label>Details</label>
                         <textarea
                           rows="4"
                           name="comments"
