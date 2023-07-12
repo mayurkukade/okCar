@@ -14,7 +14,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../api/authSlice";
 const AvtarModal = () => {
   const username = localStorage.getItem("userInfo");
-  //  console.log(JSON.parse(username)?.results)
+  console.log(username);
   console.log(JSON.parse(username)?.firstname);
 
   const dispatch = useDispatch();

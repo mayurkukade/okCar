@@ -73,7 +73,7 @@ const Home = () => {
           style={{ border: "2px solid black", backgroundColor: "black" }}
         >
           <div className="container">
-            <h3>Revolutionize Your Car Buying Experience with us!</h3>
+            <h3>Buy Cars with Ease!</h3>
             {/* <p>
               Search from over 1,00,000 Active Cars */}
             {/* &amp; Post free unlimited
@@ -128,9 +128,15 @@ const Home = () => {
                 </h1>
               </div>
               <p>
-                 "Auto Car", we are passionate about driving the digital transformation of enterprises within the automotive industry. Our store-without-walls concept revolutionizes car selling, making it efficient, convenient, and customer-centric. Join us on this exciting journey as we reshape the way vehicles are bought and sold, one digital transaction at a time.
-
-Ready to experience the future of car selling?   Sign up on our platform today and embark on a seamless journey towards digitizing your automotive sales process.
+                &quot;Auto Car&quot;, we are passionate about driving the
+                digital transformation of enterprises within the automotive
+                industry. Our store-without-walls concept revolutionizes car
+                selling, making it efficient, convenient, and customer-centric.
+                Join us on this exciting journey as we reshape the way vehicles
+                are bought and sold, one digital transaction at a time. Ready to
+                experience the future of car selling? Sign up on our platform
+                today and embark on a seamless journey towards digitizing your
+                automotive sales process.
               </p>
               <ul>
                 <li>Nam rutrum tortor eget lorem mattis mattis.</li>
@@ -149,7 +155,7 @@ Ready to experience the future of car selling?   Sign up on our platform today a
           <div className="container">
             <div className="titleTop">
               <h3>
-                Our <span>Brand</span>
+                Available <span>Brand</span>
               </h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
@@ -168,38 +174,53 @@ Ready to experience the future of car selling?   Sign up on our platform today a
               >
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
-                    <img src="../../../images/logo/new car logos/Tata Motor Logo.png" alt="" />
-                    {/* <strong>Tata Motors</strong> */}
+                    <img
+                      src="../../../images/logo/new car logos/Tata Motor Logo.png"
+                      alt=""
+                    />
+                    <strong>Tata Motors</strong>
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
-                    <img src="../../../images/logo/new car logos/suzuki logo.png" alt="" />
-                    {/* <strong>Maruti Suzuki</strong> */}
+                    <img
+                      src="../../../images/logo/new car logos/suzuki logo.png"
+                      alt=""
+                    />
+                    <strong>Maruti Suzuki</strong>
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
-                    <img src="../../../images/logo/new car logos/Hyundai Logo.png" alt="" />
-                    {/* <strong>Hyundai</strong> */}
+                    <img
+                      src="../../../images/logo/new car logos/Hyundai Logo.png"
+                      alt=""
+                    />
+                    <strong>Hyundai</strong>
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
-                    <img src="../../../images/logo/new car logos/Mahindra Logo.png" alt="" />
-                    {/* <strong>Mahindra</strong> */}
+                    <img
+                      src="../../../images/logo/new car logos/Mahindra Logo.png"
+                      alt=""
+                    />
+                    <strong>Mahindra</strong>
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
-                    <img src="../../../images/logo/new car logos/Honda Logo.png" alt="" />
-                    {/* <strong>Honda</strong> */}
+                    <img
+                      src="../../../images/logo/new car logos/Honda Logo.png"
+                      alt=""
+                    />
+                    <strong>Honda</strong>
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
                     <img src="../../../images/logo/toyota.png" alt="" />
-                    {/* <strong>Toyota</strong> */}
+                    <strong>Toyota</strong>
                   </a>
                 </li>
               </ul>

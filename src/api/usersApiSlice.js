@@ -66,36 +66,10 @@ export const userApiSlice = apiSlice.injectEndpoints({
     }),
 
     // get user by id
-    // getUser: builder.query({
-    //   query: (id) => {
-    //     console.log(id)
-    //     return {
-    //       url: `/user/getUser/${id}`,
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //         Authorization: `Bearer ${token}`,
-    //       },
-    //     }
-    //   },
-    //   providesTags: ["User"],
-    // }),
-
-    // getDealer: builder.query({
-    //   query: ({ id }) => ({
-    //     transformResponse: console.log(id),
-    //     url: `/dealer/${id}`,
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Authorization: `Bearer ${token}`,
-    //     },
-    //   }),
-    //   providesTags: ["Dealer"],
-    // }),
-
     getUser: builder.query({
       query: (id) => {
-        console.log("id from User", id)
-        console.log(`token ${token}`)
+        // console.log("id from User", id)
+        // console.log(`token ${token}`)
         return {
           url: `/user/getUser/${id}`,
           method: "GET",
@@ -112,14 +86,19 @@ export const userApiSlice = apiSlice.injectEndpoints({
     // edit user by id
     updateUser: builder.mutation({
       //not done page
-      query: (data) => ({
-        url: `/user/edit/${data.id}`,
-        method: "PUT",
-        body: data,
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      }),
+      query: ({ data }) => {
+        console.log("data", data);
+        console.log("id ", data.id);
+        return {
+          url: `/user/edit/${data.id}`,
+          method: "PUT",
+          body: data,
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            Authorization: `Bearer ${token}`
+          }
+        }
+      },
       invalidatesTags: ["User"]
     }),
 

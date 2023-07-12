@@ -93,6 +93,7 @@ const SignIn = () => {
                   {/* <!-- login form --> */}
                   <div className="formpanel">
                     <div className="formrow">
+                      <label>Email</label>
                       <input
                         type="email"
                         className="form-control"
@@ -106,6 +107,7 @@ const SignIn = () => {
                     </div>
 
                     <div className="formrow">
+                      <label>Password</label>
                       <input
                         type="password"
                         className="form-control"
