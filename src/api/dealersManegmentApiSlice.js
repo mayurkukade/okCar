@@ -116,6 +116,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
         body
         
       }),
+      invalidatesTags: ["Dealer"]
     }),
   })
 });
