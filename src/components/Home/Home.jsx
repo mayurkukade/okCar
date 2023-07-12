@@ -70,12 +70,18 @@ const Home = () => {
 
         <div
           className="searchwrap"
-          style={{ border: "2px solid black", backgroundColor: "black" }}
+          style={{ border: "2px solid white", backgroundColor: "white" }}
         >
           <div className="container">
-           <img src="C:\CP\okCar\images\Heading images.png" alt="Image" className="image-in-heading" /> 
+            {/* <img src="" alt="Image" className="image-in-heading" />   */}
 
-            <h3>Buy Cars with Ease!</h3>
+            <h3
+              style={{ color: "#5dc302", transition: "transform 0.3s" ,fontSize: "50px" }}
+              onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+              onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+            >
+              Buy Cars with Ease!
+            </h3>
             {/* <p>
               Search from over 1,00,000 Active Cars */}
             {/* &amp; Post free unlimited
@@ -130,17 +136,31 @@ const Home = () => {
                 </h1>
               </div>
               <p>
-                At "Auto Car", we are passionate about driving the digital transformation of enterprises within the automotive industry. Our store-without-walls concept revolutionizes car selling, making it efficient, convenient, and customer-centric. Join us on this exciting journey as we reshape the way vehicles are bought and sold, one digital transaction at a time.
-
-Ready to experience the future of car selling?   Sign up on our platform today and embark on a seamless journey towards digitizing your automotive sales process.
+                At "Auto Car", we are passionate about driving the digital
+                transformation of enterprises within the automotive industry.
+                Our store-without-walls concept revolutionizes car selling,
+                making it efficient, convenient, and customer-centric. Join us
+                on this exciting journey as we reshape the way vehicles are
+                bought and sold, one digital transaction at a time. Ready to
+                experience the future of car selling? Sign up on our platform
+                today and embark on a seamless journey towards digitizing your
+                automotive sales process.
               </p>
               <ul>
-                <li>Easy car buying and selling Simple and user-friendly interface.</li>
-                <li>Access to a wide range of cars and potential buyers/sellers.</li>
+                <li>Revolutionize your car buying experience with ease!</li>
                 <li>
-                Sellers can create detailed listings for their cars, including high-resolution images, specifications, and pricing information.
+                  Access to a wide range of cars and potential buyers/sellers.
                 </li>
-                <li>By eliminating the need for physical showrooms and extensive paperwork, our platform saves valuable time and resources for both buyers and sellers.</li>
+                <li>
+                  Sellers can create detailed listings for their cars, including
+                  high-resolution images, specifications, and pricing
+                  information.
+                </li>
+                <li>
+                  By eliminating the need for physical showrooms and extensive
+                  paperwork, our platform saves valuable time and resources for
+                  both buyers and sellers.
+                </li>
                 {/* <li>Duis non massa id nisl imperdiet iaculis.</li> */}
               </ul>
             </div>
@@ -153,8 +173,12 @@ Ready to experience the future of car selling?   Sign up on our platform today a
               <h3>
                 Our <span>Brand</span>
               </h3>
-              <p>
-              we pride ourselves on offering a wide selection of vehicles from renowned car brands. We have established strong partnerships with top manufacturers in the industry, ensuring that our customers have access to the best and most reliable vehicles on the market.
+              <p style={{ fontSize: "20px" }}>
+                we pride ourselves on offering a wide selection of vehicles from
+                renowned car brands. We have established strong partnerships
+                with top manufacturers in the industry, ensuring that our
+                customers have access to the best and most reliable vehicles on
+                the market.
               </p>
             </div>
             <div className="topsearchwrap">
@@ -168,31 +192,46 @@ Ready to experience the future of car selling?   Sign up on our platform today a
               >
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
-                    <img src="../../../images/logo/new car logos/Tata Motor Logo.png" alt="" />
+                    <img
+                      src="../../../images/logo/new car logos/Tata Motor Logo.png"
+                      alt=""
+                    />
                     {/* <strong>Tata Motors</strong> */}
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
-                    <img src="../../../images/logo/new car logos/suzuki logo.png" alt="" />
+                    <img
+                      src="../../../images/logo/new car logos/suzuki logo.png"
+                      alt=""
+                    />
                     {/* <strong>Maruti Suzuki</strong> */}
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
-                    <img src="../../../images/logo/new car logos/Hyundai Logo.png" alt="" />
+                    <img
+                      src="../../../images/logo/new car logos/Hyundai Logo.png"
+                      alt=""
+                    />
                     {/* <strong>Hyundai</strong> */}
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
-                    <img src="../../../images/logo/new car logos/Mahindra Logo.png" alt="" />
+                    <img
+                      src="../../../images/logo/new car logos/Mahindra Logo.png"
+                      alt=""
+                    />
                     {/* <strong>Mahindra</strong> */}
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
-                    <img src="../../../images/logo/new car logos/Honda Logo.png" alt="" />
+                    <img
+                      src="../../../images/logo/new car logos/Honda Logo.png"
+                      alt=""
+                    />
                     {/* <strong>Honda</strong> */}
                   </a>
                 </li>
@@ -212,7 +251,16 @@ Ready to experience the future of car selling?   Sign up on our platform today a
             <ul className="howlist row">
               <li className="col-md-4 col-sm-4">
                 <div className="iconcircle">
-                  <img src="images/avatar.png" alt="" />
+                <Link to="/signup">
+                  <div
+                    onMouseOver={(e) =>
+                      (e.target.style.transform = "scale(1.1)")
+                    }
+                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  >
+                    <img src="images/avatar.png" alt="" />
+                  </div>
+                  </Link>
                 </div>
                 <h4>Create a Free Account</h4>
                 <p>
@@ -223,8 +271,14 @@ Ready to experience the future of car selling?   Sign up on our platform today a
 
               <li className="col-md-4 col-sm-4">
                 <div className="iconcircle">
+                <div
+                    onMouseOver={(e) =>
+                      (e.target.style.transform = "scale(1.1)")
+                    }
+                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  >
                   <img src="images/car.png" alt="" />
-                </div>
+                </div></div>
                 <h4>Post your Free Car</h4>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -234,7 +288,14 @@ Ready to experience the future of car selling?   Sign up on our platform today a
 
               <li className="col-md-4 col-sm-4">
                 <div className="iconcircle">
+                <div
+                    onMouseOver={(e) =>
+                      (e.target.style.transform = "scale(1.1)")
+                    }
+                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  >
                   <img src="images/sell-icon.png" alt="" />
+                </div>
                 </div>
                 <h4>Sold or Buy</h4>
                 <p>
