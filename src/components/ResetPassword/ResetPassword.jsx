@@ -112,10 +112,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import SubNav from "../Navbar/SubNav";
 import { useToast } from "@chakra-ui/react";
 import { useResetPasswordMutation } from "../../api/usersApiSlice";
+import { ToastUtility } from "../../util/toast.utilities";
 
 // import { useRegisterMutation } from "../../api/usersApiSlice";
 const ChangePasswordPage = () => {
-  const toast = useToast();
+  // const toast = useToast();
   const navigate = useNavigate();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -123,6 +124,8 @@ const ChangePasswordPage = () => {
 
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const toastUtility = new ToastUtility(useToast());
   // const [error, setError] = useState("");
   // const [resetpassword] = useRegisterMutation()
 
@@ -139,37 +142,52 @@ const ChangePasswordPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (newPassword.length <= 8) {
+      toastUtility.showError('Password Incorrect', 'characters should be atleast 8');
+      return;
+    }
+    else if (!/[A-Z]/.test(newPassword)) {
+      toastUtility.showError('Password Incorrect', 'atleast one capital letter required')
+      return;
+    }
+    else if (!/[a-z]/.test(newPassword)) {
+      toastUtility.showError('Password Incorrect', 'atleast one small letter required')
+      return;
+    }
+    else if (!/[0-9]/.test(newPassword)) {
+      toastUtility.showError('Password Incorrect', 'atleast one number required')
+      return;
+    }
+    else if (!/[!@#$%^&*()_\-{}[\]<>,\.?:;'"]/.test(newPassword)) {
+      toastUtility.showError('Password Incorrect', 'atleast one special symbol required')
+      return;
+    }
+    else {
+      setPHelperText('');
+    }
+
+    if (confirmPassword !== newPassword) {
+      toastUtility.showError('Password Incorrect', "Password and Confirm Password do not match")
+      return;
+    }
+    submitForm(e)
+  }
+
+  function setPHelperText(e) { }
+
+  const submitForm = async (e) => {
+
     try {
-      if (newPassword === confirmPassword) {
-        console.log(token, newPassword);
-        createPost(token, newPassword);
-        if (responseData.error) {
-          toast({
-            status: "error",
-            position: "top",
-            description: responseData.error.message,
-          });
-        } else {
-          toast({
-            status: "success",
-            position: "top",
-            description: "Password updated successfully",
-          });
-          navigate("/");
-        }
+      console.log(token, newPassword);
+      createPost(token, newPassword);
+      if (responseData.error) {
+        toastUtility.showError('Password Incorrect', responseData.error.message)
       } else {
-        toast({
-          status: "error",
-          position: "top",
-          description: "Password and Confirm Password do not match",
-        });
+        toastUtility.showSuccess('Request Successful', 'Password updated successfully');
+        navigate("/");
       }
     } catch (error) {
-      toast({
-        status: "error",
-        position: "top",
-        description: "An error occurred while updating the password",
-      });
+      toastUtility.showError('Password Incorrect', 'An error occurred while updating the password');
     }
   };
 
