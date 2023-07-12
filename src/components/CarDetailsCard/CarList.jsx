@@ -345,65 +345,11 @@ const CarList = () => {
 
             {/* <div className="cardcontaier" style={{ height: "100px" }}> */}
 
-            <div className="col-md-9 col-sm-7"> 
-            <div className="card-container-wrapper" style={{ height: "1070px", overflowY: "auto" }}>
-
-               <div className="card-container" style={{ height: "200px" }}>  
-
-               
-
-              {/* <div className="card-container" ref={cardContainerRef}> */}
-
-
-            {responseData === null ? (
-              // <h3
-              //   style={{
-              //     display: "flex",
-              //     justifyContent: "center",
-              //     alignItems: "center",
-              //     height: "80vh",
-              //   }}
-              // >
-              <h3>
-                No car Found
-              </h3>
-            ) : responseData.length === 0 ? (
-              <h3
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  height: "80vh",
-                }}
+            <div className="col-md-9 col-sm-7">
+              <div className="card-container-wrapper" style={{ height: "1070px", overflowY: "auto" }}
               >
-                ngSomething Went Wro Can&apos;t fetch Car list
-              </h3>
-            ) : (
-              responseData.map((carDetails, index) => {
-                  
-                return <CarListCard key={index} {...carDetails} />;
-              })
-            )}
-          </div>
-          </div>
-          </div>  
-
-
-          <div className="pagiWrap" >
-            <div className="row">
-              <div className="col-md-4 col-sm-4"></div>
-              <div className="col-md-8 col-sm-8 text-right">
-                <ul className="pagination">
-                  <li>
-                  {/* <div className="col-md-12 col-sm-12 text-center"> */}
-
-                    <button 
-                      onClick={goToPreviousPage}
-                      disabled={currentPage === 1}
-                      // style={{ backgroundColor: "#5dc302", color: "white" ,borderRadius: "5px"}}
-                                            //  className="ArrowLeftIcon"
-                      //  style={{ paddingRight: "10px" }}
-
+                <div className="card-container" style={{ height: "200px" }}>
+                  {/* <div className="card-container" ref={cardContainerRef}> */}
 
                   {responseData === null ? (
                     // <h3
@@ -439,7 +385,7 @@ const CarList = () => {
               <div className="row">
                 <div className="col-md-4 col-sm-4"></div>
                 <div className="col-md-8 col-sm-8 text-right">
-                  <ul className="pagination">
+                  <ul className="pagination" style={{ marginTop: '2em' }}>
                     <li>
                       {/* <div className="col-md-12 col-sm-12 text-center"> */}
 
@@ -451,8 +397,8 @@ const CarList = () => {
                         //  style={{ paddingRight: "10px" }}
                       >
                         <Button colorScheme="teal" variant="outline" size="sm">
-                          <span style={{ marginRight: "5px" }}>
-                            <ArrowLeftIcon />
+                          <span style={{ marginRight: "5px", padding: "10px" }}>
+                            <ArrowLeftIcon /> 
                           </span>
                           Previous Page
                         </Button>
@@ -469,7 +415,7 @@ const CarList = () => {
                         // style={{ paddingLeft: "10px" }}
                       >
                         <Button colorScheme="teal" variant="outline" size="sm">
-                          <span style={{ marginLeft: "5px", padding: "10px 10px" }}>
+                          <span style={{ marginLeft: "5px", padding: "10px" }}>
                             Next Page <ArrowRightIcon />
                           </span>
                         </Button>
