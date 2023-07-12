@@ -6,7 +6,7 @@ import CarListCard from "./CarListCard.jsx";
 import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
 import { Button } from "@chakra-ui/react";
 
-// import { baseQuery } from "../../api/apiSlice";
+import { baseQuery } from "../../api/apiSlice";
 import {
   useGetAllCarsQuery,
   // useFilterCarQueryQuery,
@@ -27,20 +27,7 @@ const CarList = () => {
   // useState for pagination
   const [currentPage, setCurrentPage] = useState(1);
   // for fetching all cars
-  const { data: v } = useGetAllCarsQuery(currentPage);
-  // const { data: filterData,  } =
-  //   useFilterCarQueryQuery(
-  //     currentPage,
-  //     inputFilter.year,
-  //     inputFilter.fuelType,
-  //     inputFilter.transmission,
-  //     inputFilter.brand,
-  //     inputFilter.model,
-  //     inputFilter.area,
-  //     inputFilter.maxPrice,
-  //     inputFilter.minPrice
-  //   );
-  // console.log("filterData", filterData);
+  const { data: v, isLoading } = useGetAllCarsQuery(currentPage);
 
   const [responseData, setResponseData] = useState([]);
 
@@ -80,8 +67,9 @@ const CarList = () => {
 
   const fetchData = async () => {
     try {
+      console.log(`baseurl is ${baseQuery}`);
       const queryParams = new URLSearchParams(inputFilter).toString();
-      const url = `https://23ff-144-48-178-178.ngrok-free.app/cars/mainFilter/1?${queryParams}`;
+      const url = `${baseQuery}/cars/mainFilter/1?${queryParams}`;
       const response = await fetch(url);
       const data = await response.json();
       setResponseData(data?.list);
@@ -100,7 +88,6 @@ const CarList = () => {
       <div className="sticky">
         <SubNav componentsName={"Car List"} />
       </div>
-
       <div className="listpgWraper" style={{ display: "flex" }}>
         <div className="container">
           <div className="row">
@@ -345,43 +332,39 @@ const CarList = () => {
 
             {/* <div className="cardcontaier" style={{ height: "100px" }}> */}
 
-            <div className="col-md-9 col-sm-7">
-              <div
-                className="card-container-wrapper"
-                style={{ height: "950px", overflowY: "auto" }}
-              >
-                <div className="card-container" style={{ height: "100px" }}>
-                  {/* <div className="card-container" ref={cardContainerRef}> */}
+            {isLoading ? (
+              <p>Loading...</p>
+            ) : (
+              <div className="col-md-9 col-sm-7">
+                <div
+                  className="card-container-wrapper"
+                  style={{ height: "950px", overflowY: "auto" }}
+                >
+                  <div className="card-container" style={{ height: "100px" }}>
+                    {/* <div className="card-container" ref={cardContainerRef}> */}
 
-                  {responseData === null ? (
-                    // <h3
-                    //   style={{
-                    //     display: "flex",
-                    //     justifyContent: "center",
-                    //     alignItems: "center",
-                    //     height: "80vh",
-                    //   }}
-                    // >
-                    <h3>No car Found</h3>
-                  ) : responseData.length === 0 ? (
-                    <h3
-                      style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        height: "80vh",
-                      }}
-                    >
-                      Something Went Wrong Can&apos;t fetch Car list
-                    </h3>
-                  ) : (
-                    responseData.map((carDetails, index) => {
-                      return <CarListCard key={index} {...carDetails} />;
-                    })
-                  )}
+                    {responseData === null ? (
+                      <h3>No car Found</h3>
+                    ) : responseData.length === 0 ? (
+                      <h3
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          height: "80vh",
+                        }}
+                      >
+                        Something Went Wrong Can&apos;t fetch Car list
+                      </h3>
+                    ) : (
+                      responseData.map((carDetails, index) => {
+                        return <CarListCard key={index} {...carDetails} />;
+                      })
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
 
             <div className="pagiWrap">
               <div className="row">
