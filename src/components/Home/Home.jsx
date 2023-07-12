@@ -73,7 +73,7 @@ const Home = () => {
           style={{ border: "2px solid black", backgroundColor: "black" }}
         >
           <div className="container">
-            <h3>Revolutionize Your Car Buying Experience with us!</h3>
+            <h3>Buy Cars with Ease!</h3>
             {/* <p>
               Search from over 1,00,000 Active Cars */}
             {/* &amp; Post free unlimited
