@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import "./avtar.css";
 import AvtarModal from "./AvtarModal";
+import { Button } from "@chakra-ui/button";
 const Navbar = () => {
   const username = localStorage.getItem("userInfo");
   const user = JSON.parse(username)?.roles
+  console.log(user)
   let roleNav;
   if (user == "ADMIN") {
     roleNav = (
@@ -33,6 +35,9 @@ const Navbar = () => {
               <div className="navbar navbar-default" role="navigation">
                 <div className="navbar-collapse collapse" id="nav-main">
                   <ul className="nav navbar-nav">
+                  <li>
+                     
+                    </li>
                     {/* <li className="dropdown active">
                 <a>Home</a>
               </li>
@@ -99,6 +104,7 @@ const Navbar = () => {
                     <li>
                       <Link to="/Contact">Contact</Link>
                     </li>
+                    
                     <li className="postad">{user ? <AvtarModal /> : ""}</li>
                   </ul>
                 </div>

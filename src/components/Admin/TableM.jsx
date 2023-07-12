@@ -88,7 +88,7 @@ const TableM = ({
     <>
       {/* {isLoading ? <p>Loading...</p>: */}
       {data ? (
-        <div className="tableContainer">
+        <div className="tableContainer" style={{minHeight:"75vh"}}>
           <TableContainer>
             <Table {...getTableProps()}>
               <Thead bgColor={"#95B6D8"} padding="20px 0px">
