@@ -4,28 +4,26 @@ import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 import { useForgotPasswordMutation } from "../../api/usersApiSlice.js";
 import { ToastUtility } from "../../util/toast.utilities.js";
+import { CommonUtilities } from "../../util/common.utilities.js";
 
 const ForgotPassword = () => {
   const toastUtility = new ToastUtility(useToast());
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [createPost, responseData] = useForgotPasswordMutation();
-  const validateEmail = (email) => {
-    const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
-    return emailRegex.test(email);
-  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    
+    if ( !email.length ) { 
+      toastUtility.showError('Invalid Form', 'Email is not valid');
+      return; 
+    }
 
-    // validateEmail(email)
-    //   ? (createPost(email), navigate("/reset-password"))
-    //   : toast({
-    //       status: "error",
-    //       position: "top",
-    //       description: "Invalid Email Please Check Email",
-    //     });
-    if (!validateEmail(email)) return
+    if ( ! CommonUtilities.emailValidation(email) ) { 
+      toastUtility.showError('Invalid Form', 'Email is not valid');
+      return; 
+    }
 
     const response = await createPost(email);
 

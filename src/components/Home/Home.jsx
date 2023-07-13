@@ -3,6 +3,7 @@ import HomeCarousel from "../carousel/HomeCarousel";
 import { Link } from "react-router-dom";
 import bghome from "../../../images/bghome.jpg"
 
+
 const Home = () => {
   const username = localStorage.getItem("userInfo");
   const user = JSON.parse(username)?.roles || ''
@@ -79,7 +80,19 @@ const Home = () => {
           style={{ border: "2px solid black", backgroundColor: "black" }}
         >
           <div className="container">
-            <h3>Buy Cars with Ease!</h3>
+            {/* <img src="" alt="Image" className="image-in-heading" />   */}
+
+            <h3
+              style={{
+                color: "#5dc302",
+                transition: "transform 0.3s",
+                fontSize: "60px",
+              }}
+              onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+              onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+            >
+              Buy Cars with Ease!
+            </h3>
             {/* <p>
               Search from over 1,00,000 Active Cars */}
             {/* &amp; Post free unlimited
@@ -124,7 +137,7 @@ const Home = () => {
         <div className="about-wrap">
           <div className="col-md-6">
           <div className="about-image">
-            <img src={bghome} alt="About"  style={{ width: "300%", height: "auto" }} />
+            <img src={bghome} alt="About"  style={{ width: "470%", height: "620px" , maxWidth: "100%", overflow: "hidden", transition: "transform 0.5s"}} className="zoomable-image"/>
             </div>
           </div>
           <div className="col-md-6">
@@ -135,8 +148,8 @@ const Home = () => {
                   <span>Welcome to</span> Auto Car
                 </h1>
               </div>
-              <p>
-                &quot;Auto Car&quot;, we are passionate about driving the
+              <p style={{ fontSize: "16px" }}>
+                At &quot;Auto Car&quot;, we are passionate about driving the
                 digital transformation of enterprises within the automotive
                 industry. Our store-without-walls concept revolutionizes car
                 selling, making it efficient, convenient, and customer-centric.
@@ -181,7 +194,7 @@ const Home = () => {
                 }}
               >
                 <li className="col-md-2 col-sm-3 col-xs-6">
-                  <a href="listing.html">
+                  {/* <a href="listing.html"> */}
                     <img
                       src="../../../images/logo/new car logos/Tata Motor Logo.png"
                       alt=""
@@ -193,10 +206,10 @@ const Home = () => {
                       }
                     />
                     <strong>Tata Motors</strong>
-                  </a>
+                  {/* </a> */}
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
-                  <a href="listing.html">
+                  {/* <a href="listing.html"> */}
                     <img
                       src="../../../images/logo/new car logos/suzuki logo.png"
                       alt=""
@@ -208,10 +221,10 @@ const Home = () => {
                       }
                     />
                     <strong>Maruti Suzuki</strong>
-                  </a>
+                  {/* </a> */}
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
-                  <a href="listing.html">
+                  {/* <a href="listing.html"> */}
                     <img
                       src="../../../images/logo/new car logos/Hyundai Logo.png"
                       onMouseOver={(e) =>
@@ -223,10 +236,10 @@ const Home = () => {
                       alt=""
                     />
                     <strong>Hyundai</strong>
-                  </a>
+                  {/* </a> */}
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
-                  <a href="listing.html">
+                  {/* <a href="listing.html"> */}
                     <img
                       src="../../../images/logo/new car logos/Mahindra Logo.png"
                       alt=""
@@ -238,10 +251,10 @@ const Home = () => {
                       }
                     />
                     <strong>Mahindra</strong>
-                  </a>
+                  {/* </a> */}
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
-                  <a href="listing.html">
+                  {/* <a href="listing.html"> */}
                     <img
                       src="../../../images/logo/new car logos/Honda Logo.png"
                       alt=""
@@ -253,10 +266,10 @@ const Home = () => {
                       }
                     />
                     <strong>Honda</strong>
-                  </a>
+                  {/* </a> */}
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
-                  <a href="listing.html">
+                  {/* <a href="listing.html"> */}
                     <img
                       src="../../../images/logo/toyota.png"
                       alt=""
@@ -268,7 +281,7 @@ const Home = () => {
                       }
                     />
                     <strong>Toyota</strong>
-                  </a>
+                  {/* </a> */}
                 </li>
               </ul>
             </div>
@@ -284,8 +297,7 @@ const Home = () => {
                 </div>
                 <h4>Create a Free Account</h4>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incidid ut labore et dolore magna aliqua.
+                Get started on your car buying journey by creating a free account. Discover a tailored experience, expert guidance, and the tools you need to make informed decisions with ease.
                 </p>
               </li>
 
@@ -295,8 +307,7 @@ const Home = () => {
                 </div>
                 <h4>Post your Free Car</h4>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incidid ut labore et dolore magna aliqua.
+                Sell with Ease and Reach a Wide Audience!say goodbye to traditional selling methods and embrace the convenience of our digital car marketplace
                 </p>
               </li>
 
@@ -306,8 +317,7 @@ const Home = () => {
                 </div>
                 <h4>Sold or Buy</h4>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incidid ut labore et dolore magna aliqua.
+                Maximize Your Car's Value with Easy Selling & Find Your Dream Car in Just a Few Clicks! Sell with Ease, Buy with Confidence. Unlock a World of Possibilities: Sell, Buy, and Drive!
                 </p>
               </li>
             </ul>

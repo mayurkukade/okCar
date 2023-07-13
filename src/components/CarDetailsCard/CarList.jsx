@@ -78,6 +78,20 @@ const CarList = () => {
     }
   };
 
+  // clear filter
+  const clearFilters = () => {
+    setInputFilter({
+      year: "",
+      fuelType: "",
+      transmission: "",
+      brand: "",
+      model: "",
+      area: "",
+      maxPrice: "",
+      minPrice: "",
+    });
+  };
+
   console.log("use Stata data", responseData);
   // console.log("filter data", filterData1);
   // if (responseData === null) {
@@ -176,14 +190,38 @@ const CarList = () => {
 
                   <div className="widget">
                     <h4 className="widget-title">Year </h4>
-                    <input
-                      type="number"
-                      name="year"
+                    <select
                       className="form-control"
-                      placeholder="Year"
+                      name="year"
+                      value={inputFilter.year}
                       onChange={onChangeFormHandler}
-                      pattern="[0-9]*"
-                    />
+                    >
+                      <option>Select Year</option>
+                      <option>2023</option>
+                      <option>2022</option>
+                      <option>2021</option>
+                      <option>2020</option>
+                      <option>2019</option>
+                      <option>2018</option>
+                      <option>2017</option>
+                      <option>2016</option>
+                      <option>2015</option>
+                      <option>2014</option>
+                      <option>2013</option>
+                      <option>2012</option>
+                      <option>2011</option>
+                      <option>2010</option>
+                      <option>2009</option>
+                      <option>2008</option>
+                      <option>2007</option>
+                      <option>2006</option>
+                      <option>2005</option>
+                      <option>2004</option>
+                      <option>2003</option>
+                      <option>2002</option>
+                      <option>2001</option>
+                      <option>2000</option>
+                    </select>
                   </div>
 
                   <div className="widget">
@@ -199,7 +237,9 @@ const CarList = () => {
                       <option>Honda</option>
                       <option>Toyota</option>
                       <option>Suzuki</option>
+                      <option>Mahindra</option>
                       <option>Hyundai</option>
+                      <option>Kia</option>
                     </select>
                   </div>
 
@@ -316,9 +356,17 @@ const CarList = () => {
                   </div>
 
                   <div className="searchnt">
-                    <button className="btn">
+                    <button className="btn" onClick={onSubmitHandler}>
                       <i className="fa fa-search" aria-hidden="true"></i> Update
                       Results
+                    </button>
+                    <button
+                      className="btn"
+                      style={{ marginTop: "20px" }}
+                      onClick={clearFilters}
+                    >
+                      <i className="fa fa-search" aria-hidden="true"></i> Clear
+                      Filter
                     </button>
                   </div>
                 </div>
@@ -389,7 +437,12 @@ const CarList = () => {
                         //  className="ArrowLeftIcon"
                         //  style={{ paddingRight: "10px" }}
                       >
-                        <Button colorScheme="teal" variant="outline" size="sm"  w="150px">
+                        <Button
+                          colorScheme="teal"
+                          variant="outline"
+                          size="sm"
+                          w="150px"
+                        >
                           <span style={{ marginRight: "2px", padding: "5px" }}>
                             <ArrowLeftIcon />
                           </span>
@@ -407,7 +460,12 @@ const CarList = () => {
                         // className="ArrowRightIcon"
                         // style={{ paddingLeft: "10px" }}
                       >
-                        <Button colorScheme="teal" variant="outline" size="sm"  w="150px">
+                        <Button
+                          colorScheme="teal"
+                          variant="outline"
+                          size="sm"
+                          w="150px"
+                        >
                           <span style={{ marginLeft: "5px", padding: "5px" }}>
                             Next Page <ArrowRightIcon />
                           </span>
