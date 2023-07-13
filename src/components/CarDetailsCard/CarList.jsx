@@ -411,7 +411,16 @@ const CarList = () => {
             {/* <div className="cardcontaier" style={{ height: "100px" }}> */}
 
             {isLoading ? (
-              <p>Loading...</p>
+              <h1
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  minHeight: "70vh",
+                }}
+              >
+                Loading ...
+              </h1>
             ) : (
               <div className="col-md-9 col-sm-7">
                 <div
