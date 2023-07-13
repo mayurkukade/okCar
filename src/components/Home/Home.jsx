@@ -1,6 +1,7 @@
 import AvtarModal from "../Navbar/AvtarModal";
 import HomeCarousel from "../carousel/HomeCarousel";
 import { Link } from "react-router-dom";
+import bghome from "../../../images/bghome.jpg"
 
 const Home = () => {
   const username = localStorage.getItem("userInfo");
@@ -125,7 +126,9 @@ const Home = () => {
         <HomeCarousel />
         <div className="about-wrap">
           <div className="col-md-6">
-            <div className="about-image"></div>
+          <div className="about-image">
+            <img src={bghome} alt="About"  style={{ width: "300%", height: "auto" }} />
+            </div>
           </div>
           <div className="col-md-6">
             <div className="aboutinfo">
