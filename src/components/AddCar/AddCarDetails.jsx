@@ -2,8 +2,8 @@ import { useState } from "react";
 import SubNav from "../Navbar/SubNav";
 import imageCompression from "browser-image-compression";
 import { useAddCarMutation } from "../../api/carApiSlice";
-import jwt_decode from 'jwt-decode';
-import { useNavigate } from 'react-router-dom';
+import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 const AddCarDetails = () => {
   const [createPost, responseData] = useAddCarMutation();
@@ -43,7 +43,9 @@ const AddCarDetails = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const { dealerId: dealer_id } = jwt_decode(`Bearer ${localStorage.getItem('userToken')}`);
+    const { dealerId: dealer_id } = jwt_decode(
+      `Bearer ${localStorage.getItem("userToken")}`
+    );
 
     if (!dealer_id) return;
 
@@ -84,11 +86,11 @@ const AddCarDetails = () => {
     // } catch (error) {
     //   console.error(error); // Handle any errors that occur during the request
     // }
-    
+
     // console.log(data);
-    createPost(data).then(responseData => {
+    createPost(data).then((responseData) => {
       if (responseData?.error) return;
-      navigate('/dealer')
+      navigate("/dealer");
     });
   };
 
@@ -121,7 +123,7 @@ const AddCarDetails = () => {
     }
 
     // Store base64 images in localStorage
-    localStorage.setItem('images', JSON.stringify(base64Images));
+    localStorage.setItem("images", JSON.stringify(base64Images));
 
     const compressedImages = [];
 
@@ -307,7 +309,7 @@ const AddCarDetails = () => {
 
                       <div className="col-md-6">
                         <div className="formrow">
-                          <label>Owner Serial</label>
+                          <label>Owner Type</label>
                           <input
                             required
                             type="number"
@@ -363,40 +365,6 @@ const AddCarDetails = () => {
                           />
                         </div>
                       </div>
-
-                      {/* <div className="col-md-4">
-                      <div className="formrow">
-                        <input
-                          type="text"
-                          placeholder="Engine Capacity"
-                          className="form-control"
-                          value={formData.engineCapacity}
-                          onChange={(event) => {
-                            setFormData({
-                              ...formData,
-                              engineCapacity: event.target.value,
-                            });
-                          }}
-                        />
-                      </div>
-                    </div> */}
-
-                      {/* <div className="col-md-4">
-                      <div className="formrow">
-                        <input
-                          type="text"
-                          placeholder="Mileage"
-                          className="form-control"
-                          value={formData.mileage}
-                          onChange={(event) => {
-                            setFormData({
-                              ...formData,
-                              mileage: event.target.value,
-                            });
-                          }}
-                        />
-                      </div>
-                    </div> */}
 
                       <div className="col-md-4">
                         <div className="formrow">
