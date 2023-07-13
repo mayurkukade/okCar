@@ -17,9 +17,9 @@ const Contact = () => {
                     <div className="information">
                       <strong>Address:</strong>
                       <p>
-                        8500 lorem, New Ispum, Dolor amet sit 12301
+                      314, 315, Gera’s Imperium Alpha, Eon Free Zone Rd, Rajaram Patil Nagar,Kharadi
                         <br />
-                        New York, USA
+                        Pune, Maharashtra 411014
                       </p>
                     </div>
                   </div>
@@ -31,8 +31,8 @@ const Contact = () => {
                     </span>
                     <div className="information">
                       <strong>Email Address:</strong>
-                      <p>investigate@your-site.com</p>
-                      <p>investigate@your-site.com</p>
+                      <p>info@opticalarc.com</p>
+                      {/* <p>investigate@your-site.com</p> */}
                     </div>
                   </div>
                 </div>
@@ -43,8 +43,9 @@ const Contact = () => {
                     </span>
                     <div className="information">
                       <strong>Phone No:</strong>
-                      <p>+12 345 67 09</p>
-                      <p>+12 345 67 09</p>
+                      <p>089996 13069</p>
+
+                      {/* <p>+12 345 67 09</p> */}
                     </div>
                   </div>
                 </div>
