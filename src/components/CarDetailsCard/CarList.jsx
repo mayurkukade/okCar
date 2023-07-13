@@ -51,7 +51,8 @@ const CarList = () => {
     const updatedValue =
       value === "Select Year" ||
       value === "Select Brand" ||
-      value === "Fuel Type"
+      value === "Fuel Type" ||
+      value === "Transmission"
         ? ""
         : value;
 
@@ -171,6 +172,7 @@ const CarList = () => {
                       <div className="col-md-6">
                         <input
                           type="number"
+                          value={inputFilter.minPrice}
                           name="minPrice"
                           className="form-control"
                           placeholder="Min Value"
@@ -182,6 +184,7 @@ const CarList = () => {
                         <input
                           type="number"
                           name="maxPrice"
+                          value={inputFilter.maxPrice}
                           className="form-control"
                           placeholder="Max Value"
                           onChange={onChangeFormHandler}
