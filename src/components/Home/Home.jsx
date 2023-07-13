@@ -131,7 +131,7 @@ const Home = () => {
         <div className="about-wrap">
           <div className="col-md-6">
           <div className="about-image">
-            <img src={bghome} alt="About"  style={{ width: "300%", height: "auto" }} />
+            <img src={bghome} alt="About"  style={{ width: "470%", height: "595px" , overflow: "hidden"}} />
             </div>
           </div>
           <div className="col-md-6">
