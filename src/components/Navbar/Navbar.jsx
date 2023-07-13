@@ -34,9 +34,7 @@ const Navbar = () => {
               <div className="navbar navbar-default" role="navigation">
                 <div className="navbar-collapse collapse" id="nav-main">
                   <ul className="nav navbar-nav">
-                  <li>
-                     
-                    </li>
+                    <li></li>
                     {/* <li className="dropdown active">
                 <a>Home</a>
               </li>
@@ -103,8 +101,14 @@ const Navbar = () => {
                     <li>
                       <Link to="/Contact">Contact Us</Link>
                     </li>
-                    
-                    <li className="" style={{backgroundColor:"white"}} >{user ? <AvtarModal /> : <Link to={'/signup'}>Sign Up</Link> }</li>
+
+                    <li className="" style={{ backgroundColor: "white" }}>
+                      {user ? (
+                        <AvtarModal />
+                      ) : (
+                        <Link to={"/signup"}>Sign Up</Link>
+                      )}
+                    </li>
                   </ul>
                 </div>
                 <div className="clearfix"></div>
