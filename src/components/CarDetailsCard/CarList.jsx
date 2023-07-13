@@ -337,7 +337,7 @@ const CarList = () => {
               <div className="col-md-9 col-sm-7">
                 <div
                   className="card-container-wrapper"
-                  style={{ height: "950px", overflowY: "auto" }}
+                  style={{ height: "880px", overflowY: "auto" }}
                 >
                   <div className="card-container" style={{ height: "100px" }}>
                     {/* <div className="card-container" ref={cardContainerRef}> */}
