@@ -6,7 +6,7 @@ import bghome from "../../../images/bghome.jpg"
 const Home = () => {
   const username = localStorage.getItem("userInfo");
   const user = JSON.parse(username)?.roles || ''
-  const user = JSON.parse(username)?.roles || ''
+
   return (
     <div>
       <div className="header">
