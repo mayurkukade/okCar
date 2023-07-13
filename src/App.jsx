@@ -31,6 +31,7 @@ import EditUserProfile from "./components/EditUserProfile/EditUserProfile";
 import EditDealerProfile from "./components/EditDealerProfile/EditDealerProfile";
 import Dealer from "./components/Admin/Dealer";
 import UpdateCarDetails from "./components/AddCar/UpdateCarDetails";
+import TableCard from "./components/TableCard/TableCard";
 // import Cloudnary from "./Dummy/Cloudnary";
 // import Cloudnary from "./Dummy/Cloudnary";
 
@@ -86,6 +87,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
+        <Route path="/tablecard" element={<TableCard/>} />
       </Routes>
       <Footer />
     </>

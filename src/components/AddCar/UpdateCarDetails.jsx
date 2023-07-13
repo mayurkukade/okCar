@@ -266,8 +266,8 @@ const UpdateCarDetails = () => {
                       </div>
 
                       <div className="col-md-6">
-                        <div className="formrow">
-                          <label>Owner Serial</label>
+                        {/* <div className="formrow">
+                          <label>Owner Type</label>
                           <input
                             required
                             type="number"
@@ -282,7 +282,7 @@ const UpdateCarDetails = () => {
                               })
                             }
                           />
-                        </div>
+                        </div> */}
                       </div>
 
                       <div className="col-md-4">
@@ -559,7 +559,7 @@ const UpdateCarDetails = () => {
                             <label className="uploadBox">
                               Click here to Upload
                               <input
-                                required
+                                
                                 type="file"
                                 name="upload"
                                 onChange={handleImage}
