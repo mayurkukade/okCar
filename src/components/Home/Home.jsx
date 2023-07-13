@@ -133,10 +133,10 @@ const Home = () => {
         <div className="about-wrap">
           <div className="col-md-6">
           <div className="about-image">
-            <img src={bghome} alt="About"  style={{ width: "470%", height: "620px" , maxWidth: "100%", overflow: "hidden", transition: "transform 0.5s"}} className="zoomable-image"/>
+            <img src={bghome} alt="About"  style={{ width: "495%", height: "620px" , maxWidth: "100%", overflow: "hidden", transition: "transform 0.5s"}} className="zoomable-image"/>
             </div>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6"style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
             <div className="aboutinfo">
               <div className="title">
                 <span>World&apos;s Leading Used Cars</span>
@@ -348,7 +348,7 @@ const Home = () => {
                 </div>
                 <h4>Sold or Buy</h4>
                 <p>
-                Maximize Your Car's Value with Easy Selling & Find Your Dream Car in Just a Few Clicks! Sell with Ease, Buy with Confidence. Unlock a World of Possibilities: Sell, Buy, and Drive!
+                Maximize Your Car&apos;s Value with Easy Selling & Find Your Dream Car in Just a Few Clicks! Sell with Ease, Buy with Confidence. Unlock a World of Possibilities: Sell, Buy, and Drive!
                 </p>
               </li>
             </ul>
