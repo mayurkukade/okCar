@@ -381,8 +381,8 @@ const CarList = () => {
                         //  className="ArrowLeftIcon"
                         //  style={{ paddingRight: "10px" }}
                       >
-                        <Button colorScheme="teal" variant="outline" size="sm">
-                          <span style={{ marginRight: "5px", padding: "10px" }}>
+                        <Button colorScheme="teal" variant="outline" size="sm"  w="150px">
+                          <span style={{ marginRight: "2px", padding: "5px" }}>
                             <ArrowLeftIcon /> 
                           </span>
                           Previous Page
@@ -399,7 +399,7 @@ const CarList = () => {
                         // className="ArrowRightIcon"
                         // style={{ paddingLeft: "10px" }}
                       >
-                        <Button colorScheme="teal" variant="outline" size="sm">
+                        <Button colorScheme="teal" variant="outline" size="sm"  w="150px">
                           <span style={{ marginLeft: "5px", padding: "10px" }}>
                             Next Page <ArrowRightIcon />
                           </span>
