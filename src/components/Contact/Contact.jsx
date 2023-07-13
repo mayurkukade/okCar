@@ -12,7 +12,15 @@ const Contact = () => {
                 <div className="col-md-4 column">
                   <div className="contact">
                     <span>
-                      <i className="fa fa-home"></i>
+                      <i
+                        className="fa fa-home"
+                        onMouseOver={(e) =>
+                          (e.target.style.transform = "scale(1.1)")
+                        }
+                        onMouseOut={(e) =>
+                          (e.target.style.transform = "scale(1)")
+                        }
+                      ></i>
                     </span>
                     <div className="information">
                       <strong>Address:</strong>
@@ -27,7 +35,15 @@ const Contact = () => {
                 <div className="col-md-4 column">
                   <div className="contact">
                     <span>
-                      <i className="fa fa-envelope"></i>
+                      <i
+                        className="fa fa-envelope"
+                        onMouseOver={(e) =>
+                          (e.target.style.transform = "scale(1.1)")
+                        }
+                        onMouseOut={(e) =>
+                          (e.target.style.transform = "scale(1)")
+                        }
+                      ></i>
                     </span>
                     <div className="information">
                       <strong>Email Address:</strong>
@@ -39,7 +55,15 @@ const Contact = () => {
                 <div className="col-md-4 column">
                   <div className="contact">
                     <span>
-                      <i className="fa fa-phone"></i>
+                      <i
+                        className="fa fa-phone"
+                        onMouseOver={(e) =>
+                          (e.target.style.transform = "scale(1.1)")
+                        }
+                        onMouseOut={(e) =>
+                          (e.target.style.transform = "scale(1)")
+                        }
+                      ></i>
                     </span>
                     <div className="information">
                       <strong>Phone No:</strong>
