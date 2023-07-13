@@ -324,7 +324,7 @@ const AddCarDetails = () => {
                               })
                             }
                           />
-                        </div> */}
+                        </div>
                       </div>
 
                       <div className="col-md-4">
