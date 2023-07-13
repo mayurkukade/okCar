@@ -1,19 +1,26 @@
 
 import SubNav from "../Navbar/SubNav";
 import {  useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useUpdateDealerMutation } from "../../api/dealersManegmentApiSlice";
 // import { useGetAllDealerQuery } from "../../api/dealersManegmentApiSlice";
 import { useGetDealerQuery } from "../../api/dealersManegmentApiSlice";
 
+import { useToast } from "@chakra-ui/react";
+import { ToastUtility } from "../../util/toast.utilities";
+import { CommonUtilities } from "../../util/common.utilities";
+
 const EditDealerProfile = () => {
   
     const {userid,id} = useParams()
-    const {data:dealerID,isLoading} = useGetDealerQuery({id})
+    const {data:dealerID,isLoading} = useGetDealerQuery({id});
+    const navigate = useNavigate();
+
+    const toastUtility = new ToastUtility(useToast());
     
   console.log(dealerID?.dealerDto)
 
-    console.log(userid,id)
+  console.log(userid,id)
   const [inputField, setInputField] = useState({
     firstName: "",
     lastName: "",
@@ -62,10 +69,36 @@ const EditDealerProfile = () => {
   const onSubmitHandler = async(e) => {
     e.preventDefault();
 
+    const { email, mobileNo } = inputField;
+
+    if ( !email.length ) { 
+      toastUtility.showError('Invalid Form', 'Email is not valid');
+      return; 
+    }
+
+    if ( ! CommonUtilities.emailValidation(email) ) { 
+      toastUtility.showError('Invalid Form', 'Email is not valid');
+      return; 
+    }
+
+    if ( ! CommonUtilities.mobileNumberValidation(mobileNo) ) { 
+      toastUtility.showError('Invalid Form', 'mobile number is not valid');
+      return; 
+    }
+
+    if ( ! e.target.elements['agree'].checked ) {
+      toastUtility.showError('Invalid Form', 'Please accept the Terms and Conditions');
+      return;
+    }
+
    try {
     const res = await updateDealer(inputField,).unwrap()
+    toastUtility.showSuccess('Saved', 'Dealer details has been updated');
+    navigate('/dealersmanegment');
+
     console.log(res)
    } catch (error) {
+    toastUtility.showError('Error', 'An unexpected error has occurred');
     console.log(error)
    }
    
