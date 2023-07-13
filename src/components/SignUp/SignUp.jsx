@@ -23,8 +23,8 @@ const SignUp = () => {
     email: "",
   });
 
-  const [pHelperText, setPHelperText] = useState('');
-  const [cpHelperText, setCPHelperText] = useState('');
+  const [pHelperText, setPHelperText] = useState("");
+  const [cpHelperText, setCPHelperText] = useState("");
 
   const dispatch = useDispatch();
 
@@ -54,35 +54,30 @@ const SignUp = () => {
       confirmPassword,
     } = inputField;
     if (password.length < 8) {
-      setPHelperText('characters should be atleast 8');
+      setPHelperText("characters should be atleast 8");
       return;
-    }
-    else if (!/[A-Z]/.test(password)) {
-      setPHelperText('atleast one capital letter required')
+    } else if (!/[A-Z]/.test(password)) {
+      setPHelperText("atleast one capital letter required");
       return;
-    }
-    else if (!/[a-z]/.test(password)) {
-      setPHelperText('atleast one small letter required')
+    } else if (!/[a-z]/.test(password)) {
+      setPHelperText("atleast one small letter required");
       return;
-    }
-    else if (!/[0-9]/.test(password)) {
-      setPHelperText('atleast one number required')
+    } else if (!/[0-9]/.test(password)) {
+      setPHelperText("atleast one number required");
       return;
-    }
-    else if (!/[!@#$%^&*()_\-{}[\]<>,\.?:;'"]/.test(password)) {
-      setPHelperText('atleast one special symbol required')
+    } else if (!/[!@#$%^&*()_\-{}[\]<>,\.?:;'"]/.test(password)) {
+      setPHelperText("atleast one special symbol required");
       return;
-    }
-    else {
-      setPHelperText('');
+    } else {
+      setPHelperText("");
     }
 
     if (confirmPassword !== password) {
-      setCPHelperText('passwords do not match');
+      setCPHelperText("passwords do not match");
       return;
     }
-    submitForm(e)
-  }
+    submitForm(e);
+  };
 
   const submitForm = async (e) => {
     console.log(inputField);
@@ -97,8 +92,6 @@ const SignUp = () => {
       email,
       confirmPassword,
     } = inputField;
-
-    
 
     try {
       const res = await register({
@@ -231,7 +224,11 @@ const SignUp = () => {
                           value={inputField.password}
                           required
                         />
-                        { (!!pHelperText.length) && <label style={{ color: 'rgb(250, 100, 100)' }}>{ pHelperText }</label> }
+                        {!!pHelperText.length && (
+                          <label style={{ color: "rgb(250, 100, 100)" }}>
+                            {pHelperText}
+                          </label>
+                        )}
                       </div>
                       <div className="formrow">
                         <label>Confirm Password</label>
@@ -244,7 +241,11 @@ const SignUp = () => {
                           value={inputField.confirmPassword}
                           required
                         />
-                        { (!!cpHelperText.length) && <label style={{ color: 'rgb(250, 100, 100)' }}>{ cpHelperText }</label> }
+                        {!!cpHelperText.length && (
+                          <label style={{ color: "rgb(250, 100, 100)" }}>
+                            {cpHelperText}
+                          </label>
+                        )}
                       </div>
                       <div className="formrow">
                         <input
@@ -265,9 +266,9 @@ const SignUp = () => {
 
                   <div className="newuser">
                     <i className="fa fa-user" aria-hidden="true"></i> Already a
-                    Member?
+                    Member ?
                     <Link to="/signin">
-                      <span>Login Here</span>
+                      <span> Login Here</span>
                     </Link>
                   </div>
                 </form>

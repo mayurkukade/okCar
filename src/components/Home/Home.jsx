@@ -77,7 +77,11 @@ const Home = () => {
             {/* <img src="" alt="Image" className="image-in-heading" />   */}
 
             <h3
-              style={{ color: "#5dc302", transition: "transform 0.3s" ,fontSize: "50px" }}
+              style={{
+                color: "#5dc302",
+                transition: "transform 0.3s",
+                fontSize: "50px",
+              }}
               onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
               onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
             >
@@ -139,12 +143,12 @@ const Home = () => {
                 </h1>
               </div>
               <p>
-                At "Auto Car", we are passionate about driving the digital
-                transformation of enterprises within the automotive industry.
-                Our store-without-walls concept revolutionizes car selling,
-                making it efficient, convenient, and customer-centric. Join us
-                on this exciting journey as we reshape the way vehicles are
-                bought and sold, one digital transaction at a time. Ready to
+                At &quot;Auto Car&quot;, we are passionate about driving the
+                digital transformation of enterprises within the automotive
+                industry. Our store-without-walls concept revolutionizes car
+                selling, making it efficient, convenient, and customer-centric.
+                Join us on this exciting journey as we reshape the way vehicles
+                are bought and sold, one digital transaction at a time. Ready to
                 experience the future of car selling? Sign up on our platform
                 today and embark on a seamless journey towards digitizing your
                 automotive sales process.
@@ -199,7 +203,7 @@ const Home = () => {
                       src="../../../images/logo/new car logos/Tata Motor Logo.png"
                       alt=""
                     />
-                    {/* <strong>Tata Motors</strong> */}
+                    <strong>Tata Motors</strong>
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
@@ -208,7 +212,7 @@ const Home = () => {
                       src="../../../images/logo/new car logos/suzuki logo.png"
                       alt=""
                     />
-                    {/* <strong>Maruti Suzuki</strong> */}
+                    <strong>Maruti Suzuki</strong>
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
@@ -217,7 +221,7 @@ const Home = () => {
                       src="../../../images/logo/new car logos/Hyundai Logo.png"
                       alt=""
                     />
-                    {/* <strong>Hyundai</strong> */}
+                    <strong>Hyundai</strong>
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
@@ -226,7 +230,7 @@ const Home = () => {
                       src="../../../images/logo/new car logos/Mahindra Logo.png"
                       alt=""
                     />
-                    {/* <strong>Mahindra</strong> */}
+                    <strong>Mahindra</strong>
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
@@ -235,7 +239,7 @@ const Home = () => {
                       src="../../../images/logo/new car logos/Honda Logo.png"
                       alt=""
                     />
-                    {/* <strong>Honda</strong> */}
+                    <strong>Honda</strong>
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
@@ -254,15 +258,17 @@ const Home = () => {
             <ul className="howlist row">
               <li className="col-md-4 col-sm-4">
                 <div className="iconcircle">
-                <Link to="/signup">
-                  <div
-                    onMouseOver={(e) =>
-                      (e.target.style.transform = "scale(1.1)")
-                    }
-                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  >
-                    <img src="images/avatar.png" alt="" />
-                  </div>
+                  <Link to="/signup">
+                    <div
+                      onMouseOver={(e) =>
+                        (e.target.style.transform = "scale(1.1)")
+                      }
+                      onMouseOut={(e) =>
+                        (e.target.style.transform = "scale(1)")
+                      }
+                    >
+                      <img src="images/avatar.png" alt="" />
+                    </div>
                   </Link>
                 </div>
                 <h4>Create a Free Account</h4>
@@ -274,14 +280,15 @@ const Home = () => {
 
               <li className="col-md-4 col-sm-4">
                 <div className="iconcircle">
-                <div
+                  <div
                     onMouseOver={(e) =>
                       (e.target.style.transform = "scale(1.1)")
                     }
                     onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                   >
-                  <img src="images/car.png" alt="" />
-                </div></div>
+                    <img src="images/car.png" alt="" />
+                  </div>
+                </div>
                 <h4>Post your Free Car</h4>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -291,14 +298,14 @@ const Home = () => {
 
               <li className="col-md-4 col-sm-4">
                 <div className="iconcircle">
-                <div
+                  <div
                     onMouseOver={(e) =>
                       (e.target.style.transform = "scale(1.1)")
                     }
                     onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                   >
-                  <img src="images/sell-icon.png" alt="" />
-                </div>
+                    <img src="images/sell-icon.png" alt="" />
+                  </div>
                 </div>
                 <h4>Sold or Buy</h4>
                 <p>
