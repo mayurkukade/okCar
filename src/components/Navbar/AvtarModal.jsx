@@ -31,17 +31,18 @@ const AvtarModal = () => {
 
   return (
     <Box className="card">
-      <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
+      <Avatar size={'sm'} marginRight={'0.3rem'} marginTop={'0.1rem'} name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
       <Menu bg="white">
         <MenuButton
           as={Button}
           rightIcon={<ChevronDownIcon />}
-          style={{ marginLeft: "10px", padding: "23px" }}
+         marginTop={'0.2rem'}
+          size={'sm'}
         >
           {JSON.parse(username)?.roles[0] === "ADMIN"
             ? "Admin"
             : JSON.parse(username)?.firstname}
-          {/* {JSON.parse(username).results.user[0].username} */}
+     
         </MenuButton>
         <MenuList>
           {/* <MenuItem>History</MenuItem>
