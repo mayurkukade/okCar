@@ -199,6 +199,7 @@ const CarList = () => {
                       <option>Honda</option>
                       <option>Toyota</option>
                       <option>Suzuki</option>
+                      <option>Mahindra</option>
                       <option>Hyundai</option>
                     </select>
                   </div>
@@ -389,7 +390,12 @@ const CarList = () => {
                         //  className="ArrowLeftIcon"
                         //  style={{ paddingRight: "10px" }}
                       >
-                        <Button colorScheme="teal" variant="outline" size="sm"  w="150px">
+                        <Button
+                          colorScheme="teal"
+                          variant="outline"
+                          size="sm"
+                          w="150px"
+                        >
                           <span style={{ marginRight: "2px", padding: "5px" }}>
                             <ArrowLeftIcon />
                           </span>
@@ -407,7 +413,12 @@ const CarList = () => {
                         // className="ArrowRightIcon"
                         // style={{ paddingLeft: "10px" }}
                       >
-                        <Button colorScheme="teal" variant="outline" size="sm"  w="150px">
+                        <Button
+                          colorScheme="teal"
+                          variant="outline"
+                          size="sm"
+                          w="150px"
+                        >
                           <span style={{ marginLeft: "5px", padding: "5px" }}>
                             Next Page <ArrowRightIcon />
                           </span>

@@ -5,7 +5,6 @@ import { useState } from "react";
 import { useRegisterMutation } from "../../api/usersApiSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
 import { useToast } from "@chakra-ui/react";
 
 const SignUp = () => {
@@ -23,8 +22,8 @@ const SignUp = () => {
     email: "",
   });
 
-  const [pHelperText, setPHelperText] = useState("");
-  const [cpHelperText, setCPHelperText] = useState("");
+  // const [pHelperText, setPHelperText] = useState("");
+  // const [cpHelperText, setCPHelperText] = useState("");
 
   const dispatch = useDispatch();
 
@@ -54,26 +53,56 @@ const SignUp = () => {
       confirmPassword,
     } = inputField;
     if (password.length < 8) {
-      setPHelperText("characters should be atleast 8");
+      // setPHelperText("characters should be atleast 8");
+      toast({
+        status: "error",
+        position: "top",
+        description: "Password  should be atleast 8 Characters ",
+      });
       return;
     } else if (!/[A-Z]/.test(password)) {
-      setPHelperText("atleast one capital letter required");
+      // setPHelperText("atleast one capital letter required");
+      toast({
+        status: "error",
+        position: "top",
+        description: "Password atleast one capital letter required",
+      });
       return;
     } else if (!/[a-z]/.test(password)) {
-      setPHelperText("atleast one small letter required");
+      // setPHelperText("atleast one small letter required");
+      toast({
+        status: "error",
+        position: "top",
+        description: "Password has atleast one small letter required",
+      });
       return;
     } else if (!/[0-9]/.test(password)) {
-      setPHelperText("atleast one number required");
+      // setPHelperText("atleast one number required");
+      toast({
+        status: "error",
+        position: "top",
+        description: "Password has atleast one number required ",
+      });
       return;
-    } else if (!/[!@#$%^&*()_\-{}[\]<>,\.?:;'"]/.test(password)) {
-      setPHelperText("atleast one special symbol required");
+    } else if (!/[!@#$%^&*()_\-{}[\]<>,.?:;'"]/.test(password)) {
+      // setPHelperText("atleast one special symbol required");
+      toast({
+        status: "error",
+        position: "top",
+        description: "Password  should be atleast 8 Characters  ",
+      });
       return;
     } else {
-      setPHelperText("");
+      // setPHelperText("");
     }
 
     if (confirmPassword !== password) {
-      setCPHelperText("passwords do not match");
+      // setCPHelperText("passwords do not match");
+      toast({
+        status: "error",
+        position: "top",
+        description: "Confirm Password and Passwords do not match",
+      });
       return;
     }
     submitForm(e);
@@ -105,9 +134,9 @@ const SignUp = () => {
         email,
         confirmPassword,
       }).unwrap();
-      if (inputField.password == !inputField.confirmPassword) {
-        alert("not match password");
-      }
+      // if (inputField.password == !inputField.confirmPassword) {
+      //   alert("Confirm Password and Passwords do not match");
+      // }
       toast({
         status: "success",
         position: "top",
@@ -224,11 +253,11 @@ const SignUp = () => {
                           value={inputField.password}
                           required
                         />
-                        {!!pHelperText.length && (
+                        {/* {!!pHelperText.length && (
                           <label style={{ color: "rgb(250, 100, 100)" }}>
                             {pHelperText}
                           </label>
-                        )}
+                        )} */}
                       </div>
                       <div className="formrow">
                         <label>Confirm Password</label>
@@ -241,11 +270,11 @@ const SignUp = () => {
                           value={inputField.confirmPassword}
                           required
                         />
-                        {!!cpHelperText.length && (
+                        {/* {!!cpHelperText.length && (
                           <label style={{ color: "rgb(250, 100, 100)" }}>
                             {cpHelperText}
                           </label>
-                        )}
+                        )} */}
                       </div>
                       <div className="formrow">
                         <input
