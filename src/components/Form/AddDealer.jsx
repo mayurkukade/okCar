@@ -4,6 +4,7 @@ import SubNav from "../Navbar/SubNav";
 import { useToast } from "@chakra-ui/react";
 import { TOASTS, ToastUtility } from "../../util/toast.utilities";
 import { useAddDealerMutation } from "../../api/dealersManegmentApiSlice";
+import { CommonUtilities } from "../../util/common.utilities";
 const AddDealer = () => {
   const [inputField, setInputField] = useState({
     firstName: "",
@@ -42,10 +43,22 @@ const [addDealer] = useAddDealerMutation()
 
   const onSubmitHandler = async(e) => {
     e.preventDefault();
-  
+    // const a = inputField;
+    const { email, mobileNo } = inputField;
+
+    if ( ! CommonUtilities.mobileNumberValidation(mobileNo) ) { 
+      toastUtility.showError('Invalid Form', 'mobile number is not valid'); 
+      return; 
+    }
+
+    if ( ! CommonUtilities.emailValidation(email) ) { 
+      toastUtility.showError('Invalid Form', 'email is not valid'); 
+      return; 
+    }
+    
     try {
       // console.log(inputField, inputRadio, images);
-      console.log(inputField)
+      console.log(inputField);
       const res = await addDealer(inputField).unwrap()
       console.log(res)
       toastUtility.showCustom(TOASTS.LOGIN_SUCCESS);
@@ -170,7 +183,7 @@ const [addDealer] = useAddDealerMutation()
                         <div className="formrow">
                           <label>Email</label>
                           <input
-                            type="email"
+                            type="text"
                             name="email"
                             className="form-control"
                             placeholder="Email"
