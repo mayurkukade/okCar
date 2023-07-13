@@ -32,13 +32,33 @@ const CarList = () => {
   const [responseData, setResponseData] = useState([]);
 
   // on form change handler added
+  // const onChangeFormHandler = (e) => {
+  //   setInputFilter((previousValue) => {
+  //     return {
+  //       ...previousValue,
+  //       [e.target.name]: e.target.value,
+  //     };
+  //   });
+  // };
+
   const onChangeFormHandler = (e) => {
-    setInputFilter((previousValue) => {
-      return {
-        ...previousValue,
-        [e.target.name]: e.target.value,
-      };
-    });
+    const { name, value } = e.target;
+
+    // Check if the selected option is "Select Year"
+    // If yes, set the value to an empty string
+    // const updatedValue = value === "Select Year" ? "" : value;
+
+    const updatedValue =
+      value === "Select Year" ||
+      value === "Select Brand" ||
+      value === "Fuel Type"
+        ? ""
+        : value;
+
+    setInputFilter((previousValue) => ({
+      ...previousValue,
+      [name]: updatedValue,
+    }));
   };
 
   // form submit handler
@@ -91,6 +111,14 @@ const CarList = () => {
       minPrice: "",
     });
   };
+
+  // const clearFilters = () => {
+  //   setInputFilter((previousValue) => ({
+  //     ...previousValue,
+  //     minPrice: "",
+  //     maxPrice: "",
+  //   }));
+  // };
 
   console.log("use Stata data", responseData);
   // console.log("filter data", filterData1);
