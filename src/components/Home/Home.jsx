@@ -43,7 +43,7 @@ const Home = () => {
                       <li>
                         <Link to="/Contact">Contact Us</Link>
                       </li>
-                  
+                      
                       <li>
                       <Link to="/adddealer">{user.includes('ADMIN')?<button>Add Dealer</button>:""}</Link>
                       </li>
@@ -74,22 +74,10 @@ const Home = () => {
 
         <div
           className="searchwrap"
-          style={{ border: "2px solid white", backgroundColor: "white" }}
+          style={{ border: "2px solid black", backgroundColor: "black" }}
         >
           <div className="container">
-            {/* <img src="" alt="Image" className="image-in-heading" />   */}
-
-            <h3
-              style={{
-                color: "#5dc302",
-                transition: "transform 0.3s",
-                fontSize: "50px",
-              }}
-              onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
-              onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-            >
-              Buy Cars with Ease!
-            </h3>
+            <h3>Buy Cars with Ease!</h3>
             {/* <p>
               Search from over 1,00,000 Active Cars */}
             {/* &amp; Post free unlimited
@@ -144,7 +132,7 @@ const Home = () => {
                 </h1>
               </div>
               <p>
-                At &quot;Auto Car&quot;, we are passionate about driving the
+                &quot;Auto Car&quot;, we are passionate about driving the
                 digital transformation of enterprises within the automotive
                 industry. Our store-without-walls concept revolutionizes car
                 selling, making it efficient, convenient, and customer-centric.
@@ -155,21 +143,13 @@ const Home = () => {
                 automotive sales process.
               </p>
               <ul>
-                <li>Revolutionize your car buying experience with ease!</li>
+                <li>Nam rutrum tortor eget lorem mattis mattis.</li>
+                <li>Duis fermentum sem nec lorem sodales egestas.</li>
                 <li>
-                  Access to a wide range of cars and potential buyers/sellers.
+                  Duis mattis diam et ante tempor, quis tristique quam sagittis.
                 </li>
-                <li>
-                  Sellers can create detailed listings for their cars, including
-                  high-resolution images, specifications, and pricing
-                  information.
-                </li>
-                <li>
-                  By eliminating the need for physical showrooms and extensive
-                  paperwork, our platform saves valuable time and resources for
-                  both buyers and sellers.
-                </li>
-                {/* <li>Duis non massa id nisl imperdiet iaculis.</li> */}
+                <li>Cras blandit ante ac hendrerit sodales.</li>
+                <li>Duis non massa id nisl imperdiet iaculis.</li>
               </ul>
             </div>
           </div>
@@ -181,12 +161,10 @@ const Home = () => {
               <h3>
                 Available <span>Brand</span>
               </h3>
-              <p style={{ fontSize: "20px" }}>
-                we pride ourselves on offering a wide selection of vehicles from
-                renowned car brands. We have established strong partnerships
-                with top manufacturers in the industry, ensuring that our
-                customers have access to the best and most reliable vehicles on
-                the market.
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+                varius, orci id facilisis egestas, neque purus sagittis arcu,
+                nec maximus quam odio nec elit Pellentesque eget ipsum mattis
               </p>
             </div>
             <div className="topsearchwrap">
@@ -259,18 +237,7 @@ const Home = () => {
             <ul className="howlist row">
               <li className="col-md-4 col-sm-4">
                 <div className="iconcircle">
-                  <Link to="/signup">
-                    <div
-                      onMouseOver={(e) =>
-                        (e.target.style.transform = "scale(1.1)")
-                      }
-                      onMouseOut={(e) =>
-                        (e.target.style.transform = "scale(1)")
-                      }
-                    >
-                      <img src="images/avatar.png" alt="" />
-                    </div>
-                  </Link>
+                  <img src="images/avatar.png" alt="" />
                 </div>
                 <h4>Create a Free Account</h4>
                 <p>
@@ -281,14 +248,7 @@ const Home = () => {
 
               <li className="col-md-4 col-sm-4">
                 <div className="iconcircle">
-                  <div
-                    onMouseOver={(e) =>
-                      (e.target.style.transform = "scale(1.1)")
-                    }
-                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  >
-                    <img src="images/car.png" alt="" />
-                  </div>
+                  <img src="images/car.png" alt="" />
                 </div>
                 <h4>Post your Free Car</h4>
                 <p>
@@ -299,14 +259,7 @@ const Home = () => {
 
               <li className="col-md-4 col-sm-4">
                 <div className="iconcircle">
-                  <div
-                    onMouseOver={(e) =>
-                      (e.target.style.transform = "scale(1.1)")
-                    }
-                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  >
-                    <img src="images/sell-icon.png" alt="" />
-                  </div>
+                  <img src="images/sell-icon.png" alt="" />
                 </div>
                 <h4>Sold or Buy</h4>
                 <p>
