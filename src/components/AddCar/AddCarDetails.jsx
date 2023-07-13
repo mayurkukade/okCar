@@ -329,13 +329,13 @@ const AddCarDetails = () => {
 
                       <div className="col-md-4">
                         <div className="formrow">
-                          <label>Tyre</label>
+                          <label>Tyre Condition</label>
                           <input
                             required
                             type="text"
                             name="tyre"
                             className="form-control"
-                            placeholder="Tyre"
+                            placeholder="Tyre Condition"
                             value={formData.tyre}
                             onChange={(event) => {
                               setFormData({
