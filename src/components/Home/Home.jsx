@@ -131,7 +131,7 @@ const Home = () => {
         <div className="about-wrap">
           <div className="col-md-6">
           <div className="about-image">
-            <img src={bghome} alt="About"  style={{ width: "300%", height: "auto" }} />
+            <img src={bghome} alt="About"  style={{ width: "470%", height: "595px" , overflow: "hidden"}} />
             </div>
           </div>
           <div className="col-md-6">
@@ -198,7 +198,7 @@ const Home = () => {
                 }}
               >
                 <li className="col-md-2 col-sm-3 col-xs-6">
-                  <a href="listing.html">
+                  {/* <a href="listing.html"> */}
                     <img
                       src="../../../images/logo/new car logos/Tata Motor Logo.png"
                       alt=""
@@ -210,10 +210,10 @@ const Home = () => {
                       }
                     />
                     <strong>Tata Motors</strong>
-                  </a>
+                  {/* </a> */}
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
-                  <a href="listing.html">
+                  {/* <a href="listing.html"> */}
                     <img
                       src="../../../images/logo/new car logos/suzuki logo.png"
                       alt=""
@@ -225,10 +225,10 @@ const Home = () => {
                       }
                     />
                     <strong>Maruti Suzuki</strong>
-                  </a>
+                  {/* </a> */}
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
-                  <a href="listing.html">
+                  {/* <a href="listing.html"> */}
                     <img
                       src="../../../images/logo/new car logos/Hyundai Logo.png"
                       onMouseOver={(e) =>
@@ -240,10 +240,10 @@ const Home = () => {
                       alt=""
                     />
                     <strong>Hyundai</strong>
-                  </a>
+                  {/* </a> */}
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
-                  <a href="listing.html">
+                  {/* <a href="listing.html"> */}
                     <img
                       src="../../../images/logo/new car logos/Mahindra Logo.png"
                       alt=""
@@ -255,10 +255,10 @@ const Home = () => {
                       }
                     />
                     <strong>Mahindra</strong>
-                  </a>
+                  {/* </a> */}
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
-                  <a href="listing.html">
+                  {/* <a href="listing.html"> */}
                     <img
                       src="../../../images/logo/new car logos/Honda Logo.png"
                       alt=""
@@ -270,10 +270,10 @@ const Home = () => {
                       }
                     />
                     <strong>Honda</strong>
-                  </a>
+                  {/* </a> */}
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
-                  <a href="listing.html">
+                  {/* <a href="listing.html"> */}
                     <img
                       src="../../../images/logo/toyota.png"
                       alt=""
@@ -285,7 +285,7 @@ const Home = () => {
                       }
                     />
                     <strong>Toyota</strong>
-                  </a>
+                  {/* </a> */}
                 </li>
               </ul>
             </div>
