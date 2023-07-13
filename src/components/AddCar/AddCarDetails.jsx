@@ -146,7 +146,7 @@ const AddCarDetails = () => {
 
   return (
     <>
-      <SubNav componentsName={"AddCar"} />
+      <SubNav componentsName={"Add Car Details"} />
       <div className="listpgWraper">
         <div className="container">
           <form onSubmit={handleSubmit}>
