@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <>
       <SubNav componentsName={"Contact Us"} />
-      <div className="inner-page" style={{ backgroundColor: "aqua" }}>
+      <div className="inner-page">
         <div className="container">
           <div className="contact-wrap">
             <div className="row">

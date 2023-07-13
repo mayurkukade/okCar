@@ -337,7 +337,7 @@ const CarList = () => {
               <div className="col-md-9 col-sm-7">
                 <div
                   className="card-container-wrapper"
-                  style={{ height: "950px", overflowY: "auto" }}
+                  style={{ height: "880px", overflowY: "auto" }}
                 >
                   <div className="card-container" style={{ height: "100px" }}>
                     {/* <div className="card-container" ref={cardContainerRef}> */}
@@ -389,8 +389,8 @@ const CarList = () => {
                         //  className="ArrowLeftIcon"
                         //  style={{ paddingRight: "10px" }}
                       >
-                        <Button colorScheme="teal" variant="outline" size="sm">
-                          <span style={{ marginRight: "5px", padding: "10px" }}>
+                        <Button colorScheme="teal" variant="outline" size="sm"  w="150px">
+                          <span style={{ marginRight: "2px", padding: "5px" }}>
                             <ArrowLeftIcon />
                           </span>
                           Previous Page
@@ -407,8 +407,8 @@ const CarList = () => {
                         // className="ArrowRightIcon"
                         // style={{ paddingLeft: "10px" }}
                       >
-                        <Button colorScheme="teal" variant="outline" size="sm">
-                          <span style={{ marginLeft: "5px", padding: "10px" }}>
+                        <Button colorScheme="teal" variant="outline" size="sm"  w="150px">
+                          <span style={{ marginLeft: "5px", padding: "5px" }}>
                             Next Page <ArrowRightIcon />
                           </span>
                         </Button>

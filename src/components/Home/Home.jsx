@@ -1,9 +1,11 @@
 import AvtarModal from "../Navbar/AvtarModal";
 import HomeCarousel from "../carousel/HomeCarousel";
 import { Link } from "react-router-dom";
+import bghome from "../../../images/bghome.jpg"
 
 const Home = () => {
   const username = localStorage.getItem("userInfo");
+  const user = JSON.parse(username)?.roles || ''
   const user = JSON.parse(username)?.roles || ''
   return (
     <div>
@@ -121,7 +123,9 @@ const Home = () => {
         <HomeCarousel />
         <div className="about-wrap">
           <div className="col-md-6">
-            <div className="about-image"></div>
+          <div className="about-image">
+            <img src={bghome} alt="About"  style={{ width: "300%", height: "auto" }} />
+            </div>
           </div>
           <div className="col-md-6">
             <div className="aboutinfo">
@@ -181,6 +185,12 @@ const Home = () => {
                     <img
                       src="../../../images/logo/new car logos/Tata Motor Logo.png"
                       alt=""
+                      onMouseOver={(e) =>
+                        (e.target.style.transform = "scale(1.1)")
+                      }
+                      onMouseOut={(e) =>
+                        (e.target.style.transform = "scale(1)")
+                      }
                     />
                     <strong>Tata Motors</strong>
                   </a>
@@ -190,6 +200,12 @@ const Home = () => {
                     <img
                       src="../../../images/logo/new car logos/suzuki logo.png"
                       alt=""
+                      onMouseOver={(e) =>
+                        (e.target.style.transform = "scale(1.1)")
+                      }
+                      onMouseOut={(e) =>
+                        (e.target.style.transform = "scale(1)")
+                      }
                     />
                     <strong>Maruti Suzuki</strong>
                   </a>
@@ -198,6 +214,12 @@ const Home = () => {
                   <a href="listing.html">
                     <img
                       src="../../../images/logo/new car logos/Hyundai Logo.png"
+                      onMouseOver={(e) =>
+                        (e.target.style.transform = "scale(1.1)")
+                      }
+                      onMouseOut={(e) =>
+                        (e.target.style.transform = "scale(1)")
+                      }
                       alt=""
                     />
                     <strong>Hyundai</strong>
@@ -208,6 +230,12 @@ const Home = () => {
                     <img
                       src="../../../images/logo/new car logos/Mahindra Logo.png"
                       alt=""
+                      onMouseOver={(e) =>
+                        (e.target.style.transform = "scale(1.1)")
+                      }
+                      onMouseOut={(e) =>
+                        (e.target.style.transform = "scale(1)")
+                      }
                     />
                     <strong>Mahindra</strong>
                   </a>
@@ -217,13 +245,28 @@ const Home = () => {
                     <img
                       src="../../../images/logo/new car logos/Honda Logo.png"
                       alt=""
+                      onMouseOver={(e) =>
+                        (e.target.style.transform = "scale(1.1)")
+                      }
+                      onMouseOut={(e) =>
+                        (e.target.style.transform = "scale(1)")
+                      }
                     />
                     <strong>Honda</strong>
                   </a>
                 </li>
                 <li className="col-md-2 col-sm-3 col-xs-6">
                   <a href="listing.html">
-                    <img src="../../../images/logo/toyota.png" alt="" />
+                    <img
+                      src="../../../images/logo/toyota.png"
+                      alt=""
+                      onMouseOver={(e) =>
+                        (e.target.style.transform = "scale(1.1)")
+                      }
+                      onMouseOut={(e) =>
+                        (e.target.style.transform = "scale(1)")
+                      }
+                    />
                     <strong>Toyota</strong>
                   </a>
                 </li>

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./avtar.css";
 import AvtarModal from "./AvtarModal";
-import { Button } from "@chakra-ui/button";
+
 const Navbar = () => {
   const username = localStorage.getItem("userInfo");
   const user = JSON.parse(username)?.roles;
@@ -104,7 +104,7 @@ const Navbar = () => {
                       <Link to="/Contact">Contact Us</Link>
                     </li>
                     
-                    <li className="postad">{user ? <AvtarModal /> : null}</li>
+                    <li className="" style={{backgroundColor:"white"}} >{user ? <AvtarModal /> : <Link to={'/signup'}>Sign Up</Link> }</li>
                   </ul>
                 </div>
                 <div className="clearfix"></div>
