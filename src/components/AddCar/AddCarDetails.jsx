@@ -306,7 +306,7 @@ const AddCarDetails = () => {
                       </div>
 
                       <div className="col-md-6">
-                        <div className="formrow">
+                        {/* <div className="formrow">
                           <label>Owner Serial</label>
                           <input
                             required
@@ -322,7 +322,7 @@ const AddCarDetails = () => {
                               })
                             }
                           />
-                        </div>
+                        </div> */}
                       </div>
 
                       <div className="col-md-4">

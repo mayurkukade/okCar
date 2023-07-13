@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const username = localStorage.getItem("userInfo");
-  const user = JSON.parse(username)?.roles
+  const user = JSON.parse(username)?.roles || ''
   return (
     <div>
       <div className="header">
@@ -40,15 +40,15 @@ const Home = () => {
                       <li>
                         <Link to="/carlist"> Buy Cars </Link>
                       </li>
-                      
-                      {/* <li>
-                      <a href="listing.html">New Cars</a>
-                    </li> */}
                       <li>
                         <Link to="/Contact">Contact Us</Link>
                       </li>
+                  
                       <li>
-                      <Link to="/adddealer">{user.includes('ADMIN') ?<button>Add Dealer</button>:""}</Link>
+                      <Link to="/adddealer">{user.includes('ADMIN')?<button>Add Dealer</button>:""}</Link>
+                      </li>
+                      <li>
+                      <Link to="/addcardetails">{user.includes('DEALER') ?<button>Add Car</button>:""}</Link>
                       </li>
                       <li>
                         {username ? (

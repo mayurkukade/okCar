@@ -104,7 +104,7 @@ const Navbar = () => {
                       <Link to="/Contact">Contact Us</Link>
                     </li>
                     
-                    <li className="postad">{user ? <AvtarModal /> : ""}</li>
+                    <li className="postad">{user ? <AvtarModal /> : null}</li>
                   </ul>
                 </div>
                 <div className="clearfix"></div>
