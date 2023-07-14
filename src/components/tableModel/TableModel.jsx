@@ -70,7 +70,7 @@ const TableModel = ({ data: v, columns,FetchData,isLoading,isError,isSuccess }) 
   );
 
   return (
-    <>
+    <div style={{minHeight:"75vh"}}>
     {
       isLoading && <p>loading...</p>
     }
@@ -80,6 +80,7 @@ const TableModel = ({ data: v, columns,FetchData,isLoading,isError,isSuccess }) 
     {
       isSuccess &&
       <>
+ 
         <div className="tableContainer">
         <TableContainer>
           <Table {...getTableProps()}>
@@ -193,7 +194,7 @@ const TableModel = ({ data: v, columns,FetchData,isLoading,isError,isSuccess }) 
       </>
     }
     
-    </>
+    </div>
   );
 };
 

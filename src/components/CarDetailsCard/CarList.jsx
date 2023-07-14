@@ -4,7 +4,14 @@ import "./CarList.css";
 import { useState, useEffect } from "react";
 import CarListCard from "./CarListCard.jsx";
 import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
-import { Button } from "@chakra-ui/react";
+import {
+  Button,
+  // SliderTrack,
+  // Slider,
+  // SliderFilledTrack,
+  // SliderThumb,
+  // Box,
+} from "@chakra-ui/react";
 import { baseUrl } from "../../api/apiSlice.js";
 
 import {
@@ -32,13 +39,35 @@ const CarList = () => {
   const [responseData, setResponseData] = useState([]);
 
   // on form change handler added
+  // const onChangeFormHandler = (e) => {
+  //   setInputFilter((previousValue) => {
+  //     return {
+  //       ...previousValue,
+  //       [e.target.name]: e.target.value,
+  //     };
+  //   });
+  // };
+
   const onChangeFormHandler = (e) => {
-    setInputFilter((previousValue) => {
-      return {
-        ...previousValue,
-        [e.target.name]: e.target.value,
-      };
-    });
+    const { name, value } = e.target;
+
+    // Check if the selected option is "Select Year"
+    // If yes, set the value to an empty string
+    // const updatedValue = value === "Select Year" ? "" : value;
+
+    const updatedValue =
+      value === "Select Year" ||
+      value === "Select Brand" ||
+      value === "Fuel Type" ||
+      value === "Transmission" ||
+      value === "Area"
+        ? ""
+        : value;
+
+    setInputFilter((previousValue) => ({
+      ...previousValue,
+      [name]: updatedValue,
+    }));
   };
 
   // form submit handler
@@ -77,6 +106,33 @@ const CarList = () => {
       console.error("Error fetching data:", error);
     }
   };
+
+  // clear filter
+  const clearFilters = () => {
+    setInputFilter({
+      year: "",
+      fuelType: "",
+      transmission: "",
+      brand: "",
+      model: "",
+      area: "",
+      maxPrice: "",
+      minPrice: "",
+    });
+  };
+
+  // const handleChange = (value) => {
+  //   console.log("Slider value:", value);
+  //   // Perform any desired actions with the slider value
+  // };
+
+  // const clearFilters = () => {
+  //   setInputFilter((previousValue) => ({
+  //     ...previousValue,
+  //     minPrice: "",
+  //     maxPrice: "",
+  //   }));
+  // };
 
   console.log("use Stata data", responseData);
   // console.log("filter data", filterData1);
@@ -129,6 +185,7 @@ const CarList = () => {
                       <div className="col-md-6">
                         <input
                           type="number"
+                          value={inputFilter.minPrice}
                           name="minPrice"
                           className="form-control"
                           placeholder="Min Value"
@@ -140,6 +197,7 @@ const CarList = () => {
                         <input
                           type="number"
                           name="maxPrice"
+                          value={inputFilter.maxPrice}
                           className="form-control"
                           placeholder="Max Value"
                           onChange={onChangeFormHandler}
@@ -149,41 +207,87 @@ const CarList = () => {
                     </div>
                   </div>
 
+                  {/* Slider */}
+
+                  {/* <Slider
+                    defaultValue={0}
+                    min={0}
+                    max={1000000}
+                    onChange={handleChange}
+                    name="maxPrice"
+                    // value={inputFilter.maxPrice}
+                  >
+                    <SliderTrack bg="gray.200">
+                      <SliderFilledTrack bg="teal.500" />
+                    </SliderTrack>
+                    <SliderThumb boxSize={6}>
+                      <Box color="teal.500" />
+                    </SliderThumb>
+                  </Slider> */}
+
                   <div className="widget">
                     <h4 className="widget-title">Area</h4>
-                    {/* <select
-                     className="form-control"
-                     name="area"
-                     value={inputFilter.area}
-                     onChange={onChangeFormHandler}
-                   >
-                     <option>Area</option>
-                     <option>Kharadi</option>
-                     <option>Hinjewadi</option>
-                     <option>Baner</option>
-                     <option>Wagholi</option>
-                     <option>Karve Nagar</option>
-                   </select> */}
-                    <input
+                    <select
+                      className="form-control"
+                      name="area"
+                      value={inputFilter.area}
+                      onChange={onChangeFormHandler}
+                    >
+                      <option>Area</option>
+                      <option>Kharadi</option>
+                      <option>Wagholi</option>
+                      <option>Chandanagar</option>
+                      <option>Hadapsar</option>
+                      <option>Vimannagar</option>
+                      <option>Pimpri</option>
+                      <option>Chinchwad</option>
+                      <option>Dighi</option>
+                      <option>Khadki</option>
+                    </select>
+                    {/* <input
                       type="text"
                       name="area"
                       value={inputFilter.area}
                       className="form-control"
                       placeholder="Area"
                       onChange={onChangeFormHandler}
-                    />
+                    /> */}
                   </div>
 
                   <div className="widget">
                     <h4 className="widget-title">Year </h4>
-                    <input
-                      type="number"
-                      name="year"
+                    <select
                       className="form-control"
-                      placeholder="Year"
+                      name="year"
+                      value={inputFilter.year}
                       onChange={onChangeFormHandler}
-                      pattern="[0-9]*"
-                    />
+                    >
+                      <option>Select Year</option>
+                      <option>2023</option>
+                      <option>2022</option>
+                      <option>2021</option>
+                      <option>2020</option>
+                      <option>2019</option>
+                      <option>2018</option>
+                      <option>2017</option>
+                      <option>2016</option>
+                      <option>2015</option>
+                      <option>2014</option>
+                      <option>2013</option>
+                      <option>2012</option>
+                      <option>2011</option>
+                      <option>2010</option>
+                      <option>2009</option>
+                      <option>2008</option>
+                      <option>2007</option>
+                      <option>2006</option>
+                      <option>2005</option>
+                      <option>2004</option>
+                      <option>2003</option>
+                      <option>2002</option>
+                      <option>2001</option>
+                      <option>2000</option>
+                    </select>
                   </div>
 
                   <div className="widget">
@@ -199,7 +303,9 @@ const CarList = () => {
                       <option>Honda</option>
                       <option>Toyota</option>
                       <option>Suzuki</option>
+                      <option>Mahindra</option>
                       <option>Hyundai</option>
+                      <option>Kia</option>
                     </select>
                   </div>
 
@@ -316,9 +422,17 @@ const CarList = () => {
                   </div>
 
                   <div className="searchnt">
-                    <button className="btn">
+                    <button className="btn" onClick={onSubmitHandler}>
                       <i className="fa fa-search" aria-hidden="true"></i> Update
                       Results
+                    </button>
+                    <button
+                      className="btn"
+                      style={{ marginTop: "20px" }}
+                      onClick={clearFilters}
+                    >
+                      <i className="fa fa-search" aria-hidden="true"></i> Clear
+                      Filter
                     </button>
                   </div>
                 </div>
@@ -332,7 +446,16 @@ const CarList = () => {
             {/* <div className="cardcontaier" style={{ height: "100px" }}> */}
 
             {isLoading ? (
-              <p>Loading...</p>
+              <h1
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  minHeight: "70vh",
+                }}
+              >
+                Loading ...
+              </h1>
             ) : (
               <div className="col-md-9 col-sm-7">
                 <div
@@ -390,7 +513,12 @@ const CarList = () => {
                         //  className="ArrowLeftIcon"
                         //  style={{ paddingRight: "10px" }}
                       >
-                        <Button colorScheme="teal" variant="outline" size="sm"  w="150px">
+                        <Button
+                          colorScheme="teal"
+                          variant="outline"
+                          size="sm"
+                          w="150px"
+                        >
                           <span style={{ marginRight: "2px", padding: "5px" }}>
                             <ArrowLeftIcon />
                           </span>
@@ -408,7 +536,12 @@ const CarList = () => {
                         // className="ArrowRightIcon"
                         // style={{ paddingLeft: "10px" }}
                       >
-                        <Button colorScheme="teal" variant="outline" size="sm"  w="150px">
+                        <Button
+                          colorScheme="teal"
+                          variant="outline"
+                          size="sm"
+                          w="150px"
+                        >
                           <span style={{ marginLeft: "5px", padding: "5px" }}>
                             Next Page <ArrowRightIcon />
                           </span>

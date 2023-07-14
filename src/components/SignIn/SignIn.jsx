@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 
 import jwt_decode from "jwt-decode";
+import { CommonUtilities } from "../../util/common.utilities.js";
+import { TOASTS, ToastUtility } from "../../util/toast.utilities.js";
 
 const SignIn = () => {
   const [signState, setSignState] = useState({
@@ -19,7 +21,7 @@ const SignIn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const toast = useToast();
+  const toastUtility = new ToastUtility(useToast());
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -34,6 +36,22 @@ const SignIn = () => {
   const SubmitHandler = async (e) => {
     e.preventDefault();
     const { username, password } = signState;
+
+    if ( !username.length ) { 
+      toastUtility.showError('Invalid Form', 'Email is not valid');
+      return; 
+    }
+
+    if ( !password.length ) { 
+      toastUtility.showError('Invalid Form', 'Password is not valid');
+      return; 
+    }
+
+    if ( ! CommonUtilities.emailValidation(username) ) { 
+      toastUtility.showError('Invalid Form', 'Email is not valid');
+      return; 
+    }
+
     try {
       const res = await login({ username, password }).unwrap();
       dispatch(token(res));
@@ -44,7 +62,6 @@ const SignIn = () => {
 
       console.log(sub, authorities, roles);
 
-      // const resRole = res.results.user[0].role;
 
       if (roles.includes("USER")) {
         navigate("/");
@@ -55,18 +72,10 @@ const SignIn = () => {
       } else {
         console.log("role not intialize");
       }
-
-      toast({
-        status: "success",
-        position: "top",
-        description: "Successful Login",
-      });
+      
+      toastUtility.showCustom(TOASTS.LOGIN_SUCCESS);
     } catch (error) {
-      toast({
-        status: "error",
-        position: "top",
-        description: "Login error please check email and password",
-      });
+      toastUtility.showCustom(TOASTS.LOGIN_FAILED);
     }
   };
 

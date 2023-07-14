@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./avtar.css";
 import AvtarModal from "./AvtarModal";
+
 const Navbar = () => {
   const username = localStorage.getItem("userInfo");
   const user = JSON.parse(username)?.roles;
@@ -33,6 +34,7 @@ const Navbar = () => {
               <div className="navbar navbar-default" role="navigation">
                 <div className="navbar-collapse collapse" id="nav-main">
                   <ul className="nav navbar-nav">
+                    <li></li>
                     {/* <li className="dropdown active">
                 <a>Home</a>
               </li>
@@ -99,7 +101,14 @@ const Navbar = () => {
                     <li>
                       <Link to="/Contact">Contact Us</Link>
                     </li>
-                    <li className="postad">{user ? <AvtarModal /> : ""}</li>
+
+                    <li className="" style={{ backgroundColor: "white" }}>
+                      {user ? (
+                        <AvtarModal />
+                      ) : (
+                        <Link to={"/signup"}>Sign Up</Link>
+                      )}
+                    </li>
                   </ul>
                 </div>
                 <div className="clearfix"></div>

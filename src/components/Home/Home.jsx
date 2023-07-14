@@ -1,12 +1,11 @@
 import AvtarModal from "../Navbar/AvtarModal";
 import HomeCarousel from "../carousel/HomeCarousel";
 import { Link } from "react-router-dom";
-import bghome from "../../../images/bghome.jpg"
-
+import bghome from "../../../images/bghome.jpg";
 
 const Home = () => {
   const username = localStorage.getItem("userInfo");
-  
+  const user = JSON.parse(username)?.roles || "";
 
   return (
     <div>
@@ -43,11 +42,27 @@ const Home = () => {
                       <li>
                         <Link to="/carlist"> Buy Cars </Link>
                       </li>
-                      {/* <li>
-                      <a href="listing.html">New Cars</a>
-                    </li> */}
                       <li>
                         <Link to="/Contact">Contact Us</Link>
+                      </li>
+
+                      <li>
+                        <Link to="/adddealer">
+                          {user.includes("ADMIN") ? (
+                            <button>Add Dealer</button>
+                          ) : (
+                            ""
+                          )}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/addcardetails">
+                          {user.includes("DEALER") ? (
+                            <button>Add Car</button>
+                          ) : (
+                            ""
+                          )}
+                        </Link>
                       </li>
                       <li>
                         {username ? (
@@ -132,11 +147,29 @@ const Home = () => {
         <HomeCarousel />
         <div className="about-wrap">
           <div className="col-md-6">
-          <div className="about-image">
-            <img src={bghome} alt="About"  style={{ width: "495%", height: "620px" , maxWidth: "100%", overflow: "hidden", transition: "transform 0.5s"}} className="zoomable-image"/>
+            <div className="about-image">
+              <img
+                src={bghome}
+                alt="About"
+                style={{
+                  width: "495%",
+                  height: "622px",
+                  maxWidth: "100%",
+                  overflow: "hidden",
+                  transition: "transform 0.5s",
+                }}
+                className="zoomable-image"
+              />
             </div>
           </div>
-          <div className="col-md-6"style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <div
+            className="col-md-6"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <div className="aboutinfo">
               <div className="title">
                 <span>World&apos;s Leading Used Cars</span>
@@ -176,19 +209,20 @@ const Home = () => {
           </div>
           <div className="clearfix"></div>
         </div>
+
         <div className="section whitebg">
           <div className="container">
             <div className="titleTop">
               <h3>
                 Available <span>Brand</span>
               </h3>
-              <p style={{ fontSize: "20px" }}>
+              <h1 style={{ fontSize: "20px" }}>
                 we pride ourselves on offering a wide selection of vehicles from
                 renowned car brands. We have established strong partnerships
                 with top manufacturers in the industry, ensuring that our
                 customers have access to the best and most reliable vehicles on
                 the market.
-              </p>
+              </h1>
             </div>
             <div className="topsearchwrap">
               <ul
@@ -199,95 +233,95 @@ const Home = () => {
                   // border: "2px solid black",
                 }}
               >
-                <li className="col-md-2 col-sm-3 col-xs-6">
-                  <a href="listing.html">
-                    <img
-                      src="../../../images/logo/new car logos/Tata Motor Logo.png"
-                      alt=""
-                      onMouseOver={(e) =>
-                        (e.target.style.transform = "scale(1.1)")
-                      }
-                      onMouseOut={(e) =>
-                        (e.target.style.transform = "scale(1)")
-                      }
-                    />
-                    <strong>Tata Motors</strong>
-                  </a>
+                <li
+                  className="col-md-2 col-sm-3 col-xs-6 "
+                  style={{ cursor: "pointer" }}
+                >
+                  <img
+                    className="transition-300ms"
+                    src="../../../images/logo/new car logos/Tata Motor Logo.png"
+                    alt=""
+                    onMouseOver={(e) =>
+                      (e.target.style.transform = "scale(1.1)")
+                    }
+                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  />
+                  <strong>Tata Motors</strong>
                 </li>
-                <li className="col-md-2 col-sm-3 col-xs-6">
-                  <a href="listing.html">
-                    <img
-                      src="../../../images/logo/new car logos/suzuki logo.png"
-                      alt=""
-                      onMouseOver={(e) =>
-                        (e.target.style.transform = "scale(1.1)")
-                      }
-                      onMouseOut={(e) =>
-                        (e.target.style.transform = "scale(1)")
-                      }
-                    />
-                    <strong>Maruti Suzuki</strong>
-                  </a>
+                <li
+                  className="col-md-2 col-sm-3 col-xs-6 "
+                  style={{ cursor: "pointer" }}
+                >
+                  <img
+                    className="transition-300ms"
+                    src="../../../images/logo/new car logos/suzuki logo.png"
+                    alt=""
+                    onMouseOver={(e) =>
+                      (e.target.style.transform = "scale(1.1)")
+                    }
+                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  />
+                  <strong>Maruti Suzuki</strong>
                 </li>
-                <li className="col-md-2 col-sm-3 col-xs-6">
-                  <a href="listing.html">
-                    <img
-                      src="../../../images/logo/new car logos/Hyundai Logo.png"
-                      onMouseOver={(e) =>
-                        (e.target.style.transform = "scale(1.1)")
-                      }
-                      onMouseOut={(e) =>
-                        (e.target.style.transform = "scale(1)")
-                      }
-                      alt=""
-                    />
-                    <strong>Hyundai</strong>
-                  </a>
+                <li
+                  className="col-md-2 col-sm-3 col-xs-6 "
+                  style={{ cursor: "pointer" }}
+                >
+                  <img
+                    className="transition-300ms"
+                    src="../../../images/logo/new car logos/Hyundai Logo.png"
+                    onMouseOver={(e) =>
+                      (e.target.style.transform = "scale(1.1)")
+                    }
+                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                    alt=""
+                  />
+                  <strong>Hyundai</strong>
                 </li>
-                <li className="col-md-2 col-sm-3 col-xs-6">
-                  <a href="listing.html">
-                    <img
-                      src="../../../images/logo/new car logos/Mahindra Logo.png"
-                      alt=""
-                      onMouseOver={(e) =>
-                        (e.target.style.transform = "scale(1.1)")
-                      }
-                      onMouseOut={(e) =>
-                        (e.target.style.transform = "scale(1)")
-                      }
-                    />
-                    <strong>Mahindra</strong>
-                  </a>
+                <li
+                  className="col-md-2 col-sm-3 col-xs-6 "
+                  style={{ cursor: "pointer" }}
+                >
+                  <img
+                    className="transition-300ms"
+                    src="../../../images/logo/new car logos/Mahindra Logo.png"
+                    alt=""
+                    onMouseOver={(e) =>
+                      (e.target.style.transform = "scale(1.1)")
+                    }
+                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  />
+                  <strong>Mahindra</strong>
                 </li>
-                <li className="col-md-2 col-sm-3 col-xs-6">
-                  <a href="listing.html">
-                    <img
-                      src="../../../images/logo/new car logos/Honda Logo.png"
-                      alt=""
-                      onMouseOver={(e) =>
-                        (e.target.style.transform = "scale(1.1)")
-                      }
-                      onMouseOut={(e) =>
-                        (e.target.style.transform = "scale(1)")
-                      }
-                    />
-                    <strong>Honda</strong>
-                  </a>
+                <li
+                  className="col-md-2 col-sm-3 col-xs-6 "
+                  style={{ cursor: "pointer" }}
+                >
+                  <img
+                    className="transition-300ms"
+                    src="../../../images/logo/new car logos/Honda Logo.png"
+                    alt=""
+                    onMouseOver={(e) =>
+                      (e.target.style.transform = "scale(1.1)")
+                    }
+                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  />
+                  <strong>Honda</strong>
                 </li>
-                <li className="col-md-2 col-sm-3 col-xs-6">
-                  <a href="listing.html">
-                    <img
-                      src="../../../images/logo/toyota.png"
-                      alt=""
-                      onMouseOver={(e) =>
-                        (e.target.style.transform = "scale(1.1)")
-                      }
-                      onMouseOut={(e) =>
-                        (e.target.style.transform = "scale(1)")
-                      }
-                    />
-                    <strong>Toyota</strong>
-                  </a>
+                <li
+                  className="col-md-2 col-sm-3 col-xs-6 "
+                  style={{ cursor: "pointer" }}
+                >
+                  <img
+                    className="transition-300ms"
+                    src="../../../images/logo/toyota.png"
+                    alt=""
+                    onMouseOver={(e) =>
+                      (e.target.style.transform = "scale(1.1)")
+                    }
+                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  />
+                  <strong>Toyota</strong>
                 </li>
               </ul>
             </div>
@@ -297,7 +331,7 @@ const Home = () => {
         <div className="section whitebg howitwrap">
           <div className="container">
             <ul className="howlist row">
-              <li className="col-md-4 col-sm-4">
+              <li className="col-md-4 col-sm-4 ">
                 <div className="iconcircle">
                   <Link to="/signup">
                     <div
@@ -308,13 +342,19 @@ const Home = () => {
                         (e.target.style.transform = "scale(1)")
                       }
                     >
-                      <img src="images/avatar.png" alt="" />
+                      <img
+                        className="transition-300ms cursor-pointer"
+                        src="images/avatar.png"
+                        alt=""
+                      />
                     </div>
                   </Link>
                 </div>
                 <h4>Create a Free Account</h4>
                 <p>
-                Get started on your car buying journey by creating a free account. Discover a tailored experience, expert guidance, and the tools you need to make informed decisions with ease.
+                  Get started on your car buying journey by creating a free
+                  account. Discover a tailored experience, expert guidance, and
+                  the tools you need to make informed decisions with ease.
                 </p>
               </li>
 
@@ -326,12 +366,18 @@ const Home = () => {
                     }
                     onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                   >
-                    <img src="images/car.png" alt="" />
+                    <img
+                      className="transition-300ms cursor-pointer"
+                      src="images/car.png"
+                      alt=""
+                    />
                   </div>
                 </div>
                 <h4>Post your Free Car</h4>
                 <p>
-                Sell with Ease and Reach a Wide Audience!say goodbye to traditional selling methods and embrace the convenience of our digital car marketplace
+                  Sell with Ease and Reach a Wide Audience!say goodbye to
+                  traditional selling methods and embrace the convenience of our
+                  digital car marketplace
                 </p>
               </li>
 
@@ -343,12 +389,19 @@ const Home = () => {
                     }
                     onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                   >
-                    <img src="images/sell-icon.png" alt="" />
+                    <img
+                      className="transition-300ms cursor-pointer"
+                      src="images/sell-icon.png"
+                      alt=""
+                    />
                   </div>
                 </div>
                 <h4>Sold or Buy</h4>
                 <p>
-                Maximize Your Car&apos;s Value with Easy Selling & Find Your Dream Car in Just a Few Clicks! Sell with Ease, Buy with Confidence. Unlock a World of Possibilities: Sell, Buy, and Drive!
+                  Maximize Your Car&apos;s Value with Easy Selling & Find Your
+                  Dream Car in Just a Few Clicks! Sell with Ease, Buy with
+                  Confidence. Unlock a World of Possibilities: Sell, Buy, and
+                  Drive!
                 </p>
               </li>
             </ul>
