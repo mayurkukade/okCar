@@ -1,12 +1,11 @@
 import AvtarModal from "../Navbar/AvtarModal";
 import HomeCarousel from "../carousel/HomeCarousel";
 import { Link } from "react-router-dom";
-import bghome from "../../../images/bghome.jpg"
-
+import bghome from "../../../images/bghome.jpg";
 
 const Home = () => {
   const username = localStorage.getItem("userInfo");
-  const user = JSON.parse(username)?.roles || ''
+  const user = JSON.parse(username)?.roles || "";
 
   return (
     <div>
@@ -48,10 +47,22 @@ const Home = () => {
                       </li>
 
                       <li>
-                        <Link to="/adddealer">{user.includes('ADMIN') ? <button>Add Dealer</button> : ""}</Link>
+                        <Link to="/adddealer">
+                          {user.includes("ADMIN") ? (
+                            <button>Add Dealer</button>
+                          ) : (
+                            ""
+                          )}
+                        </Link>
                       </li>
                       <li>
-                        <Link to="/addcardetails">{user.includes('DEALER') ? <button>Add Car</button> : ""}</Link>
+                        <Link to="/addcardetails">
+                          {user.includes("DEALER") ? (
+                            <button>Add Car</button>
+                          ) : (
+                            ""
+                          )}
+                        </Link>
                       </li>
                       <li>
                         {username ? (
@@ -137,10 +148,28 @@ const Home = () => {
         <div className="about-wrap">
           <div className="col-md-6">
             <div className="about-image">
-              <img src={bghome} alt="About" style={{ width: "495%", height: "620px", maxWidth: "100%", overflow: "hidden", transition: "transform 0.5s" }} className="zoomable-image" />
+              <img
+                src={bghome}
+                alt="About"
+                style={{
+                  width: "495%",
+                  height: "622px",
+                  maxWidth: "100%",
+                  overflow: "hidden",
+                  transition: "transform 0.5s",
+                }}
+                className="zoomable-image"
+              />
             </div>
           </div>
-          <div className="col-md-6" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <div
+            className="col-md-6"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <div className="aboutinfo">
               <div className="title">
                 <span>World&apos;s Leading Used Cars</span>
@@ -180,6 +209,7 @@ const Home = () => {
           </div>
           <div className="clearfix"></div>
         </div>
+
         <div className="section whitebg">
           <div className="container">
             <div className="titleTop">
@@ -203,81 +233,87 @@ const Home = () => {
                   // border: "2px solid black",
                 }}
               >
-                <li className="col-md-2 col-sm-3 col-xs-6">
+                <li
+                  className="col-md-2 col-sm-3 col-xs-6 "
+                  style={{ cursor: "pointer" }}
+                >
                   <img
                     src="../../../images/logo/new car logos/Tata Motor Logo.png"
                     alt=""
                     onMouseOver={(e) =>
                       (e.target.style.transform = "scale(1.1)")
                     }
-                    onMouseOut={(e) =>
-                      (e.target.style.transform = "scale(1)")
-                    }
+                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                   />
                   <strong>Tata Motors</strong>
                 </li>
-                <li className="col-md-2 col-sm-3 col-xs-6">
+                <li
+                  className="col-md-2 col-sm-3 col-xs-6 "
+                  style={{ cursor: "pointer" }}
+                >
                   <img
                     src="../../../images/logo/new car logos/suzuki logo.png"
                     alt=""
                     onMouseOver={(e) =>
                       (e.target.style.transform = "scale(1.1)")
                     }
-                    onMouseOut={(e) =>
-                      (e.target.style.transform = "scale(1)")
-                    }
+                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                   />
                   <strong>Maruti Suzuki</strong>
                 </li>
-                <li className="col-md-2 col-sm-3 col-xs-6">
+                <li
+                  className="col-md-2 col-sm-3 col-xs-6 "
+                  style={{ cursor: "pointer" }}
+                >
                   <img
                     src="../../../images/logo/new car logos/Hyundai Logo.png"
                     onMouseOver={(e) =>
                       (e.target.style.transform = "scale(1.1)")
                     }
-                    onMouseOut={(e) =>
-                      (e.target.style.transform = "scale(1)")
-                    }
+                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                     alt=""
                   />
                   <strong>Hyundai</strong>
                 </li>
-                <li className="col-md-2 col-sm-3 col-xs-6">
+                <li
+                  className="col-md-2 col-sm-3 col-xs-6 "
+                  style={{ cursor: "pointer" }}
+                >
                   <img
                     src="../../../images/logo/new car logos/Mahindra Logo.png"
                     alt=""
                     onMouseOver={(e) =>
                       (e.target.style.transform = "scale(1.1)")
                     }
-                    onMouseOut={(e) =>
-                      (e.target.style.transform = "scale(1)")
-                    }
+                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                   />
                   <strong>Mahindra</strong>
                 </li>
-                <li className="col-md-2 col-sm-3 col-xs-6">
+                <li
+                  className="col-md-2 col-sm-3 col-xs-6 "
+                  style={{ cursor: "pointer" }}
+                >
                   <img
                     src="../../../images/logo/new car logos/Honda Logo.png"
                     alt=""
                     onMouseOver={(e) =>
                       (e.target.style.transform = "scale(1.1)")
                     }
-                    onMouseOut={(e) =>
-                      (e.target.style.transform = "scale(1)")
-                    }
+                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                   />
                   <strong>Honda</strong>
                 </li>
-                <li className="col-md-2 col-sm-3 col-xs-6">
+                <li
+                  className="col-md-2 col-sm-3 col-xs-6 "
+                  style={{ cursor: "pointer" }}
+                >
                   <img
                     src="../../../images/logo/toyota.png"
                     alt=""
                     onMouseOver={(e) =>
                       (e.target.style.transform = "scale(1.1)")
                     }
-                    onMouseOut={(e) =>
-                      (e.target.style.transform = "scale(1)")
-                    }
+                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                   />
                   <strong>Toyota</strong>
                 </li>
@@ -289,7 +325,7 @@ const Home = () => {
         <div className="section whitebg howitwrap">
           <div className="container">
             <ul className="howlist row">
-              <li className="col-md-4 col-sm-4">
+              <li className="col-md-4 col-sm-4 ">
                 <div className="iconcircle">
                   <Link to="/signup">
                     <div
@@ -306,7 +342,9 @@ const Home = () => {
                 </div>
                 <h4>Create a Free Account</h4>
                 <p>
-                  Get started on your car buying journey by creating a free account. Discover a tailored experience, expert guidance, and the tools you need to make informed decisions with ease.
+                  Get started on your car buying journey by creating a free
+                  account. Discover a tailored experience, expert guidance, and
+                  the tools you need to make informed decisions with ease.
                 </p>
               </li>
 
@@ -323,7 +361,9 @@ const Home = () => {
                 </div>
                 <h4>Post your Free Car</h4>
                 <p>
-                  Sell with Ease and Reach a Wide Audience!say goodbye to traditional selling methods and embrace the convenience of our digital car marketplace
+                  Sell with Ease and Reach a Wide Audience!say goodbye to
+                  traditional selling methods and embrace the convenience of our
+                  digital car marketplace
                 </p>
               </li>
 
@@ -340,7 +380,10 @@ const Home = () => {
                 </div>
                 <h4>Sold or Buy</h4>
                 <p>
-                  Maximize Your Car&apos;s Value with Easy Selling & Find Your Dream Car in Just a Few Clicks! Sell with Ease, Buy with Confidence. Unlock a World of Possibilities: Sell, Buy, and Drive!
+                  Maximize Your Car&apos;s Value with Easy Selling & Find Your
+                  Dream Car in Just a Few Clicks! Sell with Ease, Buy with
+                  Confidence. Unlock a World of Possibilities: Sell, Buy, and
+                  Drive!
                 </p>
               </li>
             </ul>
