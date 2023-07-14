@@ -238,6 +238,7 @@ const Home = () => {
                   style={{ cursor: "pointer" }}
                 >
                   <img
+                    className="transition-300ms"
                     src="../../../images/logo/new car logos/Tata Motor Logo.png"
                     alt=""
                     onMouseOver={(e) =>
@@ -252,6 +253,7 @@ const Home = () => {
                   style={{ cursor: "pointer" }}
                 >
                   <img
+                    className="transition-300ms"
                     src="../../../images/logo/new car logos/suzuki logo.png"
                     alt=""
                     onMouseOver={(e) =>
@@ -266,6 +268,7 @@ const Home = () => {
                   style={{ cursor: "pointer" }}
                 >
                   <img
+                    className="transition-300ms"
                     src="../../../images/logo/new car logos/Hyundai Logo.png"
                     onMouseOver={(e) =>
                       (e.target.style.transform = "scale(1.1)")
@@ -280,6 +283,7 @@ const Home = () => {
                   style={{ cursor: "pointer" }}
                 >
                   <img
+                    className="transition-300ms"
                     src="../../../images/logo/new car logos/Mahindra Logo.png"
                     alt=""
                     onMouseOver={(e) =>
@@ -294,6 +298,7 @@ const Home = () => {
                   style={{ cursor: "pointer" }}
                 >
                   <img
+                    className="transition-300ms"
                     src="../../../images/logo/new car logos/Honda Logo.png"
                     alt=""
                     onMouseOver={(e) =>
@@ -308,6 +313,7 @@ const Home = () => {
                   style={{ cursor: "pointer" }}
                 >
                   <img
+                    className="transition-300ms"
                     src="../../../images/logo/toyota.png"
                     alt=""
                     onMouseOver={(e) =>
@@ -336,7 +342,7 @@ const Home = () => {
                         (e.target.style.transform = "scale(1)")
                       }
                     >
-                      <img src="images/avatar.png" alt="" />
+                      <img className="transition-300ms cursor-pointer" src="images/avatar.png" alt="" />
                     </div>
                   </Link>
                 </div>
@@ -356,7 +362,7 @@ const Home = () => {
                     }
                     onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                   >
-                    <img src="images/car.png" alt="" />
+                    <img className="transition-300ms cursor-pointer" src="images/car.png" alt="" />
                   </div>
                 </div>
                 <h4>Post your Free Car</h4>
@@ -375,7 +381,7 @@ const Home = () => {
                     }
                     onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                   >
-                    <img src="images/sell-icon.png" alt="" />
+                    <img className="transition-300ms cursor-pointer" src="images/sell-icon.png" alt="" />
                   </div>
                 </div>
                 <h4>Sold or Buy</h4>
