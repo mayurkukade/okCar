@@ -90,8 +90,9 @@ const App = () => {
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
         <Route path="/tablecard" element={<TableCard/>} />
       </Routes>
-      <Footer />
       <MainFooter/>
+      <Footer />
+     
     </>
   );
 };

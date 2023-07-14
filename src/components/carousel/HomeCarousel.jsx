@@ -3,8 +3,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper";
 // import { Autoplay } from "swiper";
-import { Navigation } from "swiper";
-import { Autoplay } from "swiper";
+// import { Navigation } from "swiper";
+// import { Autoplay } from "swiper";
 import carslider from "../../../images/slider/cs1.png";
 // import carslider2 from "../../../images/slider/cs2.png"
 import carslider3 from "../../../images/slider/cs3.png";
