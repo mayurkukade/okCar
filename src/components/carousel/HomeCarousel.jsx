@@ -14,7 +14,11 @@ const HomeCarousel = () => {
         navigation={true}
         modules={[Navigation]}
         className="mySwiper"
-        style={{ width: "100%", height: "650px", margin: "0 auto" }} 
+        style={{ width: "100%", height: "580px", margin: "0 auto" }}
+        autoplay={{
+          delay: 2500, // Adjust the delay value (in milliseconds) as per your requirement
+          disableOnInteraction: false, // Allow user interaction to pause autoplay
+        }} // Adjust the width and height values as per your requirement
         // autoplay={{
         //   delay: 1000, // Adjust the delay value (in milliseconds) as per your requirement
         //   disableOnInteraction: false, // Allow user interaction to pause autoplay
