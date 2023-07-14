@@ -337,9 +337,10 @@ const CarList = () => {
               <div className="col-md-9 col-sm-7">
                 <div
                   className="card-container-wrapper"
-                  style={{ height: "880px", overflowY: "auto" }}
+                   style={{ height: "880px", overflowY: "auto",overflowX:"hidden" }}
+                  // style={{ overflow: "hidden", maxHeight: "880px" }}
                 >
-                  <div className="card-container" style={{ height: "100px" }}>
+                  <div className="card-container" style={{  width: "950px",height: "100px" }}>
                     {/* <div className="card-container" ref={cardContainerRef}> */}
 
                     {responseData === null ? (
