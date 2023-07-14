@@ -216,13 +216,13 @@ const Home = () => {
               <h3>
                 Available <span>Brand</span>
               </h3>
-              <p style={{ fontSize: "20px" }}>
+              <h1 style={{ fontSize: "20px" }}>
                 we pride ourselves on offering a wide selection of vehicles from
                 renowned car brands. We have established strong partnerships
                 with top manufacturers in the industry, ensuring that our
                 customers have access to the best and most reliable vehicles on
                 the market.
-              </p>
+              </h1>
             </div>
             <div className="topsearchwrap">
               <ul
@@ -342,7 +342,11 @@ const Home = () => {
                         (e.target.style.transform = "scale(1)")
                       }
                     >
-                      <img className="transition-300ms cursor-pointer" src="images/avatar.png" alt="" />
+                      <img
+                        className="transition-300ms cursor-pointer"
+                        src="images/avatar.png"
+                        alt=""
+                      />
                     </div>
                   </Link>
                 </div>
@@ -362,7 +366,11 @@ const Home = () => {
                     }
                     onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                   >
-                    <img className="transition-300ms cursor-pointer" src="images/car.png" alt="" />
+                    <img
+                      className="transition-300ms cursor-pointer"
+                      src="images/car.png"
+                      alt=""
+                    />
                   </div>
                 </div>
                 <h4>Post your Free Car</h4>
@@ -381,7 +389,11 @@ const Home = () => {
                     }
                     onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                   >
-                    <img className="transition-300ms cursor-pointer" src="images/sell-icon.png" alt="" />
+                    <img
+                      className="transition-300ms cursor-pointer"
+                      src="images/sell-icon.png"
+                      alt=""
+                    />
                   </div>
                 </div>
                 <h4>Sold or Buy</h4>
