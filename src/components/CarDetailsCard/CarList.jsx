@@ -4,7 +4,14 @@ import "./CarList.css";
 import { useState, useEffect } from "react";
 import CarListCard from "./CarListCard.jsx";
 import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
-import { Button } from "@chakra-ui/react";
+import {
+  Button,
+  // SliderTrack,
+  // Slider,
+  // SliderFilledTrack,
+  // SliderThumb,
+  // Box,
+} from "@chakra-ui/react";
 import { baseUrl } from "../../api/apiSlice.js";
 
 import {
@@ -52,7 +59,8 @@ const CarList = () => {
       value === "Select Year" ||
       value === "Select Brand" ||
       value === "Fuel Type" ||
-      value === "Transmission"
+      value === "Transmission" ||
+      value === "Area"
         ? ""
         : value;
 
@@ -112,6 +120,11 @@ const CarList = () => {
       minPrice: "",
     });
   };
+
+  // const handleChange = (value) => {
+  //   console.log("Slider value:", value);
+  //   // Perform any desired actions with the slider value
+  // };
 
   // const clearFilters = () => {
   //   setInputFilter((previousValue) => ({
@@ -194,29 +207,51 @@ const CarList = () => {
                     </div>
                   </div>
 
+                  {/* Slider */}
+
+                  {/* <Slider
+                    defaultValue={0}
+                    min={0}
+                    max={1000000}
+                    onChange={handleChange}
+                    name="maxPrice"
+                    // value={inputFilter.maxPrice}
+                  >
+                    <SliderTrack bg="gray.200">
+                      <SliderFilledTrack bg="teal.500" />
+                    </SliderTrack>
+                    <SliderThumb boxSize={6}>
+                      <Box color="teal.500" />
+                    </SliderThumb>
+                  </Slider> */}
+
                   <div className="widget">
                     <h4 className="widget-title">Area</h4>
-                    {/* <select
-                     className="form-control"
-                     name="area"
-                     value={inputFilter.area}
-                     onChange={onChangeFormHandler}
-                   >
-                     <option>Area</option>
-                     <option>Kharadi</option>
-                     <option>Hinjewadi</option>
-                     <option>Baner</option>
-                     <option>Wagholi</option>
-                     <option>Karve Nagar</option>
-                   </select> */}
-                    <input
+                    <select
+                      className="form-control"
+                      name="area"
+                      value={inputFilter.area}
+                      onChange={onChangeFormHandler}
+                    >
+                      <option>Area</option>
+                      <option>Kharadi</option>
+                      <option>Wagholi</option>
+                      <option>Chandanagar</option>
+                      <option>Hadapsar</option>
+                      <option>Vimannagar</option>
+                      <option>Pimpri</option>
+                      <option>Chinchwad</option>
+                      <option>Dighi</option>
+                      <option>Khadki</option>
+                    </select>
+                    {/* <input
                       type="text"
                       name="area"
                       value={inputFilter.area}
                       className="form-control"
                       placeholder="Area"
                       onChange={onChangeFormHandler}
-                    />
+                    /> */}
                   </div>
 
                   <div className="widget">
