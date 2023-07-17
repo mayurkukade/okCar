@@ -3,9 +3,13 @@ import SubNav from "../Navbar/SubNav.jsx";
 import "./CarList.css";
 import { useState, useEffect } from "react";
 import CarListCard from "./CarListCard.jsx";
+import CardShimmer from "./CardShimmer.jsx";
 import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
 import {
   Button,
+  // SkeletonText,
+  // Box,
+  // SkeletonCircle,
   // SliderTrack,
   // Slider,
   // SliderFilledTrack,
@@ -20,6 +24,8 @@ import {
 } from "../../api/carApiSlice.js";
 
 const CarList = () => {
+  // card Count value
+  const cardCount = 10;
   // use State for input fields
   const [inputFilter, setInputFilter] = useState({
     year: "",
@@ -443,33 +449,27 @@ const CarList = () => {
               </form>
             </div>
 
-            {/* Car Details Card */}
-
-            {/* {data.length === 0 ? <CarNotFound /> : <CarListCard />} */}
-
-            {/* <div className="cardcontaier" style={{ height: "100px" }}> */}
-
             {isLoading ? (
-              <h1
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  minHeight: "70vh",
-                }}
-              >
-                Loading ...
-              </h1>
+              <>
+                {Array.from({ length: cardCount }, (_, index) => (
+                  <CardShimmer key={index} />
+                ))}
+              </>
             ) : (
               <div className="col-md-9 col-sm-7">
                 <div
                   className="card-container-wrapper"
-                   style={{ height: "880px", overflowY: "auto",overflowX:"hidden" }}
+                  style={{
+                    height: "935px",
+                    overflowY: "auto",
+                    overflowX: "hidden",
+                  }}
                   // style={{ overflow: "hidden", maxHeight: "880px" }}
                 >
-                  <div className="card-container" style={{  width: "950px",height: "100px" }}>
-                    {/* <div className="card-container" ref={cardContainerRef}> */}
-
+                  <div
+                    className="card-container"
+                    style={{ width: "950px", height: "100px" }}
+                  >
                     {responseData === null ? (
                       <h1
                         style={{
@@ -502,6 +502,7 @@ const CarList = () => {
               </div>
             )}
 
+            {/*Pagination  */}
             <div className="pagiWrap">
               <div className="row">
                 <div className="col-md-4 col-sm-4"></div>
@@ -523,7 +524,7 @@ const CarList = () => {
                           size="sm"
                           w="150px"
                         >
-                          <span style={{ marginRight: "2px", padding: "5px" }}>
+                          <span style={{ marginRight: "3px", padding: "5px" }}>
                             <ArrowLeftIcon />
                           </span>
                           Previous Page

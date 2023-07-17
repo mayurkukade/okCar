@@ -14,7 +14,7 @@ import Register from "./components/SignUp/SignUp.jsx";
 
 import NotFound from "./components/NotFound/NotFound.jsx";
 import Home from "./components/Home/Home";
-import Footer from "./components/Footer/Footer";
+// import Footer from "./components/Footer/Footer";
 import AddCarDetails from "./components/AddCar/AddCarDetails";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import CarCard from "./components/CarDetailsCard/CarDetails";
