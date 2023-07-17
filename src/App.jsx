@@ -91,8 +91,6 @@ const App = () => {
         <Route path="/tablecard" element={<TableCard/>} />
       </Routes>
       <MainFooter/>
-      <Footer />
-     
     </>
   );
 };
