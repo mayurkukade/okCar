@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import SubNav from "../Navbar/SubNav.jsx";
-import "./CarList.css";
 import { useState, useEffect } from "react";
 import CarListCard from "./CarListCard.jsx";
 import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
@@ -77,7 +76,7 @@ const CarList = () => {
     try {
       console.log(`baseurl is ${baseUrl}`);
       const queryParams = new URLSearchParams(inputFilter).toString();
-      const url = `${baseUrl}/cars/mainFilter/1?${queryParams}`;
+      const url = `${baseUrl}/cars/mainFilter/${currentPage}?${queryParams}`;
       const response = await fetch(url);
       const data = await response.json();
       setResponseData(data?.list);
