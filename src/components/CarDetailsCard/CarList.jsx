@@ -85,11 +85,15 @@ const CarList = () => {
 
   // Page handler
   const goToPreviousPage = () => {
-    setCurrentPage((prevPage) => prevPage - 1);
+    if (currentPage > 1) {
+      setCurrentPage((prevPage) => prevPage - 1);
+      fetchData();
+    }
   };
 
   const goToNextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
+    fetchData();
   };
 
   // using fetch
@@ -98,7 +102,7 @@ const CarList = () => {
     try {
       console.log(`baseurl is ${baseUrl}`);
       const queryParams = new URLSearchParams(inputFilter).toString();
-      const url = `${baseUrl}/cars/mainFilter/1?${queryParams}`;
+      const url = `${baseUrl}/cars/mainFilter/${currentPage}?${queryParams}`;
       const response = await fetch(url);
       const data = await response.json();
       setResponseData(data?.list);
