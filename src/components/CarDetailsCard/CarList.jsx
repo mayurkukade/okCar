@@ -3,29 +3,18 @@ import SubNav from "../Navbar/SubNav.jsx";
 import "./CarList.css";
 import { useState, useEffect } from "react";
 import CarListCard from "./CarListCard.jsx";
-import CardShimmer from "./CardShimmer.jsx";
 import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
-import {
-  Button,
-  // SkeletonText,
-  // Box,
-  // SkeletonCircle,
-  // SliderTrack,
-  // Slider,
-  // SliderFilledTrack,
-  // SliderThumb,
-  // Box,
-} from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import { baseUrl } from "../../api/apiSlice.js";
-
 import {
   useGetAllCarsQuery,
   // useFilterCarQueryQuery,
 } from "../../api/carApiSlice.js";
-
+import CardShimmer from "./CardShimmer.jsx";
 const CarList = () => {
-  // card Count value
+  //count for card Shimmer
   const cardCount = 10;
+
   // use State for input fields
   const [inputFilter, setInputFilter] = useState({
     year: "",
@@ -37,30 +26,16 @@ const CarList = () => {
     maxPrice: "",
     minPrice: "",
   });
+
   // useState for pagination
   const [currentPage, setCurrentPage] = useState(1);
+
   // for fetching all cars
   const { data: v, isLoading } = useGetAllCarsQuery(currentPage);
 
   const [responseData, setResponseData] = useState([]);
-
-  // on form change handler added
-  // const onChangeFormHandler = (e) => {
-  //   setInputFilter((previousValue) => {
-  //     return {
-  //       ...previousValue,
-  //       [e.target.name]: e.target.value,
-  //     };
-  //   });
-  // };
-
   const onChangeFormHandler = (e) => {
     const { name, value } = e.target;
-
-    // Check if the selected option is "Select Year"
-    // If yes, set the value to an empty string
-    // const updatedValue = value === "Select Year" ? "" : value;
-
     const updatedValue =
       value === "Select Year" ||
       value === "Select Brand" ||
@@ -77,6 +52,7 @@ const CarList = () => {
   };
 
   // form submit handler
+
   const onSubmitHandler = (e) => {
     e.preventDefault();
     console.log(inputFilter);
@@ -91,10 +67,8 @@ const CarList = () => {
 
   // Page handler
   const goToPreviousPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage((prevPage) => prevPage - 1);
-      fetchData();
-    }
+    setCurrentPage((prevPage) => prevPage - 1);
+    fetchData();
   };
 
   const goToNextPage = () => {
@@ -131,24 +105,6 @@ const CarList = () => {
     });
   };
 
-  // const handleChange = (value) => {
-  //   console.log("Slider value:", value);
-  //   // Perform any desired actions with the slider value
-  // };
-
-  // const clearFilters = () => {
-  //   setInputFilter((previousValue) => ({
-  //     ...previousValue,
-  //     minPrice: "",
-  //     maxPrice: "",
-  //   }));
-  // };
-
-  console.log("use Stata data", responseData);
-  // console.log("filter data", filterData1);
-  // if (responseData === null) {
-  //   return <p>No car found</p>;
-  // }
   return (
     <>
       <div className="sticky">
@@ -164,33 +120,9 @@ const CarList = () => {
                   className="sidebar"
                   style={{ height: "var(--sidebar-height)" }}
                 >
-                  {/* <div className="sidebar" style={{ height: "1580px" }}>     */}
-
-                  {/* <div className="sidebar" style={{ display: "flex", flexDirection: "column" }}> */}
-
-                  {/* <div className="sidebar"  style={{ height: "fit-content", display: "flex", flexDirection: "column", gap: "10px" }}> */}
-
-                  {/* <div className="sidebar" style={{ flex: "0 0 30%", height: "400%" }}>  */}
-
-                  {/* <div className="widget">
-                   <h4 className="widget-title">Search By Keyword</h4>
-                   <div className="input-group">
-                     <input
-                       type="text"
-                       className="form-control"
-                       placeholder="Keyword"
-                       name="keyword"
-                     />
-                     <span className="input-group-btn">
-                       <button className="btn btn-default" type="button">
-                         Go!
-                       </button>
-                     </span>{" "}
-                   </div>
-                 </div> */}
-
                   <div className="widget">
                     <h4 className="widget-title">Price Range</h4>
+
                     <div className="row">
                       <div className="col-md-6">
                         <input
@@ -216,54 +148,17 @@ const CarList = () => {
                       </div>
                     </div>
                   </div>
-
-                  {/* Slider */}
-
-                  {/* <Slider
-                    defaultValue={0}
-                    min={0}
-                    max={1000000}
-                    onChange={handleChange}
-                    name="maxPrice"
-                    // value={inputFilter.maxPrice}
-                  >
-                    <SliderTrack bg="gray.200">
-                      <SliderFilledTrack bg="teal.500" />
-                    </SliderTrack>
-                    <SliderThumb boxSize={6}>
-                      <Box color="teal.500" />
-                    </SliderThumb>
-                  </Slider> */}
-
                   <div className="widget">
                     <h4 className="widget-title">Area</h4>
-                    <select
-                      className="form-control"
-                      name="area"
-                      value={inputFilter.area}
-                      onChange={onChangeFormHandler}
-                    >
-                      <option>Area</option>
-                      <option>Kharadi</option>
-                      <option>Wagholi</option>
-                      <option>Chandanagar</option>
-                      <option>Hadapsar</option>
-                      <option>Vimannagar</option>
-                      <option>Pimpri</option>
-                      <option>Chinchwad</option>
-                      <option>Dighi</option>
-                      <option>Khadki</option>
-                    </select>
-                    {/* <input
+                    <input
                       type="text"
                       name="area"
                       value={inputFilter.area}
                       className="form-control"
                       placeholder="Area"
                       onChange={onChangeFormHandler}
-                    /> */}
+                    />
                   </div>
-
                   <div className="widget">
                     <h4 className="widget-title">Year </h4>
                     <select
@@ -274,7 +169,6 @@ const CarList = () => {
                     >
                       <option>Select Year</option>
                       <option>2023</option>
-                      <option>2022</option>
                       <option>2021</option>
                       <option>2020</option>
                       <option>2019</option>
@@ -299,7 +193,6 @@ const CarList = () => {
                       <option>2000</option>
                     </select>
                   </div>
-
                   <div className="widget">
                     <h4 className="widget-title">Brand</h4>
                     <select
@@ -321,17 +214,6 @@ const CarList = () => {
 
                   <div className="widget">
                     <h4 className="widget-title">Model</h4>
-                    {/* <select
-                     className="form-control"
-                     name="model"
-                     value={inputFilter.model}
-                     onChange={onChangeFormHandler}
-                   >
-                     <option>Select Model</option>
-                     <option>JIMNY DX MT</option>
-                     <option>SUZUKI CIAZ GL AT</option>
-                     <option>SWIFT AT</option>
-                   </select> */}
                     <input
                       type="text"
                       name="model"
@@ -341,20 +223,6 @@ const CarList = () => {
                       onChange={onChangeFormHandler}
                     />
                   </div>
-
-                  {/* <div className="widget">
-                    <h4 className="widget-title">Transmission</h4>
-                    <select
-                      className="form-control"
-                      name="transmission"
-                      value={inputFilter.transmission}
-                      onChange={onChangeFormHandler}
-                    >
-                      <option>Transmission</option>
-                      <option>Auto</option>
-                      <option>Manual</option>
-                    </select>
-                  </div> */}
 
                   <div className="widget">
                     <h4 className="widget-title">Fuel Type</h4>
@@ -371,52 +239,6 @@ const CarList = () => {
                     </select>
                   </div>
 
-                  {/* <div className="widget">
-                   <h4 className="widget-title">Transmission</h4>
-                   <ul className="optionlist">
-                     <li>
-                       <input
-                         type="checkbox"
-                         name="auto"
-                         value={inputFilter.transmission}
-                         id="auto"
-                       />
-                       <label htmlFor="auto"></label>
-                       Auto
-                     </li>
-                     <li>
-                       <input
-                         type="checkbox"
-                         name="manual"
-                         value={inputFilter.transmission}
-                         id="manual"
-                       />
-                       <label htmlFor="Manual"></label>
-                       Manual
-                     </li>
-                   </ul>
-                 </div>
-
-                 <div className="widget">
-                   <h4 className="widget-title">Fuel Type</h4>
-                   <ul className="optionlist">
-                     <li>
-                       <input type="checkbox" name="fuelType" id="Petrol" />
-                       <label htmlFor="Petrol"></label>
-                       Petrol
-                     </li>
-                     <li>
-                       <input type="checkbox" name="fuelType" id="Diesel" />
-                       <label htmlFor="Diesel"></label>
-                       Diesel
-                     </li>
-                     <li>
-                       <input type="checkbox" name="checkname" id="Electric" />
-                       <label htmlFor="Electric"></label>
-                       Electric
-                     </li>
-                   </ul>
-                 </div> */}
                   <div className="widget">
                     <h4 className="widget-title">Transmission</h4>
                     <select
@@ -459,23 +281,20 @@ const CarList = () => {
               <div className="col-md-9 col-sm-7">
                 <div
                   className="card-container-wrapper"
-                  style={{
-                    height: "935px",
-                    overflowY: "auto",
-                    overflowX: "hidden",
-                  }}
-                  // style={{ overflow: "hidden", maxHeight: "880px" }}
+                  style={{ height: "880px", overflowY: "auto" }}
                 >
-                  <div
-                    className="card-container"
-                    style={{ width: "950px", height: "100px" }}
-                  >
+                  <div className="card-container" style={{ height: "100px" }}>
+                    {/* <div className="card-container" ref={cardContainerRef}> */}
+
                     {responseData === null ? (
                       <h1
                         style={{
                           display: "flex",
+
                           alignItems: "center",
+
                           justifyContent: "center",
+
                           minHeight: "70vh",
                         }}
                       >
@@ -485,8 +304,11 @@ const CarList = () => {
                       <h3
                         style={{
                           display: "flex",
+
                           justifyContent: "center",
+
                           alignItems: "center",
+
                           height: "80vh",
                         }}
                       >
@@ -502,10 +324,10 @@ const CarList = () => {
               </div>
             )}
 
-            {/*Pagination  */}
             <div className="pagiWrap">
               <div className="row">
                 <div className="col-md-4 col-sm-4"></div>
+
                 <div className="col-md-8 col-sm-8 text-right">
                   <ul className="pagination" style={{ marginTop: "2em" }}>
                     <li>
@@ -514,9 +336,6 @@ const CarList = () => {
                       <button
                         onClick={goToPreviousPage}
                         disabled={currentPage === 1}
-                        // style={{ backgroundColor: "#5dc302", color: "white" ,borderRadius: "5px"}}
-                        //  className="ArrowLeftIcon"
-                        //  style={{ paddingRight: "10px" }}
                       >
                         <Button
                           colorScheme="teal"
@@ -524,7 +343,7 @@ const CarList = () => {
                           size="sm"
                           w="150px"
                         >
-                          <span style={{ marginRight: "3px", padding: "5px" }}>
+                          <span style={{ marginRight: "2px", padding: "5px" }}>
                             <ArrowLeftIcon />
                           </span>
                           Previous Page
@@ -535,12 +354,7 @@ const CarList = () => {
                     </li>
 
                     <li style={{ marginLeft: "20px" }}>
-                      <button
-                        onClick={goToNextPage}
-                        //  style={{ backgroundColor: "#5dc302", color: "white",borderRadius: "5px", }}
-                        // className="ArrowRightIcon"
-                        // style={{ paddingLeft: "10px" }}
-                      >
+                      <button onClick={goToNextPage}>
                         <Button
                           colorScheme="teal"
                           variant="outline"
