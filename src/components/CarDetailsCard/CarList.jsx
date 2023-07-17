@@ -12,9 +12,7 @@ import {
 } from "../../api/carApiSlice.js";
 import CardShimmer from "./CardShimmer.jsx";
 const CarList = () => {
-  //count for card Shimmer
   const cardCount = 10;
-
   // use State for input fields
   const [inputFilter, setInputFilter] = useState({
     year: "",
@@ -29,10 +27,8 @@ const CarList = () => {
 
   // useState for pagination
   const [currentPage, setCurrentPage] = useState(1);
-
   // for fetching all cars
   const { data: v, isLoading } = useGetAllCarsQuery(currentPage);
-
   const [responseData, setResponseData] = useState([]);
   const onChangeFormHandler = (e) => {
     const { name, value } = e.target;
@@ -47,12 +43,12 @@ const CarList = () => {
 
     setInputFilter((previousValue) => ({
       ...previousValue,
+
       [name]: updatedValue,
     }));
   };
 
   // form submit handler
-
   const onSubmitHandler = (e) => {
     e.preventDefault();
     console.log(inputFilter);
@@ -66,14 +62,13 @@ const CarList = () => {
   }, [v]);
 
   // Page handler
+
   const goToPreviousPage = () => {
     setCurrentPage((prevPage) => prevPage - 1);
-    fetchData();
   };
 
   const goToNextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
-    fetchData();
   };
 
   // using fetch
@@ -82,7 +77,7 @@ const CarList = () => {
     try {
       console.log(`baseurl is ${baseUrl}`);
       const queryParams = new URLSearchParams(inputFilter).toString();
-      const url = `${baseUrl}/cars/mainFilter/${currentPage}?${queryParams}`;
+      const url = `${baseUrl}/cars/mainFilter/1?${queryParams}`;
       const response = await fetch(url);
       const data = await response.json();
       setResponseData(data?.list);
@@ -92,6 +87,7 @@ const CarList = () => {
   };
 
   // clear filter
+
   const clearFilters = () => {
     setInputFilter({
       year: "",
@@ -169,6 +165,7 @@ const CarList = () => {
                     >
                       <option>Select Year</option>
                       <option>2023</option>
+                      <option>2022</option>
                       <option>2021</option>
                       <option>2020</option>
                       <option>2019</option>
