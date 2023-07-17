@@ -37,7 +37,7 @@ const CarDetails = () => {
   }, []);
   if (!!data && !isLoading && !isError) {
     return (
-      <>
+      <div>
         {showComponent1 ? (
           <CardDetailsShimmer />
         ) : (
@@ -249,11 +249,10 @@ const CarDetails = () => {
             </div>
           </>
         )}
-      </>
+      </div>
     );
-  } else if (isLoading) return <>Loading...</>;
-  else if (isError) return <>Something went wrong</>;
-  return <></>;
+  } else if (isError) return <>Something went wrong</>;
+  return <div style={{ minHeight: "80vh" }}></div>;
 };
 
 export default CarDetails;
