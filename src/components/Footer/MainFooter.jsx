@@ -19,36 +19,33 @@ const MainFooter = () => (
 </p>
     </div>
     <div class="col-lg-2 col-xs-12 links">
+        
       <h4 class="mt-lg-0 mt-sm-3">Links</h4>
-        <ul class="m-0 p-0" style={{fontSize:"1rem" ,marginRight: "20px" }}>
+        <ul class="m-0 p-0" style={{fontSize:"1rem" ,marginleft: "80px",width: "270px" }}>
           {/* <li>- <a href="#">Home</a></li> */}
           <li><Link to="/">Home</Link></li>
           <li><Link to="/contact">Contact Us</Link></li>
-          {/* <li>- <a href="#">Nam mauris velit</a></li>
-          <li>- <a href="#">Etiam vitae mauris</a></li>
-          <li>- <a href="#">Fusce scelerisque</a></li>
-          <li>- <a href="#">Sed faucibus</a></li>
-          <li>- <a href="#">Mauris efficitur nulla</a></li> */}
+          
         </ul>
     </div>
     <div
           className="col-lg-2 col-xs-12 social-media"
           style={{ fontSize: "1rem", marginLeft: "10px" }}
         >
-          <h4 className="mt-lg-0 mt-sm-3">Social Media</h4>
+          <h4 className="mt-lg-0 mt-sm-3">Follow us on Social Media</h4>
           <div className="d-flex justify-content-between">
-          <ul className="m-0 p-0 social-icons">
-            <li>
+          <ul className="m-0 p-0 social-icons" style={{ display: "flex", marginBottom: "0" }}>
+          <li style={{ marginRight: "10px" }}>
               <a href="#">
                 <FaTwitter />
               </a>
             </li>
-            <li>
+            <li style={{ marginRight: "10px" }}>
               <a href="#">
                 <FaYoutube />
               </a>
             </li>
-            <li>
+            <li style={{ marginRight: "10px" }}>
               <a href="#">
                 <FaInstagram />
               </a>
@@ -61,7 +58,8 @@ const MainFooter = () => (
 
     <div class="col-lg-2 col-xs-12 location">
       <h4 class="mt-lg-0 mt-sm-4">Location</h4>
-      <p>314, 315, Gera’s Imperium Alpha, Eon Free Zone Rd, Rajaram Patil Nagar,Kharadi, Pune, Maharashtra 411014</p>
+      <p style={{ width: "270px" }}>
+      314, 315, Gera’s Imperium Alpha, Eon Free Zone Rd, Rajaram Patil Nagar,Kharadi, Pune, Maharashtra 411014</p>
       <p class="mb-0"><i class="fa fa-phone mr-3"></i>  (+91) 89996 13069</p>
       <p><i class="fa fa-envelope-o mr-3"></i>info@opticalarc.com</p>
     </div>

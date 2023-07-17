@@ -9,6 +9,10 @@ import carslider from "../../../images/slider/cs1.png";
 // import carslider2 from "../../../images/slider/cs2.png"
 import carslider3 from "../../../images/slider/cs3.png";
 import carslider4 from "../../../images/slider/cs4.png";
+import CarUI from "../../../images/slider/carui.png";
+import CarUI02 from "../../../images/slider/carui02.png";
+import CarUI03 from "../../../images/slider/carui03.png";
+
 import "./homecarousel.css";
 const HomeCarousel = () => {
   return (
@@ -24,22 +28,15 @@ const HomeCarousel = () => {
         }}
       >
         <SwiperSlide>
-          <img src={carslider} style={{ width: "100%", height: "100%" }} />
-        </SwiperSlide>
-        {/* <SwiperSlide>
-        <img src={carslider2} style={{ width: '100%', height: '150%' }}/>  
-        </SwiperSlide> */}
-        <SwiperSlide>
-          <img src={carslider3} style={{ width: "100%", height: "100%" }} />
+          <img src={CarUI} style={{ width: "100%", height: "100%" }} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={carslider4} style={{ width: "100%", height: "100%" }} />
+          <img src={CarUI02} style={{ width: "100%", height: "100%" }} />
         </SwiperSlide>
-        {/* <SwiperSlide> <img src={carslider} /></SwiperSlide>
-        <SwiperSlide> <img src={carslider2} /></SwiperSlide>
-        <SwiperSlide> <img src={carslider3}/></SwiperSlide>
-        <SwiperSlide> <img src={carslider4} /></SwiperSlide>
-        <SwiperSlide> <img src={carslider} /></SwiperSlide> */}
+        <SwiperSlide>
+          <img src={CarUI03} style={{ width: "100%", height: "100%" }} />
+        </SwiperSlide>
+       
       </Swiper>
     </>
   );
