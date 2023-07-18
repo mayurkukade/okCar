@@ -100,6 +100,15 @@ const CarList = () => {
     });
   };
 
+  // for years
+  const startYear = 2000;
+  const currentYear = new Date().getFullYear();
+  const years = [];
+
+  for (let year = startYear; year <= currentYear; year++) {
+    years.push(year);
+  }
+
   return (
     <>
       <div className="sticky">
@@ -180,30 +189,11 @@ const CarList = () => {
                       onChange={onChangeFormHandler}
                     >
                       <option>Select Year</option>
-                      <option>2023</option>
-                      <option>2022</option>
-                      <option>2021</option>
-                      <option>2020</option>
-                      <option>2019</option>
-                      <option>2018</option>
-                      <option>2017</option>
-                      <option>2016</option>
-                      <option>2015</option>
-                      <option>2014</option>
-                      <option>2013</option>
-                      <option>2012</option>
-                      <option>2011</option>
-                      <option>2010</option>
-                      <option>2009</option>
-                      <option>2008</option>
-                      <option>2007</option>
-                      <option>2006</option>
-                      <option>2005</option>
-                      <option>2004</option>
-                      <option>2003</option>
-                      <option>2002</option>
-                      <option>2001</option>
-                      <option>2000</option>
+                      {years.map((year) => (
+                        <option key={year} value={year}>
+                          {year}
+                        </option>
+                      ))}
                     </select>
                   </div>
                   <div className="widget">
