@@ -188,14 +188,7 @@ const Footer = () => {
       {/* </div>
       </div>  */}
 
-      <div className="copyright">
-        <div className="container">
-          <div className="bttxt">
-            Copyright &copy; 2023 Optical Arc. All Rights Reserved. Design by :
-            Optical Arc Team
-          </div>
-        </div>
-      </div>
+     
     </div>
   );
 };

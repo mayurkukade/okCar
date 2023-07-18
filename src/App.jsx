@@ -14,7 +14,7 @@ import Register from "./components/SignUp/SignUp.jsx";
 
 import NotFound from "./components/NotFound/NotFound.jsx";
 import Home from "./components/Home/Home";
-import Footer from "./components/Footer/Footer";
+// import Footer from "./components/Footer/Footer";
 import AddCarDetails from "./components/AddCar/AddCarDetails";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import CarCard from "./components/CarDetailsCard/CarDetails";
@@ -31,7 +31,9 @@ import EditUserProfile from "./components/EditUserProfile/EditUserProfile";
 import EditDealerProfile from "./components/EditDealerProfile/EditDealerProfile";
 import Dealer from "./components/Admin/Dealer";
 import UpdateCarDetails from "./components/AddCar/UpdateCarDetails";
+import MainFooter from "./components/Footer/MainFooter";
 import TableCard from "./components/TableCard/TableCard";
+// import CardDetailsShimmer from "./components/CarDetailsCard/CardDetailsShimmer";
 // import Cloudnary from "./Dummy/Cloudnary";
 // import Cloudnary from "./Dummy/Cloudnary";
 
@@ -60,8 +62,10 @@ const App = () => {
               <Route path="/dealersManegment/:id" element={<DealerDetails />} />
               <Route path="/userrequest" element={<UserRequest />} />
               <Route path="/adddealer" element={<AddDealer />} />
-              <Route path="/editDealerdetails/:userid/:id" element={<EditDealerProfile />} />
-              
+              <Route
+                path="/editDealerdetails/:userid/:id"
+                element={<EditDealerProfile />}
+              />
             </Route>
           </Route>
 
@@ -87,9 +91,9 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
-        <Route path="/tablecard" element={<TableCard/>} />
+        <Route path="/tablecard" element={<TableCard />} />
       </Routes>
-      <Footer />
+      <MainFooter />
     </>
   );
 };
