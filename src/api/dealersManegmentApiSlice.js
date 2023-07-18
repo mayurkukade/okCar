@@ -22,7 +22,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
       invalidatesTags: ["Dealer"],
     }),
     getAllDealer: builder.query({
-      query: (userToken) => ({
+      query: (userToken,e) => ({
         transformResponse: console.log(userToken),
         url: `/dealer/allDealers/0`,
         headers: {

@@ -632,7 +632,7 @@ const AddCarDetails = () => {
                     </div>
 
                     {/* <br /> */}
-                    <input type="submit" className="btn" value="Post An Ad" />
+                    <input type="submit" className="btn" value="Add  Car" />
                   </div>
                 </div>
               </div>

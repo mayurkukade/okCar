@@ -54,7 +54,10 @@ const TableM = ({
   isLoading,
   tableData,
   isSuccess,
+  goToNextPage,
+  goToPreviousPage
 }) => {
+  
   const data = React.useMemo(() => FetchData, [FetchData]);
   console.log(FetchData);
 
@@ -159,6 +162,12 @@ const TableM = ({
                 }
               </Tbody>
             </Table>
+            <button onClick={goToPreviousPage}>
+              🔙
+            </button>
+            <button onClick={goToNextPage}>
+            ➡️
+            </button>
 
             <Box className="pagination" padding="15px" justifyItems="center">
               <Flex gap="10px">
@@ -170,7 +179,7 @@ const TableM = ({
                 >
                   <BiFirstPage fontSize={"20px"} />
                   {/* First Page */}
-                </Button>{" "}
+                </Button>
                 <Button
                   h={"35px"}
                   _hover={{ bg: "#95B6D8" }}
