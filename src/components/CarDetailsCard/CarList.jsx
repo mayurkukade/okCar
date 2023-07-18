@@ -145,14 +145,31 @@ const CarList = () => {
                   </div>
                   <div className="widget">
                     <h4 className="widget-title">Area</h4>
-                    <input
+                    {/* <input
                       type="text"
                       name="area"
                       value={inputFilter.area}
                       className="form-control"
                       placeholder="Area"
                       onChange={onChangeFormHandler}
-                    />
+                    /> */}
+                    <select
+                      className="form-control"
+                      name="area"
+                      value={inputFilter.area}
+                      onChange={onChangeFormHandler}
+                    >
+                      <option>Select Area</option>
+                      <option>Wagholi</option>
+                      <option>Kharadi</option>
+                      <option>Chandannagar</option>
+                      <option>Hadapsar</option>
+                      <option>Vimannagar</option>
+                      <option>Pimpri</option>
+                      <option>Chinchwad</option>
+                      <option>Dighi</option>
+                      <option>Khadki</option>
+                    </select>
                   </div>
                   <div className="widget">
                     <h4 className="widget-title">Year </h4>
