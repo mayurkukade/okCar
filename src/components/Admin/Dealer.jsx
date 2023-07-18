@@ -154,7 +154,7 @@ const [deleteDealer]  = useDeleteDealerMutation()
     }, 100);
 
     return () => clearTimeout(getData);
-  }, [v]);
+  }, [v.list]);
   // useEffect(() => {
   //   const getData = setTimeout(() => {
   //     setCatchUserId(v.list);
