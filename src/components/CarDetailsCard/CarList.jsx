@@ -25,7 +25,7 @@ const CarList = () => {
   });
 
   // useState for pagination
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   // for fetching all cars
   const { data: v, isLoading } = useGetAllCarsQuery(currentPage);
   const [responseData, setResponseData] = useState([]);
