@@ -33,11 +33,13 @@ import Dealer from "./components/Admin/Dealer";
 import UpdateCarDetails from "./components/AddCar/UpdateCarDetails";
 import MainFooter from "./components/Footer/MainFooter";
 import TableCard from "./components/TableCard/TableCard";
+import useScrollTop from "./util/useScrollTop";
 // import CardDetailsShimmer from "./components/CarDetailsCard/CardDetailsShimmer";
 // import Cloudnary from "./Dummy/Cloudnary";
 // import Cloudnary from "./Dummy/Cloudnary";
 
 const App = () => {
+  useScrollTop();
   return (
     <>
       <Routes>
