@@ -10,6 +10,17 @@
   z-index: 1000;
 }
 
+.logo-flex{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin-top: 5px;
+}
+
+.area{
+  margin-left: 1rem;
+}
+
 .visible {
   top: 0;
   translate: 0;

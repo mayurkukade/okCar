@@ -16,6 +16,7 @@ const AvtarModal = () => {
   const username = localStorage.getItem("userInfo");
   console.log(username);
   console.log(JSON.parse(username)?.firstname);
+  console.log(JSON.parse(username)?.authorities[0]);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -44,12 +45,17 @@ const AvtarModal = () => {
             : JSON.parse(username)?.firstname}
      
         </MenuButton>
-        <MenuList>
+        <MenuList >
           
-          <Link to="/edituserdetails">
-            <MenuItem color={"black"}>Edit Profile</MenuItem>
-          </Link>
-          <MenuItem onClick={logoutHandler}>Logout</MenuItem>
+        
+            <Link to="/edituserdetails" style={{textDecoration:"none"}}> <MenuItem color={"black"}  _hover={{ bg: '#5DC302' }}> <span>Edit Profile  </span></MenuItem></Link>
+           {
+            JSON.parse(username)?.authorities.includes('USER')?
+            <Link to="#" style={{textDecoration:"none"}}>  <MenuItem    _hover={{ bg: '#5DC302' }}  color={"black"}>  <span>My Booking  </span></MenuItem></Link>:null
+           }
+           
+        
+          <MenuItem style={{textDecoration:"none"}} _hover={{ bg: '#5DC302' }}    onClick={logoutHandler}>Logout</MenuItem>
         </MenuList>
       </Menu>
     </Box>

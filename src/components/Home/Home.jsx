@@ -40,9 +40,13 @@ const Home = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-2 col-sm-3 col-xs-12">
-              <Link className="logo" to="/">
-                <img src="../../../images/logo.png" alt="logo" />
-              </Link>
+            
+                <Link className="logo" to="/">
+                  <img src="../../../images/logo.png" alt="logo" />
+                </Link>
+
+          
+
               <div className="navbar-header">
                 <button
                   type="button"
@@ -72,33 +76,46 @@ const Home = () => {
                       <Link to="/Contact">Contact Us</Link>
                     </li>
 
-                    <li>
-                      <Link to="/adddealer">
-                        {user.includes("ADMIN") ? (
+                    {user.includes("ADMIN") ? (
+                      <li>
+                        <Link to="/adddealer">
                           <button>Add Dealer</button>
-                        ) : (
-                          ""
-                        )}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/addcardetails">
-                        {user.includes("DEALER") ? (
-                          <button>Add Car</button>
-                        ) : (
-                          ""
-                        )}
-                      </Link>
-                    </li>
-                    <li>
-                      {username ? (
-                        <AvtarModal />
+                        </Link>
+                      </li>
+                    ) : (
+                      ""
+                    )}
+
+                  
+                      {user.includes("DEALER") ? (
+                        <li>
+                          <Link to="/dealer">
+                            
+                            <button><span>Dealer Manegment</span></button>
+                          </Link>
+                        </li>
                       ) : (
+                        ""
+                      )}
+                    
+
+                    {username ? (
+                      <>
+                        {/* <li>
+                          <Link to="/carlist"> My Booking </Link>
+                        </li> */}
+                        <li>
+                          <AvtarModal />
+                        </li>
+                      </>
+                    ) : (
+                      <li>
                         <Link to="/signin">
                           <p> Sign In</p>{" "}
                         </Link>
-                      )}
-                    </li>
+                      </li>
+                    )}
+
                     {/* 
                       <li className="postad"></li>
 
@@ -130,44 +147,6 @@ const Home = () => {
           >
             Buy Cars with Ease!
           </h3>
-          {/* <p>
-              Search from over 1,00,000 Active Cars */}
-          {/* &amp; Post free unlimited
-            classNameifieds ads! */}
-          {/* </p> */}
-          {/* <div className="searchbar">
-              <div className="row">
-                <div className="col-md-6">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Car Brand or Model"
-                  />
-                </div>
-                <div className="col-md-2">
-                  <select className="form-control">
-                    <option>Price</option>
-                    <option>₹50,000 - ₹99,999</option>
-                    <option>₹1,00,000 - ₹1,49,999</option>
-                    <option>₹1,50,000 - ₹1,99,999</option>
-                    <option>₹2,00,000 - ₹2,49,999</option>
-                   
-                  </select>
-                </div>
-                <div className="col-md-2">
-                  <select className="form-control">
-                    <option>Area</option>
-                    <option>Kharadi</option>
-                    <option>Viman Nagar</option>
-                    <option>Koreagaon</option>
-                    <option>Hinjewadi</option>
-                  </select>
-                </div>
-                <div className="col-md-2">
-                  <input type="submit" className="btn" value="Search" />
-                </div>
-              </div>
-            </div> */}
         </div>
       </div>
       <HomeCarousel />

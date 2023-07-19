@@ -34,7 +34,7 @@ import UpdateCarDetails from "./components/AddCar/UpdateCarDetails";
 import MainFooter from "./components/Footer/MainFooter";
 import TableCard from "./components/TableCard/TableCard";
 import useScrollTop from "./util/useScrollTop";
-import Home2 from "./components/Home/Home2";
+
 
 
 
@@ -95,7 +95,7 @@ const App = () => {
         </Route>
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
         <Route path="/tablecard" element={<TableCard />} />
-        <Route path="/home" element={<Home2/>} />
+   
       </Routes>
       <MainFooter />
     </>

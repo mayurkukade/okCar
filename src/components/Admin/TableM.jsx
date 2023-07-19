@@ -165,8 +165,8 @@ const TableM = ({
                 }
               </Tbody>
             </Table>
-            <button onClick={goToPreviousPage}>🔙</button>
-            <button onClick={goToNextPage}>➡️</button>
+            {/* <button onClick={goToPreviousPage}>🔙</button>
+            <button onClick={goToNextPage}>➡️</button> */}
 
             <Box className="pagination" padding="15px" justifyItems="center">
               <Flex gap="10px">

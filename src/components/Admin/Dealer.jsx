@@ -100,21 +100,13 @@ const Dealer = () => {
   );
 
  
-  // useEffect(() => {
-  //   const getData = setTimeout(() => {
-  //     if (v && v.list) {
-  //       setVendorFetchData(v.list);
-  //     }
-  //   }, 100);
   
-  //   return () => clearTimeout(getData);
-  // }, [v]);
   if (isLoading) {
     return <p>Loading...</p>;
   }
 
   if (isError) {
-    return <p>Error occurred while fetching data.</p>;
+    return <p>Error occurred while fetching data.please reload page</p>;
   }
   return (
     <>
