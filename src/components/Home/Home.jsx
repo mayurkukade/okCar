@@ -380,7 +380,7 @@ const Home = () => {
                 Explore by <span>Lifestyle</span>
               </h3>
 
-              <SimpleGrid spacing={-5} columns={{ sm: 1, md: 2, lg: 3 }}>
+              <SimpleGrid spacing={3} columns={{ sm: 1, md: 2, lg: 3 }}>
                 <Card
                   onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                   onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
