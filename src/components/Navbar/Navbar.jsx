@@ -1,14 +1,36 @@
 import { Link } from "react-router-dom";
 import "./avtar.css";
 import AvtarModal from "./AvtarModal";
+import { useEffect, useRef, useState } from "react";
 
 const Navbar = () => {
+  const lastScrollTop = useRef(0);
+
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+
+  useEffect(() => {
+    window.addEventListener(
+      "scroll",
+      () => {
+        var pageYOffset = window.scrollY;
+        if (pageYOffset > lastScrollTop.current) {
+          // downward scroll
+          setIsNavbarVisible(false);
+        } else if (pageYOffset < lastScrollTop.current) {
+          // upward scroll
+          setIsNavbarVisible(true);
+        } // else was horizontal scroll
+        lastScrollTop.current = pageYOffset <= 0 ? 0 : pageYOffset;
+      },
+      { passive: true }
+    );
+  }, []);
   const username = localStorage.getItem("userInfo");
   const user = JSON.parse(username)?.roles;
   let roleNav;
   if (user == "ADMIN") {
     roleNav = (
-      <div className="header">
+      <div className={`header ${isNavbarVisible ? "visible" : ""}`}>
         <div className="container">
           <div className="row">
             <div className="col-md-2 col-sm-3 col-xs-12">
@@ -61,7 +83,7 @@ const Navbar = () => {
     );
   } else {
     roleNav = (
-      <div className="header">
+      <div className={`header ${isNavbarVisible ? "visible" : ""}`}>
         <div className="container">
           <div className="row">
             <div className="col-md-2 col-sm-3 col-xs-12">
