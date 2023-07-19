@@ -33,10 +33,13 @@ import Dealer from "./components/Admin/Dealer";
 import UpdateCarDetails from "./components/AddCar/UpdateCarDetails";
 import MainFooter from "./components/Footer/MainFooter";
 import TableCard from "./components/TableCard/TableCard";
+import useScrollTop from "./util/useScrollTop";
+// import CardDetailsShimmer from "./components/CarDetailsCard/CardDetailsShimmer";
 // import Cloudnary from "./Dummy/Cloudnary";
 // import Cloudnary from "./Dummy/Cloudnary";
 
 const App = () => {
+  useScrollTop();
   return (
     <>
       <Routes>
@@ -61,8 +64,10 @@ const App = () => {
               <Route path="/dealersManegment/:id" element={<DealerDetails />} />
               <Route path="/userrequest" element={<UserRequest />} />
               <Route path="/adddealer" element={<AddDealer />} />
-              <Route path="/editDealerdetails/:userid/:id" element={<EditDealerProfile />} />
-              
+              <Route
+                path="/editDealerdetails/:userid/:id"
+                element={<EditDealerProfile />}
+              />
             </Route>
           </Route>
 
@@ -88,9 +93,9 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
-        <Route path="/tablecard" element={<TableCard/>} />
+        <Route path="/tablecard" element={<TableCard />} />
       </Routes>
-      <MainFooter/>
+      <MainFooter />
     </>
   );
 };

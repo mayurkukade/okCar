@@ -13,33 +13,14 @@ const CarListCard = ({
 }) => {
   // console.log("data from car card", model);
   return (
-    <div className="col-md-9 col-sm-7">
+    <div className="col-md-12 col-sm-7">
       <ul className="searchList">
-        {/* {cars.map((e) => {
-          return (
-            <Car
-              key={CommonUtilities.randomString(50)}
-              imageSrc={e.imageSrc}
-              model={e.model}
-              price={e.price}
-              year={e.year}
-              kilometersDriven={e.kilometersDriven}
-              location={e.location}
-              fuelType={e.fuelType}
-              cc={e.cc}
-              transmission={e.transmission}
-              lastUpdated={e.lastUpdated}
-            />
-          );
-        })} */}
-
-
         <li>
           <div className="row">
             <div className="col-md-3 col-sm-4">
               {/* <div className="ribbon_3 popular">
-                      <span>Featured</span>
-                    </div> */}
+                <span>Featured</span>
+              </div> */}
               <div className="adimg">
                 {/* <img src={imageSrc} alt="Ad Name" /> */}
               </div>

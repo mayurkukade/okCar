@@ -2,6 +2,8 @@ import AvtarModal from "../Navbar/AvtarModal";
 import HomeCarousel from "../carousel/HomeCarousel";
 import { Link } from "react-router-dom";
 import bghome from "../../../images/slider/Welcome Image.png";
+import "./Home.css";
+import { useEffect, useRef, useState } from "react";
 import {
   SimpleGrid,
   Box,
@@ -18,109 +20,133 @@ const Home = () => {
   const username = localStorage.getItem("userInfo");
   const user = JSON.parse(username)?.roles || "";
 
+  const lastScrollTop = useRef(0);
+
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+
+  useEffect(() => {
+    window.addEventListener(
+      "scroll",
+      () => {
+        var pageYOffset = window.scrollY;
+        if (pageYOffset > lastScrollTop.current) {
+          // downward scroll
+          setIsNavbarVisible(false);
+        } else if (pageYOffset < lastScrollTop.current) {
+          // upward scroll
+          setIsNavbarVisible(true);
+        } // else was horizontal scroll
+        lastScrollTop.current = pageYOffset <= 0 ? 0 : pageYOffset;
+      },
+      { passive: true }
+    );
+  }, []);
+
   return (
     <div>
-      <div className="header">
-        <div className="header">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-2 col-sm-3 col-xs-12">
-                <Link className="logo" to="/">
-                  <img src="../../../images/logo.png" alt="logo" />
-                </Link>
-                <div className="navbar-header">
-                  <button
-                    type="button"
-                    className="navbar-toggle"
-                    data-toggle="collapse"
-                    data-target=".navbar-collapse"
-                  >
-                    <span className="sr-only">Toggle navigation</span>
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                  </button>
-                </div>
-                <div className="clearfix"></div>
+      <div
+        className={`header ${isNavbarVisible ? "visible" : ""}`}
+        // style={{ position: "sticky", top: "0", zIndex: "1000" }}
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-md-2 col-sm-3 col-xs-12">
+              <Link className="logo" to="/">
+                <img src="../../../images/logo.png" alt="logo" />
+              </Link>
+              <div className="navbar-header">
+                <button
+                  type="button"
+                  className="navbar-toggle"
+                  data-toggle="collapse"
+                  data-target=".navbar-collapse"
+                >
+                  <span className="sr-only">Toggle navigation</span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                </button>
               </div>
-              <div className="col-md-10 col-sm-12 col-xs-12">
-                <div className="navbar navbar-default" role="navigation">
-                  <div className="navbar-collapse collapse" id="nav-main">
-                    <ul className="nav navbar-nav">
-                      <li className="dropdown active">
-                        <Link to="/">Home</Link>
-                      </li>
-                      <li>
-                        <Link to="/carlist"> Buy Cars </Link>
-                      </li>
-                      <li>
-                        <Link to="/Contact">Contact Us</Link>
-                      </li>
+              <div className="clearfix"></div>
+            </div>
+            <div className="col-md-10 col-sm-12 col-xs-12">
+              <div className="navbar navbar-default" role="navigation">
+                <div className="navbar-collapse collapse" id="nav-main">
+                  <ul className="nav navbar-nav">
+                    <li className="dropdown active">
+                      <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                      <Link to="/carlist"> Buy Cars </Link>
+                    </li>
+                    <li>
+                      <Link to="/Contact">Contact Us</Link>
+                    </li>
 
-                      <li>
-                        <Link to="/adddealer">
-                          {user.includes("ADMIN") ? (
-                            <button>Add Dealer</button>
-                          ) : (
-                            ""
-                          )}
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/addcardetails">
-                          {user.includes("DEALER") ? (
-                            <button>Add Car</button>
-                          ) : (
-                            ""
-                          )}
-                        </Link>
-                      </li>
-                      <li>
-                        {username ? (
-                          <AvtarModal />
+                    <li>
+                      <Link to="/adddealer">
+                        {user.includes("ADMIN") ? (
+                          <button>Add Dealer</button>
                         ) : (
-                          <Link to="/signin">
-                            <p> Sign In</p>{" "}
-                          </Link>
+                          ""
                         )}
-                      </li>
-                      {/* 
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/addcardetails">
+                        {user.includes("DEALER") ? (
+                          <button>Add Car</button>
+                        ) : (
+                          ""
+                        )}
+                      </Link>
+                    </li>
+                    <li>
+                      {username ? (
+                        <AvtarModal />
+                      ) : (
+                        <Link to="/signin">
+                          <p> Sign In</p>{" "}
+                        </Link>
+                      )}
+                    </li>
+                    {/* 
                       <li className="postad"></li>
 
                       <li className="postad"></li> */}
-                    </ul>
-                  </div>
-                  {/* <div className="clearfix"></div> */}
+                  </ul>
                 </div>
+                {/* <div className="clearfix"></div> */}
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div
-          className="searchwrap"
-          style={{ border: "2px solid white", backgroundColor: "white" }}
-        >
-          <div className="container">
-            {/* <img src="" alt="Image" className="image-in-heading" />   */}
+      <div
+        className="searchwrap"
+        style={{ border: "2px solid white", backgroundColor: "white" }}
+      >
+        <div className="container">
+          {/* <img src="" alt="Image" className="image-in-heading" />   */}
 
-            <h3
-              style={{
-                color: "#5dc302",
-                transition: "transform 0.3s",
-                fontSize: "60px",
-              }}
-              onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
-              onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-            >
-              Buy Cars with Ease!
-            </h3>
-            {/* <p>
+          <h3
+            style={{
+              color: "#5dc302",
+              transition: "transform 0.3s",
+              fontSize: "60px",
+            }}
+            onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+            onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+          >
+            Buy Cars with Ease!
+          </h3>
+          {/* <p>
               Search from over 1,00,000 Active Cars */}
-            {/* &amp; Post free unlimited
+          {/* &amp; Post free unlimited
             classNameifieds ads! */}
-            {/* </p> */}
-            {/* <div className="searchbar">
+          {/* </p> */}
+          {/* <div className="searchbar">
               <div className="row">
                 <div className="col-md-6">
                   <input
@@ -588,54 +614,49 @@ const Home = () => {
                 </p>
               </li>
 
-              <li className="col-md-4 col-sm-4">
-                <div className="iconcircle">
-                  <div
-                    onMouseOver={(e) =>
-                      (e.target.style.transform = "scale(1.1)")
-                    }
-                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  >
-                    <img
-                      className="transition-300ms cursor-pointer"
-                      src="images/car.png"
-                      alt=""
-                    />
-                  </div>
+            <li className="col-md-4 col-sm-4">
+              <div className="iconcircle">
+                <div
+                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                >
+                  <img
+                    className="transition-300ms cursor-pointer"
+                    src="images/car.png"
+                    alt=""
+                  />
                 </div>
-                <h4>Post your Free Car</h4>
-                <p>
-                  Sell with Ease and Reach a Wide Audience!say goodbye to
-                  traditional selling methods and embrace the convenience of our
-                  digital car marketplace
-                </p>
-              </li>
+              </div>
+              <h4>Post your Free Car</h4>
+              <p>
+                Sell with Ease and Reach a Wide Audience!say goodbye to
+                traditional selling methods and embrace the convenience of our
+                digital car marketplace
+              </p>
+            </li>
 
-              <li className="col-md-4 col-sm-4">
-                <div className="iconcircle">
-                  <div
-                    onMouseOver={(e) =>
-                      (e.target.style.transform = "scale(1.1)")
-                    }
-                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  >
-                    <img
-                      className="transition-300ms cursor-pointer"
-                      src="images/sell-icon.png"
-                      alt=""
-                    />
-                  </div>
+            <li className="col-md-4 col-sm-4">
+              <div className="iconcircle">
+                <div
+                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                >
+                  <img
+                    className="transition-300ms cursor-pointer"
+                    src="images/sell-icon.png"
+                    alt=""
+                  />
                 </div>
-                <h4>Sold or Buy</h4>
-                <p>
-                  Maximize Your Car&apos;s Value with Easy Selling & Find Your
-                  Dream Car in Just a Few Clicks! Sell with Ease, Buy with
-                  Confidence. Unlock a World of Possibilities: Sell, Buy, and
-                  Drive!
-                </p>
-              </li>
-            </ul>
-          </div>
+              </div>
+              <h4>Sold or Buy</h4>
+              <p>
+                Maximize Your Car&apos;s Value with Easy Selling & Find Your
+                Dream Car in Just a Few Clicks! Sell with Ease, Buy with
+                Confidence. Unlock a World of Possibilities: Sell, Buy, and
+                Drive!
+              </p>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
