@@ -45,9 +45,7 @@ const AvtarModal = () => {
      
         </MenuButton>
         <MenuList>
-          {/* <MenuItem>History</MenuItem>
-          <MenuItem>FAQ Managment</MenuItem>
-          <MenuItem>Settings</MenuItem> */}
+          
           <Link to="/edituserdetails">
             <MenuItem color={"black"}>Edit Profile</MenuItem>
           </Link>

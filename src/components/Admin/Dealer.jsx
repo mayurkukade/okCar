@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
 import TableM from "./TableM";
 import { useGetAllDealerQuery } from "../../api/dealersManegmentApiSlice";
-import { Link, useParams } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { Button } from "@chakra-ui/react";
 import { InfoIcon, EditIcon, DeleteIcon } from "@chakra-ui/icons";
 import { useDeleteDealerMutation } from "../../api/dealersManegmentApiSlice";
 // import TableCard from "../TableCard/TableCard";
 const Dealer = () => {
-  const { id } = useParams();
-  const [currentPage,setCurrentPage] = useState(1)
-  console.log(id);
+  // const { id } = useParams();
+  const [currentPage,setCurrentPage] = useState(0)
+  // console.log(id);
   const { data: v, isLoading, isError } = useGetAllDealerQuery(currentPage);
+  console.log(isError)
   console.log(v);
-  const [vendorFetchData, setVendorFetchData] = useState([]);
+  // const [vendorFetchData, setVendorFetchData] = useState([]);
   // const [catchUserId,setCatchUserId] = useState()
 
   const [deleteDealer] = useDeleteDealerMutation();
-  const data = React.useMemo(() => vendorFetchData, [vendorFetchData]);
+  // const data = React.useMemo(() => vendorFetchData, [vendorFetchData]);
   const columns = React.useMemo(
     () => [
       {
@@ -98,33 +99,33 @@ const Dealer = () => {
     []
   );
 
-  const goToPreviousPage = ()=>{
-    setCurrentPage((prevPage)=>prevPage - 1)
-  }
-
-  const goToNextPage = ()=>{
-    setCurrentPage((prevPage)=> prevPage + 1)
-  }
-  useEffect(() => {
-    const getData = setTimeout(() => {
-      if (v && v.list) {
-        setVendorFetchData(v.list);
-      }
-    }, 100);
+ 
+  // useEffect(() => {
+  //   const getData = setTimeout(() => {
+  //     if (v && v.list) {
+  //       setVendorFetchData(v.list);
+  //     }
+  //   }, 100);
   
-    return () => clearTimeout(getData);
-  }, [v]);
+  //   return () => clearTimeout(getData);
+  // }, [v]);
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
+  if (isError) {
+    return <p>Error occurred while fetching data.</p>;
+  }
   return (
     <>
       <TableM
-        data={data}
+        data={v.list}
         columns={columns}
-        FetchData={vendorFetchData}
+        // FetchData={vendorFetchData}
         error={isError}
         isLoading={isLoading}
-        goToNextPage={goToNextPage}
-        goToPreviousPage={goToPreviousPage}
+        currentPage = {currentPage}
+        setCurrentPage={setCurrentPage}
       />
     </>
   );

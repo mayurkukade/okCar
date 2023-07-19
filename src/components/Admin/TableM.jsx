@@ -9,7 +9,7 @@ import {
   useSortBy,
   useGlobalFilter,
 } from "react-table";
-import "./adminpage.css";
+// import "./adminpage.css";
 // import { useVendorDetailsQuery } from "../../api/vendorSlice";
 // import React, { useEffect, useState } from "react";
 import TableCard from "../TableCard/TableCard";
@@ -50,17 +50,22 @@ const TableM = ({
   data: v,
   columns,
   FetchData,
-
+  isError,
   isLoading,
   tableData,
   isSuccess,
-  goToNextPage,
-  goToPreviousPage
+  currentPage,
+  setCurrentPage,
 }) => {
-  
-  const data = React.useMemo(() => FetchData, [FetchData]);
-  console.log(FetchData);
+  const data = React.useMemo(() => v, [v]);
 
+  const goToPreviousPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+
+  const goToNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
   const {
     getTableProps,
     getTableBodyProps,
@@ -91,7 +96,7 @@ const TableM = ({
     <>
       {/* {isLoading ? <p>Loading...</p>: */}
       {data ? (
-        <div className="tableContainer" style={{minHeight:"75vh"}}>
+        <div className="tableContainer" style={{ minHeight: "75vh" }}>
           <TableContainer>
             <Table {...getTableProps()}>
               <Thead bgColor={"#95B6D8"} padding="20px 0px">
@@ -126,8 +131,7 @@ const TableM = ({
               </Thead>
 
               <Tbody {...getTableBodyProps()}>
-                {
-                isLoading ? (
+                {isLoading ? (
                   <>
                     <Skeleton
                       count={pageSize}
@@ -148,7 +152,6 @@ const TableM = ({
                         {...row.getRowProps()}
                         _hover={{ bg: "#EDF2F7" }}
                       >
-                        
                         {row.cells.map((cell) => (
                           <Td key={i} {...cell.getCellProps()}>
                             {" "}
@@ -158,16 +161,12 @@ const TableM = ({
                       </Tr>
                     );
                   })
-                 )
+                )
                 }
               </Tbody>
             </Table>
-            <button onClick={goToPreviousPage}>
-              🔙
-            </button>
-            <button onClick={goToNextPage}>
-            ➡️
-            </button>
+            <button onClick={goToPreviousPage}>🔙</button>
+            <button onClick={goToNextPage}>➡️</button>
 
             <Box className="pagination" padding="15px" justifyItems="center">
               <Flex gap="10px">

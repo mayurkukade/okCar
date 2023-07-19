@@ -5,7 +5,7 @@ import DealersModel from "./components/Dealers/DealersModel";
 
 //Admin🤴
 import AdminPage from "./components/Admin/AdminPage";
-// import DealerManegment from "./components/Admin/DealerManegment";
+
 
 import UserRequest from "./components/Admin/UserRequest";
 
@@ -14,7 +14,7 @@ import Register from "./components/SignUp/SignUp.jsx";
 
 import NotFound from "./components/NotFound/NotFound.jsx";
 import Home from "./components/Home/Home";
-// import Footer from "./components/Footer/Footer";
+
 import AddCarDetails from "./components/AddCar/AddCarDetails";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import CarCard from "./components/CarDetailsCard/CarDetails";
@@ -34,9 +34,10 @@ import UpdateCarDetails from "./components/AddCar/UpdateCarDetails";
 import MainFooter from "./components/Footer/MainFooter";
 import TableCard from "./components/TableCard/TableCard";
 import useScrollTop from "./util/useScrollTop";
-// import CardDetailsShimmer from "./components/CarDetailsCard/CardDetailsShimmer";
-// import Cloudnary from "./Dummy/Cloudnary";
-// import Cloudnary from "./Dummy/Cloudnary";
+import Home2 from "./components/Home/Home2";
+
+
+
 
 const App = () => {
   useScrollTop();
@@ -94,6 +95,7 @@ const App = () => {
         </Route>
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
         <Route path="/tablecard" element={<TableCard />} />
+        <Route path="/home" element={<Home2/>} />
       </Routes>
       <MainFooter />
     </>

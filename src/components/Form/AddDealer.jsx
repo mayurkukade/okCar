@@ -5,6 +5,7 @@ import { useToast } from "@chakra-ui/react";
 import { TOASTS, ToastUtility } from "../../util/toast.utilities";
 import { useAddDealerMutation } from "../../api/dealersManegmentApiSlice";
 import { CommonUtilities } from "../../util/common.utilities";
+import { useNavigate } from "react-router-dom";
 const AddDealer = () => {
   const [inputField, setInputField] = useState({
     firstName: "",
@@ -19,18 +20,10 @@ const AddDealer = () => {
     password:""
   });
 const [addDealer] = useAddDealerMutation()
-  // const [inputRadio, setInputRadio] = useState({
-  //   shopact: "",
-  //   adhar: "",
-  // });
-  // const [images, setImages] = useState([]);
+  
   const toastUtility = new ToastUtility(useToast());
-  // function handleImage(event) {
-  //   const fileList = event.target.files;
-  //   const imageArray = Array.from(fileList);
-  //   setImages(imageArray);
-  //   console.log(imageArray);
-  // }
+  const navigate = useNavigate()
+
   const onChangeFormHandler = (e) => {
     const { name, value } = e.target;
     setInputField((preVal) => {
@@ -57,11 +50,12 @@ const [addDealer] = useAddDealerMutation()
     }
     
     try {
-      // console.log(inputField, inputRadio, images);
+  
       console.log(inputField);
       const res = await addDealer(inputField).unwrap()
       console.log(res)
       toastUtility.showCustom(TOASTS.LOGIN_SUCCESS);
+      navigate('/dealersmanegment')
     } catch (error) {
       console.log(error)
       toastUtility.showCustom(TOASTS.FILE_ADD_FAILED);
@@ -155,30 +149,7 @@ const [addDealer] = useAddDealerMutation()
                           />
                         </div>
                       </div>
-                      {/* <div className="col-md-6">
-                        <div className="formrow">
-                          <input
-                            type="number"
-                            name="whatsApp"
-                            className="form-control"
-                            placeholder="whatsApp"
-                            onChange={onChangeFormHandler}
-                            required
-                          />
-                        </div>
-                      </div> */}
-                      {/* <div className="col-md-6">
-                        <div className="formrow">
-                          <input
-                            type="number"
-                            name="alternateNumber"
-                            className="form-control"
-                            placeholder="alternate number"
-                            onChange={onChangeFormHandler}
-                            required
-                          />
-                        </div>
-                      </div> */}
+                   
                       <div className="col-md-6">
                         <div className="formrow">
                           <label>Email</label>
@@ -218,62 +189,10 @@ const [addDealer] = useAddDealerMutation()
                         </div>
                         </div>
                       <div className="col-md-12">
-                        {/* <RadioGroup onChange={setInputRadio} value={inputRadio}>
-                          <Stack spacing={5} direction="row">
-                            <Radio
-                              colorScheme="green"
-                              name="shopact"
-                              value="shopact"
-                              color={"black"}
-                            >
-                              Shopact
-                            </Radio>
-                            <Radio
-                              color={"black"}
-                              colorScheme="green"
-                              name="adhar"
-                              value="adhar"
-                            >
-                              Adhar
-                            </Radio>
-                          </Stack>
-                        </RadioGroup> */}
-                        {/* <h5 style={{ marginTop: "1rem" }}>Upload Image</h5> */}
-                        {/* <div className="formrow">
-                          <div className="uploadphotobx">
-                            {" "}
-                            <i className="fa fa-upload" aria-hidden="true"></i>
-                            <h4>Upload your photo</h4>
-                            <p>
-                              Select multiple photo at a time using ctr button
-                            </p>
-                            <label className="uploadBox">
-                              Click here to Upload
-                              <input
-                                type="file"
-                                name="upload"
-                                onChange={handleImage}
-                                multiple
-                                required
-                              />
-                            </label>
-                          </div>
-                          {images &&
-                            images.map((image, index) => (
-                              <div className="fileattached" key={index}>
-                                <img src={URL.createObjectURL(image)} alt="" />
-                                <span>{image.name}</span>
-                                <i
-                                  className="fa fa-check-circle"
-                                  aria-hidden="true"
-                                ></i>
-                                <div className="clearfix"></div>
-                              </div>
-                            ))}
-                        </div> */}
+                      
                       </div>
                       <br />
-                      <input type="submit" className="btn" value="Post An Ad" />
+                      <input type="submit" className="btn" value="Add Dealer" />
                     </form>
                   </div>
                 </div>
@@ -288,128 +207,4 @@ const [addDealer] = useAddDealerMutation()
 
 export default AddDealer;
 
-// import { FormControl, FormLabel, Input, Box } from "@chakra-ui/react";
-// import { useState } from "react";
-// import { Button } from "@chakra-ui/react";
-// import { Radio, RadioGroup } from "@chakra-ui/react";
-// import { Stack } from "@chakra-ui/react";
-// const AddDealer = () => {
-//   const [inputField, setInputField] = useState({
-//     firstName: "",
-//     lastName: "",
-//     address: "",
-//     city: "",
-//     area: "",
-//     whatsApp: "",
-//     alternateNumber: "",
-//     email: "",
-//     shopact: "",
-//     adhar: "",
-//   });
-//   const [file, setFile] = useState();
-//   function handleChange(e) {
-//     console.log(e.target.files);
-//     setFile(URL.createObjectURL(e.target.files[0]));
-//   }
-//   const onChangeFormHandler = (e) => {
-//     const { name, value } = e.target;
-//     setInputField((preVal) => {
-//       return {
-//         ...preVal,
-//         [name]: value,
-//       };
-//     });
-//   };
 
-//   const onSubmitHandler = (e) => {
-//     e.preventDefault();
-//     console.log(inputField);
-//   };
-//   return (
-//     <>
-//       <Box>
-//         <FormControl>
-//           <form onSubmit={onSubmitHandler}>
-//             <FormLabel htmlFor="firstName">First Name</FormLabel>
-//             <Input
-//               type="text"
-//               name="firstName"
-//               onChange={onChangeFormHandler}
-//               value={inputField.firstName}
-//               required
-//             />
-
-//             <FormLabel>Last Name</FormLabel>
-//             <Input
-//               type="text"
-//               name="lastName"
-//               onChange={onChangeFormHandler}
-//               value={inputField.lastName}
-//             />
-//             <FormLabel>Address Details</FormLabel>
-//             <Input
-//               type="text"
-//               name="address"
-//               onChange={onChangeFormHandler}
-//               value={inputField.address}
-//             />
-//             <FormLabel>City</FormLabel>
-//             <Input
-//               type="text"
-//               name="city"
-//               onChange={onChangeFormHandler}
-//               value={inputField.city}
-//             />
-//             <FormLabel>Area</FormLabel>
-//             <Input
-//               type="text"
-//               name="area"
-//               onChange={onChangeFormHandler}
-//               value={inputField.area}
-//             />
-//             <FormLabel>WhatsApp Number</FormLabel>
-//             <Input
-//               type="text"
-//               name="whatsApp"
-//               onChange={onChangeFormHandler}
-//               value={inputField.whatsApp}
-//             />
-//             <FormLabel>Alternate Number</FormLabel>
-//             <Input
-//               type="text"
-//               name="alternateNumber"
-//               onChange={onChangeFormHandler}
-//               value={inputField.alternateNumber}
-//             />
-//             <FormLabel>Email</FormLabel>
-//             <Input
-//               type="email"
-//               name="email"
-//               onChange={onChangeFormHandler}
-//               value={inputField.email}
-//             />
-//             <RadioGroup onChange={setInputField} value={inputField}>
-//               <Stack spacing={5} direction="row">
-//                 <Radio colorScheme="green" name="shopact" value="shopact">
-//                   Shopact
-//                 </Radio>
-//                 <Radio colorScheme="green" name="adhar" value="adhar">
-//                   Adhar
-//                 </Radio>
-//               </Stack>
-//             </RadioGroup>
-//             <Input type="file" onChange={handleChange} />
-//             {file ? (
-//               <img src={file} style={{ height: "50px", width: "100px" }} />
-//             ) : (
-//               ""
-//             )}
-//           </form>
-//         </FormControl>
-//         <Button type="submit">Submit</Button>
-//       </Box>
-//     </>
-//   );
-// };
-
-// export default AddDealer;
