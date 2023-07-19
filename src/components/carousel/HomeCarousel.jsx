@@ -2,13 +2,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper";
-// import { Autoplay } from "swiper";
-// import { Navigation } from "swiper";
-// import { Autoplay } from "swiper";
-import carslider from "../../../images/slider/cs1.png";
-// import carslider2 from "../../../images/slider/cs2.png"
-import carslider3 from "../../../images/slider/cs3.png";
-import carslider4 from "../../../images/slider/cs4.png";
 import CarUI from "../../../images/slider/carui.png";
 import CarUI02 from "../../../images/slider/carui02.png";
 import CarUI03 from "../../../images/slider/carui03.png";
@@ -36,7 +29,6 @@ const HomeCarousel = () => {
         <SwiperSlide>
           <img src={CarUI03} style={{ width: "100%", height: "100%" }} />
         </SwiperSlide>
-       
       </Swiper>
     </>
   );
