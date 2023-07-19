@@ -366,7 +366,7 @@ const Home = () => {
               Explore by <span>Lifestyle</span>
             </h3>
 
-            <SimpleGrid spacing={-5} columns={{ sm: 1, md: 2, lg: 3 }}>
+            <SimpleGrid spacing={3} columns={{ sm: 1, md: 2, lg: 3 }}>
               <Card
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
@@ -505,66 +505,74 @@ const Home = () => {
       </div>
 
       {/* <Insight Cards> */}
-      <div className="section whitebg">
+      <div className="section whitebg howitwrap">
         <div className="container">
-          <div
-            className="titleTop"
+          <div className="titleTop">
+            <h3>
+              Insights That <span> Drive Us</span>
+            </h3>
+          </div>
+
+          <ul
+            className="howlist"
             style={{
               display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
+              listStyle: "none",
+              padding: 0,
+              justifyContent: "center",
             }}
           >
-            <h3>
-              Explore by <span>Lifestyle</span>
-            </h3>
-
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between", // To distribute cards evenly
-                gap: "3px", // To add spacing between cards
-              }}
+            <li
+              className="col-md-4 col-sm-4"
             >
-              <Card style={{ flex: "0 1 300px", maxWidth: "300px" }}>
-                <CardBody>
-                  <img
-                    src="../../../images/Cards/Insight/Card1.png"
-                    alt="Card 1"
-                  />
-                </CardBody>
-              </Card>
+                <img
+                onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  className="transition-300ms cursor-pointer"
+                  src="../../../images/Cards/Insight/Card1.png"
+                  alt=""
+                  style={{ width: "100%", height: "auto", maxWidth: "400px" }}
+                />
+            </li>
 
-              <Card style={{ flex: "0 1 300px", maxWidth: "300px" }}>
-                <CardBody>
-                  <img
-                    src="../../../images/Cards/Insight/Card2.png"
-                    alt="Card 2"
-                  />
-                  {/* <Text>
-              View a summary of all your customers over the last month.
-            </Text> */}
-                </CardBody>
-              </Card>
+            <li
+              className="col-md-4 col-sm-4"
+              
+            >
+                <img
+                onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  className="transition-300ms cursor-pointer"
+                  src="../../../images/Cards/Insight/Card2.png"
+                  alt=""
+                />
+            </li>
 
-              <Card style={{ flex: "0 1 300px", maxWidth: "300px" }}>
-                <CardBody>
-                  <img
-                    src="../../../images/Cards/Insight/Card3.png"
-                    alt="Card 3"
-                  />
-                </CardBody>
-              </Card>
-              <Card style={{ flex: "0 1 300px", maxWidth: "300px" }}>
-                <CardBody>
-                  <img
-                    src="../../../images/Cards/Insight/Card4.png"
-                    alt="Card 4"
-                  />
-                </CardBody>
-              </Card>
-            </div>
-          </div>
+            <li
+              className="col-md-4 col-sm-4"
+            >
+                <img
+                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  className="transition-300ms cursor-pointer"
+                  src="../../../images/Cards/Insight/Card3.png"
+                  alt=""
+                  style={{ width: "100%", height: "auto", maxWidth: "400px" }}
+                />
+            </li>
+            <li
+              className="col-md-4 col-sm-4"
+            >
+                <img
+                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  className="transition-300ms cursor-pointer"
+                  src="../../../images/Cards/Insight/Card4.png"
+                  alt=""
+                  style={{ width: "100%", height: "auto", maxWidth: "400px" }}
+                />
+            </li>
+          </ul>
         </div>
       </div>
 

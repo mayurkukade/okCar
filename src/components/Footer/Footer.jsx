@@ -1,8 +1,8 @@
 // import React from 'react'
 
-const Footer = () => {
-  return (
-    <div>
+// const Footer = () => {
+//   return (
+//     <div>
       {/* <div className="footerWrap">
         <div className="container">
           <div className="row">
@@ -188,9 +188,16 @@ const Footer = () => {
       {/* </div>
       </div>  */}
 
-     
+      {/* <div className="copyright">
+        <div className="container">
+          <div className="bttxt">
+            Copyright &copy; 2023 Optical Arc. All Rights Reserved. Design by :
+            Optical Arc Team
+          </div>
+        </div>
+      </div>
     </div>
   );
-};
+}; */}
 
-export default Footer;
+{/* export default Footer; */}
