@@ -6,14 +6,14 @@ import "./Home.css";
 import { useEffect, useRef, useState } from "react";
 import {
   SimpleGrid,
-  Box,
+  // Box,
   Card,
-  CardHeader,
-  Heading,
+  // CardHeader,
+  // Heading,
   CardBody,
-  Text,
+  // Text,
   CardFooter,
-  Button,
+  // Button,
 } from "@chakra-ui/react";
 
 const Home = () => {
@@ -179,206 +179,192 @@ const Home = () => {
                 </div>
               </div>
             </div> */}
+        </div>
+      </div>
+      <HomeCarousel />
+      <div className="about-wrap">
+        <div className="col-md-6">
+          <div className="about-image">
+            <img
+              src={bghome}
+              alt="About"
+              style={{
+                width: "500%",
+                height: "598px",
+                maxWidth: "100%",
+                overflow: "hidden",
+                transition: "transform 0.5s",
+              }}
+              className="zoomable-image"
+            />
           </div>
         </div>
-        <HomeCarousel />
-        <div className="about-wrap">
-          <div className="col-md-6">
-            <div className="about-image">
-              <img
-                src={bghome}
-                alt="About"
-                style={{
-                  width: "500%",
-                  height: "598px",
-                  maxWidth: "100%",
-                  overflow: "hidden",
-                  transition: "transform 0.5s",
-                }}
-                className="zoomable-image"
-              />
-            </div>
-          </div>
-          <div
-            className="col-md-6"
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              textAlign: "center",
-            }}
-          >
-            <div className="aboutinfo">
-              <div className="title">
-                {/* <span>World&apos;s Leading Used Cars</span> */}
-                <h1>
-                  <span>Welcome to</span> Auto Car
-                </h1>
-              </div>
-              <p style={{ fontSize: "16px" }}>
-                At &quot;Auto Car&quot;, we are passionate about driving the
-                digital transformation of enterprises within the automotive
-                industry. Our store-without-walls concept revolutionizes car
-                selling, making it efficient, convenient, and customer-centric.
-                Join us on this exciting journey as we reshape the way vehicles
-                are bought and sold, one digital transaction at a time. Ready to
-                experience the future of car selling? Sign up on our platform
-                today and embark on a seamless journey towards digitizing your
-                automotive sales process.
-              </p>
-              <ul>
-                <li>Revolutionize your car buying experience with ease!</li>
-                <li>
-                  Access to a wide range of cars and potential buyers/sellers.
-                </li>
-                <li>
-                  Sellers can create detailed listings for their cars, including
-                  high-resolution images, specifications, and pricing
-                  information.
-                </li>
-                <li>
-                  By eliminating the need for physical showrooms and extensive
-                  paperwork, our platform saves valuable time and resources for
-                  both buyers and sellers.
-                </li>
-                {/* <li>Duis non massa id nisl imperdiet iaculis.</li> */}
-              </ul>
-            </div>
-          </div>
-          <div className="clearfix"></div>
-        </div>
-
-        {/* <Car Logos> */}
-        <div className="section whitebg">
-          <div className="container">
-            <div className="titleTop">
-              <h3>
-                Available <span>Brand</span>
-              </h3>
-              <h1 style={{ fontSize: "20px" }}>
-                we pride ourselves on offering a wide selection of vehicles from
-                renowned car brands. We have established strong partnerships
-                with top manufacturers in the industry, ensuring that our
-                customers have access to the best and most reliable vehicles on
-                the market.
+        <div
+          className="col-md-6"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
+          <div className="aboutinfo">
+            <div className="title">
+              {/* <span>World&apos;s Leading Used Cars</span> */}
+              <h1>
+                <span>Welcome to</span> Auto Car
               </h1>
             </div>
-            <div className="topsearchwrap">
-              <ul
-                className="row makelist"
-                style={{
-                  display: "flex",
-                  gap: "20px",
-                  //  flexDirection: "column",
-                  flexDirection: "row",
-                  justifyContent: "center",
-                  flexWrap: "wrap",
-
-                  // border: "2px solid black",
-                }}
-              >
-                <li
-                  className="col-md-2 col-sm-3 col-xs-6 "
-                  style={{ cursor: "pointer" }}
-                >
-                  <img
-                    className="transition-300ms"
-                    src="../../../images/logo/new car logos/Tata Motor Logo.png"
-                    alt=""
-                    onMouseOver={(e) =>
-                      (e.target.style.transform = "scale(1.1)")
-                    }
-                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  />
-                  <strong>Tata Motors</strong>
-                </li>
-                <li
-                  className="col-md-2 col-sm-3 col-xs-6 "
-                  style={{ cursor: "pointer", flexDirection: "column" }}
-                >
-                  <img
-                    className="transition-300ms"
-                    src="../../../images/logo/new car logos/suzuki logo.png"
-                    alt=""
-                    onMouseOver={(e) =>
-                      (e.target.style.transform = "scale(1.1)")
-                    }
-                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  />
-                  <strong>Maruti Suzuki</strong>
-                </li>
-                <li
-                  className="col-md-2 col-sm-3 col-xs-6 "
-                  style={{ cursor: "pointer" }}
-                >
-                  <img
-                    className="transition-300ms"
-                    src="../../../images/logo/new car logos/Hyundai Logo.png"
-                    onMouseOver={(e) =>
-                      (e.target.style.transform = "scale(1.1)")
-                    }
-                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                    alt=""
-                  />
-                  <strong>Hyundai</strong>
-                </li>
-                <li
-                  className="col-md-2 col-sm-3 col-xs-6 "
-                  style={{ cursor: "pointer" }}
-                >
-                  <img
-                    className="transition-300ms"
-                    src="../../../images/logo/new car logos/Mahindra Logo.png"
-                    alt=""
-                    onMouseOver={(e) =>
-                      (e.target.style.transform = "scale(1.1)")
-                    }
-                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  />
-                  <strong>Mahindra</strong>
-                </li>
-                <li
-                  className="col-md-2 col-sm-3 col-xs-6 "
-                  style={{ cursor: "pointer" }}
-                >
-                  <img
-                    className="transition-300ms"
-                    src="../../../images/logo/new car logos/Honda Logo.png"
-                    alt=""
-                    onMouseOver={(e) =>
-                      (e.target.style.transform = "scale(1.1)")
-                    }
-                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  />
-                  <strong>Honda</strong>
-                </li>
-                <li
-                  className="col-md-2 col-sm-3 col-xs-6 "
-                  style={{ cursor: "pointer" }}
-                >
-                  <img
-                    className="transition-300ms"
-                    src="../../../images/logo/toyota.png"
-                    alt=""
-                    onMouseOver={(e) =>
-                      (e.target.style.transform = "scale(1.1)")
-                    }
-                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  />
-                  <strong>Toyota</strong>
-                </li>
-              </ul>
-            </div>
+            <p style={{ fontSize: "16px" }}>
+              At &quot;Auto Car&quot;, we are passionate about driving the
+              digital transformation of enterprises within the automotive
+              industry. Our store-without-walls concept revolutionizes car
+              selling, making it efficient, convenient, and customer-centric.
+              Join us on this exciting journey as we reshape the way vehicles
+              are bought and sold, one digital transaction at a time. Ready to
+              experience the future of car selling? Sign up on our platform
+              today and embark on a seamless journey towards digitizing your
+              automotive sales process.
+            </p>
+            <ul>
+              <li>Revolutionize your car buying experience with ease!</li>
+              <li>
+                Access to a wide range of cars and potential buyers/sellers.
+              </li>
+              <li>
+                Sellers can create detailed listings for their cars, including
+                high-resolution images, specifications, and pricing information.
+              </li>
+              <li>
+                By eliminating the need for physical showrooms and extensive
+                paperwork, our platform saves valuable time and resources for
+                both buyers and sellers.
+              </li>
+              {/* <li>Duis non massa id nisl imperdiet iaculis.</li> */}
+            </ul>
           </div>
         </div>
+        <div className="clearfix"></div>
+      </div>
 
-        {/* <Explore by lifestylr cards> */}
-        <div className="section whitebg">
-          <div className="container">
-            <div className="titleTop">
-              <h3>
-                Explore by <span>Lifestyle</span>
-              </h3>
+      {/* <Car Logos> */}
+      <div className="section whitebg">
+        <div className="container">
+          <div className="titleTop">
+            <h3>
+              Available <span>Brand</span>
+            </h3>
+            <h1 style={{ fontSize: "20px" }}>
+              we pride ourselves on offering a wide selection of vehicles from
+              renowned car brands. We have established strong partnerships with
+              top manufacturers in the industry, ensuring that our customers
+              have access to the best and most reliable vehicles on the market.
+            </h1>
+          </div>
+          <div className="topsearchwrap">
+            <ul
+              className="row makelist"
+              style={{
+                display: "flex",
+                gap: "20px",
+                //  flexDirection: "column",
+                flexDirection: "row",
+                justifyContent: "center",
+                flexWrap: "wrap",
+
+                // border: "2px solid black",
+              }}
+            >
+              <li
+                className="col-md-2 col-sm-3 col-xs-6 "
+                style={{ cursor: "pointer" }}
+              >
+                <img
+                  className="transition-300ms"
+                  src="../../../images/logo/new car logos/Tata Motor Logo.png"
+                  alt=""
+                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                />
+                <strong>Tata Motors</strong>
+              </li>
+              <li
+                className="col-md-2 col-sm-3 col-xs-6 "
+                style={{ cursor: "pointer", flexDirection: "column" }}
+              >
+                <img
+                  className="transition-300ms"
+                  src="../../../images/logo/new car logos/suzuki logo.png"
+                  alt=""
+                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                />
+                <strong>Maruti Suzuki</strong>
+              </li>
+              <li
+                className="col-md-2 col-sm-3 col-xs-6 "
+                style={{ cursor: "pointer" }}
+              >
+                <img
+                  className="transition-300ms"
+                  src="../../../images/logo/new car logos/Hyundai Logo.png"
+                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  alt=""
+                />
+                <strong>Hyundai</strong>
+              </li>
+              <li
+                className="col-md-2 col-sm-3 col-xs-6 "
+                style={{ cursor: "pointer" }}
+              >
+                <img
+                  className="transition-300ms"
+                  src="../../../images/logo/new car logos/Mahindra Logo.png"
+                  alt=""
+                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                />
+                <strong>Mahindra</strong>
+              </li>
+              <li
+                className="col-md-2 col-sm-3 col-xs-6 "
+                style={{ cursor: "pointer" }}
+              >
+                <img
+                  className="transition-300ms"
+                  src="../../../images/logo/new car logos/Honda Logo.png"
+                  alt=""
+                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                />
+                <strong>Honda</strong>
+              </li>
+              <li
+                className="col-md-2 col-sm-3 col-xs-6 "
+                style={{ cursor: "pointer" }}
+              >
+                <img
+                  className="transition-300ms"
+                  src="../../../images/logo/toyota.png"
+                  alt=""
+                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                />
+                <strong>Toyota</strong>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* <Explore by lifestylr cards> */}
+      <div className="section whitebg">
+        <div className="container">
+          <div className="titleTop">
+            <h3>
+              Explore by <span>Lifestyle</span>
+            </h3>
 
               <SimpleGrid spacing={3} columns={{ sm: 1, md: 2, lg: 3 }}>
                 <Card
@@ -398,221 +384,218 @@ const Home = () => {
     <Heading size='md'>Customer Dashboard</Heading>
   </CardHeader>
   */}
-                  <CardBody>
-                    <img src="../../../images/Cards/cards1.png" />
-                  </CardBody>
-                  <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
-                </Card>
+                <CardBody>
+                  <img src="../../../images/Cards/cards1.png" />
+                </CardBody>
+                <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
+              </Card>
 
-                <Card
-                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
-                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  style={{
-                    transition: "transform 0.3s",
-                    maxWidth: "400px",
-                    margin: "0 auto",
-                    padding: "20px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  {/* <CardHeader>
-    <Heading size='md'>Customer Dashboard</Heading>
-  </CardHeader> */}
-                  <CardBody>
-                    <img src="../../../images/Cards/cards8.png" />
-                  </CardBody>
-                  <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
-                </Card>
-
-                <Card
-                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
-                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  style={{
-                    transition: "transform 0.3s",
-                    maxWidth: "400px",
-                    margin: "0 auto",
-                    padding: "20px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  {/* <CardHeader>
-    <Heading size='md'>Customer Dashboard</Heading>
-  </CardHeader> */}
-                  <CardBody>
-                    <img src="../../../images/Cards/cards3.png" />
-                  </CardBody>
-                  <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
-                </Card>
-                <Card
-                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
-                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  style={{
-                    transition: "transform 0.3s",
-                    maxWidth: "400px",
-                    margin: "0 auto",
-                    padding: "20px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  {/* <CardHeader>
-    <Heading size='md'>Customer Dashboard</Heading>
-  </CardHeader>
-  */}
-                  <CardBody>
-                    <img src="../../../images/Cards/cards5.png" />
-                  </CardBody>
-                  <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
-                </Card>
-                <Card
-                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
-                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  style={{
-                    transition: "transform 0.3s",
-                    maxWidth: "400px",
-                    margin: "0 auto",
-                    padding: "20px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  {/* <CardHeader>
-    <Heading size='md'>Customer Dashboard</Heading>
-  </CardHeader>
-  */}
-                  <CardBody>
-                    <img src="../../../images/Cards/cards6.png" />
-                  </CardBody>
-                  <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
-                </Card>
-                <Card
-                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
-                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  style={{
-                    transition: "transform 0.3s",
-                    maxWidth: "400px",
-                    margin: "0 auto",
-                    padding: "10px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  {/* <CardHeader>
-    <Heading size='md'>Customer Dashboard</Heading>
-  </CardHeader>
-  */}
-                  <CardBody>
-                    <img src="../../../images/Cards/cards7.png" />
-                  </CardBody>
-                  <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
-                </Card>
-              </SimpleGrid>
-            </div>
-          </div>
-        </div>
-
-        {/* <Insight Cards> */}
-        <div className="section whitebg">
-          <div className="container">
-            <div
-              className="titleTop"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <h3>
-                Explore by <span>Lifestyle</span>
-              </h3>
-
-              <div
+              <Card
+                onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 style={{
+                  transition: "transform 0.3s",
+                  maxWidth: "400px",
+                  margin: "0 auto",
+                  padding: "20px",
                   display: "flex",
-                  justifyContent: "space-between", // To distribute cards evenly
-                  gap: "3px", // To add spacing between cards
+                  flexDirection: "column",
+                  justifyContent: "space-between",
                 }}
               >
-                <Card style={{ flex: "0 1 300px", maxWidth: "300px" }}>
-                  <CardBody>
-                    <img
-                      src="../../../images/Cards/Insight/Card1.png"
-                      alt="Card 1"
-                    />
-                  </CardBody>
-                </Card>
+                {/* <CardHeader>
+    <Heading size='md'>Customer Dashboard</Heading>
+  </CardHeader> */}
+                <CardBody>
+                  <img src="../../../images/Cards/cards8.png" />
+                </CardBody>
+                <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
+              </Card>
 
-                <Card style={{ flex: "0 1 300px", maxWidth: "300px" }}>
-                  <CardBody>
-                    <img
-                      src="../../../images/Cards/Insight/Card2.png"
-                      alt="Card 2"
-                    />
-                    {/* <Text>
+              <Card
+                onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                style={{
+                  transition: "transform 0.3s",
+                  maxWidth: "400px",
+                  margin: "0 auto",
+                  padding: "20px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                }}
+              >
+                {/* <CardHeader>
+    <Heading size='md'>Customer Dashboard</Heading>
+  </CardHeader> */}
+                <CardBody>
+                  <img src="../../../images/Cards/cards3.png" />
+                </CardBody>
+                <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
+              </Card>
+              <Card
+                onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                style={{
+                  transition: "transform 0.3s",
+                  maxWidth: "400px",
+                  margin: "0 auto",
+                  padding: "20px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                }}
+              >
+                {/* <CardHeader>
+    <Heading size='md'>Customer Dashboard</Heading>
+  </CardHeader>
+  */}
+                <CardBody>
+                  <img src="../../../images/Cards/cards5.png" />
+                </CardBody>
+                <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
+              </Card>
+              <Card
+                onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                style={{
+                  transition: "transform 0.3s",
+                  maxWidth: "400px",
+                  margin: "0 auto",
+                  padding: "20px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                }}
+              >
+                {/* <CardHeader>
+    <Heading size='md'>Customer Dashboard</Heading>
+  </CardHeader>
+  */}
+                <CardBody>
+                  <img src="../../../images/Cards/cards6.png" />
+                </CardBody>
+                <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
+              </Card>
+              <Card
+                onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                style={{
+                  transition: "transform 0.3s",
+                  maxWidth: "400px",
+                  margin: "0 auto",
+                  padding: "10px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                }}
+              >
+                {/* <CardHeader>
+    <Heading size='md'>Customer Dashboard</Heading>
+  </CardHeader>
+  */}
+                <CardBody>
+                  <img src="../../../images/Cards/cards7.png" />
+                </CardBody>
+                <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
+              </Card>
+            </SimpleGrid>
+          </div>
+        </div>
+      </div>
+
+      {/* <Insight Cards> */}
+      <div className="section whitebg">
+        <div className="container">
+          <div
+            className="titleTop"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <h3>
+              Explore by <span>Lifestyle</span>
+            </h3>
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between", // To distribute cards evenly
+                gap: "3px", // To add spacing between cards
+              }}
+            >
+              <Card style={{ flex: "0 1 300px", maxWidth: "300px" }}>
+                <CardBody>
+                  <img
+                    src="../../../images/Cards/Insight/Card1.png"
+                    alt="Card 1"
+                  />
+                </CardBody>
+              </Card>
+
+              <Card style={{ flex: "0 1 300px", maxWidth: "300px" }}>
+                <CardBody>
+                  <img
+                    src="../../../images/Cards/Insight/Card2.png"
+                    alt="Card 2"
+                  />
+                  {/* <Text>
               View a summary of all your customers over the last month.
             </Text> */}
-                  </CardBody>
-                </Card>
+                </CardBody>
+              </Card>
 
-                <Card style={{ flex: "0 1 300px", maxWidth: "300px" }}>
-                  <CardBody>
-                    <img
-                      src="../../../images/Cards/Insight/Card3.png"
-                      alt="Card 3"
-                    />
-                  </CardBody>
-                </Card>
-                <Card style={{ flex: "0 1 300px", maxWidth: "300px" }}>
-                  <CardBody>
-                    <img
-                      src="../../../images/Cards/Insight/Card4.png"
-                      alt="Card 4"
-                    />
-                  </CardBody>
-                </Card>
-
-              </div>
+              <Card style={{ flex: "0 1 300px", maxWidth: "300px" }}>
+                <CardBody>
+                  <img
+                    src="../../../images/Cards/Insight/Card3.png"
+                    alt="Card 3"
+                  />
+                </CardBody>
+              </Card>
+              <Card style={{ flex: "0 1 300px", maxWidth: "300px" }}>
+                <CardBody>
+                  <img
+                    src="../../../images/Cards/Insight/Card4.png"
+                    alt="Card 4"
+                  />
+                </CardBody>
+              </Card>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* <Create account scetion> */}
-        <div className="section whitebg howitwrap">
-          <div className="container">
-            <ul className="howlist row">
-              <li className="col-md-4 col-sm-4 ">
-                <div className="iconcircle">
-                  <Link to="/signup">
-                    <div
-                      onMouseOver={(e) =>
-                        (e.target.style.transform = "scale(1.1)")
-                      }
-                      onMouseOut={(e) =>
-                        (e.target.style.transform = "scale(1)")
-                      }
-                    >
-                      <img
-                        className="transition-300ms cursor-pointer"
-                        src="images/avatar.png"
-                        alt=""
-                      />
-                    </div>
-                  </Link>
-                </div>
-                <h4>Create a Free Account</h4>
-                <p>
-                  Get started on your car buying journey by creating a free
-                  account. Discover a tailored experience, expert guidance, and
-                  the tools you need to make informed decisions with ease.
-                </p>
-              </li>
+      {/* <Create account scetion> */}
+      <div className="section whitebg howitwrap">
+        <div className="container">
+          <ul className="howlist row">
+            <li className="col-md-4 col-sm-4 ">
+              <div className="iconcircle">
+                <Link to="/signup">
+                  <div
+                    onMouseOver={(e) =>
+                      (e.target.style.transform = "scale(1.1)")
+                    }
+                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  >
+                    <img
+                      className="transition-300ms cursor-pointer"
+                      src="images/avatar.png"
+                      alt=""
+                    />
+                  </div>
+                </Link>
+              </div>
+              <h4>Create a Free Account</h4>
+              <p>
+                Get started on your car buying journey by creating a free
+                account. Discover a tailored experience, expert guidance, and
+                the tools you need to make informed decisions with ease.
+              </p>
+            </li>
 
             <li className="col-md-4 col-sm-4">
               <div className="iconcircle">
