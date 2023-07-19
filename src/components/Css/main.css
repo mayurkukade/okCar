@@ -1084,7 +1084,7 @@ a.wit-btn {
   padding: 0;
 }
 .about-wrap .about-image {
-  background: url(../images/about-img.jpg) no-repeat left;
+  background: url(../../images/about-img.jpg) no-repeat left;
   background-size: cover;
   height: 580px;
 }
@@ -4262,7 +4262,7 @@ blockquote:after {
 	Home Style 4
 *******************/
 .fullpagesearch {
-  background: url(../images/search-bg.jpg) no-repeat;
+  background: url(../../../images/search-bg.jpg) no-repeat;
   background-size: cover;
   height: 100%;
 }
@@ -4755,4 +4755,5 @@ Large Mobile Screen
     width: 50%;
     text-align: center;
   }
+  
 }

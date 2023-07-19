@@ -6,15 +6,14 @@ import { useEffect } from "react";
 // import { useEffect } from "react";
 import "./adminpage.css";
 const AdminPage = () => {
-   const navigate = useNavigate();
- 
+  const navigate = useNavigate();
 
   useEffect(() => {
     navigate("/dealersmanegment");
   }, []);
   return (
     <>
-      <div className="Container">
+      <div className="Container" style={{ marginTop: "80px" }}>
         <Tabs isFitted>
           <TabList>
             <Link to={"/dealersmanegment"} spacing={4}>
@@ -24,7 +23,6 @@ const AdminPage = () => {
             </Link>
             <Link to={"/userrequest"}>
               <Tab fontSize={"20px"}>
-                
                 <span>User Request</span>{" "}
               </Tab>
             </Link>
