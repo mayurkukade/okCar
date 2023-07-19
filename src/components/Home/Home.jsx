@@ -1,7 +1,18 @@
 import AvtarModal from "../Navbar/AvtarModal";
 import HomeCarousel from "../carousel/HomeCarousel";
 import { Link } from "react-router-dom";
-import bghome from "../../../images/bghome.jpg";
+import bghome from "../../../images/slider/Welcome Image.png";
+import {
+  SimpleGrid,
+  Box,
+  Card,
+  CardHeader,
+  Heading,
+  CardBody,
+  Text,
+  CardFooter,
+  Button,
+} from "@chakra-ui/react";
 
 const Home = () => {
   const username = localStorage.getItem("userInfo");
@@ -152,8 +163,8 @@ const Home = () => {
                 src={bghome}
                 alt="About"
                 style={{
-                  width: "495%",
-                  height: "622px",
+                  width: "500%",
+                  height: "598px",
                   maxWidth: "100%",
                   overflow: "hidden",
                   transition: "transform 0.5s",
@@ -168,11 +179,12 @@ const Home = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              textAlign: "center",
             }}
           >
             <div className="aboutinfo">
               <div className="title">
-                <span>World&apos;s Leading Used Cars</span>
+                {/* <span>World&apos;s Leading Used Cars</span> */}
                 <h1>
                   <span>Welcome to</span> Auto Car
                 </h1>
@@ -210,6 +222,7 @@ const Home = () => {
           <div className="clearfix"></div>
         </div>
 
+        {/* <Car Logos> */}
         <div className="section whitebg">
           <div className="container">
             <div className="titleTop">
@@ -230,6 +243,11 @@ const Home = () => {
                 style={{
                   display: "flex",
                   gap: "20px",
+                  //  flexDirection: "column",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  flexWrap: "wrap",
+
                   // border: "2px solid black",
                 }}
               >
@@ -250,7 +268,7 @@ const Home = () => {
                 </li>
                 <li
                   className="col-md-2 col-sm-3 col-xs-6 "
-                  style={{ cursor: "pointer" }}
+                  style={{ cursor: "pointer", flexDirection: "column" }}
                 >
                   <img
                     className="transition-300ms"
@@ -328,6 +346,218 @@ const Home = () => {
           </div>
         </div>
 
+        {/* <Explore by lifestylr cards> */}
+        <div className="section whitebg">
+          <div className="container">
+            <div className="titleTop">
+              <h3>
+                Explore by <span>Lifestyle</span>
+              </h3>
+
+              <SimpleGrid spacing={-5} columns={{ sm: 1, md: 2, lg: 3 }}>
+                <Card
+                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  style={{
+                    transition: "transform 0.3s",
+                    maxWidth: "400px",
+                    margin: "0 auto",
+                    padding: "10px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  {/* <CardHeader>
+    <Heading size='md'>Customer Dashboard</Heading>
+  </CardHeader>
+  */}
+                  <CardBody>
+                    <img src="../../../images/Cards/cards1.png" />
+                  </CardBody>
+                  <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
+                </Card>
+
+                <Card
+                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  style={{
+                    transition: "transform 0.3s",
+                    maxWidth: "400px",
+                    margin: "0 auto",
+                    padding: "20px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  {/* <CardHeader>
+    <Heading size='md'>Customer Dashboard</Heading>
+  </CardHeader> */}
+                  <CardBody>
+                    <img src="../../../images/Cards/cards8.png" />
+                  </CardBody>
+                  <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
+                </Card>
+
+                <Card
+                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  style={{
+                    transition: "transform 0.3s",
+                    maxWidth: "400px",
+                    margin: "0 auto",
+                    padding: "20px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  {/* <CardHeader>
+    <Heading size='md'>Customer Dashboard</Heading>
+  </CardHeader> */}
+                  <CardBody>
+                    <img src="../../../images/Cards/cards3.png" />
+                  </CardBody>
+                  <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
+                </Card>
+                <Card
+                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  style={{
+                    transition: "transform 0.3s",
+                    maxWidth: "400px",
+                    margin: "0 auto",
+                    padding: "20px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  {/* <CardHeader>
+    <Heading size='md'>Customer Dashboard</Heading>
+  </CardHeader>
+  */}
+                  <CardBody>
+                    <img src="../../../images/Cards/cards5.png" />
+                  </CardBody>
+                  <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
+                </Card>
+                <Card
+                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  style={{
+                    transition: "transform 0.3s",
+                    maxWidth: "400px",
+                    margin: "0 auto",
+                    padding: "20px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  {/* <CardHeader>
+    <Heading size='md'>Customer Dashboard</Heading>
+  </CardHeader>
+  */}
+                  <CardBody>
+                    <img src="../../../images/Cards/cards6.png" />
+                  </CardBody>
+                  <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
+                </Card>
+                <Card
+                  onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                  style={{
+                    transition: "transform 0.3s",
+                    maxWidth: "400px",
+                    margin: "0 auto",
+                    padding: "10px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  {/* <CardHeader>
+    <Heading size='md'>Customer Dashboard</Heading>
+  </CardHeader>
+  */}
+                  <CardBody>
+                    <img src="../../../images/Cards/cards7.png" />
+                  </CardBody>
+                  <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
+                </Card>
+              </SimpleGrid>
+            </div>
+          </div>
+        </div>
+
+        {/* <Insight Cards> */}
+        <div className="section whitebg">
+          <div className="container">
+            <div
+              className="titleTop"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <h3>
+                Explore by <span>Lifestyle</span>
+              </h3>
+
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between", // To distribute cards evenly
+                  gap: "3px", // To add spacing between cards
+                }}
+              >
+                <Card style={{ flex: "0 1 300px", maxWidth: "300px" }}>
+                  <CardBody>
+                    <img
+                      src="../../../images/Cards/Insight/Card1.png"
+                      alt="Card 1"
+                    />
+                  </CardBody>
+                </Card>
+
+                <Card style={{ flex: "0 1 300px", maxWidth: "300px" }}>
+                  <CardBody>
+                    <img
+                      src="../../../images/Cards/Insight/Card2.png"
+                      alt="Card 2"
+                    />
+                    {/* <Text>
+              View a summary of all your customers over the last month.
+            </Text> */}
+                  </CardBody>
+                </Card>
+
+                <Card style={{ flex: "0 1 300px", maxWidth: "300px" }}>
+                  <CardBody>
+                    <img
+                      src="../../../images/Cards/Insight/Card3.png"
+                      alt="Card 3"
+                    />
+                  </CardBody>
+                </Card>
+                <Card style={{ flex: "0 1 300px", maxWidth: "300px" }}>
+                  <CardBody>
+                    <img
+                      src="../../../images/Cards/Insight/Card4.png"
+                      alt="Card 4"
+                    />
+                  </CardBody>
+                </Card>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <Create account scetion> */}
         <div className="section whitebg howitwrap">
           <div className="container">
             <ul className="howlist row">
