@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 
 const SubNav = ({ componentsName }) => {
   return (
-    <div className="pageTitle" style={{ backgroundColor: "black" }}>
+    <div
+      className="pageTitle"
+      style={{ backgroundColor: "black", padding: "50px" }}
+    >
       <div className="container">
         <div className="row">
           <div className="col-md-6 col-sm-6">

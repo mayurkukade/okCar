@@ -2,7 +2,7 @@ import { useEffect, useState, useMemo } from "react";
 import React from "react";
 import TableModel from "../tableModel/TableModel";
 import { EditIcon, DeleteIcon, InfoIcon } from "@chakra-ui/icons";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import {
   Button,
   Modal,
@@ -14,19 +14,23 @@ import {
   ModalCloseButton,
   Text,
   Flex,
-  Badge
+  Badge,
 } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
-import { useLazyGetDealerCarsQuery, useDeleteDealerCarMutation, setSelectedCar } from '../../api/dealersManegmentApiSlice';
-import jwt_decode from 'jwt-decode';
-import { useDispatch } from 'react-redux';
-import axios from 'axios';
-import { baseUrl } from '../../api/apiSlice';
+import {
+  useLazyGetDealerCarsQuery,
+  useDeleteDealerCarMutation,
+  setSelectedCar,
+} from "../../api/dealersManegmentApiSlice";
+import jwt_decode from "jwt-decode";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import { baseUrl } from "../../api/apiSlice";
 
 const DealersModel = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const TYPE = { EDIT: "EDIT_CAR", DELETE: "DELETE_CAR" }
+  const TYPE = { EDIT: "EDIT_CAR", DELETE: "DELETE_CAR" };
   const selectedCar = useMemo(() => {
     return { type: null, carId: null };
   }, []);
@@ -38,7 +42,7 @@ const DealersModel = () => {
     status: "",
     carDetails: "",
   });
-  const userToken = `Bearer ${localStorage.getItem('userToken')}`;
+  const userToken = `Bearer ${localStorage.getItem("userToken")}`;
   const { dealerId } = jwt_decode(userToken);
   // const [getDealersCars, { data: carsData, isLoading: il, isError: iE }] = useLazyGetDealerCarsQuery();
 
@@ -46,14 +50,23 @@ const DealersModel = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(true);
 
-  const [deleteDealerCar, { data: isDeleteCarLoading, isLoading: isDeleteCarError, isError: errorDeleteCar }] = useDeleteDealerCarMutation();
+  const [
+    deleteDealerCar,
+    {
+      data: isDeleteCarLoading,
+      isLoading: isDeleteCarError,
+      isError: errorDeleteCar,
+    },
+  ] = useDeleteDealerCarMutation();
   const handleDeleteClick = async (id) => {
-    selectedCar.type = TYPE.DELETE; selectedCar.carId = id;
+    selectedCar.type = TYPE.DELETE;
+    selectedCar.carId = id;
     setIsDeleteModalOpen(true);
   };
 
   const handleEditClick = async (id) => {
-    selectedCar.type = TYPE.EDIT; selectedCar.carId = id;
+    selectedCar.type = TYPE.EDIT;
+    selectedCar.carId = id;
     setIsEditModalOpen(true);
   };
 
@@ -68,51 +81,54 @@ const DealersModel = () => {
     if (!id || !type) return;
     if (type !== TYPE.EDIT) return;
 
-    const carToUpdate = (carsData.filter(e => e.carId === id));
+    const carToUpdate = carsData.filter((e) => e.carId === id);
     if (!carToUpdate) return;
     dispatch(setSelectedCar(carToUpdate));
-    navigate('/updateCarDetails');
-  }
-
+    navigate("/updateCarDetails");
+  };
 
   // delete item
   const handleDeleteItem = () => {
     const { carId: id, type } = selectedCar;
     if (!id || !type) return;
     if (type !== TYPE.DELETE) return;
-    deleteDealerCar({ id }).then(response => {
-      if (response?.error) { console.error('An error occurred while deleting a car'); return; }
+    deleteDealerCar({ id })
+      .then((response) => {
+        if (response?.error) {
+          console.error("An error occurred while deleting a car");
+          return;
+        }
 
-      fetchDealerCars().then(() => setIsDeleteModalOpen(false))
-    }).catch(error => {
-      console.log(error);
-    });
+        fetchDealerCars().then(() => setIsDeleteModalOpen(false));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const handleViewButtonClick = (id) => {
     navigate(`carDetails/${id}`);
-  }
+  };
 
   async function fetchDealerCars() {
     // getDealersCars({ id: dealerId, pageNo: 0 }, { skip: !dealerId }).then(e => console.log(e));
     const url = baseUrl + `/car/dealer/${dealerId}/status/Active?pageNo=0`;
-    const token = localStorage.getItem('userToken');
-    const headers = { Authorization: `Bearer ${token}` }
-    try{
+    const token = localStorage.getItem("userToken");
+    const headers = { Authorization: `Bearer ${token}` };
+    try {
       const { data } = await axios.get(url, { headers });
-      setCarsData(state => {
-        setIsLoading(e => false);
-        setIsError(e => false);
+      setCarsData((state) => {
+        setIsLoading((e) => false);
+        setIsError((e) => false);
         return data.list;
       });
-    } catch (error) { 
-      setCarsData(state => {
-        setIsLoading(e => false);
-        setIsError(e => false);
+    } catch (error) {
+      setCarsData((state) => {
+        setIsLoading((e) => false);
+        setIsError((e) => false);
         return [];
       });
     }
-
   }
 
   useEffect(() => {
@@ -136,19 +152,21 @@ const DealersModel = () => {
       {
         Header: "Price",
         accessor: "price",
-        Cell: (cell) => (
-          <>{ Number(cell.value).toLocaleString("en-IN") }</>
-        )
+        Cell: (cell) => <>{Number(cell.value).toLocaleString("en-IN")}</>,
       },
       {
         Header: "Status",
         accessor: "carStatus",
         Cell: (cell) => (
           <>
-          { (cell.value.toLowerCase() === 'active') && <Badge colorScheme='green'>ACTIVE</Badge> }
-          { (cell.value.toLowerCase() !== 'active') && <Badge colorScheme='red'>INACTIVE</Badge> }
+            {cell.value.toLowerCase() === "active" && (
+              <Badge colorScheme="green">ACTIVE</Badge>
+            )}
+            {cell.value.toLowerCase() !== "active" && (
+              <Badge colorScheme="red">INACTIVE</Badge>
+            )}
           </>
-        )
+        ),
       },
       {
         Header: "Car Details",
@@ -202,7 +220,9 @@ const DealersModel = () => {
             <EditModal />
             {/* Delete Modal */}
             <Modal isOpen={isDeleteModalOpen} onClose={handleModalClose}>
-              <ModalOverlay style={{ backgroundColor: 'rgb(50, 50, 50, 0.1)' }} />
+              <ModalOverlay
+                style={{ backgroundColor: "rgb(50, 50, 50, 0.1)" }}
+              />
               <ModalContent>
                 <ModalHeader>Delete Item</ModalHeader>
                 <ModalCloseButton />
@@ -303,7 +323,7 @@ const DealersModel = () => {
 
     return (
       <Modal isOpen={isEditModalOpen} onClose={handleModalClose}>
-        <ModalOverlay style={{ backgroundColor: 'rgb(50, 50, 50, 0.1)' }} />
+        <ModalOverlay style={{ backgroundColor: "rgb(50, 50, 50, 0.1)" }} />
         <ModalContent>
           <ModalHeader>Edit Item</ModalHeader>
           <ModalCloseButton />
@@ -320,12 +340,12 @@ const DealersModel = () => {
           </ModalFooter>
         </ModalContent>
       </Modal>
-    )
+    );
   }
 
   EditModal.propTypes = {
-    id: PropTypes.number
-  }
+    id: PropTypes.number,
+  };
 
   return (
     <>
@@ -336,7 +356,16 @@ const DealersModel = () => {
           </Button>
         </Link>
       </Flex>
-      {(!isLoading && !isError) && <TableModel data={carsData} FetchData={carsData} columns={columns} isError={false} isLoading={false} isSuccess={true} />}
+      {!isLoading && !isError && (
+        <TableModel
+          data={carsData}
+          FetchData={carsData}
+          columns={columns}
+          isError={false}
+          isLoading={false}
+          isSuccess={true}
+        />
+      )}
     </>
   );
 };

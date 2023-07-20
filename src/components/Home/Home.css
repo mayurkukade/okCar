@@ -25,3 +25,19 @@
   top: 0;
   translate: 0;
 }
+
+
+@media (max-width: 767px) {
+  .howlist {
+    flex-wrap: wrap;
+  }
+
+  .howlist li {
+    flex: 1 0 100%; /* Take full width on smaller screens */
+    margin-bottom: 10px;
+  }
+
+  .howlist li img {
+    max-width: 100%; /* Take full width on smaller screens */
+  }
+}
