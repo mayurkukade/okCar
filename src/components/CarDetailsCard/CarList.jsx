@@ -42,10 +42,10 @@ const CarList = () => {
 
     setInputFilter((previousValue) => ({
       ...previousValue,
+
       [name]: updatedValue,
     }));
   };
-  // error
 
   // form submit handler
   const onSubmitHandler = (e) => {
@@ -335,12 +335,13 @@ const CarList = () => {
                   <ul className="pagination" style={{ marginTop: "2em" }}>
                     <li>
                       <Button
+                        onClick={goToPreviousPage}
+                        isDisabled={currentPage === 0}
                         colorScheme="teal"
                         variant="outline"
                         size="sm"
                         w="150px"
-                        onClick={goToPreviousPage}
-                        disabled={currentPage === 1}
+                        // isDisabled={currentPage < 0 ? "true" : "false"}
                       >
                         <span style={{ marginRight: "2px", padding: "5px" }}>
                           <ArrowLeftIcon />
@@ -350,20 +351,20 @@ const CarList = () => {
                     </li>
 
                     <li style={{ marginLeft: "20px" }}>
-                      {!isError && (
-                        <Button
-                          colorScheme="teal"
-                          variant="outline"
-                          size="sm"
-                          w="150px"
-                          onClick={goToNextPage}
-                          disabled={isError || currentPage === -2}
-                        >
-                          <span style={{ marginLeft: "5px", padding: "5px" }}>
-                            Next Page <ArrowRightIcon />
-                          </span>
-                        </Button>
-                      )}
+                      {/* {!isError && ( */}
+                      <Button
+                        onClick={goToNextPage}
+                        colorScheme="teal"
+                        variant="outline"
+                        size="sm"
+                        w="150px"
+                        isDisabled={isError}
+                      >
+                        <span style={{ marginLeft: "5px", padding: "5px" }}>
+                          Next Page <ArrowRightIcon />
+                        </span>
+                      </Button>
+                      {/* )} */}
                     </li>
                   </ul>
                 </div>
