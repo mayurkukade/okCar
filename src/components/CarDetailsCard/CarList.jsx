@@ -25,7 +25,9 @@ const CarList = () => {
   });
 
   // useState for pagination
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [filterPage, setFilterPage] = useState(1);
+
   // for fetching all cars
   const { data: v, isLoading, isError } = useGetAllCarsQuery(currentPage);
   const [responseData, setResponseData] = useState([]);
@@ -50,7 +52,6 @@ const CarList = () => {
   // form submit handler
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(inputFilter);
     fetchData();
   };
 
@@ -76,7 +77,8 @@ const CarList = () => {
     try {
       console.log(`baseurl is ${baseUrl}`);
       const queryParams = new URLSearchParams(inputFilter).toString();
-      const url = `${baseUrl}/cars/mainFilter/${currentPage}?${queryParams}`;
+      const url = `${baseUrl}/cars/mainFilter/${filterPage}?${queryParams}`;
+      console.log(url);
       const response = await fetch(url);
       const data = await response.json();
       setResponseData(data?.list);
@@ -336,7 +338,7 @@ const CarList = () => {
                     <li>
                       <Button
                         onClick={goToPreviousPage}
-                        isDisabled={currentPage === 0}
+                        isDisabled={currentPage === 1}
                         colorScheme="teal"
                         variant="outline"
                         size="sm"
