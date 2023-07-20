@@ -59,7 +59,7 @@ export const carApiSlice = apiSlice.injectEndpoints({
                     method: "GET"
                 }
             }
-        })
+        }),
 
 
         //filter car query
@@ -72,20 +72,20 @@ export const carApiSlice = apiSlice.injectEndpoints({
         // })
 
 
-        // filterCarQuery: builder.query({
-        //     query: (currentPage, year, minPrice, maxPrice, area, transmission, fuelType, brand, model) => {
-        //         // console.log(1?minPrice=&maxPrice=&area=South Beach&year=2016&brand=Chevrolet&model=&transmission=&fuel_type=Petrol)
-        //         console.log(`Filter Api Slice ${currentPage}?minPrice=${minPrice}&maxPrice=${maxPrice}&area=${area}&year=${year}&brand=${brand}&model=${model}&transmission=${transmission}&fuel_type=${fuelType}`)
-        //         return {
-        //             url: `/cars/mainFilter/${currentPage}?minPrice=${minPrice}&maxPrice=${maxPrice}&area=${area}&year=${year}&brand=${brand}&model=${model}&transmission=${transmission}&fuel_type=${fuelType}`,
-        //             method: "GET",
-        //         }
-        //     }
-        // })
+        filterCar: builder.query({
+            query: (currentPage, year, minPrice, maxPrice, area, transmission, fuelType, brand, model) => {
+                // console.log(1?minPrice=&maxPrice=&area=South Beach&year=2016&brand=Chevrolet&model=&transmission=&fuel_type=Petrol)
+                console.log(`Filter Api Slice ${currentPage}?minPrice=${minPrice}&maxPrice=${maxPrice}&area=${area}&year=${year}&brand=${brand}&model=${model}&transmission=${transmission}&fuel_type=${fuelType}`)
+                return {
+                    url: `/cars/mainFilter/${currentPage}?minPrice=${minPrice}&maxPrice=${maxPrice}&area=${area}&year=${year}&brand=${brand}&model=${model}&transmission=${transmission}&fuel_type=${fuelType}`,
+                    method: "GET",
+                }
+            }
+        })
 
     }),
 
 });
 
 
-export const { useAddCarMutation, useGetAllCarsQuery, useGetCarByIdQuery, useLazyGetCarByIdQuery } = carApiSlice;
+export const { useAddCarMutation, useGetAllCarsQuery, useGetCarByIdQuery, useLazyGetCarByIdQuery, useFilterCarQuery } = carApiSlice;
