@@ -12,13 +12,13 @@ const AddDealer = () => {
     address: "",
     city: "",
     area: "",
-    mobileNo:"",
-   shopName:"",
+    mobileNo: "",
+    shopName: "",
     email: "",
-    roles:"DEALER",
-    password:""
+    roles: "DEALER",
+    password: "",
   });
-const [addDealer] = useAddDealerMutation()
+  const [addDealer] = useAddDealerMutation();
   // const [inputRadio, setInputRadio] = useState({
   //   shopact: "",
   //   adhar: "",
@@ -41,29 +41,29 @@ const [addDealer] = useAddDealerMutation()
     });
   };
 
-  const onSubmitHandler = async(e) => {
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
     // const a = inputField;
     const { email, mobileNo } = inputField;
 
-    if ( ! CommonUtilities.mobileNumberValidation(mobileNo) ) { 
-      toastUtility.showError('Invalid Form', 'mobile number is not valid'); 
-      return; 
+    if (!CommonUtilities.mobileNumberValidation(mobileNo)) {
+      toastUtility.showError("Invalid Form", "mobile number is not valid");
+      return;
     }
 
-    if ( ! CommonUtilities.emailValidation(email) ) { 
-      toastUtility.showError('Invalid Form', 'email is not valid'); 
-      return; 
+    if (!CommonUtilities.emailValidation(email)) {
+      toastUtility.showError("Invalid Form", "email is not valid");
+      return;
     }
-    
+
     try {
       // console.log(inputField, inputRadio, images);
       console.log(inputField);
-      const res = await addDealer(inputField).unwrap()
-      console.log(res)
+      const res = await addDealer(inputField).unwrap();
+      console.log(res);
       toastUtility.showCustom(TOASTS.LOGIN_SUCCESS);
     } catch (error) {
-      console.log(error)
+      console.log(error);
       toastUtility.showCustom(TOASTS.FILE_ADD_FAILED);
     }
   };
@@ -202,10 +202,9 @@ const [addDealer] = useAddDealerMutation()
                             required
                           />
                         </div>
-                      
                       </div>
                       <div className="col-md-6">
-                      <div className="formrow">
+                        <div className="formrow">
                           <label>Password</label>
                           <input
                             type="password"
@@ -216,7 +215,7 @@ const [addDealer] = useAddDealerMutation()
                             required
                           />
                         </div>
-                        </div>
+                      </div>
                       <div className="col-md-12">
                         {/* <RadioGroup onChange={setInputRadio} value={inputRadio}>
                           <Stack spacing={5} direction="row">
@@ -273,7 +272,7 @@ const [addDealer] = useAddDealerMutation()
                         </div> */}
                       </div>
                       <br />
-                      <input type="submit" className="btn" value="Post An Ad" />
+                      <input type="submit" className="btn" value="Add Dealer" />
                     </form>
                   </div>
                 </div>
