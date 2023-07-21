@@ -21,10 +21,11 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
 
       invalidatesTags: ["Dealer"],
     }),
+
     getAllDealer: builder.query({
-      query: (userToken) => ({
-        transformResponse: console.log(userToken),
-        url: `/dealer/allDealers/0`,
+      query: (currentPage) => ({
+        transformResponse: console.log(currentPage),
+        url: `/dealer/allDealers/${currentPage}`,
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -32,7 +33,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
       }),
       providesTags: ["Dealer"],
     }),
-    
+
     getDealer: builder.query({
       query: ({ id }) => ({
         transformResponse: console.log(id),
@@ -47,7 +48,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
 
     deleteDealer: builder.mutation({
       query: (body) => ({
-        transformResponse:console.log(body),
+        transformResponse: console.log(body),
         url: `/dealer/delete/${body}`,
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -59,17 +60,17 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
       invalidatesTags: ['Dealer'],
     }),
 
-    updateDealer:builder.mutation({
-      query:(body) =>({
-        transformResponse:console.log(body),
-        url:`/dealer/updateDealer/${body.userid}`,
-        headers:{
+    updateDealer: builder.mutation({
+      query: (body) => ({
+        transformResponse: console.log(body),
+        url: `/dealer/updateDealer/${body.userid}`,
+        headers: {
           "Content-Type": "application/json",
-          Authorization:`Bearer ${token}`
+          Authorization: `Bearer ${token}`
         },
-        method:"PUT",
-        body:body
-        
+        method: "PUT",
+        body: body
+
       }),
       invalidatesTags: ["Dealer"]
     }),
@@ -82,21 +83,21 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
         },
         method: 'GET'
       }),
-      providesTags:['Dealer']
+      providesTags: ['Dealer']
     }),
     getDealerCarsDealerManegmentPage: builder.query({
-      query: ({ id}) => ({
-        transformResponse:console.log(id),
+      query: ({ id }) => ({
+        transformResponse: console.log(id),
         url: `car/dealer/${id}/status/Active?pageNo=0`,
         headers: {
           'Content-Type': "application/json",
           Authorization: `Bearer ${token}`,
         },
       }),
-      providesTags:['Dealer']
+      providesTags: ['Dealer']
     }),
     deleteDealerCar: builder.mutation({
-      query: ({id}) => ({
+      query: ({ id }) => ({
         url: `/car/removeCar?carId=${id}`,
         headers: {
           'Content-Type': "application/json",
@@ -104,18 +105,18 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
         },
         method: 'DELETE'
       }),
-      providesTags:['Dealer']
+      providesTags: ['Dealer']
     }),
     putDealerCar: builder.mutation({
-      query:({ id, body }) =>({
-        url:`/car/edit/${id}`,
-        headers:{
+      query: ({ id, body }) => ({
+        url: `/car/edit/${id}`,
+        headers: {
           "Content-Type": "application/json",
-          Authorization:`Bearer ${token}`
+          Authorization: `Bearer ${token}`
         },
-        method:"PUT",
+        method: "PUT",
         body
-        
+
       }),
       invalidatesTags: ["Dealer"]
     }),
