@@ -56,7 +56,7 @@ const Navbar = () => {
               <div className="navbar navbar-default" role="navigation">
                 <div className="navbar-collapse collapse" id="nav-main">
                   <ul className="nav navbar-nav">
-                    <li></li>
+                    {/* <li></li> */}
                     {/* <li className="dropdown active">
                 <a>Home</a>
               </li>
@@ -87,11 +87,9 @@ const Navbar = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-2 col-sm-3 col-xs-12">
-              <a className="logo">
-                <Link to="/">
-                  <img src="../../../images/logo.png" alt="logo" />
-                </Link>
-              </a>
+              <Link to="/" className="logo">
+                <img src="../../../images/logo.png" alt="logo" />
+              </Link>
               <div className="navbar-header">
                 <button
                   type="button"

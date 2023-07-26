@@ -34,6 +34,7 @@ import UpdateCarDetails from "./components/AddCar/UpdateCarDetails";
 import MainFooter from "./components/Footer/MainFooter";
 import TableCard from "./components/TableCard/TableCard";
 import useScrollTop from "./util/useScrollTop";
+import Navbar from "./components/Navbar/Navbar";
 // import CardDetailsShimmer from "./components/CarDetailsCard/CardDetailsShimmer";
 // import Cloudnary from "./Dummy/Cloudnary";
 // import Cloudnary from "./Dummy/Cloudnary";
@@ -42,13 +43,14 @@ const App = () => {
   useScrollTop();
   return (
     <>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<Register />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
 
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/carlist" element={<CarList />} />
         <Route path="/carDetails/:id" element={<CarCard />} />
 

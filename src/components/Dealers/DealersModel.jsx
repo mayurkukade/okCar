@@ -34,6 +34,8 @@ const DealersModel = () => {
   const selectedCar = useMemo(() => {
     return { type: null, carId: null };
   }, []);
+  // for current Page set
+  const [currentPage, setCurrentPage] = useState(0);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -112,7 +114,8 @@ const DealersModel = () => {
 
   async function fetchDealerCars() {
     // getDealersCars({ id: dealerId, pageNo: 0 }, { skip: !dealerId }).then(e => console.log(e));
-    const url = baseUrl + `/car/dealer/${dealerId}/status/Active?pageNo=0`;
+    const url =
+      baseUrl + `/car/dealer/${dealerId}/status/Active?pageNo=${currentPage}`;
     const token = localStorage.getItem("userToken");
     const headers = { Authorization: `Bearer ${token}` };
     try {
@@ -134,6 +137,16 @@ const DealersModel = () => {
   useEffect(() => {
     fetchDealerCars();
   }, []);
+
+  // for Next Page value
+  const goToNextPage = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  // For previous Page Value
+  const goToPreviousPage = () => {
+    setCurrentPage(currentPage - 1);
+  };
 
   const columns = React.useMemo(
     () => [
@@ -364,6 +377,10 @@ const DealersModel = () => {
           isError={false}
           isLoading={false}
           isSuccess={true}
+          // error={isError}
+          goToNextPage={goToNextPage}
+          goToPreviousPage={goToPreviousPage}
+          currentPage={currentPage}
         />
       )}
     </>

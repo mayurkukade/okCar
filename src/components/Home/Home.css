@@ -157,3 +157,34 @@
     max-width: 100%; /* Take full width on smaller screens */
   }
 }
+
+.makelist {
+  display: flex;
+  gap: 10px; /* Redu the gap between logos*/
+  justify-content: center;
+}
+
+.makelist li {
+  flex: 0 0 calc(25% - 20px); /* log take 25% of the screen width minus the gap space */
+  max-width: 150px; /* Limit the maximum width f logo */
+}
+
+/*  mobile view =*/
+@media screen and (max-width: 768px) {
+  .makelist {
+    flex-direction: column; /* Logo single column */
+    align-items: center; /* cent logo hori */
+  }
+
+  .makelist li {
+    flex: 0 0 100%; /* take full width in a single column */
+    margin-bottom: 10px; /* some spacing  */
+  }
+}
+
+/*  tablet view */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .makelist li {
+    flex: 0 0 calc(33.33% - 20px); /* Set each logo to take 33.33% of the screen width minus the gap space on tablets */
+  }
+}

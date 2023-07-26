@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 // `/admin/vendors/${cell.row.values.id}`
 import "regenerator-runtime/runtime";
-
+import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
 import {
   useTable,
   usePagination,
@@ -50,10 +50,13 @@ const TableM = ({
   data: v,
   columns,
   FetchData,
-
+  isError,
   isLoading,
   tableData,
   isSuccess,
+  goToNextPage,
+  goToPreviousPage,
+  currentPage,
 }) => {
   const data = React.useMemo(() => FetchData, [FetchData]);
   console.log(FetchData);
@@ -78,17 +81,16 @@ const TableM = ({
     state,
     state: { pageIndex, pageSize },
   } = useTable(
-    { columns, data, initialState: { pageIndex: 0, pageSize: 5 } },
+    { columns, data, initialState: { pageIndex: 0, pageSize: 10 } },
     useGlobalFilter,
     useSortBy,
     usePagination
   );
-
   return (
     <>
       {/* {isLoading ? <p>Loading...</p>: */}
       {data ? (
-        <div className="tableContainer" style={{minHeight:"75vh"}}>
+        <div className="tableContainer" style={{ minHeight: "75vh" }}>
           <TableContainer>
             <Table {...getTableProps()}>
               <Thead bgColor={"#95B6D8"} padding="20px 0px">
@@ -123,8 +125,7 @@ const TableM = ({
               </Thead>
 
               <Tbody {...getTableBodyProps()}>
-                {
-                isLoading ? (
+                {isLoading ? (
                   <>
                     <Skeleton
                       count={pageSize}
@@ -145,7 +146,6 @@ const TableM = ({
                         {...row.getRowProps()}
                         _hover={{ bg: "#EDF2F7" }}
                       >
-                        
                         {row.cells.map((cell) => (
                           <Td key={i} {...cell.getCellProps()}>
                             {" "}
@@ -155,13 +155,12 @@ const TableM = ({
                       </Tr>
                     );
                   })
-                 )
-                }
+                )}
               </Tbody>
             </Table>
 
             <Box className="pagination" padding="15px" justifyItems="center">
-              <Flex gap="10px">
+              {/* <Flex gap="10px">
                 <Button
                   h={"35px"}
                   _hover={{ bg: "#95B6D8" }}
@@ -169,7 +168,6 @@ const TableM = ({
                   disabled={!canPreviousPage}
                 >
                   <BiFirstPage fontSize={"20px"} />
-                  {/* First Page */}
                 </Button>{" "}
                 <Button
                   h={"35px"}
@@ -178,13 +176,12 @@ const TableM = ({
                   disabled={!canPreviousPage}
                 >
                   <MdOutlineKeyboardArrowLeft fontSize={"22px"} />
-                  {/* Previous Page */}
-                </Button>{" "}
+                </Button>
                 <Text alignItems="center" fontSize="18px" pt={"2px"}>
-                  Page{" "}
+                  Page
                   <strong>
                     {pageIndex + 1} of {pageOptions.length}
-                  </strong>{" "}
+                  </strong>
                 </Text>
                 <Button
                   h={"35px"}
@@ -192,17 +189,14 @@ const TableM = ({
                   onClick={() => nextPage()}
                   disabled={!canNextPage}
                 >
-                  {" "}
-                  {/* Next Page */}
                   <MdOutlineKeyboardArrowRight fontSize={"22px"} />
-                </Button>{" "}
+                </Button>
                 <Button
                   h={"35px"}
                   _hover={{ bg: "#95B6D8" }}
                   onClick={() => gotoPage(pageCount - 1)}
                   disabled={!canNextPage}
                 >
-                  {/* Last Page */}
                   <BiLastPage fontSize={"20px"} />
                 </Button>{" "}
                 <Text fontSize="18px" pt={"2px"}>
@@ -238,6 +232,37 @@ const TableM = ({
                     </option>
                   ))}
                 </Select>
+              </Flex> */}
+
+              <Flex justifyContent={"flex-end"}>
+                <Button
+                  marginRight={"20px"}
+                  onClick={goToPreviousPage}
+                  isDisabled={currentPage === 0}
+                  colorScheme="teal"
+                  variant="outline"
+                  size="sm"
+                  w="150px"
+                  // isDisabled={currentPage < 0 ? "true" : "false"}
+                >
+                  <span style={{ marginRight: "2px", padding: "5px" }}>
+                    <ArrowLeftIcon />
+                  </span>
+                  Previous Page
+                </Button>
+                <Button
+                  onClick={goToNextPage}
+                  // isDisabled={isError}
+                  colorScheme="teal"
+                  variant="outline"
+                  size="sm"
+                  w="150px"
+                  isDisabled={isError}
+                >
+                  <span style={{ marginLeft: "5px", padding: "5px" }}>
+                    Next Page <ArrowRightIcon />
+                  </span>
+                </Button>
               </Flex>
             </Box>
           </TableContainer>

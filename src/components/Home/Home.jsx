@@ -457,6 +457,8 @@ const Home = () => {
           >
             <li className="col-md-4 col-sm-4">
               <img
+            <li className="col-md-4 col-sm-4">
+              <img
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
@@ -466,6 +468,8 @@ const Home = () => {
               />
             </li>
 
+            <li className="col-md-4 col-sm-4">
+              <img
             <li className="col-md-4 col-sm-4">
               <img
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
