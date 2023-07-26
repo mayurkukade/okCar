@@ -8,11 +8,138 @@
   box-shadow: 0 10px 20px rgb(0 0 0 / 10%);
   transition: 0.5s;
   z-index: 1000;
+  
 }
 
 .visible {
   top: 0;
   translate: 0;
+}
+
+
+
+/* Icon bars style */
+.icon-bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin-bottom: 5px;
+  background-color: #333;
+}
+
+
+ 
+  
+
+
+
+
+/* Media query for mobile view */
+@media (max-width: 768px) {
+  .heading-animation {
+    margin-top: 20px; 
+    font-size: 10px;/* Adjust the top margin as needed for mobile view */
+  }
+}
+
+/* Additional style for the list items to display them in one row in desktop view */
+.makelist li {
+  flex: 1; /* Each item takes equal space, so they are displayed in one row */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Optional: Add styles to limit the width of the logos and align the text */
+.makelist img {
+  max-width: 100px; 
+}
+
+.makelist strong {
+  margin-top: 10px;
+}
+@media (max-width: 768px) {
+  .topsearchwrap {
+    justify-content: flex-start; /* Align items to the start of the container in mobile view */
+  }
+
+  .makelist li {
+    flex: 1; /* Each item takes equal space in column layout */
+    margin-bottom: 10px; /* Adjust margin for mobile view spacing */
+  }
+}
+
+
+/* <Car logos in mobile view > */
+@media (max-width: 767px) {
+  .makelist {
+    flex-wrap: wrap;
+  }
+
+  .makelist li {
+    flex: 1 0 100%; /* Take full width on smaller screens */
+    margin-bottom: 10px;
+  }
+}
+
+ 
+
+
+
+
+
+
+
+
+/* Styles for desktop view */
+.about-image {
+  display: block;
+}
+
+/* Styles for mobile view */
+@media (max-width: 768px) {
+  .about-image {
+    display: none;
+  }
+}
+
+
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 11px;
+  grid-row-gap: 11px;
+  }
+  
+  .div1 { grid-area: 1 / 1 / 2 / 2; }
+  .div2 { grid-area: 1 / 2 / 2 / 3; }
+  .div3 { grid-area: 1 / 3 / 2 / 4; }
+  .div4 { grid-area: 2 / 1 / 3 / 2; }
+  .div5 { grid-area: 2 / 2 / 3 / 3; }
+  .div6 { grid-area: 2 / 3 / 3 / 4; }
+
+  .parent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .parent {
+      display: none;
+    }
+  
+  .titleTop {
+    display: none;
+  }
+/* Adjust the title to take up full width in mobile view */
+.container {
+  text-align: center; /* Optional: Center the title in mobile view */
+}
 }
 
 
