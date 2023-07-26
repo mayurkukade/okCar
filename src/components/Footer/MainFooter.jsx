@@ -2,7 +2,9 @@
 import "./MainFooter.css";
 import { Link } from "react-router-dom";
 // import Home from "../Home/Home";
-// import { FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+
+
 
 import {
   Box,
@@ -90,11 +92,11 @@ const MainFooter = () => (
           <Stack align={"flex-start"}>
             <ListHeader>Follow Us</ListHeader>
 
-            <Link href={'#'}>Facebook</Link>
-            <Link href={'#'}>Twitter</Link>
+            <Link href={'#'}> <FaFacebook size={24} /></Link>
+            <Link href={'#'}> <FaTwitter size={24}/></Link>
             {/* <Link href={'#'}>Dribbble</Link> */}
-            <Link href={'#'}>Instagram</Link>
-            <Link href={'#'}>LinkedIn</Link>
+            <Link href={'#'}> <FaInstagram size={24}/></Link>
+            <Link href={'#'}> <FaLinkedin size={24}/></Link>
 
           </Stack>
         </SimpleGrid>

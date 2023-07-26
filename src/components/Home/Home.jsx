@@ -6,14 +6,21 @@ import "./Home.css";
 import { useEffect, useRef, useState } from "react";
 import {
   SimpleGrid,
-  // Box,
+  Box,
   Card,
   // CardHeader,
   // Heading,
   CardBody,
   // Text,
   CardFooter,
-  // Button,
+   Button,
+} from "@chakra-ui/react";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from "@chakra-ui/react";
 
 const Home = () => {
@@ -54,6 +61,7 @@ const Home = () => {
               <Link className="logo" to="/">
                 <img src="../../../images/logo.png" alt="logo" />
               </Link>
+
               <div className="navbar-header">
                 <button
                   type="button"
@@ -67,6 +75,7 @@ const Home = () => {
                   <span className="icon-bar"></span>
                 </button>
               </div>
+
               <div className="clearfix"></div>
             </div>
             <div className="col-md-10 col-sm-12 col-xs-12">
@@ -131,6 +140,7 @@ const Home = () => {
           {/* <img src="" alt="Image" className="image-in-heading" />   */}
 
           <h3
+            className="heading-animation "
             style={{
               color: "#5dc302",
               transition: "transform 0.3s",
@@ -138,6 +148,8 @@ const Home = () => {
             }}
             onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
             onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+            onTouchStart={(e) => (e.target.style.transform = "scale(1.1)")}
+            onTouchEnd={(e) => (e.target.style.transform = "scale(1)")}
           >
             Buy Cars with Ease!
           </h3>
@@ -181,6 +193,7 @@ const Home = () => {
             </div> */}
         </div>
       </div>
+
       <HomeCarousel />
       <div className="about-wrap">
         <div className="col-md-6">
@@ -266,11 +279,10 @@ const Home = () => {
               className="row makelist"
               style={{
                 display: "flex",
-                gap: "20px",
-                //  flexDirection: "column",
-                flexDirection: "row",
                 justifyContent: "center",
+                gap: "20px",
                 flexWrap: "wrap",
+                flexDirection: "row",
 
                 // border: "2px solid black",
               }}
@@ -359,147 +371,68 @@ const Home = () => {
       </div>
 
       {/* <Explore by lifestylr cards> */}
-      <div className="section whitebg">
+      <div className="section whitebg howitwrap">
         <div className="container">
           <div className="titleTop">
             <h3>
               Explore by <span>Lifestyle</span>
             </h3>
-
-            <SimpleGrid spacing={3} columns={{ sm: 1, md: 2, lg: 3 }}>
-              <Card
-                onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+          </div>
+          <div className="parent">
+            <div className="div1">
+              <img
+                onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                style={{
-                  transition: "transform 0.3s",
-                  maxWidth: "400px",
-                  margin: "0 auto",
-                  padding: "10px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                }}
-              >
-                {/* <CardHeader>
-    <Heading size='md'>Customer Dashboard</Heading>
-  </CardHeader>
-  */}
-                <CardBody>
-                  <img src="../../../images/Cards/cards1.png" />
-                </CardBody>
-                <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
-              </Card>
-
-              <Card
-                onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                className="transition-300ms cursor-pointer"
+                src="../../../images/Cards/cards1.png"
+                alt="Image description"
+              />
+            </div>
+            <div className="div2">
+              <img
+                onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                style={{
-                  transition: "transform 0.3s",
-                  maxWidth: "400px",
-                  margin: "0 auto",
-                  padding: "20px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                }}
-              >
-                {/* <CardHeader>
-    <Heading size='md'>Customer Dashboard</Heading>
-  </CardHeader> */}
-                <CardBody>
-                  <img src="../../../images/Cards/cards8.png" />
-                </CardBody>
-                <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
-              </Card>
-
-              <Card
-                onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                className="transition-300ms cursor-pointer"
+                src="../../../images/Cards/cards2.png"
+                alt="Image description"
+              />
+            </div>
+            <div className="div3">
+              <img
+                onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                style={{
-                  transition: "transform 0.3s",
-                  maxWidth: "400px",
-                  margin: "0 auto",
-                  padding: "20px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                }}
-              >
-                {/* <CardHeader>
-    <Heading size='md'>Customer Dashboard</Heading>
-  </CardHeader> */}
-                <CardBody>
-                  <img src="../../../images/Cards/cards3.png" />
-                </CardBody>
-                <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
-              </Card>
-              <Card
-                onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                className="transition-300ms cursor-pointer"
+                src="../../../images/Cards/cards3.png"
+                alt="Image description"
+              />
+            </div>
+            <div className="div4">
+              <img
+                onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                style={{
-                  transition: "transform 0.3s",
-                  maxWidth: "400px",
-                  margin: "0 auto",
-                  padding: "20px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                }}
-              >
-                {/* <CardHeader>
-    <Heading size='md'>Customer Dashboard</Heading>
-  </CardHeader>
-  */}
-                <CardBody>
-                  <img src="../../../images/Cards/cards5.png" />
-                </CardBody>
-                <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
-              </Card>
-              <Card
-                onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                className="transition-300ms cursor-pointer"
+                src="../../../images/Cards/cards5.png"
+                alt="Image description"
+              />{" "}
+            </div>
+            <div className="div5">
+              <img
+                onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                style={{
-                  transition: "transform 0.3s",
-                  maxWidth: "400px",
-                  margin: "0 auto",
-                  padding: "20px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                }}
-              >
-                {/* <CardHeader>
-    <Heading size='md'>Customer Dashboard</Heading>
-  </CardHeader>
-  */}
-                <CardBody>
-                  <img src="../../../images/Cards/cards6.png" />
-                </CardBody>
-                <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
-              </Card>
-              <Card
-                onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                className="transition-300ms cursor-pointer"
+                src="../../../images/Cards/cards6.png"
+                alt="Image description"
+              />
+            </div>
+            <div className="div6">
+              <img
+                onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                style={{
-                  transition: "transform 0.3s",
-                  maxWidth: "400px",
-                  margin: "0 auto",
-                  padding: "10px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                }}
-              >
-                {/* <CardHeader>
-    <Heading size='md'>Customer Dashboard</Heading>
-  </CardHeader>
-  */}
-                <CardBody>
-                  <img src="../../../images/Cards/cards7.png" />
-                </CardBody>
-                <CardFooter>{/* <Button>View here</Button> */}</CardFooter>
-              </Card>
-            </SimpleGrid>
+                className="transition-300ms cursor-pointer"
+                src="../../../images/Cards/cards7.png"
+                alt="Image description"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -524,12 +457,26 @@ const Home = () => {
           >
             <li className="col-md-4 col-sm-4">
               <img
+            <li className="col-md-4 col-sm-4">
+              <img
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/Insight/Card1.png"
+                src="../../../images/Cards/Insight/GC1.png"
                 alt=""
                 style={{ width: "100%", height: "auto", maxWidth: "400px" }}
+              />
+            </li>
+
+            <li className="col-md-4 col-sm-4">
+              <img
+            <li className="col-md-4 col-sm-4">
+              <img
+                onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                className="transition-300ms cursor-pointer"
+                src="../../../images/Cards/Insight/GC2.png"
+                alt=""
               />
             </li>
 
@@ -538,17 +485,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/Insight/Card2.png"
-                alt=""
-              />
-            </li>
-
-            <li className="col-md-4 col-sm-4">
-              <img
-                onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
-                onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/Insight/Card3.png"
+                src="../../../images/Cards/Insight/GC3.png"
                 alt=""
                 style={{ width: "100%", height: "auto", maxWidth: "400px" }}
               />
@@ -558,7 +495,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/Insight/Card4.png"
+                src="../../../images/Cards/Insight/GC4.png"
                 alt=""
                 style={{ width: "100%", height: "auto", maxWidth: "400px" }}
               />
@@ -637,6 +574,94 @@ const Home = () => {
                 Confidence. Unlock a World of Possibilities: Sell, Buy, and
                 Drive!
               </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* <FAQ'S> */}
+      <div className="section whitebg howitwrap">
+        <div className="container">
+          <div className="titleTop">
+            <h3>
+              Frequently Asked <span> Questions</span>
+            </h3>
+          </div>
+          <ul className="howlist row">
+            <li className="col-md-12 col-sm-12 ">
+              <div>
+                <Accordion defaultIndex={[0]} allowMultiple>
+                  <AccordionItem>
+                    <h2>
+                      <AccordionButton>
+                        <Box as="span" flex="1" textAlign="left">
+                          Q. When and where can I take a test drive?
+                        </Box>
+                        <AccordionIcon />
+                      </AccordionButton>
+                    </h2>
+                    <AccordionPanel pb={4} style={{ color: '#888' }}>
+                      You can schedule a home test drive for this Autocar
+                      assured car at any date and time you find convenient using
+                      our test drive booking form.Your assigned Autocar
+                      Relationship Manager will then reach out to you and make
+                      sure all the details of your preferred car are made
+                      available to you before arriving at your home on the
+                      selected date & time for the test drive.
+                    </AccordionPanel>
+                  </AccordionItem>
+
+                  <AccordionItem>
+                    <h2>
+                      <AccordionButton>
+                        <Box as="span" flex="1" textAlign="left">
+                          Q. How do I book a car of my choice?
+                        </Box>
+                        <AccordionIcon />
+                      </AccordionButton>
+                    </h2>
+                    <AccordionPanel pb={4} style={{ color: '#888' }}>
+                      You can book a car. If you complete the purchase of the
+                      vehicle within the holding period, the deposit will be
+                      applied towards the purchase otherwise the booking amount
+                      will be refunded back to you and the booking cancelled.
+                    </AccordionPanel>
+                  </AccordionItem>
+
+                  <AccordionItem>
+                    <h2>
+                      <AccordionButton>
+                        <Box as="span" flex="1" textAlign="left">
+                          Q. Will Autocar help me with car finance?
+                        </Box>
+                        <AccordionIcon />
+                      </AccordionButton>
+                    </h2>
+                    <AccordionPanel pb={4} style={{ color: '#888' }}> 
+                      Absolutely, buyers can choose to avail financing through
+                      Autocar wherein we would get the loan processed through
+                      our finance partners. Our established partnerships help us
+                      process loans faster and get our customers better interest
+                      rates. Depending on your credit worthiness, you can avail
+                      used car loans through Autocar at interest rates as low as
+                      12.99% compared to the market rates of 14-16%.{" "}
+                    </AccordionPanel>
+                  </AccordionItem>
+                </Accordion>
+                <Link to="/contact">
+                <Button
+                  colorScheme="teal"
+                  variant="outline"
+                  size="sm"
+                  w="150px"
+                >
+                  <span style={{ marginRight: "2px", padding: "5px" }}>
+                  VISIT HELP CENTER
+                  </span>
+               
+                </Button>
+                </Link>
+              </div>
             </li>
           </ul>
         </div>
