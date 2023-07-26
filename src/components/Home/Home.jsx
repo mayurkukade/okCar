@@ -358,7 +358,7 @@ const Home = () => {
               >
                 <img
                   className="transition-300ms"
-                  src="../../../images/logo/toyota.png"
+                  src="../../../images/logo/new car logos/ToyotaLogo.png"
                   alt=""
                   onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                   onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
@@ -457,8 +457,6 @@ const Home = () => {
           >
             <li className="col-md-4 col-sm-4">
               <img
-            <li className="col-md-4 col-sm-4">
-              <img
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
@@ -467,9 +465,6 @@ const Home = () => {
                 style={{ width: "100%", height: "auto", maxWidth: "400px" }}
               />
             </li>
-
-            <li className="col-md-4 col-sm-4">
-              <img
             <li className="col-md-4 col-sm-4">
               <img
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
@@ -667,6 +662,7 @@ const Home = () => {
         </div>
       </div>
     </div>
+    // </div>
   );
 };
 
