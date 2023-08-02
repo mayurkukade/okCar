@@ -3,14 +3,27 @@ import { useSelector } from "react-redux";
 
 import { CommonUtilities } from "../../util/common.utilities";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { Flex, Input } from "@chakra-ui/react";
+import { useDisclosure } from "@chakra-ui/react";
 import {
   useGetCarByIdQuery,
   useLazyGetCarByIdQuery,
 } from "../../api/carApiSlice";
 import CardDetailsShimmer from "./CardDetailsShimmer";
+import { Button } from "@chakra-ui/react";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from "@chakra-ui/react";
 const CarDetails = () => {
   const userInfo = useSelector((state) => state.auth.userInfo);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [largePreview, setLargePreview] = useState(null);
   const [dummyImages] = useState(
     JSON.parse(localStorage.getItem("images")) ?? []
@@ -23,6 +36,8 @@ const CarDetails = () => {
 
   // shimmer loading
   const [showComponent1, setShowComponent1] = useState(true);
+
+
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -162,11 +177,55 @@ const CarDetails = () => {
                         <i className="fa fa-map-marker" aria-hidden="true"></i>
                         {data?.object.area}, {data?.object.city}
                       </div>
+                     
+
                       <div className="clearfix"></div>
                       <div className="adButtons">
-                        <a href="#." className="btn apply">
-                          <i className="fa fa-phone" aria-hidden="true"></i>
-                          {userInfo ? "Request" : <span>please login</span>}
+                        <a href="#." className="btn apply" onClick={onOpen}>
+                          <Flex>
+                            
+                            <i className="fa fa-phone" aria-hidden="true" />
+                          <p>request</p>
+                            
+                          
+                          </Flex>
+                          
+                          
+
+                          <Modal isOpen={isOpen} onClose={onClose}>
+                            <ModalOverlay />
+                            <ModalContent>
+                              <ModalHeader textAlign={'center'}>Buy Car</ModalHeader>
+                              <ModalCloseButton />
+                              <ModalBody textAlign={'center'}>
+                                {!userInfo?
+                                <h6>Please sign in to send buying request</h6>
+                                :<Input placeholder="asking price" defaultValue= {Number(data?.object.price).toLocaleString("en-IN")} />
+                                
+                                }
+                              </ModalBody>
+
+                              <ModalFooter textAlign={'center'}>
+                                <Button
+                                  colorScheme="blue"
+                                  mr={3}
+                                  onClick={onClose}
+                                >
+                                  Close
+                                </Button>
+                               
+                                {!userInfo? <Button
+                                  colorScheme="blue"
+                                  mr={3}
+                                  onClick={onClose}
+                                >
+                                  <Link to='/signin'>Sign In</Link>
+                                </Button>   : <Button> <Link to='/contactdealer'>Ask Price</Link> </Button>}
+                              
+                              </ModalFooter>
+                            </ModalContent>
+                          </Modal>
+                          {/* {userInfo ?   "Request" : <span>please login</span>} */}
                         </a>{" "}
                       </div>
                     </div>

@@ -1,7 +1,7 @@
 import AvtarModal from "../Navbar/AvtarModal";
 import HomeCarousel from "../carousel/HomeCarousel";
 import { Link } from "react-router-dom";
-import bghome from "../../../images/slider/Welcome Image.png";
+import bghome from "../../../images/slider/welcome image.jpg";
 import "./Home.css";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -15,6 +15,7 @@ import {
   CardFooter,
   // Button,
 } from "@chakra-ui/react";
+import Cookies from "js-cookie";
 
 const Home = () => {
   const username = localStorage.getItem("userInfo");
@@ -42,6 +43,7 @@ const Home = () => {
     );
   }, []);
 
+  console.log(Cookies.get('cookie'))
   return (
     <div>
       <div
@@ -51,12 +53,9 @@ const Home = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-2 col-sm-3 col-xs-12">
-            
-                <Link className="logo" to="/">
-                  <img src="../../../images/logo.png" alt="logo" />
-                </Link>
-
-          
+              <Link className="logo" to="/">
+                <img src="../../../images/logo.png" alt="logo" />
+              </Link>
 
               <div className="navbar-header">
                 <button
@@ -97,18 +96,26 @@ const Home = () => {
                       ""
                     )}
 
-                  
-                      {user.includes("DEALER") ? (
+                    {user.includes("DEALER") ? (
+                      <>
                         <li>
                           <Link to="/dealer">
-                            
-                            <button><span>Dealer Manegment</span></button>
+                            <button>
+                              <span>Dealer Manegment</span>
+                            </button>
                           </Link>
                         </li>
-                      ) : (
-                        ""
-                      )}
-                    
+                        <li>
+                          <Link to="/dealer/userrequestlist">
+                            <button>
+                              <span>User Request</span>
+                            </button>
+                          </Link>
+                        </li>
+                      </>
+                    ) : (
+                      ""
+                    )}
 
                     {username ? (
                       <>
@@ -260,7 +267,7 @@ const Home = () => {
               >
                 <img
                   className="transition-300ms"
-                  src="../../../images/logo/new car logos/Tata Motor Logo.png"
+                  src="../../../images/logo/new car logos/converted_image (10)-min.jpg"
                   alt=""
                   onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                   onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
@@ -336,6 +343,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      
 
       {/* <Explore by lifestylr cards> */}
       <div className="section whitebg">
@@ -501,55 +510,46 @@ const Home = () => {
               justifyContent: "center",
             }}
           >
-            <li
-              className="col-md-4 col-sm-4"
-            >
-                <img
+            <li className="col-md-4 col-sm-4">
+              <img
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  className="transition-300ms cursor-pointer"
-                  src="../../../images/Cards/Insight/Card1.png"
-                  alt=""
-                  style={{ width: "100%", height: "auto", maxWidth: "400px" }}
-                />
+                className="transition-300ms cursor-pointer"
+                src="../../../images/Cards/Insight/Card1.jpg"
+                alt=""
+                style={{ width: "100%", height: "auto", maxWidth: "400px" }}
+              />
             </li>
 
-            <li
-              className="col-md-4 col-sm-4"
-              
-            >
-                <img
+            <li className="col-md-4 col-sm-4">
+              <img
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  className="transition-300ms cursor-pointer"
-                  src="../../../images/Cards/Insight/Card2.png"
-                  alt=""
-                />
+                className="transition-300ms cursor-pointer"
+                src="../../../images/Cards/Insight/Card2.jpg"
+                alt=""
+              />
             </li>
 
-            <li
-              className="col-md-4 col-sm-4"
-            >
-                <img
-                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
-                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  className="transition-300ms cursor-pointer"
-                  src="../../../images/Cards/Insight/Card3.png"
-                  alt=""
-                  style={{ width: "100%", height: "auto", maxWidth: "400px" }}
-                />
+            <li className="col-md-4 col-sm-4">
+              <img
+                onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                className="transition-300ms cursor-pointer"
+                src="../../../images/Cards/Insight/Card3.jpg"
+                alt=""
+                style={{ width: "100%", height: "auto", maxWidth: "400px" }}
+              />
             </li>
-            <li
-              className="col-md-4 col-sm-4"
-            >
-                <img
-                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
-                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-                  className="transition-300ms cursor-pointer"
-                  src="../../../images/Cards/Insight/Card4.png"
-                  alt=""
-                  style={{ width: "100%", height: "auto", maxWidth: "400px" }}
-                />
+            <li className="col-md-4 col-sm-4">
+              <img
+                onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
+                onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                className="transition-300ms cursor-pointer"
+                src="../../../images/Cards/Insight/Card4.jpg"
+                alt=""
+                style={{ width: "100%", height: "auto", maxWidth: "400px" }}
+              />
             </li>
           </ul>
         </div>

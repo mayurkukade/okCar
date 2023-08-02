@@ -42,7 +42,7 @@ const AvtarModal = () => {
         >
           {JSON.parse(username)?.roles[0] === "ADMIN"
             ? "Admin"
-            : JSON.parse(username)?.firstname}
+            : JSON.parse(username)?.firstname }
      
         </MenuButton>
         <MenuList >

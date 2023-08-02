@@ -26,7 +26,11 @@ const Navbar = () => {
     );
   }, []);
   const username = localStorage.getItem("userInfo");
-  const user = JSON.parse(username)?.roles;
+  const user = JSON.parse(username)?.roles[0];
+  console.log(user)
+  console.log(user == 'DEALER')
+  console.log(user == 'ADMIN')
+
   let roleNav;
   if (user == "ADMIN") {
     roleNav = (
@@ -56,7 +60,11 @@ const Navbar = () => {
               <div className="navbar navbar-default" role="navigation">
                 <div className="navbar-collapse collapse" id="nav-main">
                   <ul className="nav navbar-nav">
-                    <li></li>
+                  <li>
+                        <Link to="/adddealer">
+                          <button>Add Dealer</button>
+                        </Link>
+                      </li>
                     {/* <li className="dropdown active">
                 <a>Home</a>
               </li>
@@ -124,6 +132,9 @@ const Navbar = () => {
               <li>
                 <Link to="/Contact">Contact</Link>
               </li> */}
+              {
+                <li><Link to='/dealer/userrequestlist'>User Request</Link></li>
+              }
                     <li className="postad">
                       <AvtarModal />
                     </li>
@@ -190,7 +201,10 @@ const Navbar = () => {
                       )}
                     </li> */}
                        <li>
-                       <Link to={"/signup"}>Sign Up</Link>
+                        {
+                          !user ? <Link to={"/signup"}>Sign Up</Link> :""
+                        }
+                      
                     </li>
                   </ul>
                 </div>

@@ -7,16 +7,21 @@ const RequireAuth = ({ allowedRoles }) => {
 
   const role = JSON.parse(username)?.roles;
 console.log(role[0],'roles')
-  const userTrue = username == null;
+  // const userTrue = username == null;
 
-  const content =  userTrue ? (
-    <Navigate to="/access" state={{ from: location }} replace />
-  ) :allowedRoles.includes(role[0]) ? (
+  // const content =  userTrue ? (
+  //   <Navigate to="/access" state={{ from: location }} replace />
+  // ) :allowedRoles.includes(role[0]) ? (
+  //   <Outlet />
+  // ) : (
+  //   <Navigate to="/access" state={{ from: location }} replace />
+  // );
+
+  const content = allowedRoles.includes(role[0]) ? (
     <Outlet />
   ) : (
     <Navigate to="/access" state={{ from: location }} replace />
-  );
-
+  )
   return content;
 };
 export default RequireAuth;

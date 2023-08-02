@@ -35,6 +35,11 @@ import MainFooter from "./components/Footer/MainFooter";
 import TableCard from "./components/TableCard/TableCard";
 import useScrollTop from "./util/useScrollTop";
 import Navbar from "./components/Navbar/Navbar";
+import ContactDealer from "./components/Dealers/ContactDealer";
+import MyCarBooking from "./components/CarDetailsCard/MyCarBooking";
+import UserRequestList from "./components/Dealers/UserRequestList";
+import CarRequest from "./components/Dealers/CarRequest";
+
 // import CardDetailsShimmer from "./components/CarDetailsCard/CardDetailsShimmer";
 // import Cloudnary from "./Dummy/Cloudnary";
 // import Cloudnary from "./Dummy/Cloudnary";
@@ -82,18 +87,26 @@ const App = () => {
           <Route path="/dealer" element={<DealersModel />} />
           {/* </Route> */}
           <Route path="/adminrequest" element={<AdminRequest />} />
+         
           <Route path="/contact" element={<Contact />} />
           <Route path="/adminbuyers" element={<AdminBuyers />} />
           <Route path="/addcardetails" element={<AddCarDetails />} />
           <Route path="/updateCarDetails" element={<UpdateCarDetails />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/dealer/carDetails/:id" element={<CarCard />} />
+          <Route path="/dealer/userrequestlist" element={<UserRequestList/>} />
           <Route path="/access" element={<CantAccess />} />
           <Route path="/reset-password" element={<ResetPassword />} />
+       
           <Route path="/editUserdetails" element={<EditUserProfile />} />
           <Route path="/editDealerdetails" element={<EditDealerProfile />} />
+         <Route path="/carrequest" element={<CarRequest/>} />
+          <Route path='/contactdealer' element={<ContactDealer />} />
+          <Route path="/mycarbooking" element={<MyCarBooking/>} />
+        
           <Route path="*" element={<NotFound />} />
         </Route>
+      
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
         <Route path="/tablecard" element={<TableCard />} />
    
