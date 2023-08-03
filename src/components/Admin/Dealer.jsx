@@ -60,19 +60,8 @@ const Dealer = () => {
           console.log(cell.row.values.dealer_id);
           return (
             <div>
-              <Link to={` ${cell.row.values.dealer_id}`}>
-                <Button
-                  variant="outline"
-                  colorScheme="blue"
-                  leftIcon={<InfoIcon />}
-                  marginRight={"0.2rem"}
-                  _hover={{ bg: "#2C5282", textColor: "white" }}
-                >
-                  Details
-                </Button>
-              </Link>
-          console.log(cell.row.values.dealer_id);
-          return (
+           
+    
             <div>
               <Link to={` ${cell.row.values.dealer_id}`}>
                 <Button
@@ -111,7 +100,7 @@ const Dealer = () => {
                 Delete
               </Button>
             </div>
-          );
+          
             </div>
           );
         },

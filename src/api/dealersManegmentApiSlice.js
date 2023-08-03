@@ -88,7 +88,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
     getDealerCarsDealerManegmentPage: builder.query({
       query: ({ id }) => ({
         transformResponse: console.log(id),
-        url: `car/dealer/${id}/status/Active?pageNo=0`,
+        url: `car/dealer/${id}/status/ACTIVE?pageNo=0`,
         headers: {
           'Content-Type': "application/json",
           Authorization: `Bearer ${token}`,

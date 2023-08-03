@@ -50,7 +50,7 @@ const Home = () => {
     );
   }, []);
 
-  console.log(Cookies.get('cookie'))
+  
   return (
     <div>
       <div
@@ -279,7 +279,7 @@ const Home = () => {
               >
                 <img
                   className="transition-300ms"
-                  src="../../../images/logo/new car logos/converted_image (10)-min.jpg"
+                  src="../../../images/logo/new car logos/converted_image__10_-min-removebg-preview (1).png"
                   alt=""
                   onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                   onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
@@ -292,7 +292,7 @@ const Home = () => {
               >
                 <img
                   className="transition-300ms"
-                  src="../../../images/logo/new car logos/suzuki logo.png"
+                  src="../../../images/logo/new car logos/converted_image__11_-min-removebg-preview (1).png"
                   alt=""
                   onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                   onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
@@ -305,7 +305,7 @@ const Home = () => {
               >
                 <img
                   className="transition-300ms"
-                  src="../../../images/logo/new car logos/Hyundai Logo.png"
+                  src="../../../images/logo/new car logos/converted_image__8_-min-removebg-preview (1).png"
                   onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                   onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                   alt=""
@@ -318,7 +318,7 @@ const Home = () => {
               >
                 <img
                   className="transition-300ms"
-                  src="../../../images/logo/new car logos/Mahindra Logo.png"
+                  src="../../../images/logo/new car logos/converted_image__9_-min-removebg-preview (1).png"
                   alt=""
                   onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                   onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
@@ -331,7 +331,7 @@ const Home = () => {
               >
                 <img
                   className="transition-300ms"
-                  src="../../../images/logo/new car logos/Honda Logo.png"
+                  src="../../../images/logo/new car logos/remove 1 (1).png"
                   alt=""
                   onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                   onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
@@ -344,7 +344,7 @@ const Home = () => {
               >
                 <img
                   className="transition-300ms"
-                  src="../../../images/logo/new car logos/ToyotaLogo.png"
+                  src="../../../images/logo/new car logos/remove 2 (2).png"
                   alt=""
                   onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                   onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
@@ -372,7 +372,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/cards1.png"
+                src="../../../images/Cards/cards1.jpg"
                 alt="Image description"
               />
             </div>
@@ -381,7 +381,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/cards2.png"
+                src="../../../images/Cards/cards2.jpg"
                 alt="Image description"
               />
             </div>
@@ -390,7 +390,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/cards3.png"
+                src="../../../images/Cards/cards3.jpg"
                 alt="Image description"
               />
             </div>
@@ -399,7 +399,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/cards5.png"
+                src="../../../images/Cards/cards5.jpg"
                 alt="Image description"
               />{" "}
             </div>
@@ -408,7 +408,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/cards6.png"
+                src="../../../images/Cards/cards6.jpg"
                 alt="Image description"
               />
             </div>
@@ -417,7 +417,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/cards7.png"
+                src="../../../images/Cards/cards4.jpg"
                 alt="Image description"
               />
             </div>
