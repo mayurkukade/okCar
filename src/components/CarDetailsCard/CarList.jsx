@@ -27,7 +27,7 @@ const CarList = () => {
   // useState for pagination
   const [currentPage, setCurrentPage] = useState(0);
   // for fetching all cars
-  const { data: v, isLoading } = useGetAllCarsQuery(currentPage);
+  const { data: v, isLoading, isError } = useGetAllCarsQuery(currentPage);
   const [responseData, setResponseData] = useState([]);
   const onChangeFormHandler = (e) => {
     const { name, value } = e.target;
@@ -50,7 +50,6 @@ const CarList = () => {
   // form submit handler
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(inputFilter);
     fetchData();
   };
 
@@ -76,7 +75,8 @@ const CarList = () => {
     try {
       console.log(`baseurl is ${baseUrl}`);
       const queryParams = new URLSearchParams(inputFilter).toString();
-      const url = `${baseUrl}/cars/mainFilter/${currentPage}?${queryParams}`;
+      const url = `${baseUrl}/cars/mainFilter/${filterPage}?${queryParams}`;
+      console.log(url);
       const response = await fetch(url);
       const data = await response.json();
       setResponseData(data?.list);
@@ -334,41 +334,37 @@ const CarList = () => {
                 <div className="col-md-8 col-sm-8 text-right">
                   <ul className="pagination" style={{ marginTop: "2em" }}>
                     <li>
-                      {/* <div className="col-md-12 col-sm-12 text-center"> */}
-
-                      <button
+                      <Button
                         onClick={goToPreviousPage}
-                        disabled={currentPage === 1}
+                        isDisabled={currentPage === 1}
+                        colorScheme="teal"
+                        variant="outline"
+                        size="sm"
+                        w="150px"
+                        // isDisabled={currentPage < 0 ? "true" : "false"}
                       >
-                        <Button
-                          colorScheme="teal"
-                          variant="outline"
-                          size="sm"
-                          w="150px"
-                        >
-                          <span style={{ marginRight: "2px", padding: "5px" }}>
-                            <ArrowLeftIcon />
-                          </span>
-                          Previous Page
-                        </Button>
-                      </button>
-
-                      {/* </div> */}
+                        <span style={{ marginRight: "2px", padding: "5px" }}>
+                          <ArrowLeftIcon />
+                        </span>
+                        Previous Page
+                      </Button>
                     </li>
 
                     <li style={{ marginLeft: "20px" }}>
-                      <button onClick={goToNextPage}>
-                        <Button
-                          colorScheme="teal"
-                          variant="outline"
-                          size="sm"
-                          w="150px"
-                        >
-                          <span style={{ marginLeft: "5px", padding: "5px" }}>
-                            Next Page <ArrowRightIcon />
-                          </span>
-                        </Button>
-                      </button>
+                      {/* {!isError && ( */}
+                      <Button
+                        onClick={goToNextPage}
+                        colorScheme="teal"
+                        variant="outline"
+                        size="sm"
+                        w="150px"
+                        isDisabled={isError}
+                      >
+                        <span style={{ marginLeft: "5px", padding: "5px" }}>
+                          Next Page <ArrowRightIcon />
+                        </span>
+                      </Button>
+                      {/* )} */}
                     </li>
                   </ul>
                 </div>

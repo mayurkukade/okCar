@@ -4,6 +4,7 @@ import { useGetAllDealerQuery } from "../../api/dealersManegmentApiSlice";
 import { Link} from "react-router-dom";
 import { Button } from "@chakra-ui/react";
 import { InfoIcon, EditIcon, DeleteIcon } from "@chakra-ui/icons";
+
 import { useDeleteDealerMutation } from "../../api/dealersManegmentApiSlice";
 // import TableCard from "../TableCard/TableCard";
 const Dealer = () => {
@@ -29,6 +30,7 @@ const Dealer = () => {
         accessor: "firstName",
       },
 
+
       {
         Header: "Last Name ",
         accessor: "lastName",
@@ -46,13 +48,29 @@ const Dealer = () => {
         Header: "user id",
         accessor: "userId",
         disableSortBy: true,
+       
       },
 
       {
         Header: "Edit",
         accessor: "Edit",
 
+
         Cell: (cell) => {
+          console.log(cell.row.values.dealer_id);
+          return (
+            <div>
+              <Link to={` ${cell.row.values.dealer_id}`}>
+                <Button
+                  variant="outline"
+                  colorScheme="blue"
+                  leftIcon={<InfoIcon />}
+                  marginRight={"0.2rem"}
+                  _hover={{ bg: "#2C5282", textColor: "white" }}
+                >
+                  Details
+                </Button>
+              </Link>
           console.log(cell.row.values.dealer_id);
           return (
             <div>
@@ -88,9 +106,12 @@ const Dealer = () => {
                 leftIcon={<DeleteIcon />}
                 _hover={{ bg: "#E53E3E", textColor: "white" }}
                 onClick={() => deleteDealer(`${cell.row.values.dealer_id}`)}
+                
               >
                 Delete
               </Button>
+            </div>
+          );
             </div>
           );
         },

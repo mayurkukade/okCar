@@ -34,6 +34,8 @@ const DealersModel = () => {
   const selectedCar = useMemo(() => {
     return { type: null, carId: null };
   }, []);
+  // for current Page set
+  const [currentPage, setCurrentPage] = useState(0);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -135,6 +137,16 @@ console.log(dealerId)
   useEffect(() => {
     fetchDealerCars();
   }, []);
+
+  // for Next Page value
+  const goToNextPage = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  // For previous Page Value
+  const goToPreviousPage = () => {
+    setCurrentPage(currentPage - 1);
+  };
 
   const columns = React.useMemo(
     () => [
@@ -365,6 +377,10 @@ console.log(dealerId)
           isError={false}
           isLoading={false}
           isSuccess={true}
+          // error={isError}
+          goToNextPage={goToNextPage}
+          goToPreviousPage={goToPreviousPage}
+          currentPage={currentPage}
         />
       )}
     </>
