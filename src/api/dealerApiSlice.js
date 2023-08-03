@@ -8,8 +8,8 @@ export const dealerApiSlice = apiSlice.injectEndpoints({
                 url:`${USERS_URL}/`,
                 method:"POST",
                 body:data,
-                headers:{
-                    "Content-type":"application/json; charset=UTF-8"
+                headers:{ 
+                    "Content-type":"application/json; charset=UTF-8" 
                 }
             })
         }),

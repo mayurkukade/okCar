@@ -21,11 +21,11 @@ const AdminPage = () => {
                 <span>Dealer Management</span>{" "}
               </Tab>
             </Link>
-            <Link to={"/userrequest"}>
+            {/* <Link to={"/userrequest"}>
               <Tab fontSize={"20px"}>
                 <span>User Request</span>{" "}
               </Tab>
-            </Link>
+            </Link> */}
             <Link to={"/adddealer"}>
               <Tab fontSize={"20px"}>Add Dealer</Tab>
             </Link>

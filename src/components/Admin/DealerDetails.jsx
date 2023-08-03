@@ -37,6 +37,7 @@ const DealerDetails = () => {
     isLoading,
   } = useGetDealerCarsDealerManegmentPageQuery({ id });
   const [carData, setCarData] = useState([]);
+  console.log(carData)
   console.log(dealerCars?.list);
   console.log(dealerID, "dealer");
   console.log(dealerID);
@@ -182,15 +183,15 @@ const DealerDetails = () => {
       <Text color={'gray.500'}>Dealer Name</Text>
 
         <Heading fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
-          John Doe dcdsjgcsdhggfshsdshkahcd
+          {dealerData.firstName} {dealerData.lastName}
         </Heading>
       </Stack>
 
       <Stack direction={'row'} justify={'center'} spacing={6}>
         <Stack spacing={0} align={'center'}>
-          <Text fontWeight={600}>23k</Text>
+          <Text fontWeight={600}> {dealerData.dealer_id}</Text> 
           <Text fontSize={'sm'} color={'gray.500'}>
-            Dealer ID
+          Dealer ID
           </Text>
         </Stack>
         <Stack spacing={0} align={'center'}>

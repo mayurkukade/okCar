@@ -19,7 +19,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
         body: body,
       }),
 
-      invalidatesTags: ["Dealer"],
+      invalidatesTags: ["Dealer","Admin"],
     }),
 
     getAllDealer: builder.query({
@@ -31,7 +31,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
           Authorization: `Bearer ${token}`,
         },
       }),
-      providesTags: ["Dealer"],
+      providesTags: ["Dealer","Admin"],
     }),
 
     getDealer: builder.query({
@@ -88,7 +88,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
     getDealerCarsDealerManegmentPage: builder.query({
       query: ({ id }) => ({
         transformResponse: console.log(id),
-        url: `car/dealer/${id}/status/Active?pageNo=0`,
+        url: `car/dealer/${id}/status/ACTIVE?pageNo=0`,
         headers: {
           'Content-Type': "application/json",
           Authorization: `Bearer ${token}`,

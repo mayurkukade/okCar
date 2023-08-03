@@ -1,7 +1,7 @@
 import AvtarModal from "../Navbar/AvtarModal";
 import HomeCarousel from "../carousel/HomeCarousel";
 import { Link } from "react-router-dom";
-import bghome from "../../../images/slider/Welcome Image.png";
+import bghome from "../../../images/slider/welcome image.jpg";
 import "./Home.css";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -22,6 +22,7 @@ import {
   AccordionPanel,
   AccordionIcon,
 } from "@chakra-ui/react";
+import Cookies from "js-cookie";
 
 const Home = () => {
   const username = localStorage.getItem("userInfo");
@@ -49,6 +50,7 @@ const Home = () => {
     );
   }, []);
 
+  
   return (
     <div>
       <div
@@ -61,6 +63,7 @@ const Home = () => {
               <Link className="logo" to="/">
                 <img src="../../../images/logo.png" alt="logo" />
               </Link>
+
 
               <div className="navbar-header">
                 <button
@@ -92,33 +95,54 @@ const Home = () => {
                       <Link to="/Contact">Contact Us</Link>
                     </li>
 
-                    <li>
-                      <Link to="/adddealer">
-                        {user.includes("ADMIN") ? (
+                    {user.includes("ADMIN") ? (
+                      <li>
+                        <Link to="/adddealer">
                           <button>Add Dealer</button>
-                        ) : (
-                          ""
-                        )}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/addcardetails">
-                        {user.includes("DEALER") ? (
-                          <button>Add Car</button>
-                        ) : (
-                          ""
-                        )}
-                      </Link>
-                    </li>
-                    <li>
-                      {username ? (
-                        <AvtarModal />
-                      ) : (
+                        </Link>
+                      </li>
+                    ) : (
+                      ""
+                    )}
+
+                    {user.includes("DEALER") ? (
+                      <>
+                        <li>
+                          <Link to="/dealer">
+                            <button>
+                              <span>Dealer Manegment</span>
+                            </button>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/dealer/userrequestlist">
+                            <button>
+                              <span>User Request</span>
+                            </button>
+                          </Link>
+                        </li>
+                      </>
+                    ) : (
+                      ""
+                    )}
+
+                    {username ? (
+                      <>
+                        {/* <li>
+                          <Link to="/carlist"> My Booking </Link>
+                        </li> */}
+                        <li>
+                          <AvtarModal />
+                        </li>
+                      </>
+                    ) : (
+                      <li>
                         <Link to="/signin">
                           <p> Sign In</p>{" "}
                         </Link>
-                      )}
-                    </li>
+                      </li>
+                    )}
+
                     {/* 
                       <li className="postad"></li>
 
@@ -153,44 +177,6 @@ const Home = () => {
           >
             Buy Cars with Ease!
           </h3>
-          {/* <p>
-              Search from over 1,00,000 Active Cars */}
-          {/* &amp; Post free unlimited
-            classNameifieds ads! */}
-          {/* </p> */}
-          {/* <div className="searchbar">
-              <div className="row">
-                <div className="col-md-6">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Car Brand or Model"
-                  />
-                </div>
-                <div className="col-md-2">
-                  <select className="form-control">
-                    <option>Price</option>
-                    <option>₹50,000 - ₹99,999</option>
-                    <option>₹1,00,000 - ₹1,49,999</option>
-                    <option>₹1,50,000 - ₹1,99,999</option>
-                    <option>₹2,00,000 - ₹2,49,999</option>
-                   
-                  </select>
-                </div>
-                <div className="col-md-2">
-                  <select className="form-control">
-                    <option>Area</option>
-                    <option>Kharadi</option>
-                    <option>Viman Nagar</option>
-                    <option>Koreagaon</option>
-                    <option>Hinjewadi</option>
-                  </select>
-                </div>
-                <div className="col-md-2">
-                  <input type="submit" className="btn" value="Search" />
-                </div>
-              </div>
-            </div> */}
         </div>
       </div>
 
@@ -293,7 +279,7 @@ const Home = () => {
               >
                 <img
                   className="transition-300ms"
-                  src="../../../images/logo/new car logos/Tata Motor Logo.png"
+                  src="../../../images/logo/new car logos/converted_image__10_-min-removebg-preview (1).png"
                   alt=""
                   onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                   onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
@@ -306,7 +292,7 @@ const Home = () => {
               >
                 <img
                   className="transition-300ms"
-                  src="../../../images/logo/new car logos/suzuki logo.png"
+                  src="../../../images/logo/new car logos/converted_image__11_-min-removebg-preview (1).png"
                   alt=""
                   onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                   onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
@@ -319,7 +305,7 @@ const Home = () => {
               >
                 <img
                   className="transition-300ms"
-                  src="../../../images/logo/new car logos/Hyundai Logo.png"
+                  src="../../../images/logo/new car logos/converted_image__8_-min-removebg-preview (1).png"
                   onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                   onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                   alt=""
@@ -332,7 +318,7 @@ const Home = () => {
               >
                 <img
                   className="transition-300ms"
-                  src="../../../images/logo/new car logos/Mahindra Logo.png"
+                  src="../../../images/logo/new car logos/converted_image__9_-min-removebg-preview (1).png"
                   alt=""
                   onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                   onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
@@ -345,7 +331,7 @@ const Home = () => {
               >
                 <img
                   className="transition-300ms"
-                  src="../../../images/logo/new car logos/Honda Logo.png"
+                  src="../../../images/logo/new car logos/remove 1 (1).png"
                   alt=""
                   onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                   onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
@@ -358,7 +344,7 @@ const Home = () => {
               >
                 <img
                   className="transition-300ms"
-                  src="../../../images/logo/new car logos/ToyotaLogo.png"
+                  src="../../../images/logo/new car logos/remove 2 (2).png"
                   alt=""
                   onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                   onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
@@ -369,6 +355,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      
 
       {/* <Explore by lifestylr cards> */}
       <div className="section whitebg howitwrap">
@@ -384,7 +372,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/cards1.png"
+                src="../../../images/Cards/cards1.jpg"
                 alt="Image description"
               />
             </div>
@@ -393,7 +381,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/cards2.png"
+                src="../../../images/Cards/cards2.jpg"
                 alt="Image description"
               />
             </div>
@@ -402,7 +390,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/cards3.png"
+                src="../../../images/Cards/cards3.jpg"
                 alt="Image description"
               />
             </div>
@@ -411,7 +399,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/cards5.png"
+                src="../../../images/Cards/cards5.jpg"
                 alt="Image description"
               />{" "}
             </div>
@@ -420,7 +408,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/cards6.png"
+                src="../../../images/Cards/cards6.jpg"
                 alt="Image description"
               />
             </div>
@@ -429,7 +417,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/cards7.png"
+                src="../../../images/Cards/cards4.jpg"
                 alt="Image description"
               />
             </div>
@@ -455,22 +443,24 @@ const Home = () => {
               justifyContent: "center",
             }}
           >
+            
             <li className="col-md-4 col-sm-4">
               <img
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/Insight/GC1.png"
+                src="../../../images/Cards/Insight/Card1.jpg"
                 alt=""
                 style={{ width: "100%", height: "auto", maxWidth: "400px" }}
               />
             </li>
+
             <li className="col-md-4 col-sm-4">
               <img
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/Insight/GC2.png"
+                src="../../../images/Cards/Insight/Card2.jpg"
                 alt=""
               />
             </li>
@@ -480,7 +470,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/Insight/GC3.png"
+                src="../../../images/Cards/Insight/Card3.jpg"
                 alt=""
                 style={{ width: "100%", height: "auto", maxWidth: "400px" }}
               />
@@ -490,7 +480,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/Insight/GC4.png"
+                src="../../../images/Cards/Insight/Card4.jpg"
                 alt=""
                 style={{ width: "100%", height: "auto", maxWidth: "400px" }}
               />

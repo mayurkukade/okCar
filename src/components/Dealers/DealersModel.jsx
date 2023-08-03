@@ -45,9 +45,10 @@ const DealersModel = () => {
     carDetails: "",
   });
   const userToken = `Bearer ${localStorage.getItem("userToken")}`;
+  console.log(userToken)
   const { dealerId } = jwt_decode(userToken);
   // const [getDealersCars, { data: carsData, isLoading: il, isError: iE }] = useLazyGetDealerCarsQuery();
-
+console.log(dealerId)
   const [carsData, setCarsData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(true);
@@ -114,8 +115,7 @@ const DealersModel = () => {
 
   async function fetchDealerCars() {
     // getDealersCars({ id: dealerId, pageNo: 0 }, { skip: !dealerId }).then(e => console.log(e));
-    const url =
-      baseUrl + `/car/dealer/${dealerId}/status/Active?pageNo=${currentPage}`;
+    const url = baseUrl + `/car/dealer/${JSON.parse(dealerId)}/status/ACTIVE?pageNo=0`;
     const token = localStorage.getItem("userToken");
     const headers = { Authorization: `Bearer ${token}` };
     try {
@@ -362,7 +362,7 @@ const DealersModel = () => {
 
   return (
     <>
-      <Flex justifyContent={"flex-end"} padding={"20px"} marginTop={"50px"}>
+      <Flex justifyContent={"flex-end"} padding={"20px"} marginTop={"2.5rem"}>
         <Link to="/addcardetails">
           <Button bgColor={"#5DC302"} _on>
             Add Car
