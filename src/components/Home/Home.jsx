@@ -449,7 +449,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/Insight/Card1.jpg"
+                src="../../../images/Cards/Insight/GREEN CARD 2 25_15 PX-01-min.jpg"
                 alt=""
                 style={{ width: "100%", height: "auto", maxWidth: "400px" }}
               />
@@ -460,7 +460,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/Insight/Card2.jpg"
+                src="../../../images/Cards/Insight/GREEN CARD 25_15 PX-01-min (1).jpg"
                 alt=""
               />
             </li>
@@ -470,7 +470,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/Insight/Card3.jpg"
+                src="../../../images/Cards/Insight/GREEN CARD 25_15 PX-01-min.jpg"
                 alt=""
                 style={{ width: "100%", height: "auto", maxWidth: "400px" }}
               />
@@ -480,7 +480,7 @@ const Home = () => {
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                 className="transition-300ms cursor-pointer"
-                src="../../../images/Cards/Insight/Card4.jpg"
+                src="../../../images/Cards/Insight/GREEN CARD 3 25_15 PX-01-min.jpg"
                 alt=""
                 style={{ width: "100%", height: "auto", maxWidth: "400px" }}
               />

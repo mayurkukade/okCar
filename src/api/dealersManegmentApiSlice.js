@@ -19,6 +19,8 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
         body: body,
       }),
 
+      
+
       invalidatesTags: ["Dealer","Admin"],
     }),
 
@@ -80,13 +82,14 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
         headers: {
           'Content-Type': "application/json",
           Authorization: `Bearer ${token}`,
+          
         },
         method: 'GET'
       }),
       providesTags: ['Dealer']
     }),
     getDealerCarsDealerManegmentPage: builder.query({
-      query: ({ id }) => ({
+      query: (id) => ({
         transformResponse: console.log(id),
         url: `car/dealer/${id}/status/ACTIVE?pageNo=0`,
         headers: {
@@ -94,7 +97,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
           Authorization: `Bearer ${token}`,
         },
       }),
-      providesTags: ['Dealer']
+      providesTags: ['Dealer',"User"]
     }),
     deleteDealerCar: builder.mutation({
       query: ({ id }) => ({
@@ -112,7 +115,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
         url: `/car/edit/${id}`,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
         method: "PUT",
         body

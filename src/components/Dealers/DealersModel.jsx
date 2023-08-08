@@ -115,7 +115,7 @@ console.log(dealerId)
 
   async function fetchDealerCars() {
     // getDealersCars({ id: dealerId, pageNo: 0 }, { skip: !dealerId }).then(e => console.log(e));
-    const url = baseUrl + `/car/dealer/${JSON.parse(dealerId)}/status/ACTIVE?pageNo=0`;
+    const url = baseUrl + `/car/dealer/${dealerId}/status/ACTIVE?pageNo=0`;
     const token = localStorage.getItem("userToken");
     const headers = { Authorization: `Bearer ${token}` };
     try {
