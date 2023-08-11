@@ -1,7 +1,7 @@
 import { apiSlice } from "./apiSlice";
 const BOOKING_URL = "/booking";
 
-const token = localStorage.getItem("userToken");
+// const token = localStorage.getItem("userToken");
 
 export const bookingApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -12,7 +12,7 @@ export const bookingApiSlice = apiSlice.injectEndpoints({
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
-          Authorization: `Bearer ${token}`,
+          // Authorization: `Bearer ${token}`,
         },
         body: askingPrice,
       }),
@@ -24,7 +24,7 @@ export const bookingApiSlice = apiSlice.injectEndpoints({
         url: `${BOOKING_URL}/getByUserId?userId=1052&pageNo=11`,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          // Authorization: `Bearer ${token}`,
         },
       }),
       providesTags: ["Dealer"],
@@ -34,5 +34,3 @@ export const bookingApiSlice = apiSlice.injectEndpoints({
 
 export const { usePendingCarBookingMutation, useMobileBookingPendingQuery } =
   bookingApiSlice;
-
-  

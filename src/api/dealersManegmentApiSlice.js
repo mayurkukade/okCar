@@ -2,7 +2,7 @@ import { apiSlice } from "./apiSlice";
 import { createSlice } from '@reduxjs/toolkit';
 
 const token = localStorage.getItem("userToken");
-
+console.log(token)
 export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
 
   endpoints: (builder) => ({
@@ -14,7 +14,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
-          Authorization: `Bearer ${token}`
+         
         },
         body: body,
       }),
@@ -30,7 +30,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
         url: `/dealer/allDealers/${currentPage}`,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          // Authorization: `Bearer ${token}`,
         },
       }),
       providesTags: ["Dealer","Admin"],
@@ -42,7 +42,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
         url: `/dealer/${id}`,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          // Authorization: `Bearer ${token}`,
         },
       }),
       providesTags: ["Dealer"],
@@ -54,7 +54,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
         url: `/dealer/delete/${body}`,
         headers: {
           "Content-type": "application/json; charset=UTF-8",
-          Authorization: `Bearer ${token}`,
+          // Authorization: `Bearer ${token}`,
         },
         method: "DELETE",
         body
@@ -78,10 +78,10 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
     }),
     getDealerCars: builder.query({
       query: ({ id, pageNo }) => ({
-        url: `car/dealer/${id}/status/Active?pageNo=${pageNo}`,
+        url: `car/dealer/${id}/status/PENDING?pageNo=${pageNo}`,
         headers: {
           'Content-Type': "application/json",
-          Authorization: `Bearer ${token}`,
+          // Authorization: `Bearer ${token}`,
           
         },
         method: 'GET'
@@ -89,13 +89,14 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
       providesTags: ['Dealer']
     }),
     getDealerCarsDealerManegmentPage: builder.query({
-      query: (id) => ({
-        transformResponse: console.log(id),
-        url: `car/dealer/${id}/status/ACTIVE?pageNo=0`,
+      query: ({dealerId,currentPage}) => ({
+        transformResponse: console.log({dealerId,currentPage}),
+        url: `car/dealer/${dealerId}/status/PENDING?pageNo=${currentPage}`,
         headers: {
           'Content-Type': "application/json",
-          Authorization: `Bearer ${token}`,
+          // Authorization: `Bearer ${token}`,
         },
+
       }),
       providesTags: ['Dealer',"User"]
     }),
@@ -104,7 +105,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
         url: `/car/removeCar?carId=${id}`,
         headers: {
           'Content-Type': "application/json",
-          Authorization: `Bearer ${token}`,
+          // Authorization: `Bearer ${token}`,
         },
         method: 'DELETE'
       }),
@@ -115,7 +116,7 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
         url: `/car/edit/${id}`,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          // Authorization: `Bearer ${token}`,
         },
         method: "PUT",
         body

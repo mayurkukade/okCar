@@ -86,6 +86,7 @@ const TableModel = ({
       {isError && <p>error</p>}
       {isSuccess && (
         <>
+        
           <div className="tableContainer">
             <TableContainer>
               <Table {...getTableProps()}>
@@ -148,80 +149,10 @@ const TableModel = ({
               </Table>
 
               <Box className="pagination" padding="15px" justifyItems="center">
-                {/* <Flex gap="10px">
-                <Button
-                  h={"35px"}
-                  _hover={{ bg: "#95B6D8" }}
-                  onClick={() => gotoPage(0)}
-                  disabled={!canPreviousPage}
-                >
-                  <BiFirstPage fontSize={"20px"} />
-                </Button>{" "}
-                <Button
-                  h={"35px"}
-                  _hover={{ bg: "#95B6D8" }}
-                  onClick={() => previousPage()}
-                  disabled={!canPreviousPage}
-                >
-                  <MdOutlineKeyboardArrowLeft fontSize={"22px"} />
-                </Button>
-                <Text alignItems="center" fontSize="18px" pt={"2px"}>
-                  Page
-                  <strong>
-                    {pageIndex + 1} of {pageOptions.length}
-                  </strong>
-                </Text>
-                <Button
-                  h={"35px"}
-                  _hover={{ bg: "#95B6D8" }}
-                  onClick={() => nextPage()}
-                  disabled={!canNextPage}
-                >
-                  <MdOutlineKeyboardArrowRight fontSize={"22px"} />
-                </Button>
-                <Button
-                  h={"35px"}
-                  _hover={{ bg: "#95B6D8" }}
-                  onClick={() => gotoPage(pageCount - 1)}
-                  disabled={!canNextPage}
-                >
-                  <BiLastPage fontSize={"20px"} />
-                </Button>{" "}
-                <Text fontSize="18px" pt={"2px"}>
-                  | Go to page :
-                </Text>{" "}
-                <Input
-                  border={"1px solid black"}
-                  h={"35px"}
-                  type="number"
-                  defaultValue={pageIndex + 1}
-                  onChange={(e) => {
-                    const page = e.target.value
-                      ? Number(e.target.value) - 1
-                      : 0;
-                    gotoPage(page);
-                  }}
-                  width="50px"
-                />
-                <Select
-                  //  _hover={{ bg: "#95B6D8" }}
-                  border={"1px solid black"}
-                  h={"35px"}
-                  // placeholder="Select option"
-                  value={pageSize}
-                  onChange={(e) => {
-                    setPageSize(Number(e.target.value));
-                  }}
-                  width="110px"
-                >
-                  {[5, 10, 15, 20, 25].map((pageSize) => (
-                    <option key={pageSize} value={pageSize}>
-                      Show {pageSize}
-                    </option>
-                  ))}
-                </Select>
-              </Flex> */}
-
+           
+ {
+        v?<p>No data</p>:null
+      }
                 <Flex justifyContent={"flex-end"}>
                   <Button
                     marginRight={"20px"}
@@ -264,6 +195,7 @@ const TableModel = ({
           ></div>
         </>
       )}
+     
     </div>
   );
 };

@@ -32,7 +32,7 @@ const UserRequest = () => {
       ],
       []
     );
-  
+ 
   return (
     <>
     <TableModel data={data} columns={columns} />

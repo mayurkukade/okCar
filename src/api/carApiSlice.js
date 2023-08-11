@@ -13,7 +13,7 @@ export const carApiSlice = apiSlice.injectEndpoints({
         body: data,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          // Authorization: `Bearer ${token}`,
         },
       }),
     }),
@@ -54,6 +54,16 @@ export const carApiSlice = apiSlice.injectEndpoints({
           method: "GET",
         };
       },
+    }),
+    getPendingBookingDetails:builder.query({
+      query:(id,pageNo)=>({
+        url:`booking/getPendingBookingDetailsByCarID?CarId=${id}&pageNo=${pageNo}`,
+        headers:{
+          'Content-Type':"application/json"
+        },
+        method:"GET"
+      }),
+      providesTags:['Dealer','User','Admin']
     }),
 
     //filter car query
@@ -96,4 +106,5 @@ export const {
   useGetCarByIdQuery,
   useLazyGetCarByIdQuery,
   useFilterCarQuery,
+  useGetPendingBookingDetailsQuery
 } = carApiSlice;

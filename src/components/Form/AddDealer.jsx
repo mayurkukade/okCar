@@ -19,10 +19,10 @@ const AddDealer = () => {
     roles: "DEALER",
     password: "",
   });
-const [addDealer] = useAddDealerMutation()
-  
+  const [addDealer] = useAddDealerMutation();
+
   const toastUtility = new ToastUtility(useToast());
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const onChangeFormHandler = (e) => {
     const { name, value } = e.target;
@@ -50,12 +50,11 @@ const [addDealer] = useAddDealerMutation()
     }
 
     try {
-  
       console.log(inputField);
       const res = await addDealer(inputField).unwrap();
       console.log(res);
       toastUtility.showCustom(TOASTS.LOGIN_SUCCESS);
-      navigate('/dealersmanegment')
+      navigate("/dealersmanegment");
     } catch (error) {
       console.log(error);
       toastUtility.showCustom(TOASTS.FILE_ADD_FAILED);
@@ -149,7 +148,7 @@ const [addDealer] = useAddDealerMutation()
                           />
                         </div>
                       </div>
-                   
+
                       <div className="col-md-6">
                         <div className="formrow">
                           <label>Email</label>
@@ -187,11 +186,8 @@ const [addDealer] = useAddDealerMutation()
                           />
                         </div>
                       </div>
-                      <div className="col-md-12">
-                      
-                      </div>
+                      <div className="col-md-12"></div>
                       <br />
-                      <input type="submit" className="btn" value="Add Dealer" />
                       <input type="submit" className="btn" value="Add Dealer" />
                     </form>
                   </div>
@@ -206,5 +202,3 @@ const [addDealer] = useAddDealerMutation()
 };
 
 export default AddDealer;
-
-

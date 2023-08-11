@@ -1,5 +1,5 @@
 import SubNav from "../Navbar/SubNav";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { CommonUtilities } from "../../util/common.utilities";
 import { useEffect, useState } from "react";
@@ -8,10 +8,7 @@ import { Flex, Input } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 
 import { askingPriceDetails } from "../../api/bookingStoreSlice";
-import {
-  
-  useLazyGetCarByIdQuery,
-} from "../../api/carApiSlice";
+import { useLazyGetCarByIdQuery } from "../../api/carApiSlice";
 import { usePendingCarBookingMutation } from "../../api/bookingSlice";
 import CardDetailsShimmer from "./CardDetailsShimmer";
 import { Button } from "@chakra-ui/react";
@@ -34,27 +31,25 @@ const CarDetails = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [largePreview, setLargePreview] = useState(null);
   const [askingPrice, setAskingPrice] = useState();
-  
-  const dispatch = useDispatch()
+
+  const dispatch = useDispatch();
 
   const [dummyImages] = useState(
     JSON.parse(localStorage.getItem("images")) ?? []
   );
-  
+
   let { id } = useParams();
-  
+
   const [getCarById, { data, isLoading, isError }] = useLazyGetCarByIdQuery(id);
 
-console.log(data)
+  console.log(data);
 
   const [showComponent1, setShowComponent1] = useState(true);
 
-  
   const askingPriceSubmitHandler = async (e) => {
- 
-    e.preventDefault()
-    if(!userInfo){
-      return navigate('/signin')
+    e.preventDefault();
+    if (!userInfo) {
+      return navigate("/signin");
     }
     if (!askingPrice) {
       return toast({
@@ -68,28 +63,23 @@ console.log(data)
 
     try {
       const res = await askingPricePost({
-        
-          "date" : new Date(),
-          "price" : 43334,
-          askingPrice,
-          "status":"PENDING",
-          "carId":1,
-          "userId":1052
-      
+        date: new Date(),
+        price: 43334,
+        askingPrice,
+        status: "PENDING",
+        carId: 1,
+        userId: 1052,
       }).unwrap();
-    
-   dispatch(askingPriceDetails(res))
-      if(res){
-         toast({
+
+      dispatch(askingPriceDetails(res));
+      if (res) {
+        toast({
           title: "Successful",
           description: "asking price send to the dealer",
           status: "success",
           duration: 9000,
           isClosable: true,
         });
-
-
-    
       }
       navigate("/contactdealer");
     } catch (error) {
@@ -101,8 +91,6 @@ console.log(data)
         isClosable: true,
       });
     }
-
- 
   };
 
   useEffect(() => {
@@ -117,7 +105,7 @@ console.log(data)
     if (id) getCarById(id);
   }, []);
   if (data && !isLoading && !isError) {
-    const responseData = data.object
+    const responseData = data.object;
     return (
       <div>
         {showComponent1 ? (
@@ -247,13 +235,16 @@ console.log(data)
 
                       <div className="clearfix"></div>
                       <div className="adButtons" onClick={onOpen}>
-                        <a className="btn apply" >
+                        <a
+                          className="btn apply"
+                          onClick={askingPriceSubmitHandler}
+                        >
                           <Flex>
                             <i className="fa fa-phone" aria-hidden="true" />
                             <p>request</p>
                           </Flex>
 
-                          <Modal isOpen={isOpen} onClose={onClose}>
+                          {/* <Modal isOpen={isOpen} onClose={onClose}>
                             <ModalOverlay />
                             <ModalContent>
                               <ModalHeader textAlign={"center"}>
@@ -275,7 +266,7 @@ console.log(data)
                                 )}
                               </ModalBody>
 
-                              <ModalFooter textAlign={"center"} onClick={askingPriceSubmitHandler} >
+                              <ModalFooter textAlign={"center"}  >
                                 <Button
                                   colorScheme="blue"
                                   mr={3}
@@ -298,8 +289,7 @@ console.log(data)
                                 </Button>
                               </ModalFooter>
                             </ModalContent>
-                          </Modal>
-                      
+                          </Modal> */}
                         </a>{" "}
                       </div>
                     </div>
