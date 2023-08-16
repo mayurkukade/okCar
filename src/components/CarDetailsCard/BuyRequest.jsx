@@ -3,6 +3,7 @@ import { usePendingCarBookingMutation } from "../../api/bookingSlice";
 import { selectUserInfo } from "../../api/authSlice";
 import { Button, useToast } from "@chakra-ui/react";
 import { Toast } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 // eslint-disable-next-line react/prop-types
 const BuyRequest = ({ price, id }) => {
   const navigate = useNavigate();
@@ -39,7 +40,18 @@ const toast = useToast()
       console.log(error);
     }
   };
-  return <p onClick={submitHandler}>{userId?"Buy request":"Sign In"} </p>;
+  return(
+    <>
+     <div className="adButtons" onClick={submitHandler}>
+                  <a className="btn apply">
+                    <Flex>
+                      <i className="fa fa-phone" aria-hidden="true" />
+                     <p >{userId?"Buy request":"Sign In"} </p>
+                    </Flex>
+                  </a>
+                </div>
+    </>
+  )
 };
 
 export default BuyRequest;

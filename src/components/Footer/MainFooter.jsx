@@ -39,6 +39,7 @@ const MainFooter = () => (
     <Box
       bg="#152F4F"
       color="white"
+ 
       // color={useColorModeValue('gray.700', 'gray.200')}
     >
       <Container as={Stack} maxW={"6xl"} py={10}>

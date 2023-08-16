@@ -244,52 +244,7 @@ const CarDetails = () => {
                             <p>request</p>
                           </Flex>
 
-                          {/* <Modal isOpen={isOpen} onClose={onClose}>
-                            <ModalOverlay />
-                            <ModalContent>
-                              <ModalHeader textAlign={"center"}>
-                                Buy Car
-                              </ModalHeader>
-                              <ModalCloseButton />
-                              <ModalBody textAlign={"center"}>
-                                {!userInfo ? (
-                                  <h6>Please sign in to send buying request</h6>
-                                ) : (
-                                  <Input
-                                    placeholder="asking price in Rs"
-                                    type="number"
-                                    onChange={(e) => {
-                                      setAskingPrice(e.target.value);
-                                    }}
-                                    value={askingPrice}
-                                  />
-                                )}
-                              </ModalBody>
-
-                              <ModalFooter textAlign={"center"}  >
-                                <Button
-                                  colorScheme="blue"
-                                  mr={3}
-                                  onClick={onClose}
-                                >
-                                  Close
-                                </Button>
-
-                                <Button
-                                 colorScheme="blue"
-                                 mr={3}
-                          
-                      
-                                >
-
-                                  {
-                                    !userInfo ? "SignIn" : "Ask Price"
-                                  }
-                                  
-                                </Button>
-                              </ModalFooter>
-                            </ModalContent>
-                          </Modal> */}
+                         
                         </a>{" "}
                       </div>
                     </div>

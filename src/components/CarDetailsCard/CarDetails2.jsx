@@ -147,15 +147,10 @@ const CarDetails2 = () => {
                   {fetchedDataCar.area}, {fetchedDataCar.city}
                 </div>
 
-                <div className="clearfix"></div>
-                <div className="adButtons">
-                  <a className="btn apply">
-                    <Flex>
-                      <i className="fa fa-phone" aria-hidden="true" />
+               
                       <BuyRequest price={fetchedDataCar.price} id = {id}/>
-                    </Flex>
-                  </a>
-                </div>
+                 
+         
               </div>
 
               <div className="jbside">

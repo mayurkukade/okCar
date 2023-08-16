@@ -20,8 +20,9 @@ export const bookingApiSlice = apiSlice.injectEndpoints({
     }),
 
     mobileBookingPending: builder.query({
-      query: () => ({
-        url: `${BOOKING_URL}/getByUserId?userId=1052&pageNo=11`,
+      query: (userId,pageNo) => ({
+        url: `${BOOKING_URL}/getByUserId?userId=${userId}&pageNo=${pageNo}`,
+        transformResponse:console.log(userId,pageNo),
         headers: {
           "Content-Type": "application/json",
           // Authorization: `Bearer ${token}`,
@@ -29,8 +30,9 @@ export const bookingApiSlice = apiSlice.injectEndpoints({
       }),
       providesTags: ["Dealer"],
     }),
+
   }),
 });
 
-export const { usePendingCarBookingMutation, useMobileBookingPendingQuery } =
+export const { usePendingCarBookingMutation, useMobileBookingPendingQuery,useGetAllUserPendingBookingByIdQuery } =
   bookingApiSlice;

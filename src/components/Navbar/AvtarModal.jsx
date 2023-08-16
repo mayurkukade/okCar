@@ -51,7 +51,7 @@ const AvtarModal = () => {
             <Link to="/edituserdetails" style={{textDecoration:"none"}}> <MenuItem color={"black"}  _hover={{ bg: '#5DC302' }}> <span>Edit Profile  </span></MenuItem></Link>
            {
             JSON.parse(username)?.authorities.includes('USER')?
-            <Link to="#" style={{textDecoration:"none"}}>  <MenuItem    _hover={{ bg: '#5DC302' }}  color={"black"}>  <span>My Booking  </span></MenuItem></Link>:null
+            <Link to="/mycarbooking" style={{textDecoration:"none"}}>  <MenuItem    _hover={{ bg: '#5DC302' }}  color={"black"}>  <span>My Booking  </span></MenuItem></Link>:null
            }
            
         

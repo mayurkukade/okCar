@@ -19,7 +19,7 @@ import {
   // Flex,
   // Text,
   Stack,
-   Button,
+   
   useColorModeValue,
 }from '@chakra-ui/react';
 
@@ -39,9 +39,7 @@ const DealerDetails = () => {
   const [carData, setCarData] = useState([]);
   console.log(carData)
   console.log(dealerCars?.list);
-  console.log(dealerID, "dealer");
-  console.log(dealerID);
-  console.log(dealerData);
+
   useEffect(() => {
     setDealerData(dealerID?.dealerDto);
   }, [dealerID]);
