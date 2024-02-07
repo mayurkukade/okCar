@@ -156,7 +156,7 @@ const CarRequest = () => {
                           onOpen();
                         }}
                       >
-                        All Request
+                       Get Deal
                       </Button>
                       <Modal isCentered isOpen={isOpen} onClose={onClose}>
                         {overlay}

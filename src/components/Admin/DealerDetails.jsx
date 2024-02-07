@@ -35,10 +35,10 @@ const DealerDetails = () => {
     data: dealerCars,
     isError,
     isLoading,
-  } = useGetDealerCarsDealerManegmentPageQuery({ id });
+  } = useGetDealerCarsDealerManegmentPageQuery();
   const [carData, setCarData] = useState([]);
   console.log(carData)
-  console.log(dealerCars?.list);
+  console.log(dealerCars);
 
   useEffect(() => {
     setDealerData(dealerID?.dealerDto);
@@ -96,14 +96,14 @@ const DealerDetails = () => {
   useEffect(() => {
     const getData = setTimeout(() => {
       setCarData(dealerCars?.list);
-    }, 100);
+    }, 5000);
 
     
 
     return () => clearTimeout(getData);
   }, [dealerCars]);
 
-
+console.log(data)
 
   
 
@@ -149,13 +149,13 @@ const DealerDetails = () => {
       <Text color={'gray.500'}>Dealer Name</Text>
 
         <Heading fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
-          {dealerData.firstName} {dealerData.lastName}
+          {/* {dealerData.firstName} {dealerData.lastName} */}
         </Heading>
       </Stack>
 
       <Stack direction={'row'} justify={'center'} spacing={6}>
         <Stack spacing={0} align={'center'}>
-          <Text fontWeight={600}> {dealerData.dealer_id}</Text> 
+          {/* <Text fontWeight={600}> {dealerData.dealer_id}</Text>  */}
           <Text fontSize={'sm'} color={'gray.500'}>
           Dealer ID
           </Text>
@@ -176,13 +176,13 @@ const DealerDetails = () => {
 
 
 
-      <TableM
+      {/* <TableM
         data={data}
         columns={columns}
         FetchData={carData}
         error={isError}
         isLoading={isLoading}
-      />
+      /> */}
     </>
   );
 };
