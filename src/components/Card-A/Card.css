@@ -1,0 +1,38 @@
+.Card-Main{
+    font-size: 50px;
+    background-color: aquamarine;
+}
+.Image-1{
+    width: 20px;
+    height: 20px;
+}
+.Text-box{
+    font-size: 18px;
+}
+.Text-box2 {
+    font-size: 15px;
+}
+.card-icon{
+    display: flex;
+    justify-content: space-between;
+}
+.carName{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.car-carousal{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 12px;
+    background-color: beige;
+    border-radius: 10px;
+}
+.card-month{
+    display: flex;
+    font-size: 20px;
+    justify-content: space-between;
+    font-weight: 600;
+}
