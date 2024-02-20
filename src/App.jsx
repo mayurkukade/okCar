@@ -115,6 +115,7 @@ const App = () => {
          <Route path = "/vehicalissue" element={<Vehicalissue/>}/>
          <Route path = "/compressimg" element={<CompressionImage/>}/>
          <Route path = "/multiple" element={<MultipleImgUplod/>}/>
+         
       </Routes>
       <MainFooter />
     </>
