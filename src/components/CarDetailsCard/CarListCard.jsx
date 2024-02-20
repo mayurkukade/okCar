@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-
+import Thar from "../../images/cars/download.jpg"
 import { Link } from "react-router-dom";
 const CarListCard = ({
   model,
@@ -18,11 +18,9 @@ const CarListCard = ({
         <li>
           <div className="row">
             <div className="col-md-3 col-sm-4">
-              {/* <div className="ribbon_3 popular">
-                <span>Featured</span>
-              </div> */}
+              
               <div className="adimg">
-                {/* <img src={imageSrc} alt="Ad Name" /> */}
+           <img src={Thar} alt="img" />
               </div>
             </div>
             <div className="col-md-9 col-sm-8">
@@ -48,9 +46,7 @@ const CarListCard = ({
                     <div className="vinfo">
                       <span>{fuelType}</span>
                     </div>
-                    {/* <div className="vinfo">
-                      <span>{cc} cc</span>
-                    </div> */}
+                   
                     <div className="vinfo">
                       <span>{transmission}</span>
                     </div>

@@ -19,7 +19,7 @@ import {
   // Flex,
   // Text,
   Stack,
-   Button,
+   
   useColorModeValue,
 }from '@chakra-ui/react';
 
@@ -35,13 +35,11 @@ const DealerDetails = () => {
     data: dealerCars,
     isError,
     isLoading,
-  } = useGetDealerCarsDealerManegmentPageQuery({ id });
+  } = useGetDealerCarsDealerManegmentPageQuery();
   const [carData, setCarData] = useState([]);
   console.log(carData)
-  console.log(dealerCars?.list);
-  console.log(dealerID, "dealer");
-  console.log(dealerID);
-  console.log(dealerData);
+  console.log(dealerCars);
+
   useEffect(() => {
     setDealerData(dealerID?.dealerDto);
   }, [dealerID]);
@@ -97,53 +95,21 @@ const DealerDetails = () => {
   
   useEffect(() => {
     const getData = setTimeout(() => {
-      setCarData(dealerCars.list);
-    }, 100);
+      setCarData(dealerCars?.list);
+    }, 5000);
 
     
 
     return () => clearTimeout(getData);
   }, [dealerCars]);
 
+console.log(data)
 
-
-  // const getNameWidth = () => {
-  //   const nameLength = dealerData?.dealerDto?.firstName?.length || 0;
-  //   if (nameLength > 10) {
-  //     return '100%'; // If name is long, set the width to 100%
-  //   } else {
-  //     return '70%'; // If name is short, set the width to 70%
-  //   }
-  // };
+  
 
   return (
     <>
-      {/* <div className="containerCard">
-        <div className="card-img">
-          <img
-            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
-            alt="card-details"
-          />
-        </div>
-        <div className="card-title">
-          <Text>
-            <Flex>
-              <Heading size="md">{dealerData?.dealerDto?.firstName}</Heading>
-            </Flex>
-
-            <p>Dealer ID</p>
-            <h5>{dealerData?.dealer_id}</h5>
-
-            <p>Total Cars</p>
-            <h5>{dealerData?.dealer_id}</h5>
-          </Text>
-        </div>
-      </div> */}
-
-      
-{/* <New Added Card> */}
-
-{/* <Center py={6}> */}
+  
 
 
 <Box py={6} textAlign="left" marginLeft="20px" marginRight="20px"> {/* Set the text alignment to "left" and add side margins */}
@@ -183,13 +149,13 @@ const DealerDetails = () => {
       <Text color={'gray.500'}>Dealer Name</Text>
 
         <Heading fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
-          {dealerData.firstName} {dealerData.lastName}
+          {/* {dealerData.firstName} {dealerData.lastName} */}
         </Heading>
       </Stack>
 
       <Stack direction={'row'} justify={'center'} spacing={6}>
         <Stack spacing={0} align={'center'}>
-          <Text fontWeight={600}> {dealerData.dealer_id}</Text> 
+          {/* <Text fontWeight={600}> {dealerData.dealer_id}</Text>  */}
           <Text fontSize={'sm'} color={'gray.500'}>
           Dealer ID
           </Text>
@@ -210,13 +176,13 @@ const DealerDetails = () => {
 
 
 
-      <TableM
+      {/* <TableM
         data={data}
         columns={columns}
         FetchData={carData}
         error={isError}
         isLoading={isLoading}
-      />
+      /> */}
     </>
   );
 };

@@ -30,7 +30,7 @@ const Navbar = () => {
   console.log(user)
   console.log(user == 'DEALER')
   console.log(user == 'ADMIN')
-
+console.log(user == 'USER')
   let roleNav;
   if (user == "ADMIN") {
     roleNav = (
@@ -148,7 +148,7 @@ const Navbar = () => {
       </div>
     )
 
-  } else {
+  } else if(user =="USER") {
     roleNav = (
       <div className={`header ${isNavbarVisible ? "visible" : ""}`}>
         <div className="container">
@@ -177,7 +177,7 @@ const Navbar = () => {
                 <div className="navbar-collapse collapse" id="nav-main">
                   <ul className="nav navbar-nav">
                     <li className="dropdown active">
-                      <Link to="/">Home</Link>
+                      <Link to="/">Hom</Link>
                     </li>
                     <li>
                       <Link to="/carlist">Buy Cars</Link>

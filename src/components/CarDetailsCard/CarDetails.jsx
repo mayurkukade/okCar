@@ -1,15 +1,15 @@
 import SubNav from "../Navbar/SubNav";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { CommonUtilities } from "../../util/common.utilities";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Flex, Input } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
-import {
-  useGetCarByIdQuery,
-  useLazyGetCarByIdQuery,
-} from "../../api/carApiSlice";
+
+import { askingPriceDetails } from "../../api/bookingStoreSlice";
+import { useLazyGetCarByIdQuery } from "../../api/carApiSlice";
+import { usePendingCarBookingMutation } from "../../api/bookingSlice";
 import CardDetailsShimmer from "./CardDetailsShimmer";
 import { Button } from "@chakra-ui/react";
 import {
@@ -21,23 +21,77 @@ import {
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
+import { useToast } from "@chakra-ui/react";
+
 const CarDetails = () => {
   const userInfo = useSelector((state) => state.auth.userInfo);
+  const navigate = useNavigate();
+  const [askingPricePost] = usePendingCarBookingMutation();
+  const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [largePreview, setLargePreview] = useState(null);
+  const [askingPrice, setAskingPrice] = useState();
+
+  const dispatch = useDispatch();
+
   const [dummyImages] = useState(
     JSON.parse(localStorage.getItem("images")) ?? []
   );
-  let { id } = useParams();
-  // const responseData = useGetCarByIdQuery(id);
-  // const { data } = responseData;
-  const [getCarById, { data, isLoading, isError }] = useLazyGetCarByIdQuery(id);
-  console.log("Response data:", data?.object);
 
-  // shimmer loading
+  let { id } = useParams();
+
+  const [getCarById, { data, isLoading, isError }] = useLazyGetCarByIdQuery(id);
+
+  console.log(data);
+
   const [showComponent1, setShowComponent1] = useState(true);
 
+  const askingPriceSubmitHandler = async (e) => {
+    e.preventDefault();
+    if (!userInfo) {
+      return navigate("/signin");
+    }
+    if (!askingPrice) {
+      return toast({
+        title: "Enter value ",
+        description: "please add asking price in rupees",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
 
+    try {
+      const res = await askingPricePost({
+        date: new Date(),
+        price: 43334,
+        askingPrice,
+        status: "PENDING",
+        carId: 1,
+        userId: 1052,
+      }).unwrap();
+
+      dispatch(askingPriceDetails(res));
+      if (res) {
+        toast({
+          title: "Successful",
+          description: "asking price send to the dealer",
+          status: "success",
+          duration: 9000,
+          isClosable: true,
+        });
+      }
+      navigate("/contactdealer");
+    } catch (error) {
+      toast({
+        title: error,
+        description: error,
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
+  };
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -48,16 +102,17 @@ const CarDetails = () => {
   }, []);
 
   useEffect(() => {
-    if (!!id) getCarById(id);
+    if (id) getCarById(id);
   }, []);
-  if (!!data && !isLoading && !isError) {
+  if (data && !isLoading && !isError) {
+    const responseData = data.object;
     return (
       <div>
         {showComponent1 ? (
           <CardDetailsShimmer />
         ) : (
           <>
-            <SubNav componentsName={data?.object.brand} />
+            <SubNav componentsName={responseData.brand} />
             <div className="listpgWraper">
               <div className="container">
                 <div className="row">
@@ -107,7 +162,7 @@ const CarDetails = () => {
                         </div>
                         <h3>Car Features</h3>
                         <ul className="row carfeature">
-                          {data?.object.acFeature && (
+                          {responseData.acFeature && (
                             <li className="col-md-4 col-sm-6">
                               <span className="feat">
                                 <img
@@ -119,7 +174,7 @@ const CarDetails = () => {
                             </li>
                           )}
 
-                          {data?.object.musicFeature && (
+                          {responseData.musicFeature && (
                             <li className="col-md-4 col-sm-6">
                               <span className="feat">
                                 <img
@@ -131,7 +186,7 @@ const CarDetails = () => {
                             </li>
                           )}
 
-                          {data?.object.rearParkingCameraFeature && (
+                          {responseData.rearParkingCameraFeature && (
                             <li className="col-md-4 col-sm-6">
                               <span className="feat">
                                 <img
@@ -144,7 +199,7 @@ const CarDetails = () => {
                             </li>
                           )}
 
-                          {data?.object.powerWindowFeature && (
+                          {responseData.powerWindowFeature && (
                             <li className="col-md-4 col-sm-6">
                               <span className="feat">
                                 <img
@@ -158,7 +213,7 @@ const CarDetails = () => {
                         </ul>
                         <h3>Seller Comments</h3>
 
-                        <p>{data?.object.description}</p>
+                        <p>{responseData.description}</p>
                       </div>
                     </div>
                   </div>
@@ -169,63 +224,27 @@ const CarDetails = () => {
                         Price{" "}
                         <strong>
                           {" "}
-                          ₹ {Number(data?.object.price).toLocaleString("en-IN")}
+                          ₹ {Number(responseData.price).toLocaleString("en-IN")}
                         </strong>
                       </div>
 
                       <div className="ptext">
                         <i className="fa fa-map-marker" aria-hidden="true"></i>
-                        {data?.object.area}, {data?.object.city}
+                        {responseData.area}, {responseData.city}
                       </div>
-                     
 
                       <div className="clearfix"></div>
-                      <div className="adButtons">
-                        <a href="#." className="btn apply" onClick={onOpen}>
+                      <div className="adButtons" onClick={onOpen}>
+                        <a
+                          className="btn apply"
+                          onClick={askingPriceSubmitHandler}
+                        >
                           <Flex>
-                            
                             <i className="fa fa-phone" aria-hidden="true" />
-                          <p>request</p>
-                            
-                          
+                            <p>request</p>
                           </Flex>
-                          
-                          
 
-                          <Modal isOpen={isOpen} onClose={onClose}>
-                            <ModalOverlay />
-                            <ModalContent>
-                              <ModalHeader textAlign={'center'}>Buy Car</ModalHeader>
-                              <ModalCloseButton />
-                              <ModalBody textAlign={'center'}>
-                                {!userInfo?
-                                <h6>Please sign in to send buying request</h6>
-                                :<Input placeholder="asking price" defaultValue= {Number(data?.object.price).toLocaleString("en-IN")} />
-                                
-                                }
-                              </ModalBody>
-
-                              <ModalFooter textAlign={'center'}>
-                                <Button
-                                  colorScheme="blue"
-                                  mr={3}
-                                  onClick={onClose}
-                                >
-                                  Close
-                                </Button>
-                               
-                                {!userInfo? <Button
-                                  colorScheme="blue"
-                                  mr={3}
-                                  onClick={onClose}
-                                >
-                                  <Link to='/signin'>Sign In</Link>
-                                </Button>   : <Button> <Link to='/contactdealer'>Ask Price</Link> </Button>}
-                              
-                              </ModalFooter>
-                            </ModalContent>
-                          </Modal>
-                          {/* {userInfo ?   "Request" : <span>please login</span>} */}
+                         
                         </a>{" "}
                       </div>
                     </div>
@@ -238,44 +257,44 @@ const CarDetails = () => {
                             Registered City
                           </div>
                           <div className="col-md-6 col-xs-6">
-                            <span>{data?.object.city}</span>
+                            <span>{responseData.city}</span>
                           </div>
                         </li>
                         <li className="row">
                           <div className="col-md-6 col-xs-6">Color</div>
                           <div className="col-md-6 col-xs-6">
-                            <span>{data?.object.color}</span>
+                            <span>{responseData.color}</span>
                           </div>
                         </li>
                         <li className="row">
                           <div className="col-md-6 col-xs-6">Body Type</div>
                           <div className="col-md-6 col-xs-6">
-                            <span>{data?.object.bodyType}</span>
+                            <span>{responseData.bodyType}</span>
                           </div>
                         </li>
                         <li className="row">
                           <div className="col-md-6 col-xs-6">Model</div>
                           <div className="col-md-6 col-xs-6">
-                            <span>{data?.object.model}</span>
+                            <span>{responseData.model}</span>
                           </div>
                         </li>
                         <li className="row">
                           <div className="col-md-6 col-xs-6">KM Driven</div>
                           <div className="col-md-6 col-xs-6">
-                            <span>{data?.object.kmDriven} km</span>
+                            <span>{responseData.kmDriven} km</span>
                           </div>
                         </li>
 
                         <li className="row">
                           <div className="col-md-6 col-xs-6">Fuel</div>
                           <div className="col-md-6 col-xs-6">
-                            <span>{data?.object.fuelType}</span>
+                            <span>{responseData.fuelType}</span>
                           </div>
                         </li>
                         <li className="row">
                           <div className="col-md-6 col-xs-6">Transmission</div>
                           <div className="col-md-6 col-xs-6">
-                            <span>{data?.object.transmission}</span>
+                            <span>{responseData.transmission}</span>
                           </div>
                         </li>
                       </ul>

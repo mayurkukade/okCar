@@ -4,17 +4,17 @@ import imageCompression from "browser-image-compression";
 import { useAddCarMutation } from "../../api/carApiSlice";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
-
+import { format } from "date-fns";
 const AddCarDetails = () => {
   const [createPost, responseData] = useAddCarMutation();
   console.log(responseData);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     //features
-    acFeature: false,
-    musicFeature: false,
-    powerWindowFeature: false,
-    rearParkingCameraFeature: false,
+    acFeature: "false",
+    musicFeature: "false",
+    powerWindowFeature: "false",
+    rearParkingCameraFeature: "false",
 
     // fields
     brand: "",
@@ -39,70 +39,51 @@ const AddCarDetails = () => {
     dealer_id: "",
   });
   const [images, setImages] = useState([]);
-
+  let cureentDate = format(new Date(), "yyyy-dd-MM");
+  console.log(cureentDate);
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const { dealerId: dealer_id } = jwt_decode(
       `Bearer ${localStorage.getItem("userToken")}`
     );
-
-    if (!dealer_id) return;
+    console.log(dealer_id);
 
     // Prepare the form data to send to the backend
     const data = {
-      brand: formData.brand,
-      price: formData.price,
-      model: formData.model,
-      year: formData.year,
-      bodyType: formData.bodyType,
-      transmission: formData.transmission,
-      color: formData.color,
-      registration: formData.registration,
-      kmDriven: formData.kmDriven,
-      fuelType: formData.fuelType,
-      area: formData.area,
-      carInsurance: formData.carInsurance,
-      city: formData.city,
-      description: formData.description,
-      safetyDescription: formData.safetyDescription,
-      carStatus: formData.carStatus,
-      noOfWheels: formData.noOfWheels,
-      ownerSerial: formData.ownerSerial,
-      tyre: formData.tyre,
-      dealer_id,
-      // features
       acFeature: formData.acFeature,
       musicFeature: formData.musicFeature,
+      area: formData.area,
+      bodyType: formData.bodyType,
+      brand: formData.brand,
+      carInsurance: formData.carInsurance,
+      carStatus: formData.carStatus.toUpperCase(),
+      city: formData.city,
+      color: formData.color,
+      description: formData.description,
+      fuelType: formData.fuelType,
+      kmDriven: formData.kmDriven,
+      model: formData.model,
+      noOfWheels: formData.noOfWheels,
+      ownerSerial: formData.ownerSerial,
       powerWindowFeature: formData.powerWindowFeature,
+      price: formData.price,
       rearParkingCameraFeature: formData.rearParkingCameraFeature,
+      registration: formData.registration,
+      safetyDescription: formData.safetyDescription,
+      transmission: formData.transmission,
+      tyre: formData.tyre,
+      year: formData.year,
+      dealer_id,
+      date: cureentDate,
       // images,
     };
-
-    // Send the form data to the backend
-    // try {
-    //   const response = await axios.post("/api/addCar", data); // Replace "/api/addCar" with the actual backend API endpoint
-    //   console.log(response.data); // Handle the response from the backend
-    // } catch (error) {
-    //   console.error(error); // Handle any errors that occur during the request
-    // }
-
-    // console.log(data);
+    console.log(data);
     createPost(data).then((responseData) => {
       if (responseData?.error) return;
       navigate("/dealer");
     });
   };
-
-  // handle image compressor
-  // React compress image component
-
-  // function handleImage(event) {
-  //   const fileList = event.target.files;
-  //   const imageArray = Array.from(fileList);
-  //   setImages(imageArray);
-  //   console.log(imageArray);
-  // }
 
   async function handleImage(event) {
     const imageFiles = event.target.files;

@@ -41,10 +41,8 @@ import ContactDealer from "./components/Dealers/ContactDealer";
 import MyCarBooking from "./components/CarDetailsCard/MyCarBooking";
 import UserRequestList from "./components/Dealers/UserRequestList";
 import CarRequest from "./components/Dealers/CarRequest";
+import CarDetails2 from "./components/CarDetailsCard/CarDetails2";
 
-// import CardDetailsShimmer from "./components/CarDetailsCard/CardDetailsShimmer";
-// import Cloudnary from "./Dummy/Cloudnary";
-// import Cloudnary from "./Dummy/Cloudnary";
 
 const App = () => {
   // useScrollTop();
@@ -60,7 +58,8 @@ const App = () => {
 
         <Route path="/" element={<Home />} />
         <Route path="/carlist" element={<CarList />} />
-        <Route path="/carDetails/:id" element={<CarCard />} />
+        {/* <Route path="/carDetails/:id" element={<CarCard />} /> */}
+        <Route path="/carDetails/:id" element={<CarDetails2 />} />
 
         <Route element={<AppLayout />}>
           {/* PROTECTED ROUTE FOR ADMIN */}
