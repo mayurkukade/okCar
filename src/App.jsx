@@ -35,7 +35,7 @@ import Dealer from "./components/Admin/Dealer";
 import UpdateCarDetails from "./components/AddCar/UpdateCarDetails";
 import MainFooter from "./components/Footer/MainFooter";
 import TableCard from "./components/TableCard/TableCard";
-import useScrollTop from "./util/useScrollTop";
+// import useScrollTop from "./util/useScrollTop";
 import Navbar from "./components/Navbar/Navbar";
 import ContactDealer from "./components/Dealers/ContactDealer";
 import MyCarBooking from "./components/CarDetailsCard/MyCarBooking";
