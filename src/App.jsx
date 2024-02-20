@@ -3,7 +3,10 @@ import AdminRequest from "./components/AdminRequest/AdminRequest";
 import { Routes, Route } from "react-router-dom";
 import DealersModel from "./components/Dealers/DealersModel";
 
-//Admin🤴
+// Payment Details
+import PaymentDetails from "./components/PaymentDetailsCard/paymentDetails";
+
+// Admin🤴
 import AdminPage from "./components/Admin/AdminPage";
 
 
@@ -55,7 +58,7 @@ const App = () => {
         <Route path="/signup" element={<Register />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
 
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<Home />} />
         <Route path="/carlist" element={<CarList />} />
         <Route path="/carDetails/:id" element={<CarCard />} />
 
@@ -79,37 +82,38 @@ const App = () => {
           </Route>
 
           {/* PROTECTED ROUTE FOR DEALER */}
-          {/* <Route
-            element={
-              <RequireAuth allowedRoles={[...Object.values(OnlyDealer)]} />
-            }
-          > */}
+          <Route
+            // element={
+            //   <RequireAuth allowedRoles={[...Object.values(OnlyDealer)]} />
+            // }
+          >
           <Route path="/dealer" element={<DealersModel />} />
-          {/* </Route> */}
+          </Route>
           <Route path="/adminrequest" element={<AdminRequest />} />
-         
+
           <Route path="/contact" element={<Contact />} />
           <Route path="/adminbuyers" element={<AdminBuyers />} />
           <Route path="/addcardetails" element={<AddCarDetails />} />
           <Route path="/updateCarDetails" element={<UpdateCarDetails />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/dealer/carDetails/:id" element={<CarCard />} />
-          <Route path="/dealer/userrequestlist" element={<UserRequestList/>} />
+          <Route path="/dealer/userrequestlist" element={<UserRequestList />} />
           <Route path="/access" element={<CantAccess />} />
           <Route path="/reset-password" element={<ResetPassword />} />
-       
+
           <Route path="/editUserdetails" element={<EditUserProfile />} />
           <Route path="/editDealerdetails" element={<EditDealerProfile />} />
-         <Route path="/carrequest" element={<CarRequest/>} />
+          <Route path="/carrequest" element={<CarRequest />} />
           <Route path='/contactdealer' element={<ContactDealer />} />
-          <Route path="/mycarbooking" element={<MyCarBooking/>} />
-        
+          <Route path="/mycarbooking" element={<MyCarBooking />} />
+
           <Route path="*" element={<NotFound />} />
         </Route>
-      
+
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
         <Route path="/tablecard" element={<TableCard />} />
-   
+        <Route path="/paymentDetails" element={<PaymentDetails />} />
+
       </Routes>
       <MainFooter />
     </>
