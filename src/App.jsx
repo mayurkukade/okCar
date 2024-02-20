@@ -53,7 +53,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cardetailsbid" element={<CarDetailsBid />} />
+        {/* <Route path="/cardetailsbid" element={<CarDetailsBid />} /> */}
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<Register />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
