@@ -6,7 +6,6 @@ import DealersModel from "./components/Dealers/DealersModel";
 //Admin🤴
 import AdminPage from "./components/Admin/AdminPage";
 
-
 import UserRequest from "./components/Admin/UserRequest";
 
 import SignIn from "./components/SignIn/SignIn.jsx";
@@ -39,21 +38,19 @@ import ContactDealer from "./components/Dealers/ContactDealer";
 import MyCarBooking from "./components/CarDetailsCard/MyCarBooking";
 import UserRequestList from "./components/Dealers/UserRequestList";
 import CarRequest from "./components/Dealers/CarRequest";
-import Vehicalissue from "./components/Mentor/Vehicalissue.jsx";
-import CompressionImage from "./components/Mentor/CompressionImage.jsx";
-import MultipleImgUplod from "./components/Mentor/MultipleImgUplod.jsx";
 
 // import CardDetailsShimmer from "./components/CarDetailsCard/CardDetailsShimmer";
 // import Cloudnary from "./Dummy/Cloudnary";
 // import Cloudnary from "./Dummy/Cloudnary";
 
 const App = () => {
-  useScrollTop();
+  // useScrollTop();
   return (
     <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/cardetailsbid" element={<CarDetailsBid />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<Register />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
@@ -90,32 +87,29 @@ const App = () => {
           <Route path="/dealer" element={<DealersModel />} />
           {/* </Route> */}
           <Route path="/adminrequest" element={<AdminRequest />} />
-         
+
           <Route path="/contact" element={<Contact />} />
           <Route path="/adminbuyers" element={<AdminBuyers />} />
           <Route path="/addcardetails" element={<AddCarDetails />} />
           <Route path="/updateCarDetails" element={<UpdateCarDetails />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/dealer/carDetails/:id" element={<CarCard />} />
-          <Route path="/dealer/userrequestlist" element={<UserRequestList/>} />
+          <Route path="/dealer/userrequestlist" element={<UserRequestList />} />
           <Route path="/access" element={<CantAccess />} />
           <Route path="/reset-password" element={<ResetPassword />} />
-       
+
           <Route path="/editUserdetails" element={<EditUserProfile />} />
           <Route path="/editDealerdetails" element={<EditDealerProfile />} />
-         <Route path="/carrequest" element={<CarRequest/>} />
-          <Route path='/contactdealer' element={<ContactDealer />} />
-          <Route path="/mycarbooking" element={<MyCarBooking/>} />
-        
+          <Route path="/carrequest" element={<CarRequest />} />
+          <Route path="/contactdealer" element={<ContactDealer />} />
+          <Route path="/mycarbooking" element={<MyCarBooking />} />
+
           <Route path="*" element={<NotFound />} />
         </Route>
-      
+
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
         <Route path="/tablecard" element={<TableCard />} />
-         <Route path = "/vehicalissue" element={<Vehicalissue/>}/>
-         <Route path = "/compressimg" element={<CompressionImage/>}/>
-         <Route path = "/multiple" element={<MultipleImgUplod/>}/>
-         
+   
       </Routes>
       <MainFooter />
     </>
