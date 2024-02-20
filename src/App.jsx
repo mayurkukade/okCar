@@ -39,6 +39,9 @@ import ContactDealer from "./components/Dealers/ContactDealer";
 import MyCarBooking from "./components/CarDetailsCard/MyCarBooking";
 import UserRequestList from "./components/Dealers/UserRequestList";
 import CarRequest from "./components/Dealers/CarRequest";
+import Vehicalissue from "./components/Mentor/Vehicalissue.jsx";
+import CompressionImage from "./components/Mentor/CompressionImage.jsx";
+import MultipleImgUplod from "./components/Mentor/MultipleImgUplod.jsx";
 
 // import CardDetailsShimmer from "./components/CarDetailsCard/CardDetailsShimmer";
 // import Cloudnary from "./Dummy/Cloudnary";
@@ -109,7 +112,9 @@ const App = () => {
       
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
         <Route path="/tablecard" element={<TableCard />} />
-   
+         <Route path = "/vehicalissue" element={<Vehicalissue/>}/>
+         <Route path = "/compressimg" element={<CompressionImage/>}/>
+         <Route path = "/multiple" element={<MultipleImgUplod/>}/>
       </Routes>
       <MainFooter />
     </>
