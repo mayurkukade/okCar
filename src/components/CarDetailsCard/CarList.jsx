@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import SubNav from "../Navbar/SubNav.jsx";
 import { useState, useEffect } from "react";
+import "./CardListDesign.css";
 import CarListCard from "./CarListCard.jsx";
 import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
 import { Button } from "@chakra-ui/react";
@@ -281,47 +282,320 @@ const CarList = () => {
                 ))}
               </>
             ) : (
-              <div className="col-md-9 col-sm-7">
-                <div
-                  className="card-container-wrapper"
-                  style={{ height: "880px", overflowY: "auto" }}
-                >
-                  <div className="card-container" style={{ height: "100px" }}>
-                    {/* <div className="card-container" ref={cardContainerRef}> */}
-
-                    {responseData === null ? (
-                      <h1
-                        style={{
-                          display: "flex",
-
-                          alignItems: "center",
-
-                          justifyContent: "center",
-
-                          minHeight: "70vh",
-                        }}
-                      >
-                        No car Found
-                      </h1>
-                    ) : responseData.length === 0 ? (
-                      <h3
-                        style={{
-                          display: "flex",
-
-                          justifyContent: "center",
-
-                          alignItems: "center",
-
-                          height: "80vh",
-                        }}
-                      >
-                        Something Went Wrong Can&apos;t fetch Car list
-                      </h3>
-                    ) : (
-                      responseData.map((carDetails, index) => {
-                        return <CarListCard key={index} {...carDetails} />;
-                      })
-                    )}
+              <div className="main-card">
+                <div className="card-container">
+                  <div className="box">
+                    <img
+                      src="https://picsum.photos/300/200"
+                      alt="Card Image"
+                      className="card-img"
+                    />
+                    <h1 className="card-title">2021 Maruti S PRESSO VXI+</h1>
+                    <div className="card-desc">
+                      <div>12,450 KM</div>
+                      <div>Petrol</div>
+                      <div>Manual</div>
+                    </div>
+                    <div className="car-model-p">
+                      <div className="car-model">Top Model</div>
+                    </div>
+                    <div className="car-price">
+                      <div className="actualprice">
+                        <i className="fa fa-inr"></i> 4.26 Lakh
+                      </div>
+                      <div className="discountprice">
+                        <i className="fa fa-inr"></i> 4.77 Lakh
+                      </div>
+                      <div className="discount">(51k off)</div>
+                    </div>
+                    <div className="emioption">
+                      EMIs from <i className="fa fa-inr"></i>8,328/month
+                    </div>
+                    <div className="test-drive">
+                      Free Test Drive{" "}
+                      <span className="span-color">Tomorrow</span> at{" "}
+                      <span className="span-color">KW Pune 6,Kharadi</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="card-container">
+                  <div className="box">
+                    <img
+                      src="https://picsum.photos/300/200"
+                      alt="Card Image"
+                      className="card-img"
+                    />
+                    <h1 className="card-title">2021 Maruti S PRESSO VXI+</h1>
+                    <div className="card-desc">
+                      <div>12,450 KM</div>
+                      <div>Petrol</div>
+                      <div>Manual</div>
+                    </div>
+                    <div className="car-model-p">
+                      <div className="car-model">Top Model</div>
+                    </div>
+                    <div className="car-price">
+                      <div className="actualprice">
+                        <i className="fa fa-inr"></i> 4.26 Lakh
+                      </div>
+                      <div className="discountprice">
+                        <i className="fa fa-inr"></i> 4.77 Lakh
+                      </div>
+                      <div className="discount">(51k off)</div>
+                    </div>
+                    <div className="emioption">
+                      EMIs from <i className="fa fa-inr"></i>8,328/month
+                    </div>
+                    <div className="test-drive">
+                      Free Test Drive{" "}
+                      <span className="span-color">Tomorrow</span> at{" "}
+                      <span className="span-color">KW Pune 6,Kharadi</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="card-container">
+                  <div className="box">
+                    <img
+                      src="https://picsum.photos/300/200"
+                      alt="Card Image"
+                      className="card-img"
+                    />
+                    <h1 className="card-title">2021 Maruti S PRESSO VXI+</h1>
+                    <div className="card-desc">
+                      <div>12,450 KM</div>
+                      <div>Petrol</div>
+                      <div>Manual</div>
+                    </div>
+                    <div className="car-model-p">
+                      <div className="car-model">Top Model</div>
+                    </div>
+                    <div className="car-price">
+                      <div className="actualprice">
+                        <i className="fa fa-inr"></i> 4.26 Lakh
+                      </div>
+                      <div className="discountprice">
+                        <i className="fa fa-inr"></i> 4.77 Lakh
+                      </div>
+                      <div className="discount">(51k off)</div>
+                    </div>
+                    <div className="emioption">
+                      EMIs from <i className="fa fa-inr"></i>8,328/month
+                    </div>
+                    <div className="test-drive">
+                      Free Test Drive{" "}
+                      <span className="span-color">Tomorrow</span> at{" "}
+                      <span className="span-color">KW Pune 6,Kharadi</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="card-container">
+                  <div className="box">
+                    <img
+                      src="https://picsum.photos/300/200"
+                      alt="Card Image"
+                      className="card-img"
+                    />
+                    <h1 className="card-title">2021 Maruti S PRESSO VXI+</h1>
+                    <div className="card-desc">
+                      <div>12,450 KM</div>
+                      <div>Petrol</div>
+                      <div>Manual</div>
+                    </div>
+                    <div className="car-model-p">
+                      <div className="car-model">Top Model</div>
+                    </div>
+                    <div className="car-price">
+                      <div className="actualprice">
+                        <i className="fa fa-inr"></i> 4.26 Lakh
+                      </div>
+                      <div className="discountprice">
+                        <i className="fa fa-inr"></i> 4.77 Lakh
+                      </div>
+                      <div className="discount">(51k off)</div>
+                    </div>
+                    <div className="emioption">
+                      EMIs from <i className="fa fa-inr"></i>8,328/month
+                    </div>
+                    <div className="test-drive">
+                      Free Test Drive{" "}
+                      <span className="span-color">Tomorrow</span> at{" "}
+                      <span className="span-color">KW Pune 6,Kharadi</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="card-container">
+                  <div className="box">
+                    <img
+                      src="https://picsum.photos/300/200"
+                      alt="Card Image"
+                      className="card-img"
+                    />
+                    <h1 className="card-title">2021 Maruti S PRESSO VXI+</h1>
+                    <div className="card-desc">
+                      <div>12,450 KM</div>
+                      <div>Petrol</div>
+                      <div>Manual</div>
+                    </div>
+                    <div className="car-model-p">
+                      <div className="car-model">Top Model</div>
+                    </div>
+                    <div className="car-price">
+                      <div className="actualprice">
+                        <i className="fa fa-inr"></i> 4.26 Lakh
+                      </div>
+                      <div className="discountprice">
+                        <i className="fa fa-inr"></i> 4.77 Lakh
+                      </div>
+                      <div className="discount">(51k off)</div>
+                    </div>
+                    <div className="emioption">
+                      EMIs from <i className="fa fa-inr"></i>8,328/month
+                    </div>
+                    <div className="test-drive">
+                      Free Test Drive{" "}
+                      <span className="span-color">Tomorrow</span> at{" "}
+                      <span className="span-color">KW Pune 6,Kharadi</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="card-container">
+                  <div className="box">
+                    <img
+                      src="https://picsum.photos/300/200"
+                      alt="Card Image"
+                      className="card-img"
+                    />
+                    <h1 className="card-title">2021 Maruti S PRESSO VXI+</h1>
+                    <div className="card-desc">
+                      <div>12,450 KM</div>
+                      <div>Petrol</div>
+                      <div>Manual</div>
+                    </div>
+                    <div className="car-model-p">
+                      <div className="car-model">Top Model</div>
+                    </div>
+                    <div className="car-price">
+                      <div className="actualprice">
+                        <i className="fa fa-inr"></i> 4.26 Lakh
+                      </div>
+                      <div className="discountprice">
+                        <i className="fa fa-inr"></i> 4.77 Lakh
+                      </div>
+                      <div className="discount">(51k off)</div>
+                    </div>
+                    <div className="emioption">
+                      EMIs from <i className="fa fa-inr"></i>8,328/month
+                    </div>
+                    <div className="test-drive">
+                      Free Test Drive{" "}
+                      <span className="span-color">Tomorrow</span> at{" "}
+                      <span className="span-color">KW Pune 6,Kharadi</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="card-container">
+                  <div className="box">
+                    <img
+                      src="https://picsum.photos/300/200"
+                      alt="Card Image"
+                      className="card-img"
+                    />
+                    <h1 className="card-title">2021 Maruti S PRESSO VXI+</h1>
+                    <div className="card-desc">
+                      <div>12,450 KM</div>
+                      <div>Petrol</div>
+                      <div>Manual</div>
+                    </div>
+                    <div className="car-model-p">
+                      <div className="car-model">Top Model</div>
+                    </div>
+                    <div className="car-price">
+                      <div className="actualprice">
+                        <i className="fa fa-inr"></i> 4.26 Lakh
+                      </div>
+                      <div className="discountprice">
+                        <i className="fa fa-inr"></i> 4.77 Lakh
+                      </div>
+                      <div className="discount">(51k off)</div>
+                    </div>
+                    <div className="emioption">
+                      EMIs from <i className="fa fa-inr"></i>8,328/month
+                    </div>
+                    <div className="test-drive">
+                      Free Test Drive{" "}
+                      <span className="span-color">Tomorrow</span> at{" "}
+                      <span className="span-color">KW Pune 6,Kharadi</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="card-container">
+                  <div className="box">
+                    <img
+                      src="https://picsum.photos/300/200"
+                      alt="Card Image"
+                      className="card-img"
+                    />
+                    <h1 className="card-title">2021 Maruti S PRESSO VXI+</h1>
+                    <div className="card-desc">
+                      <div>12,450 KM</div>
+                      <div>Petrol</div>
+                      <div>Manual</div>
+                    </div>
+                    <div className="car-model-p">
+                      <div className="car-model">Top Model</div>
+                    </div>
+                    <div className="car-price">
+                      <div className="actualprice">
+                        <i className="fa fa-inr"></i> 4.26 Lakh
+                      </div>
+                      <div className="discountprice">
+                        <i className="fa fa-inr"></i> 4.77 Lakh
+                      </div>
+                      <div className="discount">(51k off)</div>
+                    </div>
+                    <div className="emioption">
+                      EMIs from <i className="fa fa-inr"></i>8,328/month
+                    </div>
+                    <div className="test-drive">
+                      Free Test Drive{" "}
+                      <span className="span-color">Tomorrow</span> at{" "}
+                      <span className="span-color">KW Pune 6,Kharadi</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="card-container">
+                  <div className="box">
+                    <img
+                      src="https://picsum.photos/300/200"
+                      alt="Card Image"
+                      className="card-img"
+                    />
+                    <h1 className="card-title">2021 Maruti S PRESSO VXI+</h1>
+                    <div className="card-desc">
+                      <div>12,450 KM</div>
+                      <div>Petrol</div>
+                      <div>Manual</div>
+                    </div>
+                    <div className="car-model-p">
+                      <div className="car-model">Top Model</div>
+                    </div>
+                    <div className="car-price">
+                      <div className="actualprice">
+                        <i className="fa fa-inr"></i> 4.26 Lakh
+                      </div>
+                      <div className="discountprice">
+                        <i className="fa fa-inr"></i> 4.77 Lakh
+                      </div>
+                      <div className="discount">(51k off)</div>
+                    </div>
+                    <div className="emioption">
+                      EMIs from <i className="fa fa-inr"></i>8,328/month
+                    </div>
+                    <div className="test-drive">
+                      Free Test Drive{" "}
+                      <span className="span-color">Tomorrow</span> at{" "}
+                      <span className="span-color">KW Pune 6,Kharadi</span>
+                    </div>
                   </div>
                 </div>
               </div>

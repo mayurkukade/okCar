@@ -21,17 +21,17 @@ import {
 const CarDetailsBid = () => {
   return (
     <div className="Card-Main">
-      CarDetailsBid
-      <Card maxW="sm">
+
+      <Card className="car-width">
         <CardBody>
           <Image
             src="https://fastly-production.24c.in/hello-ar/dev/uploads/cd385d47-0d8a-4dc6-9c3f-fd15c5b30de8/2ac22582-6dc1-428a-a217-6bd63d08d9a9/42.jpg?w=750&auto=format"
             alt="Green double couch with wooden legs"
-            borderRadius="lg"
+            className="img-size"
           />
-          <Stack mt="6" spacing="3">
+          <Stack mt="2" spacing="3">
             <div className="card-icon">
-              <Heading size="md">2013 Hyundai i10</Heading>
+              <Heading className="card">2013 Hyundai i10</Heading>
               <Image src="./src/components/Card-A/heart.svg" className="Image-1" />
             </div>
             <div className="carName">
