@@ -21,11 +21,11 @@ export const dealersManegmentApiSlice = apiSlice.injectEndpoints({
     getAllDealer: builder.query({
       query: (currentPage) => ({
         transformResponse: console.log(currentPage),
-        url: `/dealer/allDealers/${currentPage}`,
-        headers: {
-          "Content-Type": "application/json",
-          // Authorization: `Bearer ${token}`,
-        },
+        url: `/dealer/allDealers/0`,
+        // headers: {
+        //   "Content-Type": "application/json",
+        //   Authorization: `Bearer ${token}`,
+        // },
       }),
       providesTags: ["Dealer", "Admin"],
     }),

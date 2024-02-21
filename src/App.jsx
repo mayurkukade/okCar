@@ -48,26 +48,30 @@ const App = () => {
   // useScrollTop();
   return (
     <>
-      <Navbar />
+    
       <Routes>
-        <Route path="/" element={<Home />} />
+
+       
         {/* <Route path="/cardetailsbid" element={<CarDetailsBid />} /> */}
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<Register />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
 
-        <Route path="/" element={<Home />} />
-        <Route path="/carlist" element={<CarList />} />
+        {/* <Route path="/" element={<Home />} /> */}
+      
         {/* <Route path="/carDetails/:id" element={<CarCard />} /> */}
-        <Route path="/carDetails/:id" element={<CarDetails2 />} />
+  
 
         <Route element={<AppLayout />}>
           {/* PROTECTED ROUTE FOR ADMIN */}
-          <Route
+          {/* <Route
             element={
               <RequireAuth allowedRoles={[...Object.values(OnlyAdmin)]} />
-            }
-          >
+            } */}
+          {/* > */}
+          <Route path="/" element={<Home />} />
+          <Route path="/carlist" element={<CarList />} />
+          <Route path="/carDetails/:id" element={<CarDetails2 />} />
             <Route element={<AdminPage />}>
               <Route path="/dealersManegment" element={<Dealer />} />
               <Route path="/dealersManegment/:id" element={<DealerDetails />} />
@@ -77,7 +81,7 @@ const App = () => {
                 path="/editDealerdetails/:userid/:id"
                 element={<EditDealerProfile />}
               />
-            </Route>
+            {/* </Route> */}
           </Route>
 
           {/* PROTECTED ROUTE FOR DEALER */}

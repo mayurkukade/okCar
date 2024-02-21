@@ -50,111 +50,111 @@ const Home = () => {
     );
   }, []);
 
-  
+//   <div
+//   className={`header ${isNavbarVisible ? "visible" : ""}`}
+//   // style={{ position: "sticky", top: "0", zIndex: "1000" }}
+// >
+//   <div className="container">
+//     <div className="row">
+//       <div className="col-md-2 col-sm-3 col-xs-12">
+//         <Link className="logo" to="/">
+//           <img src="../../../images/logo.png" alt="logo" />
+//         </Link>
+
+
+//         <div className="navbar-header">
+//           <button
+//             type="button"
+//             className="navbar-toggle"
+//             data-toggle="collapse"
+//             data-target=".navbar-collapse"
+//           >
+//             <span className="sr-only">Toggle navigation</span>
+//             <span className="icon-bar"></span>
+//             <span className="icon-bar"></span>
+//             <span className="icon-bar"></span>
+//           </button>
+//         </div>
+
+//         <div className="clearfix"></div>
+//       </div>
+//       <div className="col-md-10 col-sm-12 col-xs-12">
+//         <div className="navbar navbar-default" role="navigation">
+//           <div className="navbar-collapse collapse" id="nav-main">
+//             <ul className="nav navbar-nav">
+//               <li className="dropdown active">
+//                 <Link to="/">Home</Link>
+//               </li>
+//               <li>
+//                 <Link to="/carlist"> Buy Cars </Link>
+//               </li>
+//               <li>
+//                 <Link to="/Contact">Contact Us</Link>
+//               </li>
+
+//               {user.includes("ADMIN") ? (
+//                 <li>
+//                   <Link to="/adddealer">
+//                     <button>Add Dealer</button>
+//                   </Link>
+//                 </li>
+//               ) : (
+//                 ""
+//               )}
+
+//               {user.includes("DEALER") ? (
+//                 <>
+//                   <li>
+//                     <Link to="/dealer">
+//                       <button>
+//                         <span>Dealer Manegment</span>
+//                       </button>
+//                     </Link>
+//                   </li>
+//                   <li>
+//                     <Link to="/dealer/userrequestlist">
+//                       <button>
+//                         <span>User Request</span>
+//                       </button>
+//                     </Link>
+//                   </li>
+//                 </>
+//               ) : (
+//                 ""
+//               )}
+
+//               {username ? (
+//                 <>
+//                   {/* <li>
+//                     <Link to="/carlist"> My Booking </Link>
+//                   </li> */}
+//                   <li>
+//                     <AvtarModal />
+//                   </li>
+//                 </>
+//               ) : (
+//                 <li>
+//                   <Link to="/signin">
+//                     <p> Sign In</p>{" "}
+//                   </Link>
+//                 </li>
+//               )}
+
+//               {/* 
+//                 <li className="postad"></li>
+
+//                 <li className="postad"></li> */}
+//             </ul>
+//           </div>
+//           {/* <div className="clearfix"></div> */}
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </div>
   return (
     <div>
-      <div
-        className={`header ${isNavbarVisible ? "visible" : ""}`}
-        // style={{ position: "sticky", top: "0", zIndex: "1000" }}
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-md-2 col-sm-3 col-xs-12">
-              <Link className="logo" to="/">
-                <img src="../../../images/logo.png" alt="logo" />
-              </Link>
-
-
-              <div className="navbar-header">
-                <button
-                  type="button"
-                  className="navbar-toggle"
-                  data-toggle="collapse"
-                  data-target=".navbar-collapse"
-                >
-                  <span className="sr-only">Toggle navigation</span>
-                  <span className="icon-bar"></span>
-                  <span className="icon-bar"></span>
-                  <span className="icon-bar"></span>
-                </button>
-              </div>
-
-              <div className="clearfix"></div>
-            </div>
-            <div className="col-md-10 col-sm-12 col-xs-12">
-              <div className="navbar navbar-default" role="navigation">
-                <div className="navbar-collapse collapse" id="nav-main">
-                  <ul className="nav navbar-nav">
-                    <li className="dropdown active">
-                      <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                      <Link to="/carlist"> Buy Cars </Link>
-                    </li>
-                    <li>
-                      <Link to="/Contact">Contact Us</Link>
-                    </li>
-
-                    {user.includes("ADMIN") ? (
-                      <li>
-                        <Link to="/adddealer">
-                          <button>Add Dealer</button>
-                        </Link>
-                      </li>
-                    ) : (
-                      ""
-                    )}
-
-                    {user.includes("DEALER") ? (
-                      <>
-                        <li>
-                          <Link to="/dealer">
-                            <button>
-                              <span>Dealer Manegment</span>
-                            </button>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/dealer/userrequestlist">
-                            <button>
-                              <span>User Request</span>
-                            </button>
-                          </Link>
-                        </li>
-                      </>
-                    ) : (
-                      ""
-                    )}
-
-                    {username ? (
-                      <>
-                        {/* <li>
-                          <Link to="/carlist"> My Booking </Link>
-                        </li> */}
-                        <li>
-                          <AvtarModal />
-                        </li>
-                      </>
-                    ) : (
-                      <li>
-                        <Link to="/signin">
-                          <p> Sign In</p>{" "}
-                        </Link>
-                      </li>
-                    )}
-
-                    {/* 
-                      <li className="postad"></li>
-
-                      <li className="postad"></li> */}
-                  </ul>
-                </div>
-                {/* <div className="clearfix"></div> */}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    
 
       <div
         className="searchwrap"

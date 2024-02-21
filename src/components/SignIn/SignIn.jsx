@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import SubNav from "../Navbar/SubNav.jsx";
 import { useState } from "react";
 import { useLoginMutation } from "../../api/usersApiSlice.js";
-import { setCredentials, token } from "../../api/authSlice.js";
+import { setCredentials } from "../../api/authSlice.js";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
@@ -54,10 +54,15 @@ const SignIn = () => {
 
     try {
       const res = await login({ username, password }).unwrap();
-      dispatch(token(res));
+      console.log(res)
+      if(res){
+        dispatch(setCredentials({user:username,token:res}))
+        toastUtility.showCustom(TOASTS.LOGIN_SUCCESS);
+      }
+      console.log(true)
       var decoded = jwt_decode(res);
-      console.log(decoded);
-      dispatch(setCredentials({ ...decoded }));
+
+  
       const { sub, authorities, roles } = decoded;
 
       console.log(sub, authorities, roles);
@@ -73,7 +78,7 @@ const SignIn = () => {
         console.log("role not intialize");
       }
       
-      toastUtility.showCustom(TOASTS.LOGIN_SUCCESS);
+     
     } catch (error) {
       toastUtility.showCustom(TOASTS.LOGIN_FAILED);
     }

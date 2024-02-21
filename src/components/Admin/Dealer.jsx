@@ -4,19 +4,21 @@ import { useGetAllDealerQuery } from "../../api/dealersManegmentApiSlice";
 import { Link} from "react-router-dom";
 import { Button } from "@chakra-ui/react";
 import { InfoIcon, EditIcon, DeleteIcon } from "@chakra-ui/icons";
-
+import Cookies from "js-cookie";
 import { useDeleteDealerMutation } from "../../api/dealersManegmentApiSlice";
 // import TableCard from "../TableCard/TableCard";
 const Dealer = () => {
   // const { id } = useParams();
   const [currentPage,setCurrentPage] = useState(0)
   // console.log(id);
-  const { data: v, isLoading, isError } = useGetAllDealerQuery(currentPage);
+  const { data, isLoading, isError } = useGetAllDealerQuery(currentPage);
   console.log(isError)
-  console.log(v);
+  console.log(data);
   // const [vendorFetchData, setVendorFetchData] = useState([]);
   // const [catchUserId,setCatchUserId] = useState()
 
+ const token = Cookies.get('cookie')
+ console.log(token)
   const [deleteDealer] = useDeleteDealerMutation();
   // const data = React.useMemo(() => vendorFetchData, [vendorFetchData]);
   const columns = React.useMemo(
@@ -120,7 +122,7 @@ const Dealer = () => {
   }
   return (
     <>
-      <TableM
+      {/* <TableM
         data={v.list}
         columns={columns}
         // FetchData={vendorFetchData}
@@ -128,7 +130,7 @@ const Dealer = () => {
         isLoading={isLoading}
         currentPage = {currentPage}
         setCurrentPage={setCurrentPage}
-      />
+      /> */}
     </>
   );
 };
