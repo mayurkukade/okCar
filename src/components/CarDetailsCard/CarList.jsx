@@ -115,8 +115,11 @@ const CarList = () => {
       <div className="sticky">
         <SubNav componentsName={"Car List"} />
       </div>
-      <div className="listpgWraper" style={{ display: "flex" }}>
-        <div className="container">
+      <div
+        className="listpgWraper"
+        style={{ display: "flex", width:"100%"}}
+      >
+        <div className="container" style={{ marginLeft: "5%",width:"100%" }}>
           <div className="row">
             <div className="col-md-3 col-sm-5">
               {/* <Container > */}
