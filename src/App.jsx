@@ -43,6 +43,9 @@ import UserRequestList from "./components/Dealers/UserRequestList";
 import CarRequest from "./components/Dealers/CarRequest";
 import CarDetails2 from "./components/CarDetailsCard/CarDetails2";
 
+// import CardDetailsShimmer from "./components/CarDetailsCard/CardDetailsShimmer";
+// import Cloudnary from "./Dummy/Cloudnary";
+// import Cloudnary from "./Dummy/Cloudnary";
 
 const App = () => {
   // useScrollTop();

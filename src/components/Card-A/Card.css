@@ -9,8 +9,20 @@
 .Text-box{
     font-size: 18px;
 }
+.img-size{
+    width: 250px;
+    border-radius: 20px;
+    
+}
+.card-heading{
+   font-size: 20px;
+}
 .Text-box2 {
     font-size: 15px;
+}
+.car-width{
+    width: 400px;
+    height: 600px;
 }
 .card-icon{
     display: flex;
