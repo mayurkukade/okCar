@@ -41,7 +41,10 @@ import ContactDealer from "./components/Dealers/ContactDealer";
 import MyCarBooking from "./components/CarDetailsCard/MyCarBooking";
 import UserRequestList from "./components/Dealers/UserRequestList";
 import CarRequest from "./components/Dealers/CarRequest";
+
 import CarDetails2 from "./components/CarDetailsCard/CarDetails2";
+
+import CarDetailsBid from "./components/Card-A/CarDetailsBid.jsx";
 
 // import CardDetailsShimmer from "./components/CarDetailsCard/CardDetailsShimmer";
 // import Cloudnary from "./Dummy/Cloudnary";
@@ -54,7 +57,10 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+< HEAD
         {/* <Route path="/cardetailsbid" element={<CarDetailsBid />} /> */}
+
+
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<Register />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
