@@ -80,54 +80,54 @@ console.log(dealer_id)
       // // images,
       // date : "2024-3-1"
       
-        acFeature:"true",
+        acFeature:formData.acFeature,
      
-        musicFeature:"false",
+        musicFeature:formData.musicFeature,
      
-        area:"Wagholi",
+        area:formData.area,
      
-        bodyType:"sidan",
+        bodyType:formData.bodyType,
      
-        brand:"tata",
+        brand:formData.brand,
      
-        carInsurance:"true",
+        carInsurance:formData.carInsurance,
      
         carStatus:"ACTIVE",
        
      
-        city:"dasda",
+        city:formData.city,
      
-        color:"green",
+        color:formData.color,
      
-        description:"my name is geetesh",
+        description:formData.description,
      
-        fuelType:"Petrol",
+        fuelType:formData.fuelType,
      
-        kmDriven:"455588",
+        kmDriven:formData.kmDriven,
      
-        model:"800",
+        model:formData.model,
      
-        noOfWheels:"6",
+        noOfWheels:formData.noOfWheels,
      
-        ownerSerial:"2",
+        ownerSerial:formData.ownerSerial,
      
-        powerWindowFeature:"true",
+        powerWindowFeature:formData.powerWindowFeature,
      
-        price:"4000",
+        price:formData.price,
      
-        rearParkingCameraFeature:"true",
+        rearParkingCameraFeature:formData.rearParkingCameraFeature,
      
-        registration:"2june",
+        registration:formData.registration,
      
-        safetyDescription:"no",
+        safetyDescription:formData.safetyDescription,
      
-        transmission:"Auto",
+        transmission:formData.transmission,
      
-        tyre:"maruti",
+        tyre:formData.tyre,
      
-        year:"2000",
+        year:formData.year,
      
-        dealer_id: 5,
+        dealer_id: dealer_id,
        
         date : "2023-07-19"
      
