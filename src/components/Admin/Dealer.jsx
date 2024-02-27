@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
+import { useNavigate } from "react-router-dom";
 import TableM from "./TableM";
 import { useGetAllDealerQuery } from "../../api/dealersManegmentApiSlice";
 import { Link} from "react-router-dom";
@@ -14,9 +15,12 @@ const Dealer = () => {
   const { data: v, isLoading, isError } = useGetAllDealerQuery(currentPage);
   console.log(isError)
   console.log(v);
+  const navigate = useNavigate()
   // const [vendorFetchData, setVendorFetchData] = useState([]);
   // const [catchUserId,setCatchUserId] = useState()
-
+if(isError){
+  navigate('/signin')
+}
   const [deleteDealer] = useDeleteDealerMutation();
   // const data = React.useMemo(() => vendorFetchData, [vendorFetchData]);
   const columns = React.useMemo(
