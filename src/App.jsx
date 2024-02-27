@@ -38,7 +38,14 @@ import ContactDealer from "./components/Dealers/ContactDealer";
 import MyCarBooking from "./components/CarDetailsCard/MyCarBooking";
 import UserRequestList from "./components/Dealers/UserRequestList";
 import CarRequest from "./components/Dealers/CarRequest";
+<<<<<<< Updated upstream
 import CarDetailsBid from "./components/Card-A/CarDetailsBid.jsx";
+=======
+
+import CarDetails2 from "./components/CarDetailsCard/CarDetails2";
+
+
+>>>>>>> Stashed changes
 
 // import CardDetailsShimmer from "./components/CarDetailsCard/CardDetailsShimmer";
 // import Cloudnary from "./Dummy/Cloudnary";
@@ -51,6 +58,10 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+<<<<<<< Updated upstream
+=======
+        {/* <Route path="/cardetailsbid" element={<CarDetailsBid />} /> */}
+>>>>>>> Stashed changes
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<Register />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
