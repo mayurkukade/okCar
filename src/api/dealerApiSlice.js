@@ -1,5 +1,6 @@
 import { apiSlice } from "./apiSlice";
 const USERS_URL='/'
+const token = localStorage.getItem("userToken");
 
 export const dealerApiSlice = apiSlice.injectEndpoints({
     endpoints:(builder)=>({
@@ -17,8 +18,18 @@ export const dealerApiSlice = apiSlice.injectEndpoints({
             query:()=>"/",
         }),
         getCar:builder.query({
-            query:()=>"/"
-        }),
+            query: () => ({
+               
+                url: `dealer/1`,
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${token}`,
+                },
+              }),
+              providesTags: ["Dealer","Admin"],
+        }
+        
+        ),
         editCar:builder.mutation({
             query:(data)=>({
                 url:`${USERS_URL}/`,

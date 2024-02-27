@@ -6,7 +6,7 @@ import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 
 const AddCarDetails = () => {
-  const [createPost, responseData] = useAddCarMutation();
+  const [addCar, responseData] = useAddCarMutation();
   console.log(responseData);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -48,35 +48,90 @@ const AddCarDetails = () => {
     );
 
     if (!dealer_id) return;
-
+console.log(dealer_id)
     // Prepare the form data to send to the backend
     const data = {
-      brand: formData.brand,
-      price: formData.price,
-      model: formData.model,
-      year: formData.year,
-      bodyType: formData.bodyType,
-      transmission: formData.transmission,
-      color: formData.color,
-      registration: formData.registration,
-      kmDriven: formData.kmDriven,
-      fuelType: formData.fuelType,
-      area: formData.area,
-      carInsurance: formData.carInsurance,
-      city: formData.city,
-      description: formData.description,
-      safetyDescription: formData.safetyDescription,
-      carStatus: formData.carStatus,
-      noOfWheels: formData.noOfWheels,
-      ownerSerial: formData.ownerSerial,
-      tyre: formData.tyre,
-      dealer_id,
-      // features
-      acFeature: formData.acFeature,
-      musicFeature: formData.musicFeature,
-      powerWindowFeature: formData.powerWindowFeature,
-      rearParkingCameraFeature: formData.rearParkingCameraFeature,
-      // images,
+      // brand: formData.brand,
+      // price: formData.price,
+      // model: formData.model,
+      // year: formData.year,
+      // bodyType: formData.bodyType,
+      // transmission: formData.transmission,
+      // color: formData.color,
+      // registration: formData.registration,
+      // kmDriven: formData.kmDriven,
+      // fuelType: formData.fuelType,
+      // area: formData.area,
+      // carInsurance: formData.carInsurance,
+      // city: formData.city,
+      // description: formData.description,
+      // safetyDescription: formData.safetyDescription,
+      // carStatus:  "ACTIVE",
+      // noOfWheels: formData.noOfWheels,
+      // ownerSerial: formData.ownerSerial,
+      // tyre: formData.tyre,
+      // dealer_id,
+      // // features
+      // acFeature: formData.acFeature,
+      // musicFeature: formData.musicFeature,
+      // powerWindowFeature: formData.powerWindowFeature,
+      // rearParkingCameraFeature: formData.rearParkingCameraFeature,
+ 
+      // // images,
+      // date : "2024-3-1"
+      
+        acFeature:"true",
+     
+        musicFeature:"false",
+     
+        area:"Wagholi",
+     
+        bodyType:"sidan",
+     
+        brand:"tata",
+     
+        carInsurance:"true",
+     
+        carStatus:"ACTIVE",
+       
+     
+        city:"dasda",
+     
+        color:"green",
+     
+        description:"my name is geetesh",
+     
+        fuelType:"Petrol",
+     
+        kmDriven:"455588",
+     
+        model:"800",
+     
+        noOfWheels:"6",
+     
+        ownerSerial:"2",
+     
+        powerWindowFeature:"true",
+     
+        price:"4000",
+     
+        rearParkingCameraFeature:"true",
+     
+        registration:"2june",
+     
+        safetyDescription:"no",
+     
+        transmission:"Auto",
+     
+        tyre:"maruti",
+     
+        year:"2000",
+     
+        dealer_id: 5,
+       
+        date : "2023-07-19"
+     
+    
     };
 
     // Send the form data to the backend
@@ -86,9 +141,10 @@ const AddCarDetails = () => {
     // } catch (error) {
     //   console.error(error); // Handle any errors that occur during the request
     // }
-
+console.log(data)
     // console.log(data);
-    createPost(data).then((responseData) => {
+    addCar(data).then((responseData) => {
+      console.log(responseData)
       if (responseData?.error) return;
       navigate("/dealer");
     });
