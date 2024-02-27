@@ -42,6 +42,7 @@ import CarRequest from "./components/Dealers/CarRequest";
 import Vehicalissue from "./components/Mentor/Vehicalissue.jsx";
 import CompressionImage from "./components/Mentor/CompressionImage.jsx";
 import MultipleImgUplod from "./components/Mentor/MultipleImgUplod.jsx";
+import InfiniteScrolls from "./components/Mentor/InfiniteScrolls.jsx";
 
 // import CardDetailsShimmer from "./components/CarDetailsCard/CardDetailsShimmer";
 // import Cloudnary from "./Dummy/Cloudnary";
@@ -115,6 +116,7 @@ const App = () => {
          <Route path = "/vehicalissue" element={<Vehicalissue/>}/>
          <Route path = "/compressimg" element={<CompressionImage/>}/>
          <Route path = "/multiple" element={<MultipleImgUplod/>}/>
+         <Route path = "/infinitescroll" element={<InfiniteScrolls/>}/>
          
       </Routes>
       <MainFooter />
