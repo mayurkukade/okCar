@@ -31,6 +31,7 @@ export default function Vehicalissue() {
         </TabList>
         <TabPanels>
           <TabPanel>
+            {/* Card Start */}
             <Card
               direction={{ base: "column", sm: "row" }}
               overflow="hidden"
@@ -78,9 +79,13 @@ export default function Vehicalissue() {
                 </CardBody>
               </Stack>
             </Card>
+              {/* Card End */}
           </TabPanel>
           <TabPanel>
-            <p>two!</p>
+            {/* <p>two!</p> */}
+          </TabPanel>
+          <TabPanel>
+            {/* <p>Three!</p> */}
           </TabPanel>
         </TabPanels>
       </Tabs>
