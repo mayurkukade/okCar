@@ -41,13 +41,14 @@ import ContactDealer from "./components/Dealers/ContactDealer";
 import MyCarBooking from "./components/CarDetailsCard/MyCarBooking";
 import UserRequestList from "./components/Dealers/UserRequestList";
 import CarRequest from "./components/Dealers/CarRequest";
-import GridCard from "./components/GridCard/GridCard.jsx";
 
+import Cookies from "js-cookie";
 // import CardDetailsShimmer from "./components/CarDetailsCard/CardDetailsShimmer";
 // import Cloudnary from "./Dummy/Cloudnary";
 // import Cloudnary from "./Dummy/Cloudnary";
 
 const App = () => {
+ 
   // useScrollTop();
   return (
     <>
@@ -64,7 +65,7 @@ const App = () => {
         <Route path="/carDetails/:id" element={<CarCard />} />
 
         <Route element={<AppLayout />}>
-        <Route path="/grid" element={<GridCard/>} />
+    
           {/* PROTECTED ROUTE FOR ADMIN */}
           {/* <Route
             element={

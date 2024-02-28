@@ -192,7 +192,7 @@ const [addDealer] = useAddDealerMutation()
                       </div>
                       <br />
                       <input type="submit" className="btn" value="Add Dealer" />
-                      <input type="submit" className="btn" value="Add Dealer" />
+                      {/* <input type="submit" className="btn" value="Add Dealer" /> */}
                     </form>
                   </div>
                 </div>

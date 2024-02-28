@@ -10,14 +10,18 @@ import {
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-
+import Cookies from "js-cookie";
+import jwt_decode from "jwt-decode";
 import { logout } from "../../api/authSlice";
 const AvtarModal = () => {
   const username = localStorage.getItem("userInfo");
   console.log(username);
   console.log(JSON.parse(username)?.firstname);
-  console.log(JSON.parse(username)?.authorities[0]);
-
+  // console.log(JSON.parse(username)?.authorities[0]);
+  const token = Cookies.get('cookie')
+  console.log(token)
+const decoded = jwt_decode(token)
+console.log(decoded.roles.includes('ADMIN'))
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -40,7 +44,7 @@ const AvtarModal = () => {
          marginTop={'0.2rem'}
           size={'sm'}
         >
-          {JSON.parse(username)?.roles[0] === "ADMIN"
+          {decoded.roles.includes('ADMIN')
             ? "Admin"
             : JSON.parse(username)?.firstname }
      
@@ -50,7 +54,7 @@ const AvtarModal = () => {
         
             <Link to="/edituserdetails" style={{textDecoration:"none"}}> <MenuItem color={"black"}  _hover={{ bg: '#5DC302' }}> <span>Edit Profile  </span></MenuItem></Link>
            {
-            JSON.parse(username)?.authorities.includes('USER')?
+            decoded.roles.includes('USER')?
             <Link to="#" style={{textDecoration:"none"}}>  <MenuItem    _hover={{ bg: '#5DC302' }}  color={"black"}>  <span>My Booking  </span></MenuItem></Link>:null
            }
            

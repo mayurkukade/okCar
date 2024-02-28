@@ -10,6 +10,7 @@ const CarListCard = ({
   transmission,
   price,
   carId,
+
 }) => {
   // console.log("data from car card", model);
   return (

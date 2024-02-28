@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import "./avtar.css";
 import AvtarModal from "./AvtarModal";
 import { useEffect, useRef, useState } from "react";
-
+import Cookies from "js-cookie";
+import jwt_decode from "jwt-decode";
 const Navbar = () => {
   const lastScrollTop = useRef(0);
 
@@ -25,14 +26,15 @@ const Navbar = () => {
       { passive: true }
     );
   }, []);
-  const username = localStorage.getItem("userInfo");
-  const user = JSON.parse(username)?.roles[0];
-  console.log(user)
-  console.log(user == 'DEALER')
-  console.log(user == 'ADMIN')
+  
+  const token = Cookies.get('cookie')
+  console.log(token)
+const decoded = jwt_decode(token)
+console.log(decoded.roles.includes('ADMIN'))
+
 
   let roleNav;
-  if (user == "ADMIN") {
+  if (decoded.roles.includes('ADMIN')) {
     roleNav = (
       <div className={`header ${isNavbarVisible ? "visible" : ""}`}>
         <div className="container">
@@ -89,7 +91,7 @@ const Navbar = () => {
         </div>
       </div>
     );
-  }else if(user =='DEALER'){
+  }else if(decoded.roles.includes('USER')){
     roleNav = (
       <div className={`header ${isNavbarVisible ? "visible" : ""}`}>
         <div className="container">

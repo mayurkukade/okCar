@@ -20,7 +20,7 @@ export const dealerApiSlice = apiSlice.injectEndpoints({
         getCar:builder.query({
             query: () => ({
                
-                url: `dealer/1`,
+                url: `/dealer/5`,
                 headers: {
                   "Content-Type": "application/json",
                   Authorization: `Bearer ${token}`,

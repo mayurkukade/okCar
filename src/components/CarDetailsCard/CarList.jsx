@@ -3,6 +3,7 @@ import SubNav from "../Navbar/SubNav.jsx";
 import { useState, useEffect } from "react";
 import CarListCard from "./CarListCard.jsx";
 import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
+import { Card,CardBody,CardFooter } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
 import { baseUrl } from "../../api/apiSlice.js";
 import {
@@ -10,6 +11,17 @@ import {
   // useFilterCarQueryQuery,
 } from "../../api/carApiSlice.js";
 import CardShimmer from "./CardShimmer.jsx";
+
+import { calcLength } from "framer-motion";
+import { Image } from '@chakra-ui/react'
+import { Stack } from '@chakra-ui/react'
+import { Divider } from '@chakra-ui/react'
+import { Heading } from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
+import { ButtonGroup } from '@chakra-ui/react'
+
+import { Link } from 'react-router-dom'
+import './grid.css'
 const CarList = () => {
   const cardCount = 10;
   // use State for input fields
@@ -30,6 +42,7 @@ const CarList = () => {
 
   // for fetching all cars
   const { data: v, isLoading, isError } = useGetAllCarsQuery(currentPage);
+  console.log(v)
   const [responseData, setResponseData] = useState([]);
   const onChangeFormHandler = (e) => {
     const { name, value } = e.target;
@@ -110,7 +123,7 @@ const CarList = () => {
   for (let year = startYear; year <= currentYear; year++) {
     years.push(year);
   }
-
+console.log(responseData)
   return (
     <>
       <div className="sticky">
@@ -286,9 +299,9 @@ const CarList = () => {
               <div className="col-md-9 col-sm-7">
                 <div
                   className="card-container-wrapper"
-                  style={{ height: "880px", overflowY: "auto" }}
+                  style={{ height: "880px", overflowY: "auto",display:"flex",padding:"5px" }}
                 >
-                  <div className="card-container" style={{ height: "100px" }}>
+                  <div className="parent" >
                     {/* <div className="card-container" ref={cardContainerRef}> */}
 
                     {responseData === null ? (
@@ -321,7 +334,51 @@ const CarList = () => {
                       </h3>
                     ) : (
                       responseData.map((carDetails, index) => {
-                        return <CarListCard key={index} {...carDetails} />;
+                      
+                        return(
+                          <div key={index} >
+                          
+                          <Card maxW='sm' style={{marginBottom:"15px"}} >
+      <CardBody>
+        <Image
+          src='https://imgd.aeplcdn.com/1200x900/n/cw/ec/40087/thar-exterior-right-front-three-quarter-35.jpeg?isig=0&q=80'
+          alt='Green double couch with wooden legs'
+          borderRadius='lg'
+        />
+        <Stack mt='6' spacing='3'>
+          <Heading size='md'>{carDetails.year} {carDetails.brand} {carDetails.model}</Heading>
+          <Text>
+            {carDetails.kmDriven} {carDetails.fuelType} {carDetails.transmission}
+          </Text>
+          <Text color='blue.600' fontSize='lg'>
+            ₹{carDetails.price}
+          </Text>
+          <Text color='blue.600' fontSize='lg'>
+            EMIs from ₹2000/month
+          </Text>
+          <Text color='blue.600' fontSize='lg'>
+            Free Test Drive {carDetails.area}
+          </Text>
+        </Stack>
+      </CardBody>
+      <Divider />
+      <CardFooter>
+        <ButtonGroup spacing='2'>
+          <Button color={'green.400'} bg={'green.500'} textColor={'white'} className="listbtn">
+            <Link to={`/carDetails/${carDetails.carId}`}>
+              View Details{" "}
+              <i
+                className="fa fa-arrow-circle-right"
+                aria-hidden="true"
+              ></i>
+            </Link>
+          </Button>
+        </ButtonGroup>
+      </CardFooter>
+    </Card>
+                        
+                          </div>
+                        ) 
                       })
                     )}
                   </div>

@@ -26,6 +26,7 @@ import jwt_decode from "jwt-decode";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { baseUrl } from "../../api/apiSlice";
+import { useGetAllCarsQuery } from "../../api/carApiSlice";
 
 const DealersModel = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,8 @@ const DealersModel = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const {data} = useGetAllCarsQuery()
+  console.log(data)
   const [formData, setFormData] = useState({
     price: "",
     location: "",
